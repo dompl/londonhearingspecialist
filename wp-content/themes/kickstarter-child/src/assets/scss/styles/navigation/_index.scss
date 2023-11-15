@@ -1,0 +1,22 @@
+// MODULES
+
+// Core
+@import "mixins";
+@import "navigation.core";
+
+// Elements
+// @import "navigation.search";
+// @import "navigation.button";
+// @import "navigation.text";
+
+// Submenus
+@import "navigation.dropdown";
+@import "navigation.dropdown.horizontal";
+
+// Skins
+// Choose an additional skin and uncomment it
+//@import 'skins/navigation.skin.border-bottom';
+//@import 'skins/navigation.skin.border-top';
+//@import 'skins/navigation.skin.boxed';
+//@import 'skins/navigation.skin.rounded-boxed';
+//@import 'skins/navigation.skin.striped';

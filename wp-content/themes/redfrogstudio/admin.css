@@ -1367,7 +1367,10 @@
   --bs-alert-link-color: var(--bs-dark-text-emphasis);
 }
 
-#ks-generate-xgen-bar {
+.xgen-bar {
+  margin-top: 1rem;
+}
+.xgen-bar:not(.success) {
   width: 100%;
   background-color: #f3f3f3;
   border: none;
@@ -1375,11 +1378,13 @@
   -webkit-transition: all, 300ms;
   transition: all, 300ms;
 }
-
-#ks-generate-xgen-bar .progress {
+.xgen-bar.success {
+  color: #24862f;
+}
+.xgen-bar .progress {
   width: 0;
   height: 20px;
-  background-color: #28a745; /* Green color */
+  background-color: #24862f; /* Green color */
   text-align: center;
   line-height: 20px;
   color: #fff;
@@ -1387,8 +1392,25 @@
   -webkit-transition: all, 300ms;
   transition: all, 300ms;
 }
+.xgen-bar .progress.error {
+  background-color: #800909;
+}
 
-.ks-generate-xgen-button-wrapper {
+.ks-generate-xgen-button-wrapper h3 {
+  margin-top: 0;
+}
+.ks-generate-xgen-button-wrapper .wrapper {
+  border-bottom: 1px solid #d0d1d1;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+.ks-generate-xgen-button-wrapper .wrapper:last-child {
+  border: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.ks-generate-xgen-button-wrapper .button-wrapper {
+  margin-bottom: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1401,13 +1423,7 @@
   -ms-flex-align: center;
   align-items: center;
 }
-
-#xgen-live-image {
-  width: 40px;
-  height: 40px;
-}
-#xgen-live-image img {
-  width: 40px;
-  border-radius: 40px;
+.ks-generate-xgen-button-wrapper .important {
+  font-style: italic;
 }
 /*# sourceMappingURL=admin.css.map */

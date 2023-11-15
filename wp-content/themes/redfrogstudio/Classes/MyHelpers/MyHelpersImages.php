@@ -471,19 +471,24 @@ trait MyHelpersImages {
             return max( 10, min( 100, $q ) );
         }
         return;
-
     }
     /**
-     * Generate an image URL based on multiple conditions, including image resizing and WebP support.
+     * Generates a URL for a WordPress image in various formats and sizes based on specified parameters.
      *
-     * @param int|string $id        - Attachment ID
-     * @param string     $size      - Desired image size
-     * @param int        $q         - Image quality (1-100)
-     * @param bool       $webp      - Whether to use WebP format
-     * @param bool       $retina    - Whether to double the dimensions for retina displays
-     * @param bool       $reversed  - Aspect ratio setting
-     * @param string     $function  - Resize function ('crop', 'height', 'width', 'long')
-     * @return string|void          - New image URL or error
+     * This method handles the logic for resizing images, converting them to WebP format if required,
+     * and ensuring the correct image URL is returned. It also supports retina display resolutions
+     * and can reverse aspect ratios. The quality of the WebP images can be set automatically or manually.
+     * Developer mode allows for additional image quality control via a secret parameter.
+     *
+     * @param int    $id             The ID of the image in WordPress.
+     * @param string $size           The target size for the image. Can be a predefined size name or custom dimensions.
+     * @param int    $q              The quality of the image, from 0 to 100.
+     * @param bool   $webp           Flag to determine if WebP conversion should occur.
+     * @param bool   $retina         Flag to double the image dimensions for retina displays.
+     * @param bool   $reversed       Flag to reverse the aspect ratio of the image.
+     * @param string $function       Specifies the resizing function to use ('crop', 'width', 'height', or 'long').
+     * @param mixed  $webp_quality   The quality for the WebP image, or 'auto' to automatically set it.
+     * @return string|false          The URL of the processed image or an error log message.
      */
     public static function WPImage( $id, $size = '100', $q = 100, $webp = true, $retina = false, $reversed = false, $function = 'crop', $webp_quality = 'auto' ) {
 
@@ -684,8 +689,8 @@ trait MyHelpersImages {
         $meta[$unique_id] = [
             'xgen_w'         => $width,
             'xgen_h'         => $height,
-            'xgen_q'         => $q,
-            'xgen_webp_q'    => $webp_quality,
+            'xgen_q'         => (int) $q,
+            'xgen_webp_q'    => (int) $webp_quality,
             'xgen_png_jpeg'  => $png_jpeg,
             'xgen_jpeg_path' => self::uploadsDir( $jpeg_status, false ),
             'xgen_webp_path' => self::uploadsDir( $webp_status, false )

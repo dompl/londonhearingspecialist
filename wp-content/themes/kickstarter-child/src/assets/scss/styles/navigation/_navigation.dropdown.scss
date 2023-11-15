@@ -1,0 +1,102 @@
+/* DROPDOWN EXTENSION */
+@use "variables" as var;
+// This extension provides the use of dropdowns in navigation.
+
+// DROPDOWN
+.nav-dropdown {
+	min-width: 180px;
+	margin: 0;
+	padding: 0;
+	display: none;
+	position: absolute;
+	list-style: none;
+	z-index: 98;
+	white-space: nowrap;
+
+	.navigation-portrait & {
+		width: 100%;
+		position: static;
+		left: 0;
+	}
+	& & {
+		left: 100%;
+	}
+	.nav-menu > li > & {
+		background-color: var.$navigation-dd-background;
+		border-top: var.$navigation-dd-border;
+	}
+
+	// Dropdown items
+	> li {
+		width: 100%;
+		float: left;
+		clear: both;
+		position: relative;
+		text-align: left;
+
+		> a {
+			width: 100%;
+			padding: var.$navigation-dd-padding;
+			display: inline-block;
+			text-decoration: none;
+			float: left;
+			font-size: var.$navigation-dd-a-font-size;
+			color: var.$navigation-dd-a-color;
+			background-color: var.$navigation-dd-a-background-color;
+			@include transition(color 0.3s, background 0.3s);
+			&:hover {
+				color: var.$navigation-dd-a-color-hover;
+			}
+		}
+
+		&:hover > a,
+		&.focus > a {
+			background-color: var.$navigation-dd-a-background-color-hover;
+			color: var.$navigation-dd-a-color-hover;
+		}
+	}
+
+	// Dropdown to left
+	&.nav-dropdown-left {
+		right: 0;
+	}
+	& > li > .nav-dropdown-left {
+		left: auto;
+		right: 100%;
+	}
+	.navigation-landscape &.nav-dropdown-left > li > a {
+		text-align: right;
+	}
+
+	// Submenu indicators
+	.submenu-indicator {
+		right: 15px;
+		top: 16px;
+		position: absolute;
+
+		.navigation-portrait & {
+			right: 0;
+			top: 0;
+		}
+
+		& .submenu-indicator-chevron {
+			@include transform(rotate(-45deg));
+		}
+		.navigation-portrait & .submenu-indicator-chevron {
+			@include transform(rotate(45deg));
+		}
+	}
+	& > li:hover > a .submenu-indicator-chevron,
+	& > .focus > a .submenu-indicator-chevron {
+		border-color: transparent var.$navigation-dd-a-color-hover var.$navigation-dd-a-color-hover transparent;
+	}
+
+	// Submenu indicator to left
+	.navigation-landscape &.nav-dropdown-left .submenu-indicator {
+		left: 10px;
+
+		.submenu-indicator-chevron {
+			@include transform(rotate(135deg));
+		}
+	}
+}

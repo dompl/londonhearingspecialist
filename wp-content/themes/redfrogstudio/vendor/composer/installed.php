@@ -3,7 +3,7 @@
         'name' => 'dompl/redfrogstudio',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'f9e2ba9571a413886fb5099966d364d58d2bfb4b',
+        'reference' => '44eb118f723c697bfaab82735ed668b8758fccea',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'dompl/redfrogstudio' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'f9e2ba9571a413886fb5099966d364d58d2bfb4b',
+            'reference' => '44eb118f723c697bfaab82735ed668b8758fccea',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
