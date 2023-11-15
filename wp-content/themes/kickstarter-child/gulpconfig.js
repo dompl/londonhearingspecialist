@@ -1,13 +1,13 @@
 module.exports = {
 	theme: {
-		production: "Kickstarter Child Theme",
+		production: "London Hearing Specialist",
 		description: "Child theme for the Kickstarter/Red Frog Studio",
-		name: "Kickstarter",
-		url: "http://kickstarter-child.onfrog.co.uk",
+		name: "londonhearingspecialist",
+		url: "https://londonhearingspecialist.co.uk",
 		version: "1.0.0",
 	},
 	project: {
-		name: "kickstarter-child", // this is the domain url you are working on.
+		name: "londonhearingspecialist", // this is the domain url you are working on.
 		parent: "redfrogstudio", // The name od the paren theme. This will be kickstarter unless changed.
 	},
 	paths: {
