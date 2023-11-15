@@ -1,15 +1,15 @@
 @font-face {
-	font-family: "kickstarter-child-font";
-	src: url('assets/fonts/kickstarter-child-font.eot');
-	src: url('assets/fonts/kickstarter-child-font.eot?#iefix') format('eot'),
-	url('assets/fonts/kickstarter-child-font.woff2') format('woff2'),
-	url('assets/fonts/kickstarter-child-font.woff') format('woff'),
-	url('assets/fonts/kickstarter-child-font.ttf') format('truetype'),
-	url('assets/fonts/kickstarter-child-font.svg#kickstarter-child-font') format('svg');
+	font-family: "londonhearingspecialist-font";
+	src: url('assets/fonts/londonhearingspecialist-font.eot');
+	src: url('assets/fonts/londonhearingspecialist-font.eot?#iefix') format('eot'),
+	url('assets/fonts/londonhearingspecialist-font.woff2') format('woff2'),
+	url('assets/fonts/londonhearingspecialist-font.woff') format('woff'),
+	url('assets/fonts/londonhearingspecialist-font.ttf') format('truetype'),
+	url('assets/fonts/londonhearingspecialist-font.svg#londonhearingspecialist-font') format('svg');
   }
 
   @mixin icon-styles {
-	font-family: "kickstarter-child-font";
+	font-family: "londonhearingspecialist-font";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-style: normal;
