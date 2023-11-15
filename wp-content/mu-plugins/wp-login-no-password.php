@@ -1,1 +1,0 @@
-/Users/dom/Dropbox/_bash/wp-login-no-password.php
