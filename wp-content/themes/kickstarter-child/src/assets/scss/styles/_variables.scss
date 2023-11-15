@@ -1,0 +1,85 @@
+$main-text-color: #393939;
+$main-brand-color: #62a2a6;
+$main-brand-dark-color: #03212b;
+
+:root {
+	--font-size-base: 16px;
+	--font-family-sans-serif: "Lato", sans-serif;
+	--font-size-lg: 1.25rem;
+	--font-size-sm: 0.875rem;
+	--font-size-xs: 0.75rem;
+	--line-height-base: 1.444;
+	--button-radius: 30px;
+	--font-size-h1: 2rem;
+	--font-size-h2: 1.75rem;
+	--font-size-h3: 1.5rem;
+	--font-size-h4: 1.25rem;
+	--font-size-h5: 1rem;
+	--font-size-h6: 1rem;
+	--font-weight-light: 300;
+	--font-weight-normal: 400;
+	--font-weight-semi-bold: 600;
+	--font-weight-bold: 800;
+	--color-text: #{$main-text-color};
+	--color-gray-lighter: #e0e0e0;
+	--color-gray-lightest: #f8f8f8;
+	--color-gray-light: #f6f6f6;
+	--color-body-background: #ffffff;
+	--color-link: #{$main-brand-color};
+	--color-brand: #{$main-brand-color};
+	--color-black: #000000;
+	--color-white: #ffffff;
+	--color-error: #b72c2c;
+	--color-success: #2cb74f;
+	--color-link-hover: #{$main-brand-dark-color};
+
+	/***** Navigation *****/
+	--navigation-color-background: transparent;
+	--navigation-font-color: white; // Main navigation font color
+	--navigation-font-color-active: white;
+	--navigation-font-color-hover: white; // Main navigation font color (hover)
+	--navigation-a-padding: 1rem 3rem; // First level navigation padding (also regulates height)
+	--navigation-a-font-size: 1rem; // First level navigation font size
+
+	--navigation-portrait-height: 20px; // BUrger size (has to be svg)
+
+	--navigation-submenu-indicator-top: 4px; // Top position of the top indicator
+	--navigation-submenu-indicator-left: 15px; // Left position of the top indicator
+	--navigation-submenu-indicator-size: 6px;
+
+	--navigation-dd-border: none;
+	--navigation-dd-padding: 16px 20px;
+	--navigation-dd-background: #{$main-brand-dark-color};
+	--navigation-dd-a-background-color: transparent;
+	--navigation-dd-a-background-color-hover: green;
+	--navigation-dd-a-color: red;
+	--navigation-dd-a-color-hover: blue;
+	--navigation-dd-a-font-size: 14px;
+
+	--navigation-offcanvas-background-color: rgba(255, 255, 255, 0.9);
+	--navigation-offcanvas-icon-color: #{$main-text-color};
+	--navigation-offcanvas-icon-width: 15px;
+	--navigation-offcanvas-icon-height: 15px;
+	--navigation-offcanvas-icon-margin: 0 10px 0;
+	--navigation-offcanvas-icon-font-size: 16px;
+	--navigation-offcanvas-border: 1px solid rgba(0, 0, 0, 0.1);
+
+	--navigation-offcanvas-a-padding: 12px 15px 12px 10px;
+	--navigation-offcanvas-a-font-color: #{$main-text-color};
+	--navigation-offcanvas-a-font-size: 14px;
+	--navigation-offcanvas-a-font-weight: normal;
+
+	--navigation-offcanvas-a-active-font-color: #{$main-brand-dark-color};
+	--navigation-offcanvas-a-active-font-size: 14px;
+	--navigation-offcanvas-a-active-font-weight: normal;
+
+	--navigation-offcanvas-a-a-background: transparent;
+	--navigation-offcanvas-a-a-background-hover: transparent;
+	--navigation-offcanvas-a-a-padding: 12px 15px 12px 15px;
+	--navigation-offcanvas-a-a-font-color: white;
+	--navigation-offcanvas-a-a-font-color-active: red;
+	--navigation-offcanvas-a-a-font-size: 14px;
+	--navigation-offcanvas-a-a-font-weight: normal;
+
+	/***** End Navigation *****/
+}

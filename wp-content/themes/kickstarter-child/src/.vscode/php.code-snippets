@@ -1,0 +1,69 @@
+{
+    "Var dump php with pre": {
+        "scope": "php",
+        "prefix": "prev",
+        "body": [
+            "echo '<pre style=\"font-size:13px\">';",
+            "var_dump( $${1:field_name} );",
+            "echo '</pre>';"
+        ],
+        "description": "Display breakpoint from slices"
+    },
+    "Ks Image Source Set": {
+        "prefix": "srcset",
+        "body": [
+            "/** Slices : [0, 576, 768, 992, 1200, 1400]  */",
+            "ks_srcset( 'id=' . $${1:image_id} . '&sizes=${2:100x100}&lazy=true&reversed=false&cache=true' );"
+        ],
+        "description": "Ks Image Source Set"
+    },
+    "$html Variable append": {
+        "scope": "php",
+        "prefix": "html",
+        "body": [
+            "$$html .= '${1}';"
+        ],
+        "description": "Display breakpoint from slices"
+    },
+    "$html confitional Variable append": {
+        "scope": "php",
+        "prefix": "html?",
+        "body": [
+            "$$html .= $${1} ? '${2}' : '${3}';"
+        ],
+        "description": "Display breakpoint from slices"
+    },
+    "$html opening and closing tag": {
+        "scope": "php",
+        "prefix": "htmlc",
+        "body": [
+            "$$html .= '<div class=\"${1}\">';",
+            "$$html .= '${2}';",
+            "$$html .= '</div>';"
+        ],
+        "description": "Display html append variable with opening anc closing div"
+    },
+    "$html opening div Variable append DIV": {
+        "scope": "php",
+        "prefix": "htmldiv",
+        "body": [
+            "$$html .= '<div class=\"${1:class}\">';"
+        ],
+        "description": "Display breakpoint from slices"
+    },
+    "$html opening div Variable append and close DIV": {
+        "scope": "php",
+        "prefix": "htmldc",
+        "body": [
+            "$$html .= '<div class=\"${1:class}\">${2}</div>';"
+        ],
+        "description": "Display html tag with closing div"
+    },
+    "Translatw with description": {
+        "prefix": "tran",
+        "body": [
+            "_x( '${1:Title}', '${2:Admin settings}', TEXT_DOMAIN )",
+        ],
+        "description": "Ks Image Source Set"
+    },
+}

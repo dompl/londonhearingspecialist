@@ -1,0 +1,21 @@
+@use "sass:math";
+@use "sass:string";
+$slices: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px,
+) !default;
+
+@forward "node_modules/breakpoint-slicer" with (
+	$slices: $slices
+);
+@function slice($value) {
+	@return map-get($slices, $value);
+}
+
+@function content-slice() {
+	@return #{math.div(500, 16)}rem;
+}

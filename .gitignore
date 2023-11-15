@@ -1,0 +1,72 @@
+# Ignore everything
+/*
+
+# Include wp-content directory
+!/wp-content/
+/wp-content/uploads/
+
+# Exclude specific plugins and languages
+wp-content/plugins/akismet/
+wp-content/languages/plugins/akis*
+wp-content/languages/themes/twenty*
+wp-content/languages/
+# Ignore specific files
+wp-content/plugins/hello.php
+wp-content/db.php
+
+# Include specific files
+!readme.md
+!.gitignore
+
+# Ignore all files that start with ~
+~*
+
+# Ignore OS generated files
+ehthumbs.db
+Thumbs.db
+
+# Ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+
+# Ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# Ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Ignore macOS specific files
+**/.DS_Store
+
+# Ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Ignore Query Monitor plugin
+wp-content/plugins/query-monitor/
+
+# Ignore Transients Manager plugin
+wp-content/plugins/transients-manager/
+
+# Exclude twenty* directories
+wp-content/themes/twenty*/
+
+# Exclude specific themes
+wp-content/themes/redfrogstudio-child/
+
+# Include specific themes
+!/wp-content/themes/kickstarter-child

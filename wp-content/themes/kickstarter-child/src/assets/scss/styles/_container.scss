@@ -1,0 +1,47 @@
+// Container settings
+@use "abstracts" as *;
+.container {
+	width: map-get($slices, nth(map-keys($slices), -1));
+	max-width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	@each $name, $width in $slices {
+		&.container-#{$name} {
+			width: $width;
+		}
+	}
+	&.container-full-nm {
+		max-width: 100%;
+	}
+}
+
+$space-map: (
+	"sm": 20,
+	"md": 30,
+	"lg": 50,
+	"xl": 100,
+	"xxl": 150,
+) !default;
+
+$breakpoints-multiplier: (
+	"base": 0.3,
+	"sm": 0.5,
+	"md": 0.7,
+	"lg": 0.8,
+	"xl": 0.9,
+	"xxl": 1,
+);
+
+@each $name, $space in $space-map {
+	.space-#{$name} {
+		@each $breakpoint, $multiplier in $breakpoints-multiplier {
+			@if $breakpoint == "base" {
+				height: $space * $multiplier + px;
+			} @else {
+				@include from($breakpoint) {
+					height: $space * $multiplier + px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,277 @@
+{
+	// Place your src workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"Print get_sub_field() via get_post_meta()": {
+		"scope": "php",
+		"prefix": "gpm",
+		"body": [
+			"$${1:field_name} = get_post_meta( $$post, CONTAINER_PREFIX . '_' . $$index . '_${1:field_name}', true );",
+		],
+		"description": "Grag "
+	},
+	"Register options page": {
+		"prefix": "acf_sample_group",
+		"body": [
+			"// This example is registering a option page using ACF. Please see the",
+			"// documentation for more information:",
+			"// https://www.advancedcustomfields.com/resources/acf_add_options_page/",
+			"",
+			"add_action( 'admin_init', function () {",
+			"",
+			"    acf_add_options_page( array(",
+			"        'icon_url'   => 'dashicons-star-filled', // https://developer.wordpress.org/resource/dashicons/",
+			"        'menu_slug' => 'cookie',",
+			"        'page_title' => 'Cookie',",
+			"        'position'   => 21",
+			"    ) );",
+			"",
+			"    register_extended_field_group( array(",
+			"        'title'    => 'Cookie',",
+			"        'fields'   => array(",
+			"            WysiwygEditor::make( 'Text', 'cookie_text' )",
+			"                ->instructions( 'Add the cookie disclaimer text.' )",
+			"                ->mediaUpload( false )",
+			"                ->tabs( 'visual' )",
+			"                ->required(),",
+			"            Text::make( 'Label', 'cookie_label' )",
+			"                ->instructions( 'Add the button label.' )",
+			"                ->required()",
+			"        ),",
+			"        'location' => array(",
+			"            Location::where( 'options_page', 'cookie' )",
+			"        )",
+			"    ) );",
+			"} );"
+		],
+		"description": "Register options page"
+	},
+	"Register ACF Accordion": {
+		"prefix": "acf_accordion",
+		"body": [
+			"// use Extended\\ACF\\Fields\\Accordion;",
+			"$$fields[${1:10}] = Accordion::make('${2:Accordion name}', wp_unique_id() )->instructions('${3:Accordion description}');",
+			""
+		],
+		"description": "Register ACF Accordion"
+	},
+	"Register ACF Accordion Endpoint": {
+		"prefix": "acf_accordion_end",
+		"body": [
+			"// use Extended\\ACF\\Fields\\Accordion;",
+			"$$fields[10] = Accordion::make('Endpoint', wp_unique_id() )->endpoint();"
+		],
+		"description": "Register ACF Accordion Endpoint"
+	},
+	"Register ACF Tab": {
+		"prefix": "acf_tab",
+		"body": [
+			"// use Extended\\ACF\\Fields\\Number;",
+			"$$fields[10] = Tab::make('${1:Content}', wp_unique_id() )",
+			"    ->placement('left'); // top or left"
+		],
+		"description": "Register ACF Accordion"
+	},
+	"Register ACF Group": {
+		"prefix": "acf_group",
+		"body": [
+			"// use Extended\\ACF\\Fields\\Group;",
+			"$$fields[${1:10}] = Group::make('${2:Group name}', '${3:group_key}')",
+			"    ->instructions('${3:Group description}')",
+			"    ->fields([",
+			"        Text::make('Title'),",
+			"    ])",
+			"    ->layout('row');"
+		],
+		"description": "Register ACF Group"
+	},
+	"Register ACF Repeater": {
+		"prefix": "acf_repeater",
+		"body": [
+			"Repeater::make('Employees')",
+			"    ->instructions('Add the employees.')",
+			"    ->fields([",
+			"        Text::make('Name'),",
+			"        Image::make('Profile Picture'),",
+			"    ])",
+			"    ->min(2)",
+			"    ->collapsed('name')",
+			"    ->buttonLabel('Add employee')",
+			"    ->pagination(10)",
+			"    ->layout('table') // block, row or table",
+			"    ->required();"
+		],
+		"description": "Register ACF Repeater"
+	},
+	"Register ACF Text": {
+		"prefix": "acf_text",
+		"body": [
+			"$$fields[${1:10}] = Text::make(${2:Field name}, '${2:field_key}')",
+			"    ->instructions('${2:Field description}.')",
+			"    ->required();"
+		],
+		"description": "Register ACF Repeater"
+	},
+	"Register ACF Color Picker": {
+		"prefix": "acf_colorpicker",
+		"body": [
+			"ColorPicker::make('Text Color')",
+			"    ->instructions('Add the text color.')",
+			"    ->defaultValue('#4a9cff')",
+			"    ->required();"
+		],
+		"description": "Register ACF Color Picker"
+	},
+	"Register ACF Textarea": {
+		"prefix": "acf_textarea",
+		"body": [
+			"Textarea::make('Biography')",
+			"    ->instructions('Add the employees biography.')",
+			"    ->newLines('br') // br or wpautop",
+			"    ->characterLimit(2000)",
+			"    ->rows(10)",
+			"    ->required();"
+		],
+		"description": "Register ACF Textarea"
+	},
+	"Register ACF Checkboxes": {
+		"prefix": "acf_checkbox",
+		"body": [
+			"// use Extended\\ACF\\Fields\\Checkbox;",
+			"$$fields[${1:}] = Checkbox::make('${2:Field name}', '${3:field_key}')",
+			"    ->instructions('${2:Field description}')",
+			"    ->choices([",
+			"        'cyan' => 'Cyan',",
+			"    ])",
+			"    ->defaultValue('cyan')",
+			"    ->returnFormat('value') // array, label or value (default)",
+			"    ->layout('horizontal') // vertical or horizontal",
+			"    ->required();"
+		],
+		"description": "Register ACF Textarea"
+	},
+	"Register ACF Select": {
+		"prefix": "acf_select",
+		"body": [
+			"// use Extended\\ACF\\Fields\\Select;",
+			"Select::make('Color')",
+			"    ->instructions('Select the background color.')",
+			"    ->choices([",
+			"        'cyan' => 'Cyan',",
+			"        'hotpink' => 'Hotpink',",
+			"    ])",
+			"    ->defaultValue('cyan')",
+			"    ->returnFormat('value') // array, label or value (default)",
+			"    ->allowMultiple()",
+			"    ->allowNull()",
+			"    ->required();"
+		],
+		"description": "Register ACF Select"
+	},
+	"Register ACF Link": {
+		"prefix": "acf_link",
+		"body": [
+			"Link::make('Read More Link')",
+			"    ->returnFormat('array') // url or array (default)",
+			"    ->required();"
+		],
+		"description": "Register ACF Link"
+	},
+	"Register ACF Image": {
+		"prefix": "acf_image",
+		"body": [
+			"Image::make('Background Image')",
+			"    ->instructions('Add an image in at least 12000x100px and only in the formats <strong>jpg</strong>, <strong>jpeg</strong> or <strong>png</strong>.')",
+			"    ->mimeTypes(['jpg', 'jpeg', 'png'])",
+			"    ->height(500, 1400)",
+			"    ->width(1000, 2000)",
+			"    ->fileSize('400 KB', 5) // MB if entered as int",
+			"    ->library('all') // all or uploadedTo",
+			"    ->returnFormat('array') // id, url or array (default)",
+			"    ->previewSize('medium') // thumbnail, medium or large",
+			"    ->required();"
+		],
+		"description": "Register ACF Image"
+	},
+	"Register ACF Number": {
+		"prefix": "acf_number",
+		"body": [
+			"// use Extended\\ACF\\Fields\\Number;",
+			"Number::make('Age')",
+			"    ->instructions('Add the employees age.')",
+			"    ->min(18)",
+			"    ->max(65)",
+			"    ->required();"
+		],
+		"description": "Register ACF Number"
+	},
+	"Register ACF True False": {
+		"prefix": "acf_true_false",
+		"body": [
+			"// use Extended\\ACF\\Fields\\TrueFalse;",
+			"",
+			"TrueFalse::make('Social Media', 'display_social_media')",
+			"    ->instructions('Select whether to display social media links or not.')",
+			"    ->defaultValue(false)",
+			"    ->stylisedUi() // optional on and off text labels",
+			"    ->required();"
+		],
+		"description": "Register ACF True False"
+	},
+	"Add ACF Conditional logic": {
+		"prefix": "acf_conditional_logic",
+		"body": [
+			"->conditionalLogic([",
+			"        ConditionalLogic::where('${1:this}', '==', '${1:that}') // available operators are ==, !=, >, <, ==pattern, ==contains, ==empty, !=empty",
+			"])"
+		],
+		"description": "Add ACF Conditional logic"
+	},
+	"Register ACF Buttons Group": {
+		"prefix": "acf_buttons_group",
+		"body": [
+			"// use Extended\\ACF\\Fields\\ButtonGroup;",
+			"",
+			"$$fields['${1:10}'] = ButtonGroup::make(\"Select {$$args['uc']}\", '${1:10}')",
+			"    ->instructions(\"Select {$$args['uc']} you wold like to display in this component\")",
+			"    ->choices([])",
+			"//  ->defaultValue('hotpink')",
+			"    ->returnFormat('value')",
+			"    ->required();"
+		],
+		"description": "Register ACF Buttons Group"
+	},
+	"Register ACF URL": {
+		"prefix": "acf_url",
+		"body": [
+			"//  use Extended\\ACF\\Fields\\Url;",
+			"$$fields[${1:10}] = Url::make('${2:Display Name}', '${3:url}')",
+			"      ->instructions('${4:description}')",
+			"      ->required();"
+		],
+		"description": "Register ACF URL"
+	},
+	"Register ACF Message": {
+		"prefix": "acf_message",
+		"body": [
+			"//  use Extended\\ACF\\Fields\\Message;",
+			"$$fields[${1:10}] = Message::make('${2:Message}', wp_unique_id() )",
+			"      ->message('${3:Message description}');"
+		],
+		"description": "Register ACF Message field"
+	},
+	"Register ACF Email Address": {
+		"prefix": "acf_email",
+		"body": [
+			"// use Extended\\ACF\\Fields\\Email;",
+			"$$fields['email'] = Email::make( \"{$$defaults['args']['uc']} email\", 'email' )",
+			"  ->instructions( \" Add recipient email address\" )",
+			"  ->required();"
+		],
+		"description": "Register ACF Email Address"
+	}
+}

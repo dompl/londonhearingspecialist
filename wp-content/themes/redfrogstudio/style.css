@@ -1,0 +1,15 @@
+/*!
+Theme Name: Red Frog Studio
+Theme URI: http://theme.redfrogstudio.co.uk
+Description: Parent Theme for Red Frog Studio theme development. Boilerplate
+Author: Dom
+Author URI: https://github.com/dompl
+Version: 1.0.170
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Tags: blank theme
+Text Domain: kickstarter
+*/
+
+
+.dev-unsubscribe{margin-left:auto;margin-right:auto;margin-top:1rem;margin-bottom:1rem;max-width:90%;display:-webkit-box;display:-ms-flexbox;display:flex;gap:1rem;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;background-color:#e6e6e6;color:#5b5b5b;padding:1rem;border-radius:.3rem;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size:14px;font-weight:700}.dev-unsubscribe a{display:inline-block;background-color:#236a2f;padding:.5rem;line-height:1;text-transform:uppercase;font-weight:700;border-radius:.3rem;color:#fff;font-size:13px;white-space:nowrap}

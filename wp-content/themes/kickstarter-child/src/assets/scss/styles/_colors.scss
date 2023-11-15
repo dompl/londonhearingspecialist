@@ -1,0 +1,13 @@
+$colors: ("brand", "text", "gray-light", "gray-lighter", "gray-lightest", "white", "black");
+@mixin generate-color-classes($colorList) {
+	@each $name in $colorList {
+		.color-#{$name} {
+			color: var(--color-#{$name});
+		}
+		.bg-#{$name} {
+			background-color: var(--color-#{$name});
+		}
+	}
+}
+
+@include generate-color-classes($colors);

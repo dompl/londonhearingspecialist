@@ -1,0 +1,3 @@
+[submodule "wp-content/themes/kickstarter-child/gulp-task"]
+	path = wp-content/themes/kickstarter-child/gulp-task
+	url = git@github.com:dompl/gulp-task.git

@@ -1,0 +1,69 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"KS breakpoint slices": {
+        "scope": "scss",
+        "prefix": "slices",
+        "body": [
+            "/* ",
+            "\t\\$slices: (",
+            "\t\txxxs: 0,",
+            "\t\txxs: 320px,",
+            "\t\txs: 480px,",
+            "\t\tsm: 576px,",
+            "\t\tmd: 768px,",
+            "\t\tlg: 992px,",
+            "\t\txl: 1024px,",
+            "\t\txxl: 1240px,",
+            "\t\txxxl: 1440px,",
+            "\t) !default;",
+            "*/"
+        ],
+        "description": "Display commented list of breakpoint slices"
+    },
+	"from()": {
+		"scope": "scss",
+		"prefix": "from",
+		"body": [
+			"@include from(${1|xxxs,xxs,xs,sm,md,lg,xl,xxl,xxxl|}){$2}"
+		],
+		"description": "Display breakpoint from slices"
+	},
+	"rem": {
+		"scope": "scss",
+		"prefix": "rem",
+		"body": [
+			"rem($1)"
+		],
+		"description": "Pixels to rems"
+	},
+	"to()": {
+		"scope": "scss",
+		"prefix": "to",
+		"body": [
+			"@include to(${1|xxxs,xxs,xs,sm,md,lg,xl,xxl,xxxl|}){$2}"
+		],
+		"description": "Display breakpoint to slices"
+	},
+	"at()": {
+		"scope": "scss",
+		"prefix": "at",
+		"body": [
+			"@include at(${1|xxxs,xxs,xs,sm,md,lg,xl,xxl,xxxl|}){$2}"
+		],
+		"description": "Display breakpoint at slices"
+	},
+	"between()": {
+		"scope": "scss",
+		"prefix": "between",
+		"body": [
+			"@include at(${1|xxxs,xxs,xs,sm,md,lg,xl,xxl,xxxl|},${2|xxxs,xxs,xs,sm,md,lg,xl,xxl,xxxl|}){$3}"
+		],
+		"description": "Display breakpoint between slices"
+	}
+}
