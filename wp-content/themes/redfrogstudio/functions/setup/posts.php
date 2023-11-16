@@ -7,7 +7,7 @@ if (  !  defined( 'ABSPATH' ) ) {
  * Conditionally remove Posts functionality from WordPress based on a custom filter.
  */
 // Check if we should use Posts functionality or not
-$use_posts = apply_filters( '_ks_use_posts', false );
+$use_posts = apply_filters( '_ks_use_posts', true );
 
 /**
  * Remove Posts functionality from WordPress.

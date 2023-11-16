@@ -105,12 +105,12 @@
 		"**/vendor/**/*"
 	],
 	"workbench.colorCustomizations": {
-		"statusBar.background": "#42b883",
-		"statusBar.foreground": "#15202b",
-		"statusBarItem.hoverBackground": "#359268",
-		"statusBarItem.remoteBackground": "#42b883",
-		"statusBarItem.remoteForeground": "#15202b",
-		"tab.activeBorder": "#65c89b"
+		"statusBar.background": "#845b14",
+		"statusBar.foreground": "#e7e7e7",
+		"statusBarItem.hoverBackground": "#b07a1b",
+		"statusBarItem.remoteBackground": "#845b14",
+		"statusBarItem.remoteForeground": "#e7e7e7",
+		"tab.activeBorder": "#b07a1b"
 	},
-	"peacock.color": "#42b883"
+	"peacock.color": "#845b14"
 }
