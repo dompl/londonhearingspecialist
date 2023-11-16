@@ -1,0 +1,3 @@
+Added PHP header markup.
+Initial installation of global css styling.
+Initial theme deployment to the staging server.
