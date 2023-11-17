@@ -30,11 +30,23 @@
 		@if $filename == angle-left {
 		  $char: "\E001";
 		}
-		@if $filename == star-of-life-solid {
+		@if $filename == bars-solid {
 		  $char: "\E002";
 		}
-		@if $filename == xmark-sharp-light {
+		@if $filename == caret-down-solid {
 		  $char: "\E003";
+		}
+		@if $filename == envelope-regular {
+		  $char: "\E004";
+		}
+		@if $filename == phone-regular {
+		  $char: "\E005";
+		}
+		@if $filename == star-of-life-solid {
+		  $char: "\E006";
+		}
+		@if $filename == xmark-sharp-light {
+		  $char: "\E007";
 		}
 
 	  @return $char;
@@ -54,6 +66,18 @@
 
 	.icon-angle-left {
 	  @include icon(angle-left);
+	}
+	.icon-bars-solid {
+	  @include icon(bars-solid);
+	}
+	.icon-caret-down-solid {
+	  @include icon(caret-down-solid);
+	}
+	.icon-envelope-regular {
+	  @include icon(envelope-regular);
+	}
+	.icon-phone-regular {
+	  @include icon(phone-regular);
 	}
 	.icon-star-of-life-solid {
 	  @include icon(star-of-life-solid);

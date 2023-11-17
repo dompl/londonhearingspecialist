@@ -27,7 +27,7 @@ class GoogleRating {
         $this->apiKey              = MyHelpers::getThemeData( 'ks_google_api_key' );
         $this->placeId             = MyHelpers::getThemeData( 'ks_google_place_id' );
         $this->transientName       = 'google_reviews';
-        $this->transientExpiration = apply_filters( 'ks_google_reviews_transient_expiration', 1 * WEEK_IN_SECONDS );
+        $this->transientExpiration = apply_filters( 'ks_google_reviews_transient_expiration', 2 * WEEK_IN_SECONDS );
 
         // Check if API key or Place ID is missing and handle it appropriately
         if (  !  $this->apiKey || !  $this->placeId ) {
@@ -78,8 +78,6 @@ class GoogleRating {
         $html .= str_repeat( $starEmpty, $emptyStars );
 
         return $html;
-
-        return $html;
     }
 
     /**
@@ -108,6 +106,8 @@ class GoogleRating {
         curl_close( $ch );
 
         $data = json_decode( $response, true );
+
+        var_dump( $data );
 
         if ( isset( $data['result']['reviews'] ) ) {
 

@@ -4,7 +4,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "KickstarterChild\\": "Classes/"
+            "KickstarterChild\\": "Classes/",
+            "London\\": "Classes/"
         }
     },
     "repositories": [

@@ -1,4 +1,5 @@
 // import '../../../node_modules/jquery-backstretch/jquery.backstretch.js';
+import './main/locations-selector.js';
 // import BackStretch from './includes/backstretch.js';
 (function ($) {
 	// BackStretch($);

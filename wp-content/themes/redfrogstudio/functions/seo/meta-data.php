@@ -32,16 +32,18 @@ function ks_30234_save_seo_fields_to_post_meta( $post_id, $post ) {
 
     $acf_fields = [];
 
-    foreach ( $fields as $key => $field ) {
+    if (  !  empty( $fields ) ) {
 
-        // Assuming that the field object has a 'name' property
-        if ( isset( $key ) && strpos( $key, 'ks_seo_' ) === 0 ) {
+        foreach ( $fields as $key => $field ) {
 
-            // Check if the field name starts with 'ks_seo_'
-            $acf_fields[$key] = get_post_meta( $post_id, $key, true );
+            // Assuming that the field object has a 'name' property
+            if ( isset( $key ) && strpos( $key, 'ks_seo_' ) === 0 ) {
+
+                // Check if the field name starts with 'ks_seo_'
+                $acf_fields[$key] = get_post_meta( $post_id, $key, true );
+            }
         }
+        // Save all relevant ACF fields in a single custom field as a serialized array
+        update_post_meta( $post_id, '_ks_seo_post_metadata_', $acf_fields );
     }
-
-    // Save all relevant ACF fields in a single custom field as a serialized array
-    update_post_meta( $post_id, '_ks_seo_post_metadata_', $acf_fields );
 }

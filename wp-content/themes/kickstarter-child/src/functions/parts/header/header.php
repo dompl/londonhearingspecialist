@@ -1,5 +1,5 @@
 <?php
-add_action( 'ks_after_body', 'ks_header_wrapper' );
+add_action( 'ks_after_body', 'ks_header_wrapper', 20 );
 add_filter( 'ks_header_wrapper_left', 'ks_header_wrapper_left_callback', 10, 2 );
 add_filter( 'ks_header_wrapper_middle', 'ks_header_wrapper_middle_callback', 10, 2 );
 add_filter( 'ks_header_wrapper_right', 'ks_header_wrapper_right_callback', 10, 2 );
@@ -33,19 +33,16 @@ function ks_header_wrapper_left_callback( $html, $themeData ) {
 }
 
 function ks_header_wrapper_middle_callback( $html, $themeData ) {
-    $googleRating = new GoogleRating();
-    $reviews      = $googleRating->getReviews();
-    $starts       = $googleRating->displayStars();
-    $count        = $googleRating->displayRatingCount();
-
-    $html .= '<div class="item rating">';
-    $html .= '<div class="rating-top">Highly Recommended</div>';
-    $html .= '<div class="rating-middle"><span class="count">' . $reviews['averageRating'] . '</span><span class="stars">' . $starts . '</span></div>';
-    $html .= '<div class="rating-bottom"><span class="number">' . $count . '</span><span class="word">reviews</span></div>';
-    $html .= '</div>';
-
-    //  $html .= ;
+    $html .= \London\Helpers::GoogleRating();
     return $html;
-}function ks_header_wrapper_right_callback( $html, $themeData ) {
+}
+
+function ks_header_wrapper_right_callback( $html, $themeData ) {
+
+    $html .= '<div class="item">';
+    $html .= $themeData['shop_url'] ? '<a href="' . esc_url( $themeData['shop_url'] ) . '" title="Visit London Hearing Specialists Shop" class="button blue-dark">Shop</a>' : '';
+    $html .= $themeData['book_url'] ? '<a href="' . esc_url( $themeData['book_url'] ) . '" title="Book Appointment with London Hearing Specialists" class="button green"><span>Book Appointment</span><i class="icon-plus"></i></a>' : '';
+    $html .= '<span class="button blue"><i class="icon-bars-solid" id="main-nav-init"></i></a>';
+    $html .= '</div>';
     return $html;
 }
