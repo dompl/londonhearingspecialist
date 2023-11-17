@@ -1,3 +1,1 @@
-Added PHP header markup.
-Initial installation of global css styling.
-Initial theme deployment to the staging server.
+Added Google API for Google Rating (Starts) for mobile and desktop

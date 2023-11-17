@@ -9,12 +9,12 @@ add_filter( 'ks_admin_theme_options_header_settings', function ( $fields ) {
     $fields[] = Accordion::make( 'Images', wp_unique_id() )->instructions( 'Main header images' );
     $fields[] = Image::make( 'Desktop Logo', 'logo_m' )
         ->instructions( 'Add desktop logo' )
-        ->returnFormat( 'id' )
+        ->returnFormat( 'url' )
         ->previewSize( 'medium' )
         ->required();
     $fields[] = Image::make( 'Mobile Logo', 'logo_d' )
         ->instructions( 'Add mobile logo' ) // Corrected the instruction text
-        ->returnFormat( 'id' )
+        ->returnFormat( 'url' )
         ->previewSize( 'medium' )
         ->required();
 

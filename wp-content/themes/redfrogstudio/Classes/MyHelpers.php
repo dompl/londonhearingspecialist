@@ -6,6 +6,7 @@ use Kickstarter\MyForms;
 
 require 'MyHelpers/MyHelpersCss.php';
 require 'MyHelpers/MyHelpersImages.php';
+require 'MyHelpers/MyHelpersBlog.php';
 require 'MyHelpers/MyNavigation.php';
 /**
  * Class MyHelpers
@@ -16,6 +17,7 @@ class MyHelpers {
     use TraitMyHelpersCustomCss;
     use MyHelpersImages;
     use MyNavigation;
+    use TraitMyHelpersBlog;
     /**
      * @var mixed
      */
@@ -57,6 +59,7 @@ class MyHelpers {
         add_action( 'delete_attachment', ['\Kickstarter\MyHelpers', 'DeleteAutoXgenFiles'] );
         add_action( 'wp_ajax_deleteBuildImages', ['\Kickstarter\MyHelpers', 'deleteBuildImages'] );
 
+        self::initPostSettings();
         // Mark this class as instantiated
         self::$instantiated = true;
     }
@@ -436,23 +439,6 @@ class MyHelpers {
         // If the component is not found, return false
         return false;
     }
-
-    /**
-     * Includes PHP files from a specified directory excluding the ones provided.
-     *
-     * @param string $directory The directory path.
-     * @param array $excludes Files to exclude.
-     */
-
-//     public function includeFilesInDirectory( $directory, $excludes = ['_init.php'] ) {
-//         $iterator = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $directory ) );
-//
-//         foreach ( $iterator as $file ) {
-//             if (  !  $file->isDir() && !  in_array( $file->getFilename(), $excludes ) && $file->getExtension() === 'php' ) {
-//                 require_once $file->getPathname();
-//             }
-//         }
-//     }
 
     /**
      * Formats a number to currency format.

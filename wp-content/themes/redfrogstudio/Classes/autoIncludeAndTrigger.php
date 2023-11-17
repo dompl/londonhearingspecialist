@@ -50,7 +50,7 @@ class autoIncludeAndTrigger {
 
         $parentFolders      = apply_filters( '_ks_include_folder', ['Classes', 'functions', 'components'] );
         $childFolders       = apply_filters( '_ks_child_include_folder', ['Classes', 'functions', 'components'] );
-        $excludedFiles      = apply_filters( '_ks_excluded_files', ['_init', 'autoIncludeAndTrigger'] );
+        $excludedFiles      = apply_filters( '_ks_excluded_files', ['_init', 'autoIncludeAndTrigger', 'exclude', 'ignore'] );
         $excludedChildFiles = apply_filters( '_ks_excluded_child_files', ['_init', 'exclude', 'ignore'] );
 
         // New array for excluded subdirectories
