@@ -1,3 +1,0 @@
-Added all scripts for the header
-Added location switcher + Entire location dedicated system as custom post type
-Added Google API for Google Rating (Starts) for mobile and desktop
