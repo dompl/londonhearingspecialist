@@ -107,8 +107,6 @@ class GoogleRating {
 
         $data = json_decode( $response, true );
 
-        var_dump( $data );
-
         if ( isset( $data['result']['reviews'] ) ) {
 
             $reviews       = array_slice( $data['result']['reviews'], 0, $maxReviews );

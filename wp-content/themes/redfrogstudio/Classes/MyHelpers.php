@@ -60,6 +60,7 @@ class MyHelpers {
         add_action( 'wp_ajax_deleteBuildImages', ['\Kickstarter\MyHelpers', 'deleteBuildImages'] );
 
         self::initPostSettings();
+
         // Mark this class as instantiated
         self::$instantiated = true;
     }
@@ -248,8 +249,9 @@ class MyHelpers {
                 $data = array_merge( $data, $additional_data );
             }
 
-            // Set the transient to expire in 12 hours
-            set_transient( 'ks_theme_data', $data, 12 * HOUR_IN_SECONDS );
+            // Set the transient to expire in 10 years
+            set_transient( 'ks_theme_data', $data, 10 * 365 * 24 * 60 * 60 );
+
         }
 
         // Apply filters to $data after retrieving it from the transient

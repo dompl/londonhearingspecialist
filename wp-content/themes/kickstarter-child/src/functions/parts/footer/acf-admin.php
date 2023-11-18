@@ -1,8 +1,10 @@
 <?php
 // Importing necessary classes from the Extended ACF Fields namespace
+use Extended\ACF\ConditionalLogic;
 use Extended\ACF\Fields\Accordion;
 use Extended\ACF\Fields\Group;
 use Extended\ACF\Fields\Image;
+use Extended\ACF\Fields\Layout;
 use Extended\ACF\Fields\Number;
 use Extended\ACF\Fields\PageLink;
 use Extended\ACF\Fields\Text;
@@ -11,6 +13,10 @@ use Extended\ACF\Fields\Textarea;
 // Adding filters for admin theme options in the footer settings
 add_filter( 'ks_admin_theme_options_footer_settings', 'ks_admin_theme_options_footer_settings_acf_general' );
 add_filter( 'ks_admin_theme_options_footer_settings', 'ks_admin_theme_options_footer_settings_acf_navigation' );
+
+function london_footer_navs() {
+    return apply_filters( 'london_footer_navs', ['services' => 'Services', 'aids' => 'Hearing Aids', 'about' => 'About US'] );
+}
 
 /**
  * Adds navigation related fields to the footer settings in the admin theme options.
@@ -23,7 +29,7 @@ function ks_admin_theme_options_footer_settings_acf_navigation( $fields ) {
     $fields[] = Accordion::make( 'Navigation', wp_unique_id() )->instructions( 'Add main footer navigation' );
 
     // Defining navigation items
-    $navs = ['services' => 'Services', 'aids' => 'Hearing Aids', 'about' => 'About US'];
+    $navs = london_footer_navs();
 
     // Loop through each navigation item to create a group of fields
     foreach ( $navs as $k => $v ) {
@@ -33,7 +39,7 @@ function ks_admin_theme_options_footer_settings_acf_navigation( $fields ) {
                 Text::make( "$v navigation title", "title" )
                     ->instructions( 'Add ' . strtolower( $v ) . ' navigation title' )
                     ->defaultValue( $v ),
-                PageLink::make( "$v navigation items", "link" )
+                PageLink::make( "$v navigation items", "links" )
                     ->instructions( 'Add ' . strtolower( $v ) . ' navigation items' )
                     ->postTypes( ['page', 'london_locations'] )
                     ->allowNull()
@@ -56,7 +62,7 @@ function ks_admin_theme_options_footer_settings_acf_general( $fields ) {
     $fields[] = Accordion::make( 'General Information', wp_unique_id() )->instructions( 'General Footer information' );
 
     // Adding a field for the main logo
-    $fields[] = Image::make( 'Main Logo', 'logo' )
+    $fields[] = Image::make( 'Main footer logo', 'footer_logo' )
         ->instructions( 'Add main footer logo. SVG required' )
         ->returnFormat( 'url' )
         ->previewSize( 'medium' )
@@ -66,7 +72,7 @@ function ks_admin_theme_options_footer_settings_acf_general( $fields ) {
     $message = 'Your auditory wellness is our priority at London Hearing Specialist. Spanning seven clinics, our dedicated team provides personalized hearing solutions, ensuring a comforting journey towards better auditory health.';
 
     // Adding a textarea field for the 'About' section
-    $fields[] = Textarea::make( 'About', 'about' )
+    $fields[] = Textarea::make( 'About', 'footer_about' )
         ->newLines( 'br' )
         ->instructions( 'Add short about description' )
         ->defaultValue( $message )
@@ -74,7 +80,7 @@ function ks_admin_theme_options_footer_settings_acf_general( $fields ) {
         ->required();
 
     // Adding a group field for an additional logo
-    $fields[] = Group::make( 'Additional Logo', 'logo_addon' )
+    $fields[] = Group::make( 'Additional Logo', 'footer_logo_addon' )
         ->instructions( 'Additional logos in the footer' )
         ->fields( [
             Image::make( 'Image', 'image' )
@@ -85,7 +91,7 @@ function ks_admin_theme_options_footer_settings_acf_general( $fields ) {
                 ->instructions( 'Set additional image width' )
                 ->min( 1 )
                 ->max( 500 )
-                ->required()
+                ->required()->conditionalLogic( [ConditionalLogic::where( 'image', '!=', 'document' )] )
         ] )
         ->layout( 'row' );
 

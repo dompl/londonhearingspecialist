@@ -29,12 +29,12 @@ add_filter( 'ks_admin_theme_options_general_settings', function ( $fields ) {
 
     $fields[] = Message::make( 'Filter hook', wp_unique_id() )->message( ' In order to hook to this area use filter <strong>ks_admin_theme_options_logo_image_settings</strong>' );
 
-    $fields[] = Image::make( 'Favicon image', 'ks_favicon' )->instructions( 'Add website favicon. Please note, the favicon should be in ration 1:1, for example 100px x 100px' )
+    $fields['ks_favicon'] = Image::make( 'Favicon image', 'ks_favicon' )->instructions( 'Add website favicon. Please note, the favicon should be in ration 1:1, for example 100px x 100px' )
         ->returnFormat( 'id' )
         ->previewSize( 'mini-thumbnail' ); // Thumbnail, medium or large
 
     // Define the field for website logo
-    $fields[] = Image::make( 'Logo image', 'ks_logo_image' )
+    $fields['ks_logo_image'] = Image::make( 'Logo image', 'ks_logo_image' )
         ->instructions( 'Add main logo for the website' )
         ->library( 'all' )
         ->returnFormat( 'array' )
@@ -46,7 +46,7 @@ add_filter( 'ks_admin_theme_options_general_settings', function ( $fields ) {
 
     $fields[] = Message::make( 'Filter hook', wp_unique_id() )->message( ' In order to hook to this area use filter <strong>ks_admin_theme_options_navigation_settings</strong>' );
 
-    $fields[] = Group::make( 'Navigation settings', 'ks_nav' )
+    $fields['ks_nav'] = Group::make( 'Navigation settings', 'ks_nav' )
         ->instructions( 'Setting for the main navigation' )
         ->fields( [
             Number::make( 'Breakpoint', 'bp' )->instructions( 'Navigation breakpoint for the navigation' )->required()->defaultValue( 680 )->min( 320 )->max( 1600 )->step( 1 ),
@@ -73,7 +73,7 @@ add_filter( 'ks_admin_theme_options_general_settings', function ( $fields ) {
 
     $fields[] = Message::make( 'Filter hook', wp_unique_id() )->message( ' In order to hook to this area use filter <strong>ks_admin_theme_options_business_info_settings</strong>' );
 
-    $fields[] = Email::make( "Global website email address", 'ks_email_address' )->instructions( "Add website general email address. It can be then used across the website as a shortcode <strong>[email url=true]</strong>" );
+    $fields['ks_email_address'] = Email::make( "Global website email address", 'ks_email_address' )->instructions( "Add website general email address. It can be then used across the website as a shortcode <strong>[email url=true]</strong>" );
 
     // Define the field for website's telephone number
     $fields[] = Group::make( 'Global telephone numer', 'ks_tel_number' )->instructions( "Add website general website telephone number. It can be then used across the website as a shortcode <strong>[telephone dial=true]</strong>" )
