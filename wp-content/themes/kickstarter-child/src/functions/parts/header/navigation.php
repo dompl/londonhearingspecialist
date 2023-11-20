@@ -6,5 +6,7 @@ add_action( 'after_setup_theme', function () {
 } );
 // Add the new navigation
 function london_navigation_container() {
-    echo '<div id="nav-wrapper"><div class="container">' . ks_header_navigation_callback( echo :false ) . '</div></div>';
+    $navigation = '<div id="nav-wrapper"><div class="container">' . ks_header_navigation_callback( echo :false ) . '</div></div>';
+    $navigation .= '<div id="gogole-wrap-mobile"><div class="container">' . \London\Helpers::GoogleRating() . '</div></div>';
+    echo $navigation;
 }

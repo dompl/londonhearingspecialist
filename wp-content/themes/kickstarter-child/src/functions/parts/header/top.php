@@ -82,7 +82,7 @@ function london_top_right_callback( $html ) {
     if (  !  empty( $locations ) && is_array( $locations ) ) {
 
         $html .= '<div class="item locations">';
-        $html .= '<a href="#" title="Select London Hearing Specialists Locations"><span>Select Location</span><i class="icon-caret-down-solid"></i></a>';
+        $html .= '<a href="#" title="Select London Hearing Specialists Locations" id="location-selector-a"><span>Select Location</span><i class="icon-caret-down-solid"></i></a>';
         $html .= '<ul id="location-select">';
 
         // Ensure output is properly escaped

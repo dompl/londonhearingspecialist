@@ -57,6 +57,7 @@
     "sass-glob-importer": "^1.0.1"
   },
   "dependencies": {
-    "gulp-modernizr": "^5.0.0"
+    "gulp-modernizr": "^5.0.0",
+    "redfrog-navigation": "dompl/redfrog-navigation"
   }
 }

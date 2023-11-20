@@ -8,14 +8,13 @@
 	display: flex;
 	position: relative;
 	font-family: inherit;
-	background-color: var.$navigation-color-background;
 	* {
 		box-sizing: border-box;
 		-webkit-tap-highlight-color: transparent;
 	}
 }
 .navigation-portrait {
-	height: var.$navigation-portrait-height;
+	// height: var.$navigation-portrait-height;
 }
 
 // Fixed navigation
@@ -161,11 +160,13 @@
 	background-color: var.$navigation-offcanvas-background-color;
 	z-index: 20000;
 	overflow-y: auto;
-	-webkit-overflow-scrolling: touch;
-	-webkit-transition-duration: 0.8s;
-	transition-duration: 0.8s;
-	-webkit-transition-timing-function: ease;
-	transition-timing-function: ease;
+	&.nav-menus-wrapper-open {
+		-webkit-overflow-scrolling: touch;
+		-webkit-transition-duration: 0.8s;
+		transition-duration: 0.8s;
+		-webkit-transition-timing-function: ease;
+		transition-timing-function: ease;
+	}
 	display: flex;
 	flex-direction: column;
 	&.nav-menus-wrapper-right {
@@ -183,17 +184,11 @@
 
 // Close button for Offcanvas
 .nav-menus-wrapper-close-button {
-	width: var.$navigation-offcanvas-icon-width;
-	height: var.$navigation-offcanvas-icon-height;
-	margin: var.$navigation-offcanvas-icon-margin;
-	line-height: 1;
-	display: none;
-	float: right;
-	color: var.$navigation-offcanvas-icon-color;
-	font-size: var.$navigation-offcanvas-icon-font-size;
-	align-self: flex-end;
+	margin-left: auto;
+	margin-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	cursor: pointer;
-
 	.navigation-portrait & {
 		display: block;
 	}
@@ -390,6 +385,7 @@
 					right: 10px;
 					transform: translate(-50%, -50%);
 					z-index: 20000;
+					margin-top: -2px;
 					.submenu-indicator-chevron {
 						position: relative;
 						top: initial;
@@ -402,13 +398,15 @@
 	}
 	.nav-submenu {
 		li {
+			background-color: transparent!important;
 			&.active {
 				a {
-					color: var.$navigation-offcanvas-a-a-font-color-active;
+				 
+					background-color: transparent!important;
 				}
 			}
 			a {
-				background-color: var.$navigation-offcanvas-a-a-background;
+				background-color: transparent!important;
 				padding: var.$navigation-offcanvas-a-a-padding;
 				color: var.$navigation-offcanvas-a-a-font-color;
 				font-size: var.$navigation-offcanvas-a-a-font-size;

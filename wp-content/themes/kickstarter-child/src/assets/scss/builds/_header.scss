@@ -1,5 +1,46 @@
 @use "../styles/variables" as var;
+@use "../styles/icons" as ico;
 @use "abstracts" as *;
+.google-star-rating {
+	svg {
+		fill: var.$color-stars !important;
+	}
+	.rating-middle {
+		display: flex;
+		align-items: center;
+		line-height: 1;
+		display: flex;
+		gap: rem(5);
+	}
+}
+#gogole-wrap-mobile {
+	background-color: var.$color-blue;
+	color: white;
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: rem(40);
+	}
+	.google-star-rating {
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+		line-height: 1;
+		align-items: center;
+		font-weight: var.$font-weight-bold;
+		@include font-size(12, 16);
+		@include to(xs) {
+			.rating-bottom {
+				display: none;
+			}
+		}
+	}
+	@include from(lg) {
+		display: none;
+	}
+}
+
 #top-wrapper {
 	background-color: var.$color-blue-dark;
 	color: var.$color-white;
@@ -11,8 +52,15 @@
 	}
 	.container {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
+	}
+	.item {
+		&.locations {
+			position: relative;
+		}
+	}
+	.left {
+		display: flex;
 	}
 	@include to(sm) {
 		.container {
@@ -21,9 +69,11 @@
 			flex-direction: row-reverse;
 		}
 		.left {
-			display: flex;
 			justify-content: space-between;
 			gap: 2rem;
+		}
+		.right {
+			margin-right: auto;
 		}
 		.item {
 			&.email,
@@ -37,30 +87,227 @@
 			}
 		}
 	}
+	@include from(md) {
+		.container {
+			display: flex;
+			align-items: center;
+		}
+		.right {
+			margin-left: auto;
+		}
+		.left {
+			a {
+				display: flex;
+				gap: 1rem;
+			}
+		}
+		.item {
+			padding: 0 rem(20);
+			border-right: 1px solid lighten(var.$color-blue-dark, 4%);
+			height: rem(50);
+			display: flex;
+			align-items: center;
+			&.email {
+				padding-left: 0;
+				border-left: 0;
+			}
+			&.locations {
+				padding-right: 0;
+				border-right: none;
+				border-left: 1px solid lighten(var.$color-blue-dark, 4%);
+			}
+		}
+	}
 }
+#header-wrapper {
+	.top-logo,
+	.middle,
+	.right {
+		display: none;
+	}
 
-#location-select {
-	display: none; /* Initially hide the dropdown */
-	list-style-type: none; /* Remove default list styling */
-	margin: 0;
-	padding: 0;
-	position: absolute; /* Position it below the toggle link */
-	background-color: #f9f9f9; /* Background color of dropdown */
-	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Adding some shadow for better visibility */
-	z-index: 1; /* Ensure it's above other content */
+	@include to(xs) {
+		padding: 1rem 0;
+		.logos,
+		.main-nav-init {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			line-height: 1;
+		}
+		.main-nav-init {
+			text-transform: uppercase;
+			font-weight: var.$font-weight-bold;
+			gap: 0.5rem;
+			@inclide font-size(12, 18);
+			i {
+				font-size: 1.4rem;
+				line-height: 1.4;
+				margin-bottom: rem(-2);
+			}
+		}
+		.right {
+			display: block;
+			.main-nav-init {
+				display: none;
+			}
+			.item {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 1rem;
+				margin-top: 1rem;
+				a {
+					display: block;
+					flex: 1;
+					text-align: center;
+				}
+				.nne {
+					display: none;
+				}
+			}
+		}
+	}
+	@include to(md) {
+		.logo-mobile {
+			display: block;
+		}
+		.book-appointment {
+			@include ico.icon("calendar-light");
+		}
+	}
+	@include between(sm, md) {
+		.logo-mobile {
+			display: block;
+		}
+		.nne {
+			// display: none;
+		}
+		// .book-appointment {
+		// 	@include ico.icon("calendar-light");
+		// }
+	}
+	@include from(sm) {
+		.container {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			display: flex;
+			padding: rem(15) 0;
+		}
+		.left {
+			.main-nav-init {
+				display: none;
+			}
+		}
+		.right {
+			display: block;
+			margin-left: auto;
+			.item {
+				display: flex;
+				gap: 1rem;
+				align-items: center;
+			}
+			.button {
+				font-size: 1rem;
+			}
+		}
+		.main-nav-init {
+			display: flex;
+			justify-content: space-between;
+			gap: rem(10);
+			align-items: center;
+			font-weight: bold;
+			text-transform: uppercase;
+			i {
+				font-size: rem(30);
+				line-height: rem(30);
+				margin-top: 1px;
+				margin-bottom: -1px;
+			}
+		}
+		.top-logo {
+			width: 23vw;
+		}
+	}
+	@include from(lg) {
+		.logo-mobile {
+			display: none;
+		}
+		.logo-desktop {
+			display: block;
+			max-width: rem(270);
+		}
+		.main-nav-init {
+			display: none;
+		}
+		.middle {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			font-weight: bold;
+			.item {
+				display: flex;
+				flex-direction: column;
+				gap: rem(5);
+				color: var.$color-text;
+			}
+			.count {
+				@include font-size(20, 22);
+			}
+		}
+	}
 }
+#nav-wrapper {
+	background-color: var.$color-blue;
+	.nav-toggle {
+		display: none;
+	}
+	.navigation-landscape {
+		.nav-menus-wrapper-close-button {
+			display: none;
+		}
+		#menu-header {
+			a {
+				font-weight: var.$font-weight-bold;
+			}
+			li {
+				&.active-parent,
+				&.active {
+					a {
+						position: relative;
+						&::after {
+							content: "";
+							position: absolute;
+							bottom: 0;
+							height: 3px;
+							background-color: var.$color-blue-dark;
+							display: block;
+							left: 0;
+							right: 3rem;
+						}
+					}
+					li {
+						a {
+							&::after {
+								right: 0;
+							}
+						}
+					}
+				}
+			}
 
-#location-select.show {
-	display: block; /* Show dropdown when class 'show' is added */
-}
-
-#location-select a {
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-}
-
-#location-select a:hover {
-	background-color: #f1f1f1; /* Hover effect for dropdown items */
+			> li {
+				> a {
+					&:first-child {
+						padding-left: 0;
+					}
+				}
+			}
+		}
+	}
+	.navigation-portrait {
+		.nav-menus-wrapper {
+		}
+	}
 }

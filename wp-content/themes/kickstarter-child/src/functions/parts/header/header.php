@@ -16,19 +16,18 @@ function ks_header_wrapper() {
     $html .= '</div>';
     $html .= '</div>';
 
-    //  $html .= $themeData['ks_email_address'];
-
     echo $html;
 
 }
 
 function ks_header_wrapper_left_callback( $html, $themeData ) {
 
-    $html .= '<div class="item">';
+    $html .= '<div class="item logos">';
     $html .= '<a href="' . get_bloginfo( 'url' ) . '" title="' . get_bloginfo( 'name' ) . '">';
-    $html .= '<img src="' . $themeData['ks_logo_d'] . '" alt="' . get_bloginfo( 'name' ) . '" class="logo-desktop">';
-    $html .= '<img src="' . $themeData['ks_logo_m'] . '" alt="' . get_bloginfo( 'name' ) . '" class="logo-mobile">';
+    $html .= '<img src="' . $themeData['ks_logo_d'] . '" alt="' . get_bloginfo( 'name' ) . '" class="logo-mobile top-logo">';
+    $html .= '<img src="' . $themeData['ks_logo_m'] . '" alt="' . get_bloginfo( 'name' ) . '" class="logo-desktop top-logo">';
     $html .= '</a>';
+    $html .= '<div class="main-nav-init"><span>Menu</span><i class="icon-bars-solid"></i></div>';
     $html .= '</div>';
 
     return $html;
@@ -43,8 +42,8 @@ function ks_header_wrapper_right_callback( $html, $themeData ) {
 
     $html .= '<div class="item">';
     $html .= $themeData['ks_shop_url'] ? '<a href="' . esc_url( $themeData['ks_shop_url'] ) . '" title="Visit London Hearing Specialists Shop" class="button blue-dark">Shop</a>' : '';
-    $html .= $themeData['ks_book_url'] ? '<a href="' . esc_url( $themeData['ks_book_url'] ) . '" title="Book Appointment with London Hearing Specialists" class="button green"><span>Book Appointment</span><i class="icon-plus"></i></a>' : '';
-    $html .= '<span class="button blue"><i class="icon-bars-solid" id="main-nav-init"></i></a>';
+    $html .= do_shortcode( '[book_appointment]' );
+    $html .= '<span class="main-nav-init"><span>Menu</span><i class="icon-bars-solid"></i></span>';
     $html .= '</div>';
     return $html;
 }

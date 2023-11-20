@@ -33,20 +33,26 @@
 		@if $filename == bars-solid {
 		  $char: "\E002";
 		}
-		@if $filename == caret-down-solid {
+		@if $filename == calendar-light {
 		  $char: "\E003";
 		}
-		@if $filename == envelope-regular {
+		@if $filename == caret-down-solid {
 		  $char: "\E004";
 		}
-		@if $filename == phone-regular {
+		@if $filename == envelope-regular {
 		  $char: "\E005";
 		}
-		@if $filename == star-of-life-solid {
+		@if $filename == phone-regular {
 		  $char: "\E006";
 		}
-		@if $filename == xmark-sharp-light {
+		@if $filename == plus-solid {
 		  $char: "\E007";
+		}
+		@if $filename == star-of-life-solid {
+		  $char: "\E008";
+		}
+		@if $filename == xmark-sharp-light {
+		  $char: "\E009";
 		}
 
 	  @return $char;
@@ -70,6 +76,9 @@
 	.icon-bars-solid {
 	  @include icon(bars-solid);
 	}
+	.icon-calendar-light {
+	  @include icon(calendar-light);
+	}
 	.icon-caret-down-solid {
 	  @include icon(caret-down-solid);
 	}
@@ -78,6 +87,9 @@
 	}
 	.icon-phone-regular {
 	  @include icon(phone-regular);
+	}
+	.icon-plus-solid {
+	  @include icon(plus-solid);
 	}
 	.icon-star-of-life-solid {
 	  @include icon(star-of-life-solid);

@@ -1,0 +1,43 @@
+@use "../styles/variables" as var;
+@use "abstracts" as *;
+#location-selector-a {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 1rem;
+	text-transform: uppercase;
+}
+#location-select {
+	display: none; /* Initially hide the dropdown */
+	list-style-type: none; /* Remove default list styling */
+	margin: 0;
+	padding: 0 0 0 0;
+	min-width: 100%;
+	top: rem(40);
+	@include from(sm) {
+		top: rem(50);
+	}
+	position: absolute; /* Position it below the toggle link */
+	z-index: 1; /* Ensure it's above other content */
+	left: 0;
+	border-radius: 0 0 rem(4) rem(4);
+	&.show {
+		display: block; /* Show dropdown when class 'show' is added */
+	}
+	a {
+		color: var.$color-white;
+		padding: rem(8) rem(20);
+		text-decoration: none;
+		min-width: 100%;
+		box-sizing: border-box;
+		display: block;
+		border-bottom: 1px solid lighten(var.$color-blue-dark, 4%);
+		background-color: var.$color-blue-dark; /* Background color of dropdown */
+		&:last-child {
+			border-bottom: none;
+		}
+		&:hover {
+			background-color: var.$color-blue; /* Hover effect for dropdown items */
+		}
+	}
+}

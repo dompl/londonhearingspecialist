@@ -1,26 +1,53 @@
-//
 document.addEventListener('DOMContentLoaded', function () {
-	// Grab the element with the ID 'location-select'
 	var locationSelect = document.getElementById('location-select');
+	var hideDropdownTimeout;
 
-	// Check if the element exists to prevent errors
+	// Function to hide the dropdown with a delay
+	function hideDropdown() {
+		hideDropdownTimeout = setTimeout(function () {
+			locationSelect.classList.remove('show');
+		}, 300); // Delay of 100ms
+	}
+
+	// Function to clear the hide timeout
+	function clearHideTimeout() {
+		if (hideDropdownTimeout) {
+			clearTimeout(hideDropdownTimeout);
+			hideDropdownTimeout = null;
+		}
+	}
+
+	// Check if the locationSelect element exists
 	if (locationSelect) {
-		// Attempt to find the toggle link element which is expected to be directly before the 'location-select' element
 		var toggleLink = locationSelect.previousElementSibling;
 
-		// Check if the toggleLink element is found
 		if (toggleLink && toggleLink.tagName === 'A') {
-			// Add click event listener to the toggle link
 			toggleLink.addEventListener('click', function (event) {
-				event.preventDefault(); // Prevent the default action (navigation) on click
-				locationSelect.classList.toggle('show'); // Toggle the 'show' class to display or hide the dropdown
+				event.preventDefault();
+				clearHideTimeout();
+				locationSelect.classList.toggle('show');
+			});
+
+			// Add mouseout event listener to the dropdown
+			locationSelect.addEventListener('mouseout', function () {
+				hideDropdown();
+			});
+
+			// Add mouseover event listener to cancel the hide on hover
+			locationSelect.addEventListener('mouseover', function () {
+				clearHideTimeout();
 			});
 		} else {
-			// Log an error or handle cases where the toggle link is not found or not an anchor tag
 			console.error('Toggle link for dropdown not found or not an anchor tag.');
 		}
+
+		// Event listener to detect clicks outside the dropdown
+		document.addEventListener('click', function (event) {
+			if (!locationSelect.contains(event.target) && !toggleLink.contains(event.target)) {
+				hideDropdown();
+			}
+		});
 	} else {
-		// Log an error or handle the case where 'location-select' element does not exist
 		console.error("Element with ID 'location-select' not found.");
 	}
 });

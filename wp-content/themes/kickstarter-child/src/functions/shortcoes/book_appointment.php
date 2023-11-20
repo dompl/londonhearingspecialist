@@ -1,0 +1,15 @@
+<?php
+
+add_shortcode( 'book_appointment', 'london_book_appointment_shortcode' );
+
+function london_book_appointment_shortcode( $atts ) {
+
+    $title = isset( $atts['title'] ) ? $atts['title'] : 'Book <span class="nne">Appointment</span>';
+    $color = isset( $atts['color'] ) ? $atts['color'] : 'green';
+
+    $themeData = \Kickstarter\MyHelpers::getThemeData();
+
+    if ( $themeData['ks_book_url'] ) {
+        return '<a href="' . esc_url( $themeData['ks_book_url'] ) . '" title="Book Appointment with London Hearing Specialists" class="button ' . $color . ' clx book-appointment has-icon">' . $title . '</a>';
+    }
+}

@@ -1,0 +1,36 @@
+@use "../styles/variables" as var;
+@use "../styles/icons" as ico;
+@use "abstracts" as *;
+
+.button {
+	background-color: var.$color-blue;
+	color: white;
+	border-radius: 2px;
+	line-height: 1;
+	outline: none;
+	display: inline-block;
+	@include font-size(14, 18);
+	text-transform: uppercase;
+	font-weight: var.$font-weight-semi-bold;
+	padding: rem(10) rem(20);
+	&:hover {
+		transform: scale(1.05);
+		color: white;
+	}
+	&.has-icon {
+		position: relative;
+		padding-right: rem(40);
+	}
+	&.book-appointment {
+		@include ico.icon("plus-solid") {
+			position: absolute;
+			right: rem(10);
+		}
+	}
+	&.green {
+		background-color: var.$color-green;
+		&:hover {
+			background-color: darken(var.$color-green, 10%);
+		}
+	}
+}
