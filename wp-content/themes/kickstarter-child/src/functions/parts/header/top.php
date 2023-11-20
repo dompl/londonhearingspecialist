@@ -57,7 +57,7 @@ function london_top_left_callback( $html ) {
         error_log( 'Email address is missing on theme settings' );
     }
 
-    $html .= \London\Helpers::GoogleRating();
+    //  $html .= \London\Helpers::GoogleRating();
 
     return $html;
 }

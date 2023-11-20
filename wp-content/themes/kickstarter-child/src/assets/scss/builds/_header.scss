@@ -1,3 +1,44 @@
+@use "../styles/variables" as var;
+@use "abstracts" as *;
+#top-wrapper {
+	background-color: var.$color-blue-dark;
+	color: var.$color-white;
+	svg {
+		fill: var.$color-stars;
+	}
+	a {
+		color: var.$color-white;
+	}
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	@include to(sm) {
+		.container {
+			padding-top: rem(10);
+			padding-bottom: rem(10);
+			flex-direction: row-reverse;
+		}
+		.left {
+			display: flex;
+			justify-content: space-between;
+			gap: 2rem;
+		}
+		.item {
+			&.email,
+			&.phone {
+				i {
+					font-size: 1.4rem;
+				}
+				span {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
 #location-select {
 	display: none; /* Initially hide the dropdown */
 	list-style-type: none; /* Remove default list styling */
