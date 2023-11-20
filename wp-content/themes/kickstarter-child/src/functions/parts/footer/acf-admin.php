@@ -1,11 +1,9 @@
 <?php
 // Importing necessary classes from the Extended ACF Fields namespace
-use Extended\ACF\ConditionalLogic;
 use Extended\ACF\Fields\Accordion;
 use Extended\ACF\Fields\Group;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Layout;
-use Extended\ACF\Fields\Number;
 use Extended\ACF\Fields\PageLink;
 use Extended\ACF\Fields\Text;
 use Extended\ACF\Fields\Textarea;
@@ -47,6 +45,7 @@ function ks_admin_theme_options_footer_settings_acf_navigation( $fields ) {
             ] )
             ->layout( 'row' );
     }
+    $fields[] = Accordion::make( 'Endpoint', wp_unique_id() )->instructions( 'Endpoint' )->endpoint();
 
     return $fields;
 }
@@ -78,22 +77,5 @@ function ks_admin_theme_options_footer_settings_acf_general( $fields ) {
         ->defaultValue( $message )
         ->rows( 3 )
         ->required();
-
-    // Adding a group field for an additional logo
-    $fields[] = Group::make( 'Additional Logo', 'footer_logo_addon' )
-        ->instructions( 'Additional logos in the footer' )
-        ->fields( [
-            Image::make( 'Image', 'image' )
-                ->instructions( 'Add additional footer image' )
-                ->returnFormat( 'id' )
-                ->previewSize( 'medium' ),
-            Number::make( 'Image Width', 'width' )
-                ->instructions( 'Set additional image width' )
-                ->min( 1 )
-                ->max( 500 )
-                ->required()->conditionalLogic( [ConditionalLogic::where( 'image', '!=', 'document' )] )
-        ] )
-        ->layout( 'row' );
-
     return $fields;
 }

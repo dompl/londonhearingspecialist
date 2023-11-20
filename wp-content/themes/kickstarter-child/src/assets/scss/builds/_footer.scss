@@ -1,0 +1,121 @@
+@use "../styles/variables" as var;
+@use "../styles/icons" as ico;
+@use "abstracts" as *;
+#london-footer {
+	background-color: var.$color-blue-dark;
+	color: white;
+	padding: 2rem 0;
+	a {
+		color: white;
+	}
+	.cards {
+		display: flex;
+		flex-direction: row;
+		gap: rem(20);
+	}
+	.card {
+		svg {
+			height: 30px;
+			width: auto;
+		}
+	}
+	.footer-navigation {
+		ul {
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			gap: rem(10);
+			a {
+				font-weight: var.$font-weight-bold;
+				@include font-size(16, 18);
+			}
+		}
+	}
+	@include to(xs) {
+		.about {
+			display: flex;
+			text-align: center;
+			justify-content: center;
+			flex-direction: column;
+			gap: 1rem;
+			@include font-size(12, 14);
+		}
+		.cards {
+			justify-content: center;
+			text-align: center;
+		}
+		.container,
+		.container-top,
+		.footer-navigation {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+		h3 {
+			line-height: 1;
+			margin-bottom: rem(10);
+			padding-bottom: 0;
+			@include font-size(20, 24);
+		}
+
+		.item {
+			.top,
+			.bottom {
+				margin-bottom: -2rem;
+			}
+			.nav-container {
+				margin-bottom: 2rem;
+			}
+		}
+		.container-bottom {
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			justify-content: center;
+			gap: 0.2rem;
+			margin-bottom: -1rem;
+			border-top: lighten(var.$color-blue-dark, 5%) 1px solid;
+			padding-top: 1rem;
+			@include font-size(12, 14);
+		}
+	}
+	@include from(sm) {
+		.about {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+		.container-top,
+		.footer-navigation {
+			display: flex;
+			flex-direction: column;
+			gap: 3rem;
+		}
+		.bottom {
+			display: flex;
+			flex-direction: row;
+			gap: 3rem;
+			justify-content: space-between;
+		}
+		.container-bottom {
+			border-top: desaturate(lighten(var.$color-blue-dark, 5%), 40%) 1px solid;
+			margin-top: 1rem;
+			padding-top: 1rem;
+			display: flex;
+			justify-content: space-between;
+			flex-direction: row;
+			gap: 1rem;
+		}
+	}
+	@include from(md) {
+		.container-top {
+			flex-direction: row;
+			.about {
+				width: rem(360);
+			}
+			.footer-navigation {
+				flex: 1;
+			}
+		}
+	}
+}
