@@ -20,4 +20,13 @@ class Helpers {
 
     }
 
+    public static function IconButton( $link, $icon, $color ) {
+        if (  !  $icon || empty( $link['url'] ) ) {
+            return;
+        }
+        $title = $link['title'] ?? 'Discover More';
+
+        return '<a href="' . esc_url( $link['url'] ) . '" title="' . $link['title'] . '" class="button ' . $color . ' clx icon-button"><span class="link-title">' . $link['title'] . '</span><i class="icon-' . $icon . '"></i></a>';
+    }
+
 }

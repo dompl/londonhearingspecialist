@@ -25,7 +25,7 @@ add_action( 'acf/init', function () {
 add_filter( 'london_clinic_services_fields', function ( $fields ) {
 
     $fields[] = Tab::make( 'Images', wp_unique_id() )->placement( 'left' );
-    $fields[] = Image::make( 'Service icon', 'service_icon' )->instructions( 'Add service icon' )->returnFormat( 'id' )->previewSize( 'medium' )->required();
+    $fields[] = Image::make( 'Service icon', 'service_icon' )->instructions( 'Add service icon. Allowed mime type : SVG' )->returnFormat( 'url' )->previewSize( 'medium' )->required()->mimeTypes( ['svg'] );
     $fields[] = Image::make( 'Service image', 'service_image' )->instructions( 'Add service image' )->returnFormat( 'id' )->previewSize( 'medium' )->required();
     $fields[] = Tab::make( 'Content', wp_unique_id() )->placement( 'left' );
     $fields[] = Text::make( 'Service title', 'service_title' )->instructions( 'Add service title. Leave variable <strong>%title%</strong> to inherit service post title' )->required()->defaultValue( '%title%' );
@@ -33,4 +33,5 @@ add_filter( 'london_clinic_services_fields', function ( $fields ) {
     $fields[] = Link::make( 'Service link', 'service_link' )->instructions( 'Add custom service link. Leave blank to link the service page' )->returnFormat( 'array' );
 
     return $fields;
+
 } );

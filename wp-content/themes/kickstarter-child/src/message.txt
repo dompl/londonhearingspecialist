@@ -1,2 +1,3 @@
-Added HTML for the main heading section
+Added Services HTML output
 Added Services custom post type
+Added HTML for the main heading section

@@ -18,25 +18,31 @@ class Acf {
         add_filter( 'acf/fields/wysiwyg/toolbars', [$this, 'HeaderAcfFieldsWysiwyg'] ); // Customize ACF WYSIWYG toolbars
     }
 
-    public static function ButtonAcfFields() {
+    public static function ButtonAcfFields( $prefix = '', $tab = false ) {
 
         $button = [];
         $fields = [];
+        $colors = ks_theme_custom_colors_array();
+        if ( $tab == true ) {
+            $button[] = Tab::make( 'Buttons', wp_unique_id( $prefix ) )->placement( 'left' );
+        }
+        $button[] = Checkbox::make( 'Predefined buttons', "{$prefix}predefined" )->instructions( 'Select one of the predefined call for action buttons' )->choices( apply_filters( 'london_predefined_buttons', ['book' => 'Book Appointment'] ) )->layout( 'horizontal' );
 
-        $button[] = Checkbox::make( 'Predefined buttons', 'predefined' )->instructions( 'Select one of the predefined call for action buttons' )->choices( apply_filters( 'london_predefined_buttons', ['book' => 'Book Appointment'] ) )->layout( 'horizontal' );
-        $fields[] = Link::make( 'Link', 'link' )->instructions( 'Add button link' )->required();
-        $fields[] = Select::make( 'Button colour', 'color' )->instructions( 'Select button colour' )->choices( ks_theme_custom_colors_array() )->allowNull()->stylisedUi()->required();
-        $button[] = Repeater::make( 'Custom buttons', 'buttons' )->instructions( 'Add custom call for action buttons' )->fields( $fields )->collapsed( 'link' )->buttonLabel( 'Add button' )->layout( 'table' );
+        $fields[] = Link::make( 'Link', "link" )->instructions( 'Add button link' )->required();
+        if (  !  empty( $colors ) ) {
+            $fields[] = Select::make( 'Button colour', "color" )->instructions( 'Select button colour' )->choices( $colors )->allowNull()->stylisedUi();
+        }
+        $button[] = Repeater::make( 'Custom buttons', "{$prefix}buttons" )->instructions( 'Add custom call for action buttons' )->fields( $fields )->collapsed( 'link' )->buttonLabel( 'Add button' )->layout( 'table' );
 
         return $button;
 
     }
 
-    public static function ButtonAcfHtml( $data ) {
+    public static function ButtonAcfHtml( $data, $prefix = '' ) {
 
         $html       = '';
-        $buttons    = get_component( 'buttons', $data );
-        $predefined = get_component( 'predefined', $data );
+        $buttons    = get_component( $prefix . 'buttons', $data );
+        $predefined = get_component( $prefix . 'predefined', $data );
 
         if ( $buttons ) {
 
@@ -51,7 +57,7 @@ class Acf {
             for ( $i = 0; $i < $buttons; $i++ ) {
 
                 $button         = [];
-                $button['link'] = get_component( "buttons_{$i}_link", $data );
+                $button['link'] = get_component( $prefix . "buttons_{$i}_link", $data );
 
                 if ( empty( $button['link'] ) ) {
                     continue;
