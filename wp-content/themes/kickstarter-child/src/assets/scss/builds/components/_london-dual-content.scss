@@ -1,0 +1,35 @@
+@use "../../styles/variables" as var;
+@use "../../styles/icons" as ico;
+@use "abstracts" as *;
+
+.london-dual-content {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	.pos-right {
+		min-height: rem(500);
+		background-size: cover;
+		background-position: center center;
+		flex: 1;
+		border-radius: rem(5);
+	}
+	.pos-left {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+	@include from(lg) {
+		display: flex;
+		flex-direction: row;
+		gap: 3rem;
+		.pos-left {
+			width: 60%;
+			padding: 3rem 0;
+		}
+		.pos-right {
+			flex: 1;
+			border-radius: 0;
+			// min-height: auto;
+		}
+	}
+}

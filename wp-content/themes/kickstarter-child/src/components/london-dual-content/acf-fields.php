@@ -8,7 +8,7 @@ use Extended\ACF\Fields\WysiwygEditor;
 $fields   = [];
 $fields   = array_merge( $fields, \London\Acf::HeaderAcfFields() );
 $fields[] = Tab::make( 'Main Content', wp_unique_id() )->placement( 'left' );
-$fields[] = WysiwygEditor::make( 'Main content', 'content' )->instructions( 'Add main content' )->mediaUpload( false )->tabs( 'all' )->toolbar( 'default_toolbar' )->required();
+$fields[] = WysiwygEditor::make( 'Main content', 'content' )->instructions( 'Add main content' )->mediaUpload( false )->tabs( 'all' )->toolbar( 'default_toolbar' );
 $fields[] = Tab::make( 'Image', wp_unique_id() )->placement( 'left' );
 $fields[] = Select::make( 'Image position', 'position' )->instructions( 'Set position for the image' )->choices( ['left' => 'Image on the left', 'right' => 'Image on the right'] )->defaultValue( 'right' )->stylisedUi()->required();
 $fields[] = Group::make( 'Image', 'image' )->instructions( 'Set dual content column image' )->fields( [

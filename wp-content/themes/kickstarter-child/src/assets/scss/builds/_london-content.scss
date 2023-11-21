@@ -9,8 +9,11 @@
 		@include from(md) {
 			line-height: 2;
 		}
+		+ .checks {
+			padding-top: 0;
+		}
 		&:last-child {
-			margin-bottom: 0;
+			margin-bottom: 0 !important;
 		}
 	}
 	ul {
@@ -20,6 +23,7 @@
 			gap: 1rem;
 			flex-direction: column;
 			padding-top: 1rem;
+			padding-bottom: 1rem;
 			li {
 				display: flex;
 				font-weight: bold;
@@ -33,6 +37,7 @@
 			@include from(md) {
 				flex-direction: row;
 				flex-wrap: wrap;
+				gap: 2rem;
 				li {
 					width: 48%;
 				}

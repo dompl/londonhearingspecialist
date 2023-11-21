@@ -11,9 +11,11 @@ function wp_1700569337_london( $html, $data ) {
     $position = get_component( 'position', $data );
 
     $right = '';
-    $left  = Acf::HeaderAcfHtml( $data );
+    $left  = '<div class="pos-left">';
+    $left .= Acf::HeaderAcfHtml( $data );
     $left .= $content ? '<div class="london-content">' . wpautop( $content ) . '</div>' : '';
     $left .= Acf::ButtonAcfHtml( $data, 's' );
+    $left .= '</div>';
 
     if ( $image ) {
 
@@ -28,14 +30,14 @@ function wp_1700569337_london( $html, $data ) {
 				only screen and (        min-device-pixel-ratio: 2),
 				only screen and (                min-resolution: 192dpi),
 				only screen and (                min-resolution: 2dppx) {
-					background-image: url(" . MyHelpers::WPImage( id: $image, size: [300, $height], retina: true ) . ");
+					background-image: url(" . MyHelpers::WPImage( id: $image, size: [520, $height], retina: true ) . ")!important;
 				}
 
 			}";
 
         MyHelpers::AddCustomCss( $css );
 
-        $right = '<div id="' . $id . '"></div>';
+        $right = '<div id="' . $id . '" class="pos-right" style="background-image:url(' . MyHelpers::WPImage( id: $image, size: [520, $height], retina: false ) . ')"></div>';
 
     }
 

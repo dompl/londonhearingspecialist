@@ -21,9 +21,9 @@ function wp_1700562050_london( $html, $data ) {
 
         foreach ( $selected_services as $post_id => $service ) {
 
-            $image_size = [380, 300];
-            $css        = '.london-service-' . $post_id . ' {';
-            $css .= 'background-image: url(' . MyHelpers::WPImage( id: (int) $service['image'], size: $image_size, q: 80, webp_quality: 80, retina: false ) . ');';
+            $image_size = [426, 350];
+
+            $css = '.london-service-' . $post_id . ' {';
             $css .= '@media';
             $css .= 'only screen and (-webkit-min-device-pixel-ratio: 2),';
             $css .= 'only screen and (   min--moz-device-pixel-ratio: 2),';
@@ -31,7 +31,7 @@ function wp_1700562050_london( $html, $data ) {
             $css .= 'only screen and (        min-device-pixel-ratio: 2),';
             $css .= 'only screen and (                min-resolution: 192dpi),';
             $css .= 'only screen and (                min-resolution: 2dppx) { ';
-            $css .= 'background-image: url(' . MyHelpers::WPImage( id: (int) $service['image'], size: $image_size, q: 80, webp_quality: 80, retina: true ) . ');';
+            $css .= 'background-image: url(' . MyHelpers::WPImage( id: (int) $service['image'], size: $image_size, q: 80, webp_quality: 80, retina: true ) . ')!important;';
             $css .= '}';
             $css .= '}';
 
@@ -50,13 +50,14 @@ function wp_1700562050_london( $html, $data ) {
 
             $link =  !  empty( $service['link'] ) ? $service['link'] : $link;
 
-            $html .= '<div class="item london-service-' . $post_id . '">';
+            $html .= '<div class="item london-service-' . $post_id . '" style="background-image:url(' . MyHelpers::WPImage( id: (int) $service['image'], size: $image_size, q: 80, webp_quality: 80, retina: false ) . ')">';
 
-            $html .= $service['icon'] ? MyHelpers::Link(
-                link : $link,
-                content: '<img src="' . wp_get_attachment_url( $service['icon'] ) . '" alt="' . $service['title'] . '">',
-                wrapper: 'icon',
-                schema: true ): '';
+            $path = get_attached_file( $service['icon'] );
+
+            if ( is_file( $path ) && is_readable( $path ) ) {
+                $file = file_get_contents( $path );
+                $html .= $service['icon'] ? MyHelpers::Link( link : $link, content: $file, wrapper: 'icon', schema: true ): '';
+            }
 
             $html .= '<div class="content">';
             $html .=  !  empty( $service['title'] ) ? '<div class="title">' . MyHelpers::Link( link : $link, content: '<h2>' . $service['title'] . '</h2>', schema: true ) . '</div>':'';

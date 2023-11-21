@@ -44,7 +44,7 @@ class Acf {
         $buttons    = get_component( $prefix . 'buttons', $data );
         $predefined = get_component( $prefix . 'predefined', $data );
 
-        if ( $buttons ) {
+        if ( $buttons || !  empty( $predefined ) ) {
 
             $html .= '<div class="buttons-wrapper">';
 
@@ -96,6 +96,7 @@ class Acf {
 
         // Retrieve custom color options for the theme
         $colors = ks_theme_custom_colors_array();
+
         if (  !  empty( $colors ) ) {
             // Create a group field for batch text and background color
             $fields[] = Group::make( 'Batch', 'batch' )
@@ -152,7 +153,7 @@ class Acf {
 
         if (  !  empty( $batch ) ) {
             $batch_color = $batch_color ?? 'brand';
-            $html .= '<div class="batch"><span class="button small bcg-' . $batch_color . '">' . $batch . '</span></div>';
+            $html .= '<div class="batch-wrapper"><span class="button batch ' . $batch_color . '">' . $batch . '</span></div>';
         }
 
         if (  !  empty( $title ) ) {

@@ -5,19 +5,24 @@
 .button {
 	background-color: var.$color-blue;
 	color: white;
-	border-radius: 2px;
+	border-radius: 4px;
 	line-height: 1;
 	outline: none;
 	display: inline-block;
-	@include font-size(14, 18);
+	font-size: rem(16);
+
+	@include from(md) {
+		font-size: rem(20);
+	}
 	text-transform: uppercase;
 	font-weight: var.$font-weight-bold;
-	padding: rem(10) rem(20);
+	padding: rem(15) rem(30);
 	&:hover {
 		transform: scale(1.05);
 		color: white;
 	}
-	&.small {
+	&.small,
+	&.batch {
 		@include font-size(12, 14);
 		padding: rem(8) rem(15);
 		&:hover {
@@ -35,10 +40,38 @@
 			right: rem(10);
 		}
 	}
-	&.green {
-		background-color: var.$color-green;
+
+	&.transparent {
+		background-color: transparent !important;
+		padding: 0;
 		&:hover {
-			background-color: darken(var.$color-green, 10%);
+			transform: none;
+		}
+		&.icon-button {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			i {
+				margin-top: 2px;
+				margin-bottom: -1px;
+			}
 		}
 	}
+
+	@each $name, $color in var.$color-array {
+		&.#{$name} {
+			background-color: $color;
+			&:hover {
+				&:not(.batch) {
+					background-color: darken($color, 10%);
+				}
+			}
+		}
+	}
+}
+.buttons-wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1rem;
 }

@@ -6,6 +6,13 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1.5vh;
+	&.center {
+		align-items: center;
+		text-align: center;
+		.description {
+			text-align: center;
+		}
+	}
 	.title {
 		@include font-size(22, 32, 1.3);
 		h1,

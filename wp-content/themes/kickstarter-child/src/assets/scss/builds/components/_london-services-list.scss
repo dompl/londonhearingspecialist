@@ -1,0 +1,95 @@
+@use "../../styles/variables" as var;
+@use "../../styles/icons" as ico;
+@use "abstracts" as *;
+
+.london-services-list {
+	display: flex;
+	gap: 2rem;
+	flex-direction: column;
+	@include from(md) {
+		gap: 4rem;
+	}
+	.items {
+		display: flex;
+		flex-direction: row;
+		gap: rem(50);
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	.item {
+		width: rem(433);
+		height: rem(320);
+		background-position: center center;
+		background-size: cover;
+		border-radius: rem(5);
+		padding: 2rem;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		box-shadow: 0px 0px 20px 0px rgba(116, 116, 116, 0.11);
+		transition: all, 300ms;
+		&:after {
+			content: "";
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			display: block;
+			background-color: white;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			border-radius: rem(5);
+			transition: all, 300ms;
+		}
+		.icon {
+			position: relative;
+			z-index: 3;
+		}
+		.title {
+			a {
+				color: var.$color-text;
+			}
+		}
+		.content {
+			margin-top: auto;
+			z-index: 2;
+			height: rem(158);
+			display: flex;
+			flex-direction: column;
+			.button {
+				color: var.$color-blue-dark;
+				@include font-size(14, 18);
+				margin-top: auto;
+			}
+		}
+		h2,
+		h3,
+		h4 {
+			margin: 0 0 rem(10) 0;
+		}
+		&:hover {
+			color: white;
+			a {
+				color: white;
+			}
+			.button {
+				color: white !important;
+			}
+			svg {
+				path {
+					fill: white !important;
+				}
+			}
+			&:after {
+				background-color: rgba(var.$color-blue, 80%);
+			}
+		}
+	}
+	.buttons-wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

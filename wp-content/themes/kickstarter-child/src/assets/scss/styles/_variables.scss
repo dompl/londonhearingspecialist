@@ -25,7 +25,7 @@ $color-green: #6c9a32;
 $color-blue-dark: #004679;
 $color-blue: #3889cd;
 $color-gray-lighter: #e0e0e0;
-$color-gray-lightest: #f8f8f8;
+$color-gray-lightest: #f4f6f9;
 $color-gray-light: #f6f6f6;
 $color-body-background: #ffffff;
 $color-link: #62a2a6;
@@ -36,4 +36,24 @@ $color-error: #b72c2c;
 $color-success: #6c9a32;
 $color-link-hover: #03212b;
 
-$color-array: "text", "gold", "gold-dark", "green", "blue-dark", "blue", "gray-lighter", "gray-lightest", "gray-light", "body-background", "link", "brand", "black", "white";
+$color-array: (
+	"text": $color-text,
+	"gold": $color-gold,
+	"gold-dark": $color-gold-dark,
+	"green": $color-green,
+	"blue-dark": $color-blue-dark,
+	"blue": $color-blue,
+	"gray-lighter": $color-gray-lighter,
+	"gray-lightest": $color-gray-lightest,
+	"gray-light": $color-gray-light,
+	"gray-brand": $color-brand,
+);
+
+@each $name, $color in $color-array {
+	.color-#{$name} {
+		color: $color;
+	}
+	.bcg-#{$name} {
+		background-color: $color;
+	}
+}
