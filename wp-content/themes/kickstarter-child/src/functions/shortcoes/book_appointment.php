@@ -6,10 +6,11 @@ function london_book_appointment_shortcode( $atts ) {
 
     $title = isset( $atts['title'] ) ? $atts['title'] : 'Book <span class="nne">Appointment</span>';
     $color = isset( $atts['color'] ) ? $atts['color'] : 'green';
+    $small = isset( $atts['small'] ) ? ' small' : false;
 
     $themeData = \Kickstarter\MyHelpers::getThemeData();
 
     if ( $themeData['ks_book_url'] ) {
-        return '<a href="' . esc_url( $themeData['ks_book_url'] ) . '" title="Book Appointment with London Hearing Specialists" class="button ' . $color . ' clx book-appointment has-icon">' . $title . '</a>';
+        return '<a href="' . esc_url( $themeData['ks_book_url'] ) . '" title="Book Appointment with London Hearing Specialists" class="button ' . $color . ' clx book-appointment has-icon' . $small . '">' . $title . '</a>';
     }
 }

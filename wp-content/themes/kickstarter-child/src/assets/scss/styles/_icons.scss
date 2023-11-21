@@ -42,17 +42,20 @@
 		@if $filename == envelope-regular {
 		  $char: "\E005";
 		}
-		@if $filename == phone-regular {
+		@if $filename == location-dot-light {
 		  $char: "\E006";
 		}
-		@if $filename == plus-solid {
+		@if $filename == phone-regular {
 		  $char: "\E007";
 		}
-		@if $filename == star-of-life-solid {
+		@if $filename == plus-solid {
 		  $char: "\E008";
 		}
-		@if $filename == xmark-sharp-light {
+		@if $filename == star-of-life-solid {
 		  $char: "\E009";
+		}
+		@if $filename == xmark-sharp-light {
+		  $char: "\E00A";
 		}
 
 	  @return $char;
@@ -84,6 +87,9 @@
 	}
 	.icon-envelope-regular {
 	  @include icon(envelope-regular);
+	}
+	.icon-location-dot-light {
+	  @include icon(location-dot-light);
 	}
 	.icon-phone-regular {
 	  @include icon(phone-regular);

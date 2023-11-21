@@ -102,11 +102,9 @@ class Acf {
                 ->instructions( 'Add custom heading batch' )
                 ->fields( [
                     Text::make( 'Batch text', 'text' )
-                        ->instructions( 'Add custom batch text' )
-                        ->required(),
+                        ->instructions( 'Add custom batch text' ),
                     Select::make( 'Background colour', 'color' )
                         ->instructions( 'Add custom batch colour' )
-                        ->required()
                         ->choices( $colors )
                         ->allowNull()
                         ->stylisedUi()
@@ -118,10 +116,9 @@ class Acf {
         $fields[] = Group::make( 'Heading text', 'text' )
             ->instructions( 'Add heading text' )
             ->fields( [
-                Textarea::make( 'Main Text', 'text' )->newLines( 'br' )->instructions( 'Main heading text' )->rows( 2 )->required(),
+                Textarea::make( 'Main Text', 'text' )->newLines( 'br' )->instructions( 'Main heading text' )->rows( 2 ),
                 Select::make( 'Heading Tag', 'tag' )
                     ->instructions( 'Select tag for your heading' )
-                    ->required()
                     ->choices( ['h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div'] )
                     ->stylisedUi()
             ] )
