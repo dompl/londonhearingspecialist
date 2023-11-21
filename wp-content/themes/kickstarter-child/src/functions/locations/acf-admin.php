@@ -6,6 +6,11 @@ use Extended\ACF\Fields\Textarea;
 use Extended\ACF\Fields\Url;
 use Extended\ACF\Location;
 
+add_filter( '_ks_acf_layout_locations', function ( $locations ) {
+    $locations[] = 'clinic_locations';
+    return $locations;
+} );
+
 add_action( 'acf/init', function () {
     register_extended_field_group( [
         'title'    => 'Clinic Locations details',
