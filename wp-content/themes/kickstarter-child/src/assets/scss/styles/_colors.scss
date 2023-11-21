@@ -1,13 +1,36 @@
-$colors: ("brand", "text", "gray-light", "gray-lighter", "gray-lightest", "white", "black");
+@use "variables" as var;
+
+// Function to return color value by name
+// Function to return color value by name
+@function color-value($color-name) {
+	@if global-variable-exists($color-name) {
+		@return global-variable-value($color-name);
+	} @else {
+		@return null;
+	}
+}
+// Mixin to generate color classes
 @mixin generate-color-classes($colorList) {
 	@each $name in $colorList {
 		.color-#{$name} {
-			color: var(--color-#{$name});
+			color: color-value("color-" + $name);
 		}
-		.bg-#{$name} {
-			background-color: var(--color-#{$name});
+		.bcg-#{$name} {
+			background-color: color-value("color-" + $name);
 		}
 	}
 }
 
-@include generate-color-classes($colors);
+// Mixin to generate color classes
+@mixin generate-color-classes($colorList) {
+	@each $name in $colorList {
+		.color-#{$name} {
+			color: color-value("color-" + $name);
+		}
+		.bcg-#{$name} {
+			background-color: color-value("color-" + $name);
+		}
+	}
+}
+
+@include generate-color-classes(var.$color-array);

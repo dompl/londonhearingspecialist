@@ -39,23 +39,29 @@
 		@if $filename == caret-down-solid {
 		  $char: "\E004";
 		}
-		@if $filename == envelope-regular {
+		@if $filename == check-duotone {
 		  $char: "\E005";
 		}
-		@if $filename == location-dot-light {
+		@if $filename == check-solid {
 		  $char: "\E006";
 		}
-		@if $filename == phone-regular {
+		@if $filename == envelope-regular {
 		  $char: "\E007";
 		}
-		@if $filename == plus-solid {
+		@if $filename == location-dot-light {
 		  $char: "\E008";
 		}
-		@if $filename == star-of-life-solid {
+		@if $filename == phone-regular {
 		  $char: "\E009";
 		}
-		@if $filename == xmark-sharp-light {
+		@if $filename == plus-solid {
 		  $char: "\E00A";
+		}
+		@if $filename == star-of-life-solid {
+		  $char: "\E00B";
+		}
+		@if $filename == xmark-sharp-light {
+		  $char: "\E00C";
 		}
 
 	  @return $char;
@@ -84,6 +90,12 @@
 	}
 	.icon-caret-down-solid {
 	  @include icon(caret-down-solid);
+	}
+	.icon-check-duotone {
+	  @include icon(check-duotone);
+	}
+	.icon-check-solid {
+	  @include icon(check-solid);
 	}
 	.icon-envelope-regular {
 	  @include icon(envelope-regular);

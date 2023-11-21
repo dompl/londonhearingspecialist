@@ -11,11 +11,19 @@
 	display: inline-block;
 	@include font-size(14, 18);
 	text-transform: uppercase;
-	font-weight: var.$font-weight-semi-bold;
+	font-weight: var.$font-weight-bold;
 	padding: rem(10) rem(20);
 	&:hover {
 		transform: scale(1.05);
 		color: white;
+	}
+	&.small {
+		@include font-size(12, 14);
+		padding: rem(8) rem(15);
+		&:hover {
+			transform: none;
+			color: white;
+		}
 	}
 	&.has-icon {
 		position: relative;

@@ -1,0 +1,42 @@
+@use "../styles/variables" as var;
+@use "../styles/icons" as ico;
+@use "abstracts" as *;
+.london-content {
+	@include font-size(14, 16);
+	p {
+		margin-bottom: 1rem;
+		line-height: 1.5;
+		@include from(md) {
+			line-height: 2;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	ul {
+		&.checks {
+			list-style: none;
+			display: flex;
+			gap: 1rem;
+			flex-direction: column;
+			padding-top: 1rem;
+			li {
+				display: flex;
+				font-weight: bold;
+				@include ico.icon("check-duotone") {
+					margin-top: rem(1);
+					margin-bottom: rem(-1);
+					margin-right: rem(10);
+					color: var.$color-green;
+				}
+			}
+			@include from(md) {
+				flex-direction: row;
+				flex-wrap: wrap;
+				li {
+					width: 48%;
+				}
+			}
+		}
+	}
+}

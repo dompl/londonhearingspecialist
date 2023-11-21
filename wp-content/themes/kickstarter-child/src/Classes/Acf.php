@@ -145,14 +145,14 @@ class Acf {
         $title       = get_component( 'text', $data, 'text' );
         $tag         = get_component( 'text', $data, 'tag' );
         $batch       = get_component( 'batch', $data, 'text' );
-        $batch_color = get_component( 'color', $data, 'batch' );
+        $batch_color = get_component( 'batch', $data, 'color' );
         $description = get_component( 'description', $data );
 
         $html .= '<div class="london-heading ' . $style . '">';
 
         if (  !  empty( $batch ) ) {
             $batch_color = $batch_color ?? 'brand';
-            $html .= '<div class="batch"><span class="button small ' . $batch_color . '">' . $batch . '</span></div>';
+            $html .= '<div class="batch"><span class="button small bcg-' . $batch_color . '">' . $batch . '</span></div>';
         }
 
         if (  !  empty( $title ) ) {
