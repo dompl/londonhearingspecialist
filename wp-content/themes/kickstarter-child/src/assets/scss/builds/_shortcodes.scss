@@ -1,0 +1,11 @@
+@use "../styles/variables" as var;
+@use "../styles/icons" as ico;
+@use "abstracts" as *;
+
+// [accreditation]
+.accreditation {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 2rem;
+}

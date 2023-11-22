@@ -1,6 +1,6 @@
 @use "sass:math";
 @mixin default-row-gap() {
-	row-gap: clamp(1rem, 3vw, 2rem);
+	row-gap: clamp(3vh, 3vw, 5vh);
 }
 @mixin default-column-gap() {
 	column-gap: clamp(2rem, 3vw, 4rem);

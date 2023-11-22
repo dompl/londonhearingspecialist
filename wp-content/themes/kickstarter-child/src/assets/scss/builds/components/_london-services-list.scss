@@ -4,11 +4,8 @@
 
 .london-services-list {
 	display: flex;
-	gap: 2rem;
 	flex-direction: column;
-	@include from(md) {
-		gap: 4rem;
-	}
+	@include default-row-gap();
 	.items {
 		display: flex;
 		flex-direction: row;

@@ -3,6 +3,9 @@
 @use "abstracts" as *;
 
 .london-locations-list {
+	display: flex;
+	flex-direction: column;
+	@include default-row-gap();
 	.items {
 		display: flex;
 		row-gap: 2rem;
