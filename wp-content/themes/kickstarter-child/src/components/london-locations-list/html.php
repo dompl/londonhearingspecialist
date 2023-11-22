@@ -30,13 +30,16 @@ function wp_1700565756_london( $html, $data ) {
 
             $html .= '<div class="item">';
             $link['title'] = 'Visit London Hearing Specialist at ' . $location['title'] . ' clinic';
-            $html .= $location['image'] ? MyHelpers::PictureSource( image : $location['image'], size: [280, 210], custom_container: 'image', min: [280, 210], alt: $link['title'] ): '';
+            $html .= $location['image'] ? MyHelpers::PictureSource( image : $location['image'], size: [290, 210], custom_container: 'image', min: [290, 210], alt: $link['title'] ): '';
+            $html .= '<div class="content">';
             $html .= MyHelpers::Link( link: $link, content: '<i class="icon-location-dot-light"></i><span class="text">' . $location['title'] . '</span>', wrapper: 'title', schema: true );
             $html .= $location['address'] ? '<address>' . nl2br( $location['address'] ) . '</address>' : '';
 
             $html .= '<div class="buttons-wrapper center">';
             $html .= do_shortcode( '[book_appointment title="Book Today" small=true]' );
             $html .= $location['map'] ? '<a href="' . esc_url( $location['map'] ) . '" target="_blank" class="button outlined small white" itemprop="url" title="Find London Hearing Specialist in ' . $location['title'] . ' on Google Map">Find on Map</a>' : '';
+
+            $html .= '</div>';
             $html .= '</div>';
             $html .= '</div>';
 
