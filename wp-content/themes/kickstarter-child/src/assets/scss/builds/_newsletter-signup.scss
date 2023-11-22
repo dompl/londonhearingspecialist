@@ -1,0 +1,118 @@
+@use "../styles/variables" as var;
+@use "../styles/icons" as ico;
+@use "abstracts" as *;
+$input-height: rem(40);
+#london-newsletter {
+	position: relative;
+	color: white;
+	margin-bottom: -1px;
+	&:after {
+		top: 50%;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background-color: var.$color-blue-dark;
+		display: block;
+		content: "";
+		position: absolute;
+	}
+	.container {
+		background-color: var.$color-blue;
+		position: relative;
+		z-index: 2;
+		border-radius: rem(10);
+	}
+	.inner {
+		padding: rem(20);
+		&.message {
+			text-align: center;
+			@include font-size(20, 26);
+			font-weight: var.$font-weight-bold;
+			justify-content: center;
+			&.error {
+				color: var.$color-error;
+			}
+		}
+	}
+	.button {
+		position: relative;
+		padding: 0 1rem;
+		height: $input-height;
+	}
+	input[type="email"] {
+		all: unset;
+		height: $input-height;
+		background-color: rgba(white, 0.8);
+		border-radius: rem(4);
+		padding: 0 rem(10);
+		line-height: 1;
+		color: var.$color-text;
+	}
+	#nl-loader {
+		@include scut-center-transform(y);
+		right: rem(6);
+		margin-top: rem(1);
+		svg {
+			width: rem(20);
+		}
+	}
+	.title {
+		@include font-size(24, 26);
+		font-weight: var.$font-weight-bold;
+	}
+	.wrapper {
+		display: flex;
+		gap: 1rem;
+	}
+	@include to(md) {
+		#london-form-content {
+			text-align: center;
+			margin-bottom: 1rem;
+		}
+		.wrapper {
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+			input {
+				width: 100%;
+				box-sizing: border-box;
+			}
+		}
+	}
+	@media (min-width: 499px) {
+		.wrapper {
+			flex-direction: row;
+			justify-content: space-between;
+			.left {
+				text-align: left;
+				width: initial;
+				flex: 1;
+			}
+		}
+	}
+	@include from(lg) {
+		.inner {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			padding: rem(30) rem(40);
+			gap: 5rem;
+		}
+		#london-form {
+			flex: 1;
+			max-width: rem(600);
+			.left {
+				input {
+					width: 100%;
+					box-sizing: border-box;
+				}
+			}
+		}
+	}
+	@include from(xxl) {
+		.inner {
+			padding: rem(50) rem(40);
+		}
+	}
+}

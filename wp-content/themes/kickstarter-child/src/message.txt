@@ -1,0 +1,4 @@
+Added all locations to the location system.
+Added services call for actions
+Added locations call for actions
+Added newsletter signup form to the footer (Database integrated, pending mailchimp integrations)

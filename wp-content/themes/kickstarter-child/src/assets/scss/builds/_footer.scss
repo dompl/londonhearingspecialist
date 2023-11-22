@@ -1,10 +1,11 @@
 @use "../styles/variables" as var;
 @use "../styles/icons" as ico;
 @use "abstracts" as *;
+
 #london-footer {
 	background-color: var.$color-blue-dark;
 	color: white;
-	padding: 2rem 0;
+	padding: 4rem 0 2rem 0;
 	a {
 		color: white;
 	}
@@ -99,7 +100,7 @@
 		}
 		.container-bottom {
 			border-top: desaturate(lighten(var.$color-blue-dark, 5%), 40%) 1px solid;
-			margin-top: 1rem;
+			margin-top: 2rem;
 			padding-top: 1rem;
 			display: flex;
 			justify-content: space-between;

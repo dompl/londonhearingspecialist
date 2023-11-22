@@ -10,6 +10,9 @@ $button-radius: 4px;
 	outline: none;
 	display: inline-block;
 	font-size: rem(16);
+	border: none;
+	outline: none;
+	cursor: pointer;
 	@include from(md) {
 		font-size: rem(20);
 	}
@@ -86,6 +89,14 @@ $button-radius: 4px;
 				margin-top: 2px;
 				margin-bottom: -1px;
 			}
+		}
+	}
+	&.white {
+		background-color: white;
+		color: var.$color-blue;
+		&:hover {
+			background-color: var.$color-blue-dark;
+			color: white;
 		}
 	}
 
