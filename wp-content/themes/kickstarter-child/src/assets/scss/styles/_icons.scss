@@ -57,11 +57,14 @@
 		@if $filename == plus-solid {
 		  $char: "\E00A";
 		}
-		@if $filename == star-of-life-solid {
+		@if $filename == quote-right-solid {
 		  $char: "\E00B";
 		}
-		@if $filename == xmark-sharp-light {
+		@if $filename == star-of-life-solid {
 		  $char: "\E00C";
+		}
+		@if $filename == xmark-sharp-light {
+		  $char: "\E00D";
 		}
 
 	  @return $char;
@@ -108,6 +111,9 @@
 	}
 	.icon-plus-solid {
 	  @include icon(plus-solid);
+	}
+	.icon-quote-right-solid {
+	  @include icon(quote-right-solid);
 	}
 	.icon-star-of-life-solid {
 	  @include icon(star-of-life-solid);
