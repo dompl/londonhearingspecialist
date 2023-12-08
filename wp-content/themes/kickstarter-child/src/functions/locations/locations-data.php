@@ -35,12 +35,30 @@ function clinic_locations_data() {
             $post_id = get_the_ID();
 
             $locations[$post_id] = array(
-                'title'   => get_the_title(),
-                'map'     => get_post_meta( $post_id, 'map', true ),
-                'image'   => get_post_meta( $post_id, 'image', true ),
-                'address' => get_post_meta( $post_id, 'address', true ),
-                'phone'   => get_post_meta( $post_id, 'phone', true )
+                'title'    => get_the_title(),
+                'map'      => get_post_meta( $post_id, 'map', true ),
+                'image'    => get_post_meta( $post_id, 'image', true ),
+                'address'  => get_post_meta( $post_id, 'address', true ),
+                'email'    => get_post_meta( $post_id, 'email', true ),
+                'phone'    => get_post_meta( $post_id, 'phone', true ),
+                'facebook' => get_post_meta( $post_id, 'facebook', true ),
+                'twitter'  => get_post_meta( $post_id, 'twitter', true ),
+                'dirs'     => get_post_meta( $post_id, 'dirs', true )
             );
+
+            $locations[$post_id]['hours'] = array();
+
+            $hours = get_post_meta( $post_id, 'hours', true );
+
+            if (  !  empty( $hours ) ) {
+                for ( $i = 0; $i < $hours; $i++ ) {
+                    $locations[$post_id]['hours'][$i] = [
+                        get_post_meta( $post_id, "hours_{$i}_d", true ),
+                        get_post_meta( $post_id, "hours_{$i}_t", true )
+                    ];
+                }
+
+            }
         }
 
         // Reset the post data to the original query
