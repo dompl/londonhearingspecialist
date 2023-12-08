@@ -3,73 +3,130 @@
 @use "abstracts" as *;
 
 .london-locations-list {
-	display: flex;
-	flex-direction: column;
-	@include default-row-gap();
-	.items {
-		display: flex;
-		row-gap: 2rem;
-		column-gap: rem(20);
-		flex-wrap: wrap;
-		justify-content: center;
-		@include from(xxl) {
-			row-gap: rem(40);
-			column-gap: rem(80);
-		}
-	}
-	.item {
-		background-color: var.$color-blue;
-		color: white;
-		border-radius: rem(5);
-		overflow: hidden;
-		width: rem(290);
-		box-sizing: border-box;
-		display: flex;
-		flex-direction: column;
-		a {
-			color: white;
-		}
-		.buttons-wrapper {
-			justify-content: space-between;
-			flex-direction: row;
-			margin-top: auto;
-			.button {
-				padding-right: rem(8);
-				padding-left: rem(8);
-			}
-			.book-appointment {
-				&:before {
-					display: none;
-				}
-			}
-		}
-		.content {
-			padding: rem(20) rem(20);
+	@include to(xs) {
+		.items {
 			display: flex;
-			flex: 1;
 			flex-direction: column;
-			gap: 1rem;
-			address {
-				font-style: normal;
-			}
+		}
+		.item {
+			border-bottom: 1px dashed var.$color-gray-lighter;
+			padding: 1rem 0;
+		}
+		.image {
+			display: none !important;
+		}
+		address {
+			font-style: normal;
 		}
 		.title {
 			a {
+				color: var.$color-text;
 				display: flex;
 				align-items: center;
-				flex-direction: row;
-				font-weight: var.$font-weight-bold;
 				gap: 0.5rem;
+				color: var.$color-blue-dark;
 				line-height: 1;
-				i {
-					font-size: rem(24);
-					line-height: 1;
-					float: left;
-					margin-top: 2px;
-					margin-bottom: -2px;
+			}
+			i {
+				font-size: rem(20);
+			}
+			span {
+				font-weight: bold;
+				text-transform: uppercase;
+				@include font-size(22, 20);
+				color: var.$color-text;
+			}
+		}
+		.content {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		.buttons-wrapper,
+		address {
+			margin-left: rem(22);
+		}
+		.buttons-wrapper {
+			flex-direction: row-reverse;
+			margin-right: auto;
+			a.outlined {
+				border-color: var.$color-text !important;
+				color: var.$color-text !important;
+				&:after {
+					border-color: var.$color-text !important;
 				}
-				span {
-					@include font-size(18, 24);
+			}
+		}
+	}
+	@include from(sm) {
+		display: flex;
+		flex-direction: column;
+		@include default-row-gap();
+		.items {
+			display: flex;
+			row-gap: 2rem;
+			column-gap: rem(20);
+			flex-wrap: wrap;
+			justify-content: center;
+			@include from(xxl) {
+				row-gap: rem(40);
+				column-gap: rem(80);
+			}
+		}
+		.item {
+			background-color: var.$color-blue;
+			color: white;
+			border-radius: rem(5);
+			overflow: hidden;
+			width: rem(290);
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			a {
+				color: white;
+			}
+			.buttons-wrapper {
+				justify-content: space-between;
+				flex-direction: row;
+				margin-top: auto;
+				.button {
+					padding-right: rem(8);
+					padding-left: rem(8);
+				}
+				.book-appointment {
+					&:before {
+						display: none;
+					}
+				}
+			}
+			.content {
+				padding: rem(20) rem(20);
+				display: flex;
+				flex: 1;
+				flex-direction: column;
+				gap: 1rem;
+				address {
+					font-style: normal;
+				}
+			}
+			.title {
+				a {
+					display: flex;
+					align-items: center;
+					flex-direction: row;
+					font-weight: var.$font-weight-bold;
+					gap: 0.5rem;
+					line-height: 1;
+					i {
+						font-size: rem(24);
+						line-height: 1;
+						float: left;
+						margin-top: 2px;
+						margin-bottom: -2px;
+					}
+					span {
+						@include font-size(18, 24);
+					}
 				}
 			}
 		}
