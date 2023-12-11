@@ -33,38 +33,59 @@
 		@if $filename == bars-solid {
 		  $char: "\E002";
 		}
-		@if $filename == calendar-light {
+		@if $filename == bus {
 		  $char: "\E003";
 		}
-		@if $filename == caret-down-solid {
+		@if $filename == calendar-light {
 		  $char: "\E004";
 		}
-		@if $filename == check-duotone {
+		@if $filename == caret-down-solid {
 		  $char: "\E005";
 		}
-		@if $filename == check-solid {
+		@if $filename == check-duotone {
 		  $char: "\E006";
 		}
-		@if $filename == envelope-regular {
+		@if $filename == check-solid {
 		  $char: "\E007";
 		}
-		@if $filename == location-dot-light {
+		@if $filename == envelope-regular {
 		  $char: "\E008";
 		}
-		@if $filename == phone-regular {
+		@if $filename == facebook {
 		  $char: "\E009";
 		}
-		@if $filename == plus-solid {
+		@if $filename == location-dot-light {
 		  $char: "\E00A";
 		}
-		@if $filename == quote-right-solid {
+		@if $filename == overground {
 		  $char: "\E00B";
 		}
-		@if $filename == star-of-life-solid {
+		@if $filename == parking {
 		  $char: "\E00C";
 		}
-		@if $filename == xmark-sharp-light {
+		@if $filename == phone-regular {
 		  $char: "\E00D";
+		}
+		@if $filename == plus-solid {
+		  $char: "\E00E";
+		}
+		@if $filename == quote-right-solid {
+		  $char: "\E00F";
+		}
+		@if $filename == star-of-life-solid {
+		  $char: "\E010";
+		}
+		@if $filename == train {
+		  $char: "\E011";
+		}
+		@if $filename == underground {
+		  $char: "\E012";
+		}
+		@if $filename == x-twitter {
+		  $char: "\E013";
+		}
+		@if $filename == xmark-sharp-light {
+		  $char: "\E014";
 		}
 
 	  @return $char;
@@ -88,6 +109,9 @@
 	.icon-bars-solid {
 	  @include icon(bars-solid);
 	}
+	.icon-bus {
+	  @include icon(bus);
+	}
 	.icon-calendar-light {
 	  @include icon(calendar-light);
 	}
@@ -103,8 +127,17 @@
 	.icon-envelope-regular {
 	  @include icon(envelope-regular);
 	}
+	.icon-facebook {
+	  @include icon(facebook);
+	}
 	.icon-location-dot-light {
 	  @include icon(location-dot-light);
+	}
+	.icon-overground {
+	  @include icon(overground);
+	}
+	.icon-parking {
+	  @include icon(parking);
 	}
 	.icon-phone-regular {
 	  @include icon(phone-regular);
@@ -117,6 +150,15 @@
 	}
 	.icon-star-of-life-solid {
 	  @include icon(star-of-life-solid);
+	}
+	.icon-train {
+	  @include icon(train);
+	}
+	.icon-underground {
+	  @include icon(underground);
+	}
+	.icon-x-twitter {
+	  @include icon(x-twitter);
 	}
 	.icon-xmark-sharp-light {
 	  @include icon(xmark-sharp-light);

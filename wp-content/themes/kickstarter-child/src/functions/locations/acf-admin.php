@@ -9,11 +9,19 @@ use Extended\ACF\Fields\Tab;
 use Extended\ACF\Fields\Text;
 use Extended\ACF\Fields\Textarea;
 use Extended\ACF\Fields\Url;
+use Extended\ACF\Fields\WysiwygEditor;
 use Extended\ACF\Location;
 
 add_filter( '_ks_acf_layout_locations', function ( $locations ) {
     $locations[] = 'clinic_locations';
     return $locations;
+} );
+
+add_filter( 'acf/fields/wysiwyg/toolbars', function ( $toolbars ) {
+
+    $toolbars['Clinic Location Addon']    = [];
+    $toolbars['Clinic Location Addon'][1] = ['bold', 'link', 'bullist', 'removeformat'];
+    return $toolbars;
 } );
 
 add_action( 'acf/init', function () {
@@ -51,5 +59,7 @@ add_filter( 'london_clinic_locations_fields', function ( $fields ) {
         Textarea::make( 'Train', 'train' )->instructions( 'Add train directions' )->rows( 2 )->newLines( 'br' ),
         Textarea::make( 'Parking', 'parking' )->instructions( 'Add train directions' )->rows( 2 )->newLines( 'br' )
     ] )->layout( 'row' );
+    $fields[] = Tab::make( 'Additional description', wp_unique_id() )->placement( 'left' );
+    $fields[] = WysiwygEditor::make( 'Additional description', 'addon' )->instructions( 'Add additional description for the location' )->mediaUpload( false )->tabs( 'all' )->toolbar( 'clinic_location_addon' );
     return $fields;
 } );

@@ -43,8 +43,13 @@ function clinic_locations_data() {
                 'phone'    => get_post_meta( $post_id, 'phone', true ),
                 'facebook' => get_post_meta( $post_id, 'facebook', true ),
                 'twitter'  => get_post_meta( $post_id, 'twitter', true ),
-                'dirs'     => get_post_meta( $post_id, 'dirs', true )
+                'dirs'     => []
             );
+            $locations[$post_id]['dirs']['overground']  = get_post_meta( $post_id, 'dirs_overground', true );
+            $locations[$post_id]['dirs']['underground'] = get_post_meta( $post_id, 'dirs_underground', true );
+            $locations[$post_id]['dirs']['bus']         = get_post_meta( $post_id, 'dirs_bus', true );
+            $locations[$post_id]['dirs']['train']       = get_post_meta( $post_id, 'dirs_train', true );
+            $locations[$post_id]['dirs']['parking']     = get_post_meta( $post_id, 'dirs_parking', true );
 
             $locations[$post_id]['hours'] = array();
 
