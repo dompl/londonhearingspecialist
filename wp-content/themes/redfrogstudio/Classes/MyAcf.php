@@ -67,7 +67,6 @@ class MyAcf {
         $row = false,
         int $depth = 2
     ): void {
-
         if ( empty( $fields ) ) {
             return; // Early return if there are no fields
         }

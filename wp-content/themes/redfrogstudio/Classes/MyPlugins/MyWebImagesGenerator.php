@@ -22,7 +22,9 @@ class MyWebImagesGenerator extends MyHelpers {
                 $query->the_post();
                 $post_id = get_the_ID();
                 $images  = get_post_meta( $post_id, 'xgen', true );
-
+                if ( empty( $images ) ) {
+                    continue;
+                }
                 foreach ( $images as $image ) {
                     // Check if 'xgen' is an array and 'xgen_webp_path' is set to false
                     if ( is_array( $image ) && isset( $image['xgen_webp_path'] ) && $image['xgen_webp_path'] == false ) {
