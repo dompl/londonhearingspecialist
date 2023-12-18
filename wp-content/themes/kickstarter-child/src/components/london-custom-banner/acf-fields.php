@@ -11,4 +11,4 @@ $fields[] = Select::make( 'Select banner type', 'select' )->instructions( 'Selec
 $fields[] = Textarea::make( 'Offer banner text', 'offer_text' )->instructions( london_colors_message( 'Add offer banner text' ) )->rows( 2 )->required()->conditionalLogic( [ConditionalLogic::where( 'select', '==', 'offer' )] );
 $fields   = array_merge( $fields, \London\Acf::ButtonAcfFields( '', true ) );
 
-\Kickstarter\MyAcf::registerComponentFields( 'Custom banners', $fields );
+\Kickstarter\MyAcf::registerComponentFields( 'Custom Banner', $fields );

@@ -1,0 +1,39 @@
+@use "abstracts" as *;
+@use "../../styles/icons" as ico;
+@use "../../styles/variables" as var;
+
+.london-steps {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 4rem;
+	flex-wrap: wrap;
+	@include to(md) {
+		gap: 2rem;
+	}
+	.item {
+		width: rem(378);
+	}
+	.item,
+	.text {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		text-align: center;
+		gap: 1rem;
+		@include to(md) {
+			gap: 0.5rem;
+		}
+	}
+	h1,
+	h2,
+	h3,
+	h4 {
+		margin: 0;
+		@include font-size(18, 22);
+		text-transform: uppercase;
+	}
+	.description {
+		font-size: 14px;
+	}
+}
