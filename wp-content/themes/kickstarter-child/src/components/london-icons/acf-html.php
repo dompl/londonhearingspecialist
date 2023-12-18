@@ -9,7 +9,7 @@ function wp_1702901590_london( $html, $data ) {
     if ( empty( $icons ) ) {
         return $html;
     }
-
+    $html .= \London\Acf::HeaderAcfHtml( $data );
     $html .= '<div class="london-icons">';
 
     for ( $i = 0; $i < $icons; $i++ ) {
@@ -32,7 +32,7 @@ function wp_1702901590_london( $html, $data ) {
     }
 
     $html .= '</div>';
-
+    $html .= \London\Acf::ButtonAcfHtml( $data, 'a' );
     $html .= '';
 
     return $html;

@@ -11,11 +11,51 @@ use Extended\ACF\Fields\Tab;
 use Extended\ACF\Fields\Text;
 use Extended\ACF\Fields\Textarea;
 use Extended\ACF\Fields\WysiwygEditor;
+use Extended\ACF\Location;
 
 class Acf {
 
     public function __construct() {
         add_filter( 'acf/fields/wysiwyg/toolbars', [$this, 'HeaderAcfFieldsWysiwyg'] ); // Customize ACF WYSIWYG toolbars
+        add_action( 'acf/init', [$this, 'InitAdminThemeOptionsPage'] ); // Customize ACF WYSIWYG toolbars
+    }
+
+    public function InitAdminThemeOptionsPage() {
+
+        $admin_options_page = array(
+            'page_title' => get_bloginfo( 'name' ) . 'Administrator Options Page',
+            'menu_title' => 'LHS Options',
+            'menu_slug'  => 'london-options',
+            'capability' => 'administrator',
+            'redirect'   => false
+        );
+
+        acf_add_options_page( $admin_options_page );
+
+        $theme_options_fields = apply_filters( 'london_admin_theme_options', [] );
+
+        if (  !  empty( $theme_options_fields ) ) {
+            register_extended_field_group( [
+                'title'    => 'Tables',
+                'style'    => 'default',
+                'fields'   => $theme_options_fields,
+                'location' => [
+                    Location::where( 'options_page', 'london-options' )
+                ]
+            ] );
+        }
+
+        if (  !  empty( $theme_options_fields ) ) {
+            register_extended_field_group( [
+                'title'    => 'TablesAsas',
+                'style'    => 'default',
+                'fields'   => $theme_options_fields,
+                'location' => [
+                    Location::where( 'options_page', 'london-options' )
+                ]
+            ] );
+        }
+
     }
 
     public static function ButtonAcfFields( $prefix = '', $tab = false ) {
