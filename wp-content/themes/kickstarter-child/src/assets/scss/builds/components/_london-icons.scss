@@ -1,0 +1,29 @@
+@use "abstracts" as *;
+@use "../../styles/icons" as ico;
+@use "../../styles/variables" as var;
+
+.london-icons {
+	display: flex;
+	gap: 1.5rem;
+	flex-direction: column;
+	text-align: center;
+	.title {
+		@include font-size(16, 18);
+		font-weight: var.$font-weight-bold;
+	}
+	.item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	@include from(sm) {
+		flex-direction: row;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 3rem;
+		.item {
+			gap: 1rem;
+			width: rem(280);
+		}
+	}
+}

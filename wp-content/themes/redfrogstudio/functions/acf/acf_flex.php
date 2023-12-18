@@ -24,11 +24,11 @@ function get_component( $field = false, $data = [], $child = false ) {
         return;
     }
 
-    $post_id = $data['post_id'];
-    $index = $data['index'];
+    $post_id   = $data['post_id'];
+    $index     = $data['index'];
     $component = $data['component'];
-    $row = $data['row'];
-    $child = $child ? '_' . $child : '';
+    $row       = $data['row'];
+    $child     = $child ? '_' . $child : '';
 
     $meta = "{$component}_{$index}_{$field}{$child}";
 
@@ -41,9 +41,8 @@ function get_component( $field = false, $data = [], $child = false ) {
 add_action( 'acf/init', function (): void {
 
     $helpers = MyHelpers::getInstance();;
-    $acf = AcfHelpers::getInstance();
-    $data = MyHelpers::getThemeData();
-
+    $acf     = AcfHelpers::getInstance();
+    $data    = MyHelpers::getThemeData();
     $layouts = apply_filters( 'ks_acf_layout', [], $data, $helpers, $acf );
 
     // Check if the layout is available for selection. If not unset it from the array.
@@ -73,11 +72,11 @@ add_action( 'acf/init', function (): void {
     // Order the fields alphabetically.
     usort( $layouts, function ( $a, $b ) {
         $reflectorA = new ReflectionClass( $a );
-        $propertyA = $reflectorA->getProperty( 'settings' );
+        $propertyA  = $reflectorA->getProperty( 'settings' );
         $propertyA->setAccessible( true );
-        $aSettings = $propertyA->getValue( $a );
+        $aSettings  = $propertyA->getValue( $a );
         $reflectorB = new ReflectionClass( $b );
-        $propertyB = $reflectorB->getProperty( 'settings' );
+        $propertyB  = $reflectorB->getProperty( 'settings' );
         $propertyB->setAccessible( true );
         $bSettings = $propertyB->getValue( $b );
         return strcmp( $aSettings['label'], $bSettings['label'] );
@@ -89,10 +88,11 @@ add_action( 'acf/init', function (): void {
         ->layouts( $layouts );
 
     $fields = array_merge( $fields, apply_filters( '_ks_fields_after_components', [] ) );
+
     if (  !  empty( $layouts ) && !  empty( $locations ) ) {
         register_extended_field_group( [
-            'title' => 'Components',
-            'fields' => $fields,
+            'title'    => 'Components',
+            'fields'   => $fields,
             'location' => $locations
         ] );
     }
@@ -124,7 +124,7 @@ add_action( 'admin_init', function () {
  */
 function ks_layout_make( $layout_label = "Layout", $layout_id = null, $fields = [], $layout = 'block', $use_container = true, $row = null, $data = [] ) {
 
-    $helpers = MyHelpers::getInstance();
+    $helpers   = MyHelpers::getInstance();
     $ThemeData = MyHelpers::getThemeData();
     if ( empty( $fields ) || $layout_id == null ) {
         return [];
@@ -140,7 +140,7 @@ function ks_layout_make( $layout_label = "Layout", $layout_id = null, $fields = 
     // Container fields hook
     if ( $use_container ) {
         $fields[] = Tab::make( 'Container Settings', wp_unique_id() )->placement( 'left' );
-        $fields = apply_filters( '_ks_theme_acf_container_fields', $fields, $helpers, $data, $use_container, $row );
+        $fields   = apply_filters( '_ks_theme_acf_container_fields', $fields, $helpers, $data, $use_container, $row );
     }
 
     //  Container scheduling

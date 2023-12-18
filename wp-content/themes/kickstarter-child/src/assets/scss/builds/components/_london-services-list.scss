@@ -1,6 +1,6 @@
-@use "../../styles/variables" as var;
-@use "../../styles/icons" as ico;
 @use "abstracts" as *;
+@use "../../styles/icons" as ico;
+@use "../../styles/variables" as var;
 
 .london-services-list {
 	@include to(xs) {

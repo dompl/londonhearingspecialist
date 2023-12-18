@@ -7,7 +7,6 @@
 	flex-direction: column;
 	gap: 2rem;
 }
-
 .london-location {
 	display: flex;
 	flex-direction: column;
@@ -145,16 +144,16 @@
 		.directions {
 			display: flex;
 			flex-direction: column;
-			gap:1rem;
+			gap: 1rem;
 			@include from(lg) {
-				gap:3rem;
+				gap: 3rem;
 			}
 		}
 		.directions-item {
 			display: flex;
 			flex-direction: row;
 			gap: 1rem;
-			
+
 			i {
 				@include font-size(18, 22);
 			}

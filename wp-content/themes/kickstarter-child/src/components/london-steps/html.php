@@ -1,15 +1,18 @@
 <?php
 use Kickstarter\MyHelpers;
+
 add_filter( \Kickstarter\MyAcf::Html(), 'wp_1702893086_london', 10, 2 );
 
 function wp_1702893086_london( $html, $data ) {
 
-    $steps = get_component( 'stepsa', $data );
+    error_log( print_r( debug_backtrace(), true ) ); // Log the call stack
+
+    return $html;
 
     if ( empty( $steps ) ) {
         return $html;
     }
-
+    $html .= \London\Acf::HeaderAcfHtml( $data );
     $html .= '<div class="london-steps">';
     for ( $i = 0; $i < $steps; $i++ ) {
 
