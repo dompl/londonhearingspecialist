@@ -62,7 +62,7 @@ function wp_1702034028_london( $html, $data ) {
 
             $directions = array_filter( (array) $location['dirs'] );
 
-            $html .= '<div class="bottom">';
+            $html .= '<div class="location-bottom">';
             $html .= '<div class="map">' . ( $location['map'] ? Helpers::convertToGoogleMapsIframe( $location['map'] ) : '' ) . '</div>';
             if (  !  empty( $directions ) ) {
                 $html .= '<div class="directions">';
@@ -72,6 +72,7 @@ function wp_1702034028_london( $html, $data ) {
                     $html .= '<div class="directions-item-content">' . nl2br( $value ) . '</div>';
                     $html .= '</div>';
                 }
+                $html .= '<div class="book">' . do_shortcode( '[book_appointment]' ) . '</div>';
                 $html .= '</div>';
             }
             $html .= '</div>'; // End bottoms

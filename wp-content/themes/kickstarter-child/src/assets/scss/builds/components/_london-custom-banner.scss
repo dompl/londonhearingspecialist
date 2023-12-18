@@ -1,0 +1,38 @@
+@use "../../styles/variables" as var;
+@use "../../styles/icons" as ico;
+@use "abstracts" as *;
+
+.london-custom-banner {
+	&.offer {
+		.text,
+		.text * {
+			padding: 0;
+			margin: 0;
+			@include font-size(20, 30);
+			font-weight: var.$font-weight-bold;
+		}
+		display: flex;
+		gap: 1rem;
+		@include to(sm) {
+			text-align: center;
+			justify-content: center;
+			flex-direction: column;
+			.buttons-wrapper {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				a {
+					padding-top: rem(8);
+					padding-bottom: rem(8);
+					padding-left: rem(8);
+				}
+			}
+		}
+		@include from(md) {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+}
