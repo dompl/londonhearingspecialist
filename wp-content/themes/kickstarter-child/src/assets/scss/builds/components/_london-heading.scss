@@ -5,15 +5,16 @@
 .london-heading {
 	display: flex;
 	flex-direction: column;
-	gap: 2vh;
+	gap: 3vh;
 	&.center {
 		align-items: center;
 		text-align: center;
 		.description {
 			text-align: center;
-			max-width: rem(870);
+			max-width: rem(920);
 			margin-left: auto;
 			margin-right: auto;
+			@include font-size(16, 18);
 		}
 	}
 	.title {

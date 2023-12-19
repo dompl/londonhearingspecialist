@@ -1,16 +1,42 @@
 @use "../../styles/variables" as var;
 @use "../../styles/icons" as ico;
 @use "abstracts" as *;
-
+.row_london_dual_content {
+	position: relative;
+}
 .london-dual-content {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+	@include from(lg) {
+		.backdrop {
+			z-index: 4;
+			position: absolute;
+			width: 99999px;
+			top: 0;
+			bottom: 0;
+			z-index: 1;
+		}
+		&.position-left {
+			.backdrop {
+				border-radius: 0 rem(5) rem(5) 0;
+				right: 70%;
+			}
+		}
+		&.position-right {
+			.backdrop {
+				left: 70%;
+				border-radius: rem(5) 0 0 rem(5);
+			}
+		}
+	}
 	.pos-right {
 		min-height: rem(500);
 		background-size: cover;
 		background-position: center center;
 		flex: 1;
+		position: relative;
+		z-index: 2;
 		border-radius: rem(5);
 	}
 	.pos-left {
@@ -22,14 +48,20 @@
 		display: flex;
 		flex-direction: row;
 		gap: 3rem;
+		&.position-left {
+			flex-direction: row-reverse;
+		}
 		.pos-left {
 			width: 60%;
 			padding: 3rem 0;
 		}
 		.pos-right {
 			flex: 1;
-			border-radius: 0;
+			border-radius: rem(7);
 			// min-height: auto;
 		}
+	}
+	@include from(xxl) {
+		gap: 5rem;
 	}
 }

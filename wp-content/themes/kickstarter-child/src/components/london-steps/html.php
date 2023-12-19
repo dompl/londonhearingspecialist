@@ -5,9 +5,7 @@ add_filter( \Kickstarter\MyAcf::Html(), 'wp_1702893086_london', 10, 2 );
 
 function wp_1702893086_london( $html, $data ) {
 
-    error_log( print_r( debug_backtrace(), true ) ); // Log the call stack
-
-    return $html;
+    $steps = get_component( 'stepsa', $data );
 
     if ( empty( $steps ) ) {
         return $html;

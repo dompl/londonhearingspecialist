@@ -7,7 +7,7 @@
 		margin-bottom: 1rem;
 		line-height: 1.5;
 		@include from(md) {
-			line-height: 2;
+			// line-height: 1.7;
 		}
 		+ .checks {
 			padding-top: 0;
@@ -23,7 +23,7 @@
 			gap: 1rem;
 			flex-direction: column;
 			padding-top: 1rem;
-			padding-bottom: 1rem;
+			padding-bottom: 2rem;
 			li {
 				display: flex;
 				font-weight: bold;

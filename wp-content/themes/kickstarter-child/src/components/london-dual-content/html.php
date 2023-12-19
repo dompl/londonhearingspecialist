@@ -7,6 +7,7 @@ function wp_1700569337_london( $html, $data ) {
 
     $image    = get_component( 'image', $data, 'image' );
     $height   = get_component( 'image', $data, 'height' );
+    $backdrop = get_component( 'image', $data, 'bcg' );
     $content  = get_component( 'content', $data );
     $position = get_component( 'position', $data );
 
@@ -15,6 +16,7 @@ function wp_1700569337_london( $html, $data ) {
     $left .= Acf::HeaderAcfHtml( $data );
     $left .= $content ? '<div class="london-content">' . wpautop( $content ) . '</div>' : '';
     $left .= Acf::ButtonAcfHtml( $data, 's' );
+    $left .= empty( $backdrop ) ? '' : '<div class="backdrop b-pos-' . $position . ' bcg-' . $backdrop . '"></div>';
     $left .= '</div>';
 
     if ( $image ) {

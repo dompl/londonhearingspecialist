@@ -22,60 +22,121 @@ class Acf {
 
     public function InitAdminThemeOptionsPage() {
 
-        $admin_options_page = array(
-            'page_title' => get_bloginfo( 'name' ) . 'Administrator Options Page',
+        $admin_options_pages = [];
+
+        // Adding options pages for the admin panel
+        $admin_options_pages[] = array(
+            'page_title' => get_bloginfo( 'name' ) . ' Options Page',
             'menu_title' => 'LHS Options',
             'menu_slug'  => 'london-options',
-            'capability' => 'administrator',
-            'redirect'   => false
+            'capability' => 'edit_posts',
+            'redirect'   => true
         );
+        $admin_options_pages[] = array(
+            'page_title'  => 'Pricing Tables',
+            'menu_title'  => 'Pricing Tables',
+            'menu_slug'   => 'london-pricing-tables',
+            'capability'  => 'edit_posts',
+            'parent_slug' => 'london-options'
+        );
+        $admin_options_pages[] = array(
+            'page_title'  => 'Frequently Asked Questions',
+            'menu_title'  => 'FAQ\'s',
+            'menu_slug'   => 'london-faqs',
+            'capability'  => 'edit_posts',
+            'parent_slug' => 'london-options'
+        );
+        foreach ( $admin_options_pages as $page ) {
+            acf_add_options_page( $page );
+        }
 
-        acf_add_options_page( $admin_options_page );
-
+        // Registering extended field group if not empty
         $theme_options_fields = apply_filters( 'london_admin_theme_options', [] );
-
-        if (  !  empty( $theme_options_fields ) ) {
+        if (  !  empty( $theme_options_fields['tables'] ) ) {
             register_extended_field_group( [
                 'title'    => 'Tables',
                 'style'    => 'default',
-                'fields'   => $theme_options_fields,
+                'fields'   => $theme_options_fields['tables'],
                 'location' => [
-                    Location::where( 'options_page', 'london-options' )
+                    Location::where( 'options_page', 'london-pricing-tables' )
                 ]
             ] );
         }
-
-        if (  !  empty( $theme_options_fields ) ) {
+        if (  !  empty( $theme_options_fields['faqs'] ) ) {
             register_extended_field_group( [
-                'title'    => 'TablesAsas',
+                'title'    => 'Frequently Asked Questions',
                 'style'    => 'default',
-                'fields'   => $theme_options_fields,
+                'fields'   => $theme_options_fields['faqs'],
                 'location' => [
-                    Location::where( 'options_page', 'london-options' )
+                    Location::where( 'options_page', 'london-faqs' )
                 ]
             ] );
         }
-
     }
 
     public static function ButtonAcfFields( $prefix = '', $tab = false ) {
-
+        // Define button and fields arrays
         $button = [];
         $fields = [];
+
+        // Retrieve color options from a theme-specific function
         $colors = ks_theme_custom_colors_array();
-        if ( $tab == true ) {
+
+        // Add a tab for buttons if required
+        if ( $tab ) {
             $button[] = Tab::make( 'Buttons', wp_unique_id( $prefix ) )->placement( 'left' );
         }
-        $button[] = Checkbox::make( 'Predefined buttons', "{$prefix}predefined" )->instructions( 'Select one of the predefined call for action buttons' )->choices( apply_filters( 'london_predefined_buttons', ['book' => 'Book Appointment'] ) )->layout( 'horizontal' );
 
+        // Define a checkbox for predefined buttons
+        $button[] = Checkbox::make( 'Predefined buttons', "{$prefix}predefined" )
+            ->instructions( 'Select one of the predefined call to action buttons' )
+            ->choices( apply_filters( 'london_predefined_buttons', ['book' => 'Book Appointment'] ) )
+            ->layout( 'horizontal' );
+
+        // Define link field
         $fields[] = Link::make( 'Link', "link" )->instructions( 'Add button link' )->required();
+
+        // Add color selection if colors are available
         if (  !  empty( $colors ) ) {
-            $fields[] = Select::make( 'Button colour', "color" )->instructions( 'Select button colour' )->choices( $colors )->allowNull()->stylisedUi();
+            $fields[] = Select::make( 'Button colour', "color" )
+                ->instructions( 'Select button colour' )
+                ->choices( $colors )
+                ->allowNull()
+                ->stylisedUi();
         }
-        $button[] = Repeater::make( 'Custom buttons', "{$prefix}buttons" )->instructions( 'Add custom call for action buttons' )->fields( $fields )->collapsed( 'link' )->buttonLabel( 'Add button' )->layout( 'table' );
+
+        // Define a repeater for custom buttons
+        $button[] = Repeater::make( 'Custom buttons', "{$prefix}buttons" )
+            ->instructions( 'Add custom call to action buttons' )
+            ->fields( $fields )
+            ->collapsed( 'link' )
+            ->buttonLabel( 'Add button' )
+            ->layout( 'table' );
 
         return $button;
+    }
 
+    public static function ContainerSpaces() {
+        if ( function_exists( 'ks_default_container_spaces' ) ) {
+            return ks_default_container_spaces();
+        }
+        return [
+            'sm'  => 'Small',
+            'md'  => 'Medium',
+            'lg'  => 'Large',
+            'xl'  => 'Extra Large',
+            'xxl' => 'X Extra Large'
+        ];
+    }
+
+    function ks_default_container_spaces() {
+        return [
+            'sm'  => 'Small',
+            'md'  => 'Medium',
+            'lg'  => 'Large',
+            'xl'  => 'Extra Large',
+            'xxl' => 'X Extra Large'
+        ];
     }
 
     public static function ButtonAcfHtml( $data, $prefix = '' ) {
@@ -168,6 +229,8 @@ class Acf {
         $fields[] = Accordion::make( 'Heading description', wp_unique_id() )->instructions( 'Additional heading description' );
         $fields[] = WysiwygEditor::make( 'Description', 'description' )->instructions( 'Additional heading description' )->mediaUpload( false )->tabs( 'all' )->toolbar( 'heading_toolbar' );
 
+        $fields[] = Accordion::make( 'Heading spacing', wp_unique_id() )->instructions( 'Spacing under the heading' );
+        $fields[] = Select::make( 'Select space under the container', 'hs' )->instructions( 'Set space under the custom heading' )->choices( self::ContainerSpaces() )->allowNull()->stylisedUi()->defaultValue( 'lg' );
         $fields[] = Accordion::make( 'Heading call for actions', wp_unique_id() )->instructions( 'Additional heading call for actions' );
         $fields   = array_merge( $fields, self::ButtonAcfFields() );
 
@@ -186,6 +249,7 @@ class Acf {
         $title       = get_component( 'text', $data, 'text' );
         $tag         = get_component( 'text', $data, 'tag' );
         $batch       = get_component( 'batch', $data, 'text' );
+        $space       = get_component( 'hs', $data );
         $batch_color = get_component( 'batch', $data, 'color' );
         $description = get_component( 'description', $data );
 
@@ -209,6 +273,8 @@ class Acf {
 
         $html .= '</div>';
 
+        $html .= $space ? '<div class="space space-' . $space . '"></div>' : '';
+
         return $html;
 
     }
@@ -216,6 +282,9 @@ class Acf {
     public function HeaderAcfFieldsWysiwyg( $toolbars ) {
         $toolbars['Heading Toolbar']    = [];
         $toolbars['Heading Toolbar'][1] = ['bold', 'link', 'aligncenter', 'bullist', 'alignleft', 'justifyfull', 'removeformat'];
+
+        $toolbars['Tables Toolbar']    = [];
+        $toolbars['Tables Toolbar'][1] = ['bold', 'link', 'removeformat', 'table'];
         return $toolbars;
     }
 
