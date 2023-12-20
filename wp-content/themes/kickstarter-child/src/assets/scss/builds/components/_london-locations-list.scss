@@ -61,7 +61,7 @@
 	@include from(sm) {
 		display: flex;
 		flex-direction: column;
-		@include default-row-gap();
+		// @include default-row-gap();
 		.items {
 			display: flex;
 			row-gap: 2rem;
@@ -69,8 +69,8 @@
 			flex-wrap: wrap;
 			justify-content: center;
 			@include from(xxl) {
-				row-gap: rem(40);
-				column-gap: rem(80);
+				row-gap: 2rem;
+				column-gap: 2rem;
 			}
 		}
 		.item {
@@ -78,7 +78,7 @@
 			color: white;
 			border-radius: rem(5);
 			overflow: hidden;
-			width: rem(290);
+			width: rem(276);
 			box-sizing: border-box;
 			display: flex;
 			flex-direction: column;

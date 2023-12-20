@@ -112,7 +112,7 @@ class Acf {
             ->collapsed( 'link' )
             ->buttonLabel( 'Add button' )
             ->layout( 'table' );
-
+        $button[] = Select::make( 'Space', "{$prefix}s" )->instructions( 'Add space above the call for action buttons' )->choices( self::ContainerSpaces() )->defaultValue( 'lg' )->allowNull()->stylisedUi();
         return $button;
     }
 
@@ -143,9 +143,12 @@ class Acf {
 
         $html       = '';
         $buttons    = get_component( $prefix . 'buttons', $data );
+        $space      = get_component( $prefix . 's', $data );
         $predefined = get_component( $prefix . 'predefined', $data );
 
         if ( $buttons || !  empty( $predefined ) ) {
+
+            $html .= $space ? '<div class="space space-' . $space . '"></div>' : '';
 
             $html .= '<div class="buttons-wrapper">';
 

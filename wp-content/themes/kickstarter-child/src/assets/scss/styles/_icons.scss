@@ -57,35 +57,38 @@
 		@if $filename == location-dot-light {
 		  $char: "\E00A";
 		}
-		@if $filename == overground {
+		@if $filename == minus-solid {
 		  $char: "\E00B";
 		}
-		@if $filename == parking {
+		@if $filename == overground {
 		  $char: "\E00C";
 		}
-		@if $filename == phone-regular {
+		@if $filename == parking {
 		  $char: "\E00D";
 		}
-		@if $filename == plus-solid {
+		@if $filename == phone-regular {
 		  $char: "\E00E";
 		}
-		@if $filename == quote-right-solid {
+		@if $filename == plus-solid {
 		  $char: "\E00F";
 		}
-		@if $filename == star-of-life-solid {
+		@if $filename == quote-right-solid {
 		  $char: "\E010";
 		}
-		@if $filename == train {
+		@if $filename == star-of-life-solid {
 		  $char: "\E011";
 		}
-		@if $filename == underground {
+		@if $filename == train {
 		  $char: "\E012";
 		}
-		@if $filename == x-twitter {
+		@if $filename == underground {
 		  $char: "\E013";
 		}
-		@if $filename == xmark-sharp-light {
+		@if $filename == x-twitter {
 		  $char: "\E014";
+		}
+		@if $filename == xmark-sharp-light {
+		  $char: "\E015";
 		}
 
 	  @return $char;
@@ -132,6 +135,9 @@
 	}
 	.icon-location-dot-light {
 	  @include icon(location-dot-light);
+	}
+	.icon-minus-solid {
+	  @include icon(minus-solid);
 	}
 	.icon-overground {
 	  @include icon(overground);

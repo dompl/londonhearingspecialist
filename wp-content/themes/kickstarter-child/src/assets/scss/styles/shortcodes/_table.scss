@@ -1,0 +1,19 @@
+@use "abstracts" as *;
+@use "../../styles/icons" as ico;
+@use "../../styles/variables" as var;
+
+.london-table {
+	table {
+		width: 100%;
+		max-width: 100%;
+		border-collapse: collapse;
+		border-spacing: 0;
+		box-sizing: border-box;
+		text-indent: initial;
+		border-color: var.$table-border;
+		td {
+			border: 1px solid var.$table-border;
+			padding: rem(8);
+		}
+	}
+}

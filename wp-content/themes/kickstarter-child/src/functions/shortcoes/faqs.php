@@ -82,12 +82,14 @@ add_shortcode( 'faqs', function ( $atts ) {
     }
     $items = explode( ',', str_replace( ' ', '', $atts['id'] ) );
 
-    $output = '<ul class="london-faqs">';
+    $output    = '<ul class="london-faqs">';
+    $firstItem = true;
     foreach ( $items as $item ) {
         if ( isset( $data[$item] ) ) {
             $question = $data[$item][0];
             $answer   = $data[$item][1];
-            $output .= '<li><div class="question"><span>' . $question . '</span><i class="plus-solid"></i></div><div class="answer">' . $answer . '</div></li>';
+            $output .= '<li><div class="question' . ( $firstItem ? ' active' : '' ) . '"><span>' . $question . '</span><i class="icon-plus-solid"></i></div><div class="answer">' . $answer . '</div></li>';
+            $firstItem = false;
         }
     }
     $output .= '</ul>';

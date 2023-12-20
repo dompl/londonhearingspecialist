@@ -4,7 +4,7 @@
 
 .london-icons {
 	display: flex;
-	gap: 1.5rem;
+	gap: 2rem;
 	flex-direction: column;
 	text-align: center;
 	.title {
@@ -20,10 +20,10 @@
 		flex-direction: row;
 		justify-content: center;
 		flex-wrap: wrap;
-		gap: 3rem;
+		gap: 2rem;
 		.item {
-			gap: 1rem;
-			width: rem(280);
+			gap: 2rem;
+			width: rem(276);
 		}
 	}
 }

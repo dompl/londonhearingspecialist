@@ -47,16 +47,16 @@
 	@include from(sm) {
 		display: flex;
 		flex-direction: column;
-		@include default-row-gap();
+		// @include default-row-gap();
 		.items {
 			display: flex;
 			flex-direction: row;
-			gap: rem(50);
+			gap: 2rem;
 			justify-content: center;
 			flex-wrap: wrap;
 		}
 		.item {
-			width: rem(433);
+			width: rem(378);
 			height: rem(320);
 			background-position: center center;
 			background-size: cover;

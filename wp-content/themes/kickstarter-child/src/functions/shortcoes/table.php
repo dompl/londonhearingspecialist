@@ -1,18 +1,15 @@
 <?php
+use AcfPlugins\UniqueId;
 use Extended\ACF\Fields\Layout;
 use Extended\ACF\Fields\Repeater;
-use Extended\ACF\Fields\Text;
 use Extended\ACF\Fields\WysiwygEditor;
-
 // Add custom tables to the London admin theme options
 add_filter( 'london_admin_theme_options', function ( $fields ) {
     $fields['tables']   = [];
     $fields['tables'][] = Repeater::make( 'Custom Tables', 'table' )
         ->instructions( 'Add custom tables. Please remember, the ID has to be unique for any of the tables. Example usage <strong>[table id="ear-wax-removal-pricing"]</strong>' )
         ->fields( [
-            Text::make( 'Table ID', 'table_id' )
-                ->instructions( 'Add Unique ID for the table. Try avoiding special characters, for example <strong>ear-wax-removal-pricing</strong>' )
-                ->required(),
+            UniqueId::make( 'Table ID', 'table_id' ),
             WysiwygEditor::make( 'Table HTML', 'table_html' )
                 ->instructions( 'Add table HTML. You can use an online generator, like <a href="https://divtable.com/generator/" target="_blank">this one</a>, to generate table HTML' )
                 ->mediaUpload( false )
