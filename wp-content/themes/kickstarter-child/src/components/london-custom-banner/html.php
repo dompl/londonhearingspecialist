@@ -15,12 +15,16 @@ add_filter( '_london_custom_banners', 'london_custom_banners_select_offer', 10, 
 
 function london_custom_banners_select_offer( $html, $type, $data ) {
 
-    $text = get_component( 'offer_text', $data );
+    $text     = get_component( 'offer_text', $data );
+    $subtitle = get_component( 'offer_subtitle', $data );
 
-    if ( empty( $text ) ) {
+    if ( empty( $text ) && empty( $subtitle ) ) {
         return $html;
     }
-    $html .= '<div class="text">' . $text . '</div>';
+    $html .= '<div class="banner-sm-content">';
+    $html .= $text ? '<div class="text">' . $text . '</div>' : '';
+    $html .= $subtitle ? '<div class="subtitle">' . $subtitle . '</div>' : '';
+    $html .= '</div>';
     $html .= Acf::ButtonAcfHtml( $data );
 
     return $html;

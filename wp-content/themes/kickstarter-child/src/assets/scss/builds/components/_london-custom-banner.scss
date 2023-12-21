@@ -4,6 +4,14 @@
 
 .london-custom-banner {
 	&.offer {
+		display: flex;
+		gap: 1rem;
+		.banner-sm-content {
+			display: flex;
+			gap: rem(5);
+			flex-direction: column;
+			flex: 1;
+		}
 		.text,
 		.text * {
 			padding: 0;
@@ -11,8 +19,10 @@
 			@include font-size(20, 30);
 			font-weight: var.$font-weight-bold;
 		}
-		display: flex;
-		gap: 1rem;
+		.subtitle {
+			@include font-size(16, 18);
+			font-weight: bold;
+		}
 		@include to(sm) {
 			text-align: center;
 			justify-content: center;

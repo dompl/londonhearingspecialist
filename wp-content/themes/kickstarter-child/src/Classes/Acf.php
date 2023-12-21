@@ -18,6 +18,25 @@ class Acf {
     public function __construct() {
         add_filter( 'acf/fields/wysiwyg/toolbars', [$this, 'HeaderAcfFieldsWysiwyg'] ); // Customize ACF WYSIWYG toolbars
         add_action( 'acf/init', [$this, 'InitAdminThemeOptionsPage'] ); // Customize ACF WYSIWYG toolbars
+        add_filter( '_ks_theme_acf_fields_before', [$this, 'InitComponentHelperFields'], 9999 ); // Customize ACF WYSIWYG toolbars
+    }
+
+    public function InitComponentHelperFields( $fields ) {
+        $endpoints       = false;
+        $addons_fields   = [];
+        $addons_fields[] = Tab::make( 'Helpers', wp_unique_id() )->placement( 'left' );
+
+        $shortcodes = apply_filters( '_london_acf_component_helper_shortcodes', [] );
+        if (  !  empty( $shortcodes ) ) {
+            $endpoints       = true;
+            $addons_fields[] = Accordion::make( 'Shortcodes', wp_unique_id() )->instructions( 'List of available shortcodes with short instructions of use.' );
+            $addons_fields   = array_merge( $addons_fields, $shortcodes );
+        }
+        if ( $endpoints ) {
+            $addons_fields[] = Accordion::make( 'Endpoint', wp_unique_id() )->endpoint();
+        }
+
+        return array_merge( $fields, apply_filters( '_london_acf_component_helper_addons', $addons_fields ) );
     }
 
     public function InitAdminThemeOptionsPage() {

@@ -1,0 +1,8 @@
+@use "abstracts" as *;
+@use "../../styles/icons" as ico;
+@use "../../styles/variables" as var;
+
+.frame-shortcode {
+	padding: rem(10);
+	border-radius: rem(5);
+}

@@ -59,4 +59,9 @@ $color-array: (
 	.bcg-#{$name} {
 		background-color: $color;
 	}
+	.before-bcg-#{$name} {
+		&:before {
+			background-color: $color;
+		}
+	}
 }

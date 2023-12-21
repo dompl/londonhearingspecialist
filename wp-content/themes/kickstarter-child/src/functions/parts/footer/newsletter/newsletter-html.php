@@ -1,7 +1,15 @@
 <?php
 
-function london_footer_newsletter_signup() {?>
-<div id="london-newsletter">
+function london_footer_newsletter_signup() {
+    $background = false;
+    if (  !  empty( get_the_ID() ) ) {
+        $footer_bcg = get_post_meta( get_the_ID(), 'footer_bcg', true );
+        if (  !  empty( $footer_bcg ) ) {
+            $background = ' class="before-bcg-' . $footer_bcg . '"';
+        }
+    }
+    ?>
+<div id="london-newsletter" <?php echo $background; ?>>
     <div class="container">
         <div class="inner">
             <div id="london-form-content">
