@@ -1,6 +1,6 @@
-@use "../styles/variables" as var;
-@use "../styles/icons" as ico;
 @use "abstracts" as *;
+@use "../styles/icons" as ico;
+@use "../styles/variables" as var;
 .google-star-rating {
 	svg {
 		fill: var.$color-stars !important;
@@ -268,10 +268,10 @@
 			a {
 				font-weight: var.$font-weight-bold;
 			}
-			li {
+			> li {
 				&.active-parent,
 				&.active {
-					a {
+					> a {
 						position: relative;
 						&::after {
 							content: "";
@@ -293,7 +293,6 @@
 					}
 				}
 			}
-
 			> li {
 				> a {
 					&:first-child {

@@ -7,7 +7,9 @@
 	flex-direction: column;
 	gap: 1rem;
 	list-style: none;
-
+	+ p {
+		margin-top: 1rem;
+	}
 	li {
 		.question {
 			color: white;
@@ -28,7 +30,7 @@
 
 		.answer {
 			display: none;
-			padding: rem(8);
+			padding: rem(8) rem(4);
 			padding-top: 1rem;
 		}
 
