@@ -1,0 +1,40 @@
+@use "../../styles/variables" as var;
+@use "../../styles/icons" as ico;
+@use "abstracts" as *;
+
+.london-dual-text {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	img {
+		max-width: 100%;
+	}
+	.image {
+		display: flex;
+		justify-content: center;
+	}
+	.inner-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		@include from(md) {
+			gap: 2rem;
+		}
+	}
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+	@include from(md) {
+		gap: 3rem;
+		.wrapper {
+			flex-direction: row;
+			gap: 3rem;
+		}
+		.left,
+		.right {
+			flex: 1;
+		}
+	}
+}
