@@ -2,7 +2,31 @@
 @use "../../styles/icons" as ico;
 @use "../../styles/variables" as var;
 
+p {
+	+ .frame-shortcode {
+		margin-top: 1rem;
+		margin-bottom: 0.5rem;
+		@include from(md) {
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+		}
+	}
+}
 .frame-shortcode {
 	padding: rem(10);
 	border-radius: rem(5);
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-bottom: 0.5rem; 
+		@include font-size(18, 20);
+	}
+	+ p {
+		margin-top: 1rem;
+		@include from(md) {
+			margin-top: 2rem;
+		}
+	}
 }

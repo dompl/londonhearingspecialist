@@ -131,7 +131,7 @@ class Acf {
             ->collapsed( 'link' )
             ->buttonLabel( 'Add button' )
             ->layout( 'table' );
-        $button[] = Select::make( 'Space', "{$prefix}s" )->instructions( 'Add space above the call for action buttons' )->choices( self::ContainerSpaces() )->defaultValue( 'lg' )->allowNull()->stylisedUi();
+        $button[] = Select::make( 'Space', "{$prefix}s" )->instructions( 'Add space above the call for action buttons' )->choices( self::ContainerSpaces() )->allowNull()->stylisedUi();
         return $button;
     }
 
@@ -252,7 +252,7 @@ class Acf {
         $fields[] = WysiwygEditor::make( 'Description', 'description' )->instructions( 'Additional heading description' )->mediaUpload( false )->tabs( 'all' )->toolbar( 'heading_toolbar' );
 
         $fields[] = Accordion::make( 'Heading spacing', wp_unique_id() )->instructions( 'Spacing under the heading' );
-        $fields[] = Select::make( 'Select space under the container', 'hs' )->instructions( 'Set space under the custom heading' )->choices( self::ContainerSpaces() )->allowNull()->stylisedUi()->defaultValue( 'lg' );
+        $fields[] = Select::make( 'Select space under the heading container', 'hs' )->instructions( 'Set space under the custom heading' )->choices( self::ContainerSpaces() )->allowNull()->stylisedUi();
         $fields[] = Accordion::make( 'Heading call for actions', wp_unique_id() )->instructions( 'Additional heading call for actions' );
         $fields   = array_merge( $fields, self::ButtonAcfFields() );
 

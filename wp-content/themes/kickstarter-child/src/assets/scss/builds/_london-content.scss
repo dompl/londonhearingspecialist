@@ -38,6 +38,11 @@
 			flex-direction: column;
 			padding-top: 1rem;
 			padding-bottom: 2rem;
+			&.single-line {
+				li {
+					width: 100% !important;
+				}
+			}
 			li {
 				display: flex;
 				font-weight: bold;
@@ -52,6 +57,9 @@
 				flex-direction: row;
 				flex-wrap: wrap;
 				gap: 2rem;
+				&.single-line {
+					gap: 1rem;
+				}
 				li {
 					width: calc(50% - 2rem);
 				}

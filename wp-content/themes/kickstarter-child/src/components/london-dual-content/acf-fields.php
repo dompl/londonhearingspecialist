@@ -13,7 +13,7 @@ $fields[] = Tab::make( 'Image', wp_unique_id() )->placement( 'left' );
 $fields[] = Select::make( 'Image position', 'position' )->instructions( 'Set position for the image' )->choices( ['left' => 'Image on the left', 'right' => 'Image on the right'] )->defaultValue( 'right' )->stylisedUi()->required();
 $fields[] = Group::make( 'Image', 'image' )->instructions( 'Set dual content column image' )->fields( [
     Image::make( 'Image', 'image' )->instructions( 'Set the content image' )->returnFormat( 'id' )->previewSize( 'medium' )->required(),
-    Number::make( 'Image height', 'height' )->instructions( 'Set image height' )->min( 100 )->max( 1000 )->required(),
+    Number::make( 'Image height', 'height' )->instructions( 'Set image height' )->min( 100 )->max( 1000 )->required()->defaultValue( 500 ),
     Select::make( 'Backdrop', 'bcg' )->instructions( 'Add custom backdrop colour for the image as a background' )->choices( london_colors_list() )->allowNull()->stylisedUi()
 ] )->layout( 'row' );
 $fields = array_merge( $fields, \London\Acf::ButtonAcfFields( 's', true ) );
