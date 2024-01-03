@@ -13,5 +13,5 @@ $fields[]     = Text::make( 'Accessory brand', 'brand' )->instructions( 'Add acc
 $fields[]     = Textarea::make( 'Accessory description', 'description' )->instructions( 'Add accessory name' )->required()->rows( 2 );
 $fields[]     = Link::make( 'Accessory link', 'link' )->instructions( 'Add accessory link' )->returnFormat( 'array' );
 $MainFields[] = Tab::make( 'Accessories', wp_unique_id() )->placement( 'left' );
-$MainFields[] = Repeater::make( 'Add accessories', 'f' )->instructions( 'Add accessories to the list' )->fields( $fields )->collapsed( '' )->buttonLabel( 'Add Accessory' )->layout( 'table' );
+$MainFields[] = Repeater::make( 'Add accessories', 'fa' )->instructions( 'Add accessories to the list' )->fields( $fields )->collapsed( '' )->buttonLabel( 'Add Accessory' )->layout( 'table' );
 \Kickstarter\MyAcf::registerComponentFields( 'Accessories ', $MainFields );

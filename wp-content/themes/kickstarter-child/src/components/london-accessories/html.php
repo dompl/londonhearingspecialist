@@ -5,19 +5,19 @@ add_filter( \Kickstarter\MyAcf::Html(), 'wp_1704192365_london', 10, 2 );
 
 function wp_1704192365_london( $html, $data ) {
 
-    $fields = get_component( 'f', $data );
+    $fields = get_component( 'fa', $data );
     if (  !  $fields ) {
         return $html;
     }
     $html .= '<div class="london-accessories">';
     for ( $i = 0; $i < $fields; $i++ ) {
 
-        $img         = get_component( "f_{$i}_img", $data );
-        $name        = get_component( "f_{$i}_name", $data );
-        $brand       = get_component( "f_{$i}_brand", $data );
-        $description = get_component( "f_{$i}_description", $data );
-        $description = get_component( "f_{$i}_description", $data );
-        $link        = get_component( "f_{$i}_link", $data );
+        $img         = get_component( "fa_{$i}_img", $data );
+        $name        = get_component( "fa_{$i}_name", $data );
+        $brand       = get_component( "fa_{$i}_brand", $data );
+        $description = get_component( "fa_{$i}_description", $data );
+        $description = get_component( "fa_{$i}_description", $data );
+        $link        = get_component( "fa_{$i}_link", $data );
 
         $html .= '<div class="item">';
 
