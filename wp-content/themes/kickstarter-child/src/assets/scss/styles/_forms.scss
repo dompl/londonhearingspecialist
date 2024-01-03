@@ -1,0 +1,149 @@
+@use "abstracts" as *;
+@use "../styles/icons" as ico;
+@use "../styles/variables" as var;
+
+@mixin input {
+	display: block;
+	width: 100%;
+	padding: rem(10);
+	background-color: var.$color-input-background;
+	border: 0;
+	box-sizing: border-box;
+	border-radius: rem(3);
+	@include font-size(14, 16);
+	&:focus {
+		outline: none;
+		// border-color: var.$color-blue;
+	}
+}
+@mixin label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: rem(8);
+	@include font-size(14, 16);
+}
+
+.gform_body {
+	.gfield_required_asterisk {
+		color: var.$color-error;
+		margin-left: 5px;
+	}
+
+	.validation_message {
+		font-weight: bold;
+		font-size: 14px;
+		color: var.$color-error;
+		display: block;
+		margin-top: rem(5);
+	}
+	fieldset {
+		border: 0;
+		padding: 0;
+		margin: 0;
+	}
+	.hidden_sub_label {
+		display: none;
+	}
+	#field_1_3,
+	#field_1_10,
+	#field_1_4 {
+		label {
+			display: none;
+		}
+	}
+	#field_1_1 {
+		legend {
+			display: none;
+		}
+		.ginput_complex {
+			display: flex;
+			gap: 1rem;
+			> span {
+				display: block;
+				flex: 1;
+			}
+		}
+	}
+	#field_1_3,
+	#field_1_4 {
+		width: calc(50% - 0.5rem);
+	}
+	#field_1_3 {
+		float: left;
+	}
+	#field_1_4 {
+		float: right;
+	}
+	#field_1_7 {
+		clear: both;
+	}
+	input {
+		&[type="text"],
+		&[type="email"],
+		&[type="tel"] {
+			@include input;
+		}
+	}
+	select,
+	textarea {
+		@include input;
+	}
+	#field_1_1,
+	#field_1_9,
+	#field_1_10,
+	#field_1_3,
+	#field_1_4 {
+		padding-top: 1rem;
+	}
+	#field_1_3,
+	#field_1_4 {
+		padding-bottom: 1rem;
+	}
+	#field_1_7 {
+		legend {
+			@include label();
+		}
+	}
+	#field_1_9 {
+		label {
+			@include label();
+		}
+	}
+	#input_1_7 {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		@include from(md) {
+			flex-direction: row;
+			flex-wrap: wrap;
+			> div {
+				width: calc(50% - 1rem);
+			}
+		}
+	}
+}
+#gform_wrapper_1 {
+	.gform_footer {
+		padding-top: 1rem;
+	}
+}
+
+.gform_validation_errors {
+	h2 {
+		margin: 0;
+		font-size: rem(16);
+		color: white;
+	}
+	background-color: var.$color-error;
+	padding: rem(5);
+	text-align: center;
+	border-radius: rem(5);
+}
+#gform_confirmation_message_1 {
+	color: white;
+	background-color: var.$color-success;
+	font-weight: bold;
+	@include font-size(18, 20);
+	border-radius: rem(5);
+	padding: rem(10);
+}

@@ -59,6 +59,13 @@ class Acf {
             'parent_slug' => 'london-options'
         );
         $admin_options_pages[] = array(
+            'page_title'  => 'Team Members',
+            'menu_title'  => 'Team Members',
+            'menu_slug'   => 'london-team-members',
+            'capability'  => 'edit_posts',
+            'parent_slug' => 'london-options'
+        );
+        $admin_options_pages[] = array(
             'page_title'  => 'Frequently Asked Questions',
             'menu_title'  => 'FAQ\'s',
             'menu_slug'   => 'london-faqs',
@@ -88,6 +95,16 @@ class Acf {
                 'fields'   => $theme_options_fields['faqs'],
                 'location' => [
                     Location::where( 'options_page', 'london-faqs' )
+                ]
+            ] );
+        }
+        if (  !  empty( $theme_options_fields['team_members'] ) ) {
+            register_extended_field_group( [
+                'title'    => 'Team Members',
+                //  'style'    => 'default',
+                'fields'   => $theme_options_fields['team_members'],
+                'location' => [
+                    Location::where( 'options_page', 'london-team-members' )
                 ]
             ] );
         }

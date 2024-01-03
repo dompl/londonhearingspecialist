@@ -9,3 +9,81 @@
 	flex-wrap: wrap;
 	gap: 2rem;
 }
+// [london_contact]
+.short-info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	a {
+		color: var.$color-text;
+		display: flex;
+		align-items: center;
+		@include font-size(18, 20);
+		font-weight: bold;
+		&:hover {
+			span {
+				text-decoration: underline;
+			}
+		}
+	}
+	i {
+		font-size: rem(20);
+		margin-right: rem(10);
+		color: var.$color-blue;
+	}
+}
+
+// [team_members]
+
+.london-team-members {
+	display: flex;
+	gap: 2rem;
+	flex-wrap: wrap;
+	justify-content: center;
+	.image {
+		position: relative;
+		z-index: 2;
+	}
+	.item,
+	.inner {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		text-align: center;
+	}
+	.inner {
+		gap: 0.5rem;
+	}
+	.content {
+		position: relative;
+		&:after {
+			@include shadow-box();
+			position: absolute;
+			width: 100%;
+			content: "";
+			top: rem(-150);
+			bottom: 0;
+			display: block;
+		}
+	}
+	.inner {
+		position: relative;
+		z-index: 2;
+		padding: 0 rem(20) rem(30) rem(20);
+	}
+	.item {
+		width: rem(378);
+	}
+	h3 {
+		margin: 0;
+		color: var.$color-blue;
+		@include font-size(20, 24);
+	}
+	.addon {
+		font-weight: bold;
+		@include font-size(14, 16);
+	}
+	.specialization {
+		@include font-size(14, 18);
+	}
+}

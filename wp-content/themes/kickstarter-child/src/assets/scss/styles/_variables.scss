@@ -36,6 +36,7 @@ $color-error: #b72c2c;
 $color-success: #6c9a32;
 $color-link-hover: #03212b;
 $table-border: #dadada;
+$color-input-background: #dadada;
 
 $color-array: (
 	"text": $color-text,
@@ -50,6 +51,7 @@ $color-array: (
 	"gray-lightest": $color-gray-lightest,
 	"gray-light": $color-gray-light,
 	"gray-brand": $color-brand,
+	"input-background": $color-input-background,
 );
 
 @each $name, $color in $color-array {

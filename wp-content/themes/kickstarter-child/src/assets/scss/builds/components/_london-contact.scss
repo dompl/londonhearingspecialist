@@ -1,0 +1,20 @@
+@use "abstracts" as *;
+@use "../../styles/icons" as ico;
+@use "../../styles/variables" as var;
+.london-contact {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	@include from(lg) {
+		flex-direction: row;
+		gap: 3rem;
+		> div {
+			flex: 1;
+		}
+	}
+	.right {
+		display: flex;
+		gap: 1rem;
+		flex-direction: column;
+	}
+}
