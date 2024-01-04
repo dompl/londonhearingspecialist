@@ -12,7 +12,7 @@ function wp_1704354284_london( $html, $data ) {
         return $html;
     }
 
-    $html .= '<div class="london-simple london-text">' . $content . '</div>';
+    $html .= '<div class="london-simple london-text">' . wpautop( $content ) . '</div>';
 
     return $html;
 }

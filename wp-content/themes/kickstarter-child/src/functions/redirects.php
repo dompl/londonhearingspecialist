@@ -6,7 +6,8 @@ function london_redirects() {
     global $post;
 
     $redirects = [
-        636 => 638
+        636 => 638,
+        695 => 679
     ];
     if (  !  isset( $post->ID ) ) {
         return;

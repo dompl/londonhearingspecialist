@@ -324,6 +324,9 @@ class Acf {
 
         $toolbars['Tables Toolbar']    = [];
         $toolbars['Tables Toolbar'][1] = ['bold', 'link', 'removeformat', 'table'];
+
+        $toolbars['Content Toolbar']    = [];
+        $toolbars['Content Toolbar'][1] = ['formatselect', 'bold', 'link', 'aligncenter', 'bullist', 'alignleft', 'justifyfull', 'removeformat'];
         return $toolbars;
     }
 
