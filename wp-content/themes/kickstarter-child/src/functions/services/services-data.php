@@ -91,3 +91,8 @@ function flush_clinic_services_transient( $post_id, $post, $update ) {
 
 // Hook the function to the save_post action
 add_action( 'save_post', 'flush_clinic_services_transient', 10, 3 );
+
+add_filter( '_ks_components_cloner_post_types', function ( $post_types ) {
+    $post_types[] = 'clinic_services';
+    return $post_types;
+} );

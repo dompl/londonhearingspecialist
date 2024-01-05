@@ -34,9 +34,9 @@ function create_service_post_type() {
         'rewrite'            => array( 'slug' => 'services' ),
         'capability_type'    => 'post',
         'has_archive'        => false,
-        'hierarchical'       => false,
+        'hierarchical'       => true,
         'menu_position'      => null,
-        'supports'           => array( 'title' )
+        'supports'           => array( 'title', 'page-attributes' )
     );
 
     register_post_type( 'clinic_services', $args );

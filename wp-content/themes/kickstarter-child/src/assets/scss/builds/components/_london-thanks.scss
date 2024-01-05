@@ -1,0 +1,31 @@
+@use "../../styles/variables" as var;
+@use "../../styles/icons" as ico;
+@use "abstracts" as *;
+
+.london-thanks {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1rem;
+	text-align: center;
+	margin: 2rem 0;
+	@include from(md) {
+		margin: 4rem 0;
+	}
+	h2,
+	h3 {
+		margin: 0;
+		color: var.$color-blue;
+		@include font-size(20, 36);
+	}
+	.content {
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		flex-direction: column;
+		gap: 1rem;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
