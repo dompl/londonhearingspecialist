@@ -3,6 +3,10 @@ use Kickstarter\MyHelpers;
 use London\Acf;
 add_filter( \Kickstarter\MyAcf::Html(), 'wp_1704299402_london', 10, 2 );
 
+function booking_page_id() {
+    $page = 638;
+}
+
 function wp_1704299402_london( $html, $data ) {
 
     $html .= '<div class="london-booking">';
@@ -50,5 +54,12 @@ add_action( 'wp_head', function () {
 
         $return .= '</script>';
         echo $return;
+    }
+    // Redirect the page to the booking page when its on thank you and no admin is logged in.
+    if ( MyHelpers::ifHasComponent( 'london_thanks' ) && current_user_can( 'administrator' ) ) {
+        $bookingPage = booking_page_id();
+        $location    = get_the_permalink( $bookingPage );
+        wp_safe_redirect( $location, 301 );
+        exit;
     }
 } );
