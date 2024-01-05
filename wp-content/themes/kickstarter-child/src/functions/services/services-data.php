@@ -36,13 +36,16 @@ function clinic_services_data() {
 
             $post_id = get_the_ID();
 
-            $services[$post_id] = array(
-                'title'       => get_the_title(),
-                'icon'        => get_post_meta( $post_id, 'service_icon', true ),
-                'image'       => get_post_meta( $post_id, 'service_image', true ),
-                'description' => get_post_meta( $post_id, 'service_description', true ),
-                'link'        => get_post_meta( $post_id, 'service_link', true )
-            );
+            $include = get_post_meta( $post_id, 'include', true );
+            if (  !  empty( $include ) ) {
+                $services[$post_id] = array(
+                    'title'       => get_the_title(),
+                    'icon'        => get_post_meta( $post_id, 'service_icon', true ),
+                    'image'       => get_post_meta( $post_id, 'service_image', true ),
+                    'description' => get_post_meta( $post_id, 'service_description', true ),
+                    'link'        => get_post_meta( $post_id, 'service_link', true )
+                );
+            }
 
         }
 

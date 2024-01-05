@@ -4,6 +4,7 @@ use Extended\ACF\Fields\Link;
 use Extended\ACF\Fields\Tab;
 use Extended\ACF\Fields\Text;
 use Extended\ACF\Fields\Textarea;
+use Extended\ACF\Fields\TrueFalse;
 use Extended\ACF\Location;
 
 add_filter( '_ks_acf_layout_locations', function ( $locations ) {
@@ -24,6 +25,9 @@ add_action( 'acf/init', function () {
 
 add_filter( 'london_clinic_services_fields', function ( $fields ) {
 
+    $fields[] = Tab::make( 'Settings', wp_unique_id() )->placement( 'left' );
+
+    $fields[] = TrueFalse::make( 'Hide in listing', 'include' )->instructions( 'Check this box if you want to hide this service from the listing (Services listing Component' )->defaultValue( false )->stylisedUi(); // optional on and off text labels
     $fields[] = Tab::make( 'Images', wp_unique_id() )->placement( 'left' );
     $fields[] = Image::make( 'Service icon', 'service_icon' )->instructions( 'Add service icon. Allowed mime type : SVG' )->returnFormat( 'url' )->previewSize( 'medium' )->required()->mimeTypes( ['svg'] );
     $fields[] = Image::make( 'Service image', 'service_image' )->instructions( 'Add service image' )->returnFormat( 'id' )->previewSize( 'medium' )->required();
