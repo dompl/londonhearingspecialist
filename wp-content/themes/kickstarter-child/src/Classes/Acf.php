@@ -72,6 +72,14 @@ class Acf {
             'capability'  => 'edit_posts',
             'parent_slug' => 'london-options'
         );
+        $admin_options_pages[] = array(
+            'page_title'  => 'Banners',
+            'menu_title'  => 'Page banners',
+            'menu_slug'   => 'london-page-banners',
+            'capability'  => 'edit_posts',
+            'parent_slug' => 'london-options'
+        );
+
         foreach ( $admin_options_pages as $page ) {
             acf_add_options_page( $page );
         }
@@ -105,6 +113,17 @@ class Acf {
                 'fields'   => $theme_options_fields['team_members'],
                 'location' => [
                     Location::where( 'options_page', 'london-team-members' )
+                ]
+            ] );
+        }
+
+        if (  !  empty( $theme_options_fields['banners'] ) ) {
+            register_extended_field_group( [
+                'title'    => 'Page banners',
+                //  'style'    => 'default',
+                'fields'   => $theme_options_fields['banners'],
+                'location' => [
+                    Location::where( 'options_page', 'london-page-banners' )
                 ]
             ] );
         }

@@ -55,9 +55,21 @@ add_action( 'wp_head', function () {
         $return .= '</script>';
         echo $return;
     }
-    // Redirect the page to the booking page when its on thank you and no admin is logged in.
-    if ( MyHelpers::ifHasComponent( 'london_thanks' ) && current_user_can( 'administrator' ) ) {
-        $bookingPage = booking_page_id();
+
+} );
+
+add_action( 'template_redirect', function () {
+    // Assuming you have a way to get the relevant post ID here.
+    // If this code is within The Loop, you can use get_the_ID().
+
+    if ( isset( $_GET['confirmation-successful'] ) ) {
+        return;
+    }
+
+    $post_id = get_the_ID();
+    // Redirect the page to the booking page when it's on thank you and no admin is logged in.
+    if ( MyHelpers::ifHasComponent( 'london_thanks', $post_id ) && !  current_user_can( 'edit_posts' ) ) {
+        $bookingPage = 638;
         $location    = get_the_permalink( $bookingPage );
         wp_safe_redirect( $location, 301 );
         exit;
