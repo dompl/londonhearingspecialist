@@ -2,21 +2,36 @@
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Layout;
 use Extended\ACF\Fields\Repeater;
+use Extended\ACF\Fields\Select;
 use Extended\ACF\Fields\Tab;
 use Extended\ACF\Fields\Text;
 use Extended\ACF\Fields\Textarea;
 use Extended\ACF\Location;
 add_action( 'acf/init', function () {
+    $colors     = ks_theme_custom_colors_array();
+    $repeater   = [];
+    $repeater[] = Tab::make( 'Images', wp_unique_id() )->placement( 'left' );
+    $repeater[] = Image::make( 'Background image', 'bcg_image' )->instructions( 'Add background image. If no image is provided system will show default image.' )->returnFormat( 'id' )->previewSize( 'thumbnail' )->library( 'all' )->mimeTypes( ['jpg', 'jpeg', 'png'] );
+    $repeater[] = Tab::make( 'Content', wp_unique_id() )->placement( 'left' );
+
+    if (  !  empty( $colors ) ) {
+        // Create a group field for batch text and background color
+        $repeater[] = \London\Acf::HeaderAcfFieldsBatch( $colors );
+    }
+    $colors     = ks_theme_custom_colors_array();
+    $repeater[] = Select::make( 'Text color', 'banner_color' )
+        ->instructions( 'Add banner text color' )
+        ->choices( $colors )
+        ->allowNull()
+        ->stylisedUi();
+    $repeater[] = Text::make( 'Title', 'london_banner_title' )->instructions( 'Add page banner title. Use variable <strong>%title%</strong> to display default page/post title.' )->defaultValue( '%title%' )->required();
+    $repeater[] = Text::make( 'Addon', 'london_banner_addon' )->instructions( 'Add page banner additional text. Title addon will display in the blue background container.' );
+    $repeater[] = Textarea::make( 'Description', 'london_banner_addon_desc' )->newLines( 'br' )->instructions( 'Add banner additional description' )->rows( 3 );
+    $repeater   = array_merge( $repeater, \London\Acf::ButtonAcfFields( 'banner_', true ) );
     register_extended_field_group( [
         'title'    => 'Page banner',
         'style'    => 'default',
-        'fields'   => [
-            Tab::make( 'Content', wp_unique_id() )->placement( 'left' ),
-            Image::make( 'Background image', 'bcg_image' )->instructions( 'Add background image. If no image is provided system will show default image.' )->returnFormat( 'id' )->previewSize( 'thumbnail' )->library( 'all' )->mimeTypes( ['jpg', 'jpeg', 'png'] ),
-            Text::make( 'Title', 'london_banner_title' )->instructions( 'Add page banner title. Use variable <strong>%title%</strong> to display default page/post title.' )->defaultValue( '%title%' )->required(),
-            Text::make( 'Addon', 'london_banner_addon' )->instructions( 'Add page banner additional text. Title addon will display in the blue background container.' ),
-            Textarea::make( 'Description', 'london_banner_addon_desc' )->newLines( 'br' )->instructions( 'Add banner additional description' )->rows( 3 )
-        ],
+        'fields'   => $repeater,
         'location' => [
             Location::where( 'post_type', 'post' ),
             Location::where( 'post_type', 'page' ),

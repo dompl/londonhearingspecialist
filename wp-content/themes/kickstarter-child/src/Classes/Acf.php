@@ -194,12 +194,20 @@ class Acf {
         ];
     }
 
-    public static function ButtonAcfHtml( $data, $prefix = '' ) {
+    public static function ButtonAcfHtml( $data, $prefix = '', $post = false ) {
 
-        $html       = '';
-        $buttons    = get_component( $prefix . 'buttons', $data );
-        $space      = get_component( $prefix . 's', $data );
-        $predefined = get_component( $prefix . 'predefined', $data );
+        $html         = '';
+        $is_component = empty( $post ) && !  empty( $data ) ? true : false;
+        if ( $is_component ) {
+            $buttons    = get_component( $prefix . 'buttons', $data );
+            $space      = get_component( $prefix . 's', $data );
+            $predefined = get_component( $prefix . 'predefined', $data );
+        } else {
+            $buttons    = get_post_meta( $post->ID, $prefix . 'buttons', true );
+            $space      = get_post_meta( $post->ID, $prefix . 's', true );
+            $predefined = get_post_meta( $post->ID, $prefix . 'predefined', true );
+
+        }
 
         if ( $buttons || !  empty( $predefined ) ) {
 
@@ -215,15 +223,26 @@ class Acf {
 
             for ( $i = 0; $i < $buttons; $i++ ) {
 
-                $button         = [];
-                $button['link'] = get_component( $prefix . "buttons_{$i}_link", $data );
+                $button = [];
+
+                if ( $is_component ) {
+                    $button['link'] = get_component( $prefix . "buttons_{$i}_link", $data );
+                } else {
+                    $button['link'] = get_post_meta( $post->ID, $prefix . "buttons_{$i}_link", true );
+                }
 
                 if ( empty( $button['link'] ) ) {
                     continue;
                 }
 
-                $button['color']         = get_component( "buttons_{$i}_color", $data );
+                if ( $is_component ) {
+                    $button['color'] = get_component( "buttons_{$i}_color", $data );
+                } else {
+                    $button['color'] = get_post_meta( $post->ID, "buttons_{$i}_color", true );
+                }
+
                 $button['link']['title'] = isset( $button['link']['title'] ) && !  empty( $button['link']['title'] ) ? $button['link']['title'] : __( 'Discover More', 'london' );
+
                 $html .= '<a href="' . esc_url( $button['link']['url'] ) . '" class="button ' . esc_html( $button['color'] ) . '" title="' . wp_strip_all_tags( $button['link']['title'], true ) . '">' . $button['link']['title'] . '</a>';
 
             }
@@ -232,6 +251,22 @@ class Acf {
             return $html;
         }
 
+    }
+
+    public static function HeaderAcfFieldsBatch() {
+        $colors = ks_theme_custom_colors_array();
+        return Group::make( 'Batch', 'batch' )
+            ->instructions( 'Add custom heading batch' )
+            ->fields( [
+                Text::make( 'Batch text', 'text' )
+                    ->instructions( 'Add custom batch text' ),
+                Select::make( 'Background colour', 'color' )
+                    ->instructions( 'Add custom batch colour' )
+                    ->choices( $colors )
+                    ->allowNull()
+                    ->stylisedUi()
+            ] )
+            ->layout( 'row' );
     }
 
     /**
@@ -253,24 +288,8 @@ class Acf {
 
         $fields[] = Select::make( 'Style', 'style' )->instructions( 'Select heading style' )->choices( ['center' => 'Centered', 'left' => 'Left aligned'] )->defaultValue( 'left' )->stylisedUi()->required();
 
-        // Retrieve custom color options for the theme
-        $colors = ks_theme_custom_colors_array();
-
-        if (  !  empty( $colors ) ) {
-            // Create a group field for batch text and background color
-            $fields[] = Group::make( 'Batch', 'batch' )
-                ->instructions( 'Add custom heading batch' )
-                ->fields( [
-                    Text::make( 'Batch text', 'text' )
-                        ->instructions( 'Add custom batch text' ),
-                    Select::make( 'Background colour', 'color' )
-                        ->instructions( 'Add custom batch colour' )
-                        ->choices( $colors )
-                        ->allowNull()
-                        ->stylisedUi()
-                ] )
-                ->layout( 'row' );
-        }
+        // Create a group field for batch text and background color
+        $fields[] = self::HeaderAcfFieldsBatch();
 
         // Create a group field for main heading text and tag selection
         $fields[] = Group::make( 'Heading text', 'text' )

@@ -37,7 +37,8 @@ function clinic_services_data() {
             $post_id = get_the_ID();
 
             $include = get_post_meta( $post_id, 'include', true );
-            if (  !  empty( $include ) ) {
+
+            if ( $include !== 0 ) {
                 $services[$post_id] = array(
                     'title'       => get_the_title(),
                     'icon'        => get_post_meta( $post_id, 'service_icon', true ),
