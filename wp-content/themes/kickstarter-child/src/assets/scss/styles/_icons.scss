@@ -30,65 +30,71 @@
 		@if $filename == angle-left {
 		  $char: "\E001";
 		}
-		@if $filename == bars-solid {
+		@if $filename == angle-right-solid {
 		  $char: "\E002";
 		}
-		@if $filename == bus {
+		@if $filename == bars-solid {
 		  $char: "\E003";
 		}
-		@if $filename == calendar-light {
+		@if $filename == bus {
 		  $char: "\E004";
 		}
-		@if $filename == caret-down-solid {
+		@if $filename == calendar-light {
 		  $char: "\E005";
 		}
-		@if $filename == check-duotone {
+		@if $filename == caret-down-solid {
 		  $char: "\E006";
 		}
-		@if $filename == check-solid {
+		@if $filename == check-duotone {
 		  $char: "\E007";
 		}
-		@if $filename == envelope-regular {
+		@if $filename == check-solid {
 		  $char: "\E008";
 		}
-		@if $filename == facebook {
+		@if $filename == envelope-regular {
 		  $char: "\E009";
 		}
-		@if $filename == location-dot-light {
+		@if $filename == facebook {
 		  $char: "\E00A";
 		}
-		@if $filename == minus-solid {
+		@if $filename == house-solid {
 		  $char: "\E00B";
 		}
-		@if $filename == overground {
+		@if $filename == location-dot-light {
 		  $char: "\E00C";
 		}
-		@if $filename == parking {
+		@if $filename == minus-solid {
 		  $char: "\E00D";
 		}
-		@if $filename == phone-regular {
+		@if $filename == overground {
 		  $char: "\E00E";
 		}
-		@if $filename == plus-solid {
+		@if $filename == parking {
 		  $char: "\E00F";
 		}
-		@if $filename == quote-right-solid {
+		@if $filename == phone-regular {
 		  $char: "\E010";
 		}
-		@if $filename == star-of-life-solid {
+		@if $filename == plus-solid {
 		  $char: "\E011";
 		}
-		@if $filename == train {
+		@if $filename == quote-right-solid {
 		  $char: "\E012";
 		}
-		@if $filename == underground {
+		@if $filename == star-of-life-solid {
 		  $char: "\E013";
 		}
-		@if $filename == x-twitter {
+		@if $filename == train {
 		  $char: "\E014";
 		}
-		@if $filename == xmark-sharp-light {
+		@if $filename == underground {
 		  $char: "\E015";
+		}
+		@if $filename == x-twitter {
+		  $char: "\E016";
+		}
+		@if $filename == xmark-sharp-light {
+		  $char: "\E017";
 		}
 
 	  @return $char;
@@ -108,6 +114,9 @@
 
 	.icon-angle-left {
 	  @include icon(angle-left);
+	}
+	.icon-angle-right-solid {
+	  @include icon(angle-right-solid);
 	}
 	.icon-bars-solid {
 	  @include icon(bars-solid);
@@ -132,6 +141,9 @@
 	}
 	.icon-facebook {
 	  @include icon(facebook);
+	}
+	.icon-house-solid {
+	  @include icon(house-solid);
 	}
 	.icon-location-dot-light {
 	  @include icon(location-dot-light);

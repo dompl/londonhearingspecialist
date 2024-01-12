@@ -12,7 +12,7 @@ function london_page_banner_html() {
     if (  !  empty( $main_image ) && !  empty( $post->ID ) ) {
 
         $img[] = $main_image;
-        $img   = \Kickstarter\MyHelpers::WPImage( id: $main_image, size: [1200, 800] );
+        $img   = \Kickstarter\MyHelpers::WPImage( id: $main_image, size: [2000, 600] );
 
     } else {
 
@@ -21,7 +21,7 @@ function london_page_banner_html() {
         if (  !  empty( $banner_images ) ) {
 
             shuffle( $banner_images );
-            $img = \Kickstarter\MyHelpers::WPImage( id: $banner_images[0], size: [1200, 800] );
+            $img = \Kickstarter\MyHelpers::WPImage( id: $banner_images[0], size: [2000, 600] );
         }
     }
 
@@ -34,21 +34,30 @@ function london_page_banner_html() {
     $description = apply_filters( 'london_banner_addon_desc', '', $post );
     $button      = false;
     $batch       = get_post_meta( $post->ID, 'batch_text', true );
+    $color       = get_post_meta( $post->ID, 'banner_color', true ) ? get_post_meta( $post->ID, 'banner_color', true ) : 'text';
     $batch_color = get_post_meta( $post->ID, 'batch_color', true );
 
     $html = '<div class="london-banner" style="background-image:url(' . $img . ')">';
     $html .= '<div class="container">';
-    $html .= '<div class="top">';
+    $html .= '<div class="wrapper">';
+
     if (  !  empty( $batch ) ) {
-        $batch_color = $batch_color ?? 'brand';
-        $html .= '<div class="batch-wrapper"><span class="button batch ' . $batch_color . '">' . $batch . '</span></div>';
+        $html .= '<div class="batch-wrapper"><span class="button batch ' . ( $batch_color ?? 'brand' ) . '">' . $batch . '</span></div>';
     }
-    $html .= '<div class="title"><h1>' . $title . '</h2></div>';
-    $html .= '<div class="bottom">';
+
+    $html .= '<div class="title"><h1 class="color-' . $color . '">' . $title . '</h1></div>';
+
+    if ( function_exists( 'yoast_breadcrumb' ) && !  is_front_page() ) {
+        ob_start(); // Start output buffering
+        yoast_breadcrumb( '<div id="london-breadcrumbs" class="color-' . $color . ' a-' . $color . '">', '</div>' );
+        $html .= ob_get_clean(); // Get the buffered output and clear the buffer
+
+    }
+
     $html .= $addon ? '<div class="addon">' . $addon . '</div>' : '';
-    $html .= $description ? '<div class="description">' . $description . '</div>' : '';
+    $html .= $description ? '<div class="description" class="color-' . $color . '">' . $description . '</div>' : '';
     $html .= Acf::ButtonAcfHtml( false, 'banner_', $post );
-    $html .= '</div>';
+
     $html .= '</div>';
     $html .= '</div>';
     $html .= '</div>';

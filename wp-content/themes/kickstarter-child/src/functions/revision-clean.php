@@ -1,4 +1,3 @@
-#!/usr/bin/env php
 <?php
 /**
  * A WP-CLI command to remove all revisions including those from custom post types.

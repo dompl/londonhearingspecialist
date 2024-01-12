@@ -58,6 +58,11 @@ $color-array: (
 	.color-#{$name} {
 		color: $color;
 	}
+	.a-#{$name} {
+		a {
+			color: $color;
+		}
+	}
 	.bcg-#{$name} {
 		background-color: $color;
 	}

@@ -7,8 +7,11 @@ use Extended\ACF\Fields\Tab;
 use Extended\ACF\Fields\Text;
 use Extended\ACF\Fields\Textarea;
 use Extended\ACF\Location;
+
 add_action( 'acf/init', function () {
-    $colors     = ks_theme_custom_colors_array();
+
+    $colors = ks_theme_custom_colors_array();
+
     $repeater   = [];
     $repeater[] = Tab::make( 'Images', wp_unique_id() )->placement( 'left' );
     $repeater[] = Image::make( 'Background image', 'bcg_image' )->instructions( 'Add background image. If no image is provided system will show default image.' )->returnFormat( 'id' )->previewSize( 'thumbnail' )->library( 'all' )->mimeTypes( ['jpg', 'jpeg', 'png'] );
@@ -19,11 +22,7 @@ add_action( 'acf/init', function () {
         $repeater[] = \London\Acf::HeaderAcfFieldsBatch( $colors );
     }
     $colors     = ks_theme_custom_colors_array();
-    $repeater[] = Select::make( 'Text color', 'banner_color' )
-        ->instructions( 'Add banner text color' )
-        ->choices( $colors )
-        ->allowNull()
-        ->stylisedUi();
+    $repeater[] = Select::make( 'Text color', 'banner_color' )->instructions( 'Add banner text color' )->choices( $colors )->allowNull()->stylisedUi();
     $repeater[] = Text::make( 'Title', 'london_banner_title' )->instructions( 'Add page banner title. Use variable <strong>%title%</strong> to display default page/post title.' )->defaultValue( '%title%' )->required();
     $repeater[] = Text::make( 'Addon', 'london_banner_addon' )->instructions( 'Add page banner additional text. Title addon will display in the blue background container.' );
     $repeater[] = Textarea::make( 'Description', 'london_banner_addon_desc' )->newLines( 'br' )->instructions( 'Add banner additional description' )->rows( 3 );
