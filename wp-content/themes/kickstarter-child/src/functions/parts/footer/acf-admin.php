@@ -39,7 +39,7 @@ function ks_admin_theme_options_footer_settings_acf_navigation( $fields ) {
                     ->defaultValue( $v ),
                 PageLink::make( "$v navigation items", "links" )
                     ->instructions( 'Add ' . strtolower( $v ) . ' navigation items' )
-                    ->postTypes( ['page', 'london_locations'] )
+                    ->postTypes( ['page', 'london_locations', 'clinic_services'] )
                     ->allowNull()
                     ->allowMultiple()
             ] )
