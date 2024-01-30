@@ -90,7 +90,6 @@ trait AcfContainerFlex {
      * @return string Modified post content.
      */
     private static function appendComponentContent( $post_content, $row, $data, $helpers, $theme_data, $MyAcf ) {
-
         $filterName = self::generateFilterName( $row );
         $content    = $MyAcf::stripShortcodeFromTag( apply_filters( $filterName, null, $data, $helpers, $theme_data, $MyAcf ) );
 

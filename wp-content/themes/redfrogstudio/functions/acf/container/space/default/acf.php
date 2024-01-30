@@ -16,6 +16,16 @@ use Extended\ACF\Fields\Layout;
 use Extended\ACF\Fields\Select;
 use Kickstarter\MyHelpers;
 
+function ks_default_container_spaces() {
+    return [
+        'sm'  => 'Small',
+        'md'  => 'Medium',
+        'lg'  => 'Large',
+        'xl'  => 'Extra Large',
+        'xxl' => 'X Extra Large'
+    ];
+}
+
 // Add container space ACF fields
 add_filter( '_ks_theme_acf_container_fields', function ( $fields, $helpers, $data, $use_container, $row ) {
 
@@ -28,20 +38,13 @@ add_filter( '_ks_theme_acf_container_fields', function ( $fields, $helpers, $dat
     }
 
     // Available choices for space sizes
-    $c = [
-        'sm'  => 'Small',
-        'md'  => 'Medium',
-        'lg'  => 'Large',
-        'xl'  => 'Extra Large',
-        'xxl' => 'X Extra Large'
-    ];
+    $c = ks_default_container_spaces();
 
     $choices = apply_filters( '_ks_container_spacings_choices', $c, $helpers, $data, $use_container );
 
     $conditional_logic = [
         ConditionalLogic::where( 'f', '==', '' ),
         ConditionalLogic::where( 'f', '!=', '' )->and( 'p', '==', 'out' )
-
     ];
 
     // ACF fields for space settings

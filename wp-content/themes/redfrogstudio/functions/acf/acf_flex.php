@@ -43,6 +43,7 @@ add_action( 'acf/init', function (): void {
     $helpers = MyHelpers::getInstance();;
     $acf     = AcfHelpers::getInstance();
     $data    = MyHelpers::getThemeData();
+
     $layouts = apply_filters( 'ks_acf_layout', [], $data, $helpers, $acf );
 
     // Check if the layout is available for selection. If not unset it from the array.
@@ -88,7 +89,6 @@ add_action( 'acf/init', function (): void {
         ->layouts( $layouts );
 
     $fields = array_merge( $fields, apply_filters( '_ks_fields_after_components', [] ) );
-
     if (  !  empty( $layouts ) && !  empty( $locations ) ) {
         register_extended_field_group( [
             'title'    => 'Components',
