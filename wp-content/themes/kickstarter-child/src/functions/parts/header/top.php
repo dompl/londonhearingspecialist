@@ -95,5 +95,21 @@ function london_top_right_callback( $html ) {
         $html .= '</div>';
     }
 
+    $html .= '<div class="item login">';
+
+    // URL to the WooCommerce "My Account" page
+    $myaccount_page_url = esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) );
+
+    // Check if user is logged in
+    if ( is_user_logged_in() ) {
+        // User is logged in - show link to account page
+        $html .= '<a href="' . $myaccount_page_url . '"><i class="icon-user-regular"></i><span>My Account</span></a>';
+    } else {
+        // User is not logged in - show link to login section of the "My Account" page
+        $html .= '<a href="' . $myaccount_page_url . '"><i class="icon-user-regular"></i><span>Login</span></a>';
+    }
+
+    $html .= '</div>';
+
     return $html;
 }

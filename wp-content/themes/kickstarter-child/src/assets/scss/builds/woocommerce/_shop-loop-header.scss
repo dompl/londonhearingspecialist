@@ -1,0 +1,114 @@
+@use "abstracts" as *;
+@use "../../styles/icons" as ico;
+@use "../../styles/variables" as var;
+
+// WooCommerce shop loop counter
+.london-woo-ordering {
+	display: flex;
+	border-bottom: 1px solid var.$color-blue;
+	padding: 2rem 0;
+	@include font-size(12, 16);
+	p,
+	form {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+	@include to(xs) {
+		padding: 1rem 0;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: center;
+		font-size: rem(14);
+		.products-per-page-dropdown {
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			label {
+				display: none;
+			}
+		}
+		.right {
+			flex-direction: column;
+			display: flex;
+			gap: 1rem;
+		}
+	}
+	@include from(sm) {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		.right {
+			display: flex;
+			flex-direction: row;
+			gap: 2rem;
+		}
+	}
+	select {
+		height: rem(30);
+		border: none;
+		background-color: var.$color-gray-light;
+		border-radius: 3px;
+		padding: rem(4);
+	}
+	// p,
+	// form {
+	// 	margin: 0 !important;
+	// }
+	// .selectric-wrapper {
+	// 	margin-top: 0;
+	// }
+	// .selectric {
+	// 	border: 0;
+	// 	padding: 0px 3px !important;
+	// 	span {
+	// 		&.label {
+	// 			font-size: 16px !important;
+	// 		}
+	// 	}
+	// 	$h: 30px;
+	// 	.button {
+	// 		height: $h;
+	// 		width: $h;
+	// 	}
+	// }
+	// .woocommerce-result-count {
+	// 	line-height: 1;
+	// }
+
+	// select {
+	// 	border: none;
+	// 	background-color: var(--gray-light);
+	// 	font-size: 0.95rem;
+	// 	padding: 10px;
+	// }
+	// border-bottom: var(--border);
+	// padding-bottom: 1rem;
+	// margin-bottom: 2rem;
+	// @media (max-width: 479px) {
+	// 	display: flex;
+	// 	gap: 10px;
+	// 	text-align: center;
+	// 	align-items: center;
+	// 	flex-direction: column;
+	// 	.right {
+	// 		display: flex;
+	// 		gap: 10px;
+	// 		flex-direction: column;
+	// 	}
+	// }
+	// @media (min-width: 480px) {
+	// 	display: flex;
+	// 	justify-content: space-between;
+	// 	flex-direction: row;
+	// 	flex-wrap: wrap;
+	// 	align-items: center;
+	// 	.right {
+	// 		display: flex;
+	// 		flex-direction: row-reverse;
+	// 		gap: 20px;
+	// 		label {
+	// 			display: none;
+	// 		}
+	// 	}
+	// }
+}

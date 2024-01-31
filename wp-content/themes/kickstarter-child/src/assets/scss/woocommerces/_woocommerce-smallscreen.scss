@@ -2,19 +2,20 @@
  * woocommerce-smallscreen.scss
  * Optimises the default WooCommerce frontend layout when viewed on smaller screens.
  */
-
+@use "abstracts" as *;
+@use "../styles/icons" as ico;
+@use "../styles/variables" as var;
 /**
  * Imports
  */
-@import 'mixins';
-@import 'variables';
+@import "mixins";
+@import "variables";
 
 /**
  * Style begins
  */
 .woocommerce,
 .woocommerce-page {
-
 	table.shop_table_responsive {
 		thead {
 			display: none;
@@ -44,7 +45,7 @@
 				}
 
 				&::before {
-					content: attr(data-title) ': ';
+					content: attr(data-title) ": ";
 					font-weight: 700;
 					float: left;
 				}
@@ -57,7 +58,7 @@
 				}
 			}
 
-			&:nth-child( 2n ) {
+			&:nth-child(2n) {
 				td {
 					background-color: rgba(0, 0, 0, 0.025);
 				}
@@ -98,17 +99,17 @@
 	/**
 	 * Products
 	 */
-	ul.products[class*='columns-'] {
+	ul.products[class*="columns-"] {
 		li.product {
-			width: 48%;
-			float: left;
-			clear: both;
-			margin: 0 0 2.992em;
-
-			&:nth-child( 2n ) {
-				float: right;
-				clear: none !important; // This should never clear.
-			}
+			// 			width: 48%;
+			// 			float: left;
+			// 			clear: both;
+			// 			margin: 0 0 2.992em;
+			//
+			// 			&:nth-child( 2n ) {
+			// 				float: right;
+			// 				clear: none !important; // This should never clear.
+			// 			}
 		}
 	}
 

@@ -81,11 +81,31 @@ add_filter( 'london_banner_addon', function ( $addon, $post ) {
 }, 10, 2 );
 
 add_filter( 'london_banner_title', function ( $title, $post ) {
+
+    // Check if we are on the shop page.
+    if ( is_shop() ) {
+        // Add specific text for the shop page.
+        return 'London Hearing Specialists Shop';
+    }
+
+    // Retrieve the title from post meta.
     $title = get_post_meta( $post->ID, 'london_banner_title', true );
+
+    // Default title if meta is empty.
     if ( empty( $title ) ) {
         $title = get_the_title();
     } else {
         $title = str_replace( '%title%', get_the_title(), $title );
     }
+
+    // Check if we are on a product category page.
+    if ( is_product_category() ) {
+        $category = get_queried_object(); // Get the current category object.
+        if ( $category && property_exists( $category, 'name' ) ) {
+            // Append the category name to the title.
+            $title = 'Category: ' . $category->name;
+        }
+    }
+
     return $title;
 }, 10, 2 );

@@ -4,6 +4,7 @@ import './main/newsletter-signup.js';
 import './main/faqs.js';
 import './main/navigation.js';
 import './modules/slick/slick.js';
+import './woocommerce/minicart.js';
 // import BackStretch from './includes/backstretch.js';
 (function ($) {
 	$('[data-slick]').slick();

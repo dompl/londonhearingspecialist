@@ -3,7 +3,9 @@
  * Governs the general look and feel of WooCommerce sections of stores using themes that do not
  * integrate with WooCommerce specifically.
  */
-
+@use "../styles/variables" as var;
+@use "../styles/icons" as ico;
+@use "abstracts" as *;
 /**
  * Imports
  */
@@ -62,7 +64,6 @@ p.demo_store,
  * Main WooCommerce styles
  */
 .woocommerce {
-
 	.blockUI.blockOverlay {
 		position: relative;
 
@@ -70,7 +71,6 @@ p.demo_store,
 	}
 
 	.loader {
-
 		@include loader();
 	}
 
@@ -101,7 +101,6 @@ p.demo_store,
 	}
 
 	.woocommerce-breadcrumb {
-
 		@include clearfix();
 		margin: 0 0 1em;
 		padding: 0;
@@ -127,7 +126,6 @@ p.demo_store,
 
 		span.price,
 		p.price {
-
 			ins {
 				background: inherit;
 				font-weight: 700;
@@ -181,7 +179,7 @@ p.demo_store,
 				border: 1px solid #f2f2f2;
 			}
 
-			.woocommerce-product-gallery__image:nth-child(n+2) {
+			.woocommerce-product-gallery__image:nth-child(n + 2) {
 				width: 25%;
 				display: inline-block;
 			}
@@ -254,22 +252,19 @@ p.demo_store,
 		}
 
 		.woocommerce-product-gallery--columns-3 {
-
-			.flex-control-thumbs li:nth-child(3n+1) {
+			.flex-control-thumbs li:nth-child(3n + 1) {
 				clear: left;
 			}
 		}
 
 		.woocommerce-product-gallery--columns-4 {
-
-			.flex-control-thumbs li:nth-child(4n+1) {
+			.flex-control-thumbs li:nth-child(4n + 1) {
 				clear: left;
 			}
 		}
 
 		.woocommerce-product-gallery--columns-5 {
-
-			.flex-control-thumbs li:nth-child(5n+1) {
+			.flex-control-thumbs li:nth-child(5n + 1) {
 				clear: left;
 			}
 		}
@@ -302,7 +297,6 @@ p.demo_store,
 		}
 
 		.woocommerce-tabs {
-
 			ul.tabs {
 				list-style: none;
 				padding: 0 0 0 1em;
@@ -479,7 +473,6 @@ p.demo_store,
 			}
 
 			.group_table {
-
 				td.woocommerce-grouped-product-list-item__label {
 					padding-right: 1em;
 					padding-left: 1em;
@@ -530,12 +523,12 @@ p.demo_store,
 	 */
 	.products ul,
 	ul.products {
-		margin: 0 0 1em;
+		margin: 0 0 0;
 		padding: 0;
 		list-style: none outside;
-		clear: both;
+		// clear: both;
 
-		@include clearfix();
+		// @include clearfix();
 
 		li {
 			list-style: none outside;
@@ -543,7 +536,6 @@ p.demo_store,
 	}
 
 	ul.products li.product {
-
 		.onsale {
 			top: 0;
 			right: 0;
@@ -564,7 +556,7 @@ p.demo_store,
 		}
 
 		a img {
-			// width: 100%;
+			width: 100%;
 			height: auto;
 			display: block;
 			// margin: 0 0 1em;
@@ -631,40 +623,47 @@ p.demo_store,
 		text-align: center;
 
 		ul {
-			display: inline-block;
-			white-space: nowrap;
-			padding: 0;
-			clear: both;
-			border: 1px solid darken($secondary, 10%);
-			border-right: 0;
-			margin: 1px;
+			// display: inline-block;
+			// white-space: nowrap;
+			// padding: 0;
+			// clear: both;
+			// border: 1px solid darken($secondary, 10%);
+			// border-right: 0;
+			// margin: 1px;
+			display: flex;
+			flex-direction: row;
+			gap: 0.5rem;
+			justify-content: center;
 
 			li {
-				border-right: 1px solid darken($secondary, 10%);
-				padding: 0;
-				margin: 0;
-				float: left;
-				display: inline;
-				overflow: hidden;
-
+				width: 2rem;
+				height: 2rem;
+				border-radius: 50%;
+				background: $secondary;
+				color: white;
+				font-weight: bold;
+				display: block;
+				line-height: 2rem;
+				color: var.$color-text;
 				a,
 				span {
-					margin: 0;
-					text-decoration: none;
-					padding: 0;
-					line-height: 1;
-					font-size: 1em;
-					font-weight: normal;
-					padding: 0.5em;
-					min-width: 1em;
+					width: 2rem;
+					height: 2rem;
 					display: block;
+					line-height: 2rem;
+					display: block;
+					color: white;
+					border-radius: 50%;
+					color: var.$color-text;
 				}
 
 				span.current,
 				a:hover,
 				a:focus {
-					background: $secondary;
-					color: darken($secondary, 40%);
+					border-radius: 50%;
+
+					background-color: var.$color-blue;
+					color: white;
 				}
 			}
 		}
@@ -684,7 +683,6 @@ p.demo_store,
 	 * Reviews
 	 */
 	#reviews {
-
 		h2 small {
 			float: right;
 			color: $subtext;
@@ -712,9 +710,7 @@ p.demo_store,
 		}
 
 		#comments {
-
 			.add_review {
-
 				@include clearfix();
 			}
 
@@ -723,7 +719,6 @@ p.demo_store,
 			}
 
 			ol.commentlist {
-
 				@include clearfix();
 				margin: 0;
 				width: 100%;
@@ -833,7 +828,6 @@ p.demo_store,
 	}
 
 	.woocommerce-product-rating {
-
 		@include clearfix();
 		line-height: 2;
 		display: block;
@@ -855,7 +849,6 @@ p.demo_store,
 	}
 
 	#review_form #respond {
-
 		@include clearfix();
 		position: static;
 		margin: 0;
@@ -879,7 +872,6 @@ p.demo_store,
 	}
 
 	p.stars {
-
 		a {
 			position: relative;
 			height: 1em;
@@ -911,9 +903,7 @@ p.demo_store,
 		}
 
 		&.selected {
-
 			a.active {
-
 				&::before {
 					content: "\e020";
 				}
@@ -998,7 +988,6 @@ p.demo_store,
 		}
 
 		tbody:first-child tr:first-child {
-
 			th,
 			td {
 				border-top: 0;
@@ -1028,7 +1017,6 @@ p.demo_store,
 	}
 
 	table.woocommerce-MyAccount-downloads {
-
 		td,
 		th {
 			vertical-align: top;
@@ -1050,7 +1038,6 @@ p.demo_store,
 	}
 
 	td.product-name {
-
 		dl.variation,
 		.wc-item-meta {
 			list-style: none outside;
@@ -1150,7 +1137,6 @@ p.demo_store,
 
 	&.widget_shopping_cart,
 	.widget_shopping_cart {
-
 		.total {
 			border-top: 3px double $secondary;
 			padding: 4px 0 0;
@@ -1174,7 +1160,6 @@ p.demo_store,
 		}
 
 		.buttons {
-
 			@include clearfix();
 
 			a {
@@ -1209,7 +1194,6 @@ p.demo_store,
 		}
 
 		.woocommerce-input-wrapper {
-
 			.description {
 				background: #1e85be;
 				color: #fff;
@@ -1289,7 +1273,6 @@ p.demo_store,
 		}
 
 		&.woocommerce-invalid {
-
 			label {
 				color: $red;
 			}
@@ -1302,7 +1285,6 @@ p.demo_store,
 		}
 
 		&.woocommerce-validated {
-
 			.select2-container,
 			input.input-text,
 			select {
@@ -1366,7 +1348,6 @@ p.demo_store,
 	 * Order page
 	 */
 	ul.order_details {
-
 		@include clearfix();
 		margin: 0 0 3em;
 		list-style: none;
@@ -1411,7 +1392,6 @@ p.demo_store,
 	}
 
 	.woocommerce-customer-details {
-
 		address {
 			font-style: normal;
 			margin-bottom: 0;
@@ -1431,16 +1411,14 @@ p.demo_store,
 		}
 
 		.woocommerce-customer-details--phone::before {
-
-			@include iconbefore( "\e037" );
+			@include iconbefore("\e037");
 			margin-left: -1.5em;
 			line-height: 1.75;
 			position: absolute;
 		}
 
 		.woocommerce-customer-details--email::before {
-
-			@include iconbefore( "\e02d" );
+			@include iconbefore("\e02d");
 			margin-left: -1.5em;
 			line-height: 1.75;
 			position: absolute;
@@ -1457,7 +1435,6 @@ p.demo_store,
 		list-style: none outside;
 
 		.woocommerce-widget-layered-nav-list__item {
-
 			@include clearfix();
 			padding: 0 0 1px;
 			list-style: none;
@@ -1469,8 +1446,7 @@ p.demo_store,
 		}
 
 		.woocommerce-widget-layered-nav-list__item--chosen a::before {
-
-			@include iconbefore( "\e013" );
+			@include iconbefore("\e013");
 			color: $red;
 		}
 	}
@@ -1496,8 +1472,7 @@ p.demo_store,
 				text-decoration: none;
 
 				&::before {
-
-					@include iconbefore( "\e013" );
+					@include iconbefore("\e013");
 					color: $red;
 					vertical-align: inherit;
 					margin-right: 0.5em;
@@ -1510,7 +1485,6 @@ p.demo_store,
 	 * Price filter widget
 	 */
 	.widget_price_filter {
-
 		.price_slider {
 			margin-bottom: 1em;
 		}
@@ -1592,7 +1566,6 @@ p.demo_store,
 		list-style: none outside;
 
 		li {
-
 			@include clearfix();
 			padding: 0 0 1px;
 			list-style: none;
@@ -1609,14 +1582,12 @@ p.demo_store,
 		}
 
 		li.chosen a::before {
-
-			@include iconbefore( "\e013" );
+			@include iconbefore("\e013");
 			color: $red;
 		}
 	}
 
 	.woocommerce-form-login {
-
 		.woocommerce-form-login__submit {
 			float: left;
 			margin-right: 1em;
@@ -1627,7 +1598,6 @@ p.demo_store,
 		}
 	}
 }
-
 
 /**
  * Buttons
@@ -1728,9 +1698,7 @@ p.demo_store,
  * WooCommerce specific styles for legacy themes.
  */
 .woocommerce:where(body:not(.woocommerce-uses-block-theme)) {
-
 	.woocommerce-breadcrumb {
-
 		font-size: 0.92em;
 		color: $subtext;
 
@@ -1765,9 +1733,7 @@ p.demo_store,
 	}
 }
 
-
 .woocommerce-no-js {
-
 	form.woocommerce-form-login,
 	form.woocommerce-form-coupon {
 		display: block !important;
@@ -1820,7 +1786,6 @@ p.demo_store,
  */
 .rtl.woocommerce .price_label,
 .rtl.woocommerce .price_label span {
-
 	/* rtl:ignore */
 	direction: ltr;
 	unicode-bidi: embed;
@@ -1856,14 +1821,11 @@ p.demo_store,
  * Account page
  */
 .woocommerce-account {
-
 	.woocommerce {
-
 		@include clearfix();
 	}
 
 	.addresses .title {
-
 		@include clearfix();
 
 		h3 {
@@ -1876,7 +1838,6 @@ p.demo_store,
 	}
 
 	ol.commentlist.notes li.note {
-
 		p.meta {
 			font-weight: 700;
 			margin-bottom: 0;
@@ -1897,8 +1858,7 @@ p.demo_store,
 			padding-left: 0;
 
 			&::before {
-
-				@include iconbefore( "\e00a" );
+				@include iconbefore("\e00a");
 			}
 
 			.count {
@@ -1914,9 +1874,7 @@ p.demo_store,
 .woocommerce-cart,
 .woocommerce-checkout,
 #add_payment_method {
-
 	table.cart {
-
 		.product-thumbnail {
 			min-width: 32px;
 		}
@@ -1947,7 +1905,6 @@ p.demo_store,
 	}
 
 	.wc-proceed-to-checkout {
-
 		@include clearfix;
 		padding: 1em 0;
 
@@ -1961,7 +1918,6 @@ p.demo_store,
 	}
 
 	.cart-collaterals {
-
 		.shipping-calculator-button {
 			float: none;
 			margin-top: 0.5em;
@@ -1969,8 +1925,7 @@ p.demo_store,
 		}
 
 		.shipping-calculator-button::after {
-
-			@include iconafter( "\e019" );
+			@include iconafter("\e019");
 		}
 
 		.shipping-calculator-form {
@@ -1978,7 +1933,6 @@ p.demo_store,
 		}
 
 		.cart_totals {
-
 			p small {
 				color: $subtext;
 				font-size: 0.83em;
@@ -1990,7 +1944,6 @@ p.demo_store,
 				padding: 0;
 
 				tr:first-child {
-
 					th,
 					td {
 						border-top: 0;
@@ -2038,9 +1991,7 @@ p.demo_store,
 	}
 
 	.checkout {
-
 		.col-2 {
-
 			h3#ship-to-different-address {
 				float: left;
 				clear: none;
@@ -2077,7 +2028,6 @@ p.demo_store,
 		border-radius: 5px;
 
 		ul.payment_methods {
-
 			@include clearfix();
 			text-align: left;
 			padding: 1em;
@@ -2109,7 +2059,6 @@ p.demo_store,
 			}
 
 			li:not(.woocommerce-notice) {
-
 				@include clearfix;
 			}
 		}
@@ -2245,7 +2194,6 @@ p.demo_store,
 		}
 
 		.payment_method_paypal {
-
 			.about_paypal {
 				float: right;
 				line-height: 52px;
@@ -2267,7 +2215,6 @@ p.demo_store,
 }
 
 .woocommerce-invalid {
-
 	#terms {
 		outline: 2px solid red;
 		outline-offset: 2px;
@@ -2321,7 +2268,6 @@ p.demo_store,
  * Twenty Thirteen specific styles
  */
 .single-product .twentythirteen {
-
 	.entry-summary,
 	#reply-title,
 	#respond #commentform {

@@ -1,0 +1,61 @@
+@use "abstracts" as *;
+@use "../../styles/icons" as ico;
+@use "../../styles/variables" as var;
+.woocommerce.woocommerce-wrapper {
+	ul.products {
+		li {
+			&.product {
+				a {
+					color: var.$color-text;
+					text-align: center;
+					display: flex;
+					flex-direction: column;
+					gap: 0.5rem;
+				}
+				h2 {
+					margin: 0;
+					padding: 0;
+					@include font-size(14, 18);
+					line-height: 1.2;
+					&:hover {
+						color: var.$color-blue;
+						transition: all 0.3s ease;
+					}
+				}
+				.price {
+					margin: 0 0 1rem 0;
+				}
+				.woocommerce-loop-manufacturer {
+					font-size: 13px;
+				}
+				.added_to_cart {
+					display: none;
+				}
+				.add_to_cart_button {
+					background-color: var.$color-blue;
+					color: white;
+					margin-top: auto;
+					&.added {
+						background-color: var.$color-green;
+						position: relative;
+						@include ico.icon("check-solid") {
+							position: absolute;
+							right: 10px;
+						}
+					}
+					&.loading {
+						background-color: var.$color-green;
+						position: relative;
+						@include ico.icon("gear-light") {
+							position: absolute;
+							right: 10px;
+						}
+					}
+					&:after {
+						display: none !important;
+					}
+				}
+			}
+		}
+	}
+}

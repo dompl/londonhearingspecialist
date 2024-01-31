@@ -307,3 +307,41 @@
 		}
 	}
 }
+#go-to-shop {
+	a {
+		color: var.$color-text;
+		font-weight: bold;
+	}
+	.shipping-cart {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 1rem;
+		i {
+			font-size: 28px;
+			line-height: 20px;
+		}
+		a {
+			color: var.$color-text;
+		}
+		.wrapper {
+			position: relative;
+			float: left;
+			margin-top: 8px;
+			.count {
+				font-size: 11px;
+				color: white;
+				background-color: var.$color-error;
+				border-radius: 50%;
+				padding: 2px;
+				position: absolute;
+				top: -15px;
+				width: rem(16);
+				height: rem(16);
+				text-align: center;
+				line-height: rem(16);
+				right: -11px;
+			}
+		}
+	}
+}

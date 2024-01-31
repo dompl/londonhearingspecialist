@@ -41,7 +41,7 @@ function ks_header_wrapper_middle_callback( $html, $themeData ) {
 function ks_header_wrapper_right_callback( $html, $themeData ) {
     $shop_url = wc_get_page_permalink( 'shop' );
     $html .= '<div class="item">';
-    $html .= $themeData['ks_shop_url'] ? '<div id="go-to-shop"><a href="' . esc_url( $shop_url ) . '" title="Visit London Hearing Specialists Shop" class="button blue-dark">Shop</a></div>' : '';
+    $html .= WC()->cart->get_cart_contents_count() > 0 ? london_minicart_html() : london_minicart_html_default();
     $html .= do_shortcode( '[book_appointment]' );
     $html .= '<span class="main-nav-init"><span>Menu</span><i class="icon-bars-solid"></i></span>';
     $html .= '</div>';

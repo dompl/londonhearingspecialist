@@ -1,0 +1,37 @@
+@use "abstracts" as *;
+@use "../../styles/icons" as ico;
+@use "../../styles/variables" as var;
+
+.woocommerce-pagination {
+	margin-bottom: 2rem;
+}
+.woocommerce {
+	&.woocommerce-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		ul.products {
+			margin-bottom: 2rem;
+		}
+
+		@include from(lg) {
+			flex-direction: row-reverse;
+			gap: 2rem;
+			> .right {
+				width: rem(300);
+			}
+			> .left {
+				flex: 1;
+			}
+
+			ul.products li.product {
+				width: calc(50% - 1rem);
+			}
+		}
+		@include from(xl) {
+			ul.products li.product {
+				width: calc(100% / 3 - rem(11));
+			}
+		}
+	}
+}

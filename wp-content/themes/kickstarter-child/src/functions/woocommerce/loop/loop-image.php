@@ -23,7 +23,7 @@ function london_template_loop_product_thumbnail( $product ) {
 
     // Display the image
     if (  !  empty( $image_url ) ) {
-        echo MyHelpers::PictureSource( image: $image_id, size: [200, 200], min: [200, 200], custom_container: 'image', zoom: false, zoom_size: 800 );
+        echo MyHelpers::PictureSource( image: $image_id, size: [284, 284], min: [200, 200], custom_container: 'image', zoom: false, zoom_size: 800 );
     }
 
 }

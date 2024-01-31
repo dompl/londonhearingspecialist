@@ -27,7 +27,6 @@ get_header( 'shop' );
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
 do_action( 'woocommerce_before_main_content' );
-echo 'asdfasfasfasd';
 ?>
 <header class="woocommerce-products-header">
     <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ): ?>
@@ -100,6 +99,7 @@ do_action( 'woocommerce_after_main_content' );
  *
  * @hooked woocommerce_get_sidebar - 10
  */
+
 do_action( 'woocommerce_sidebar' );
 
 get_footer( 'shop' );

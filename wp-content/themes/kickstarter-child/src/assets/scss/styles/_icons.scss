@@ -45,56 +45,65 @@
 		@if $filename == caret-down-solid {
 		  $char: "\E006";
 		}
-		@if $filename == check-duotone {
+		@if $filename == cart-shopping-regular {
 		  $char: "\E007";
 		}
-		@if $filename == check-solid {
+		@if $filename == check-duotone {
 		  $char: "\E008";
 		}
-		@if $filename == envelope-regular {
+		@if $filename == check-solid {
 		  $char: "\E009";
 		}
-		@if $filename == facebook {
+		@if $filename == envelope-regular {
 		  $char: "\E00A";
 		}
-		@if $filename == house-solid {
+		@if $filename == facebook {
 		  $char: "\E00B";
 		}
-		@if $filename == location-dot-light {
+		@if $filename == gear-light {
 		  $char: "\E00C";
 		}
-		@if $filename == minus-solid {
+		@if $filename == house-solid {
 		  $char: "\E00D";
 		}
-		@if $filename == overground {
+		@if $filename == location-dot-light {
 		  $char: "\E00E";
 		}
-		@if $filename == parking {
+		@if $filename == minus-solid {
 		  $char: "\E00F";
 		}
-		@if $filename == phone-regular {
+		@if $filename == overground {
 		  $char: "\E010";
 		}
-		@if $filename == plus-solid {
+		@if $filename == parking {
 		  $char: "\E011";
 		}
-		@if $filename == quote-right-solid {
+		@if $filename == phone-regular {
 		  $char: "\E012";
 		}
-		@if $filename == star-of-life-solid {
+		@if $filename == plus-solid {
 		  $char: "\E013";
 		}
-		@if $filename == train {
+		@if $filename == quote-right-solid {
 		  $char: "\E014";
 		}
-		@if $filename == underground {
+		@if $filename == star-of-life-solid {
 		  $char: "\E015";
 		}
-		@if $filename == x-twitter {
+		@if $filename == train {
 		  $char: "\E016";
 		}
-		@if $filename == xmark-sharp-light {
+		@if $filename == underground {
 		  $char: "\E017";
+		}
+		@if $filename == user-regular {
+		  $char: "\E018";
+		}
+		@if $filename == x-twitter {
+		  $char: "\E019";
+		}
+		@if $filename == xmark-sharp-light {
+		  $char: "\E01A";
 		}
 
 	  @return $char;
@@ -130,6 +139,9 @@
 	.icon-caret-down-solid {
 	  @include icon(caret-down-solid);
 	}
+	.icon-cart-shopping-regular {
+	  @include icon(cart-shopping-regular);
+	}
 	.icon-check-duotone {
 	  @include icon(check-duotone);
 	}
@@ -141,6 +153,9 @@
 	}
 	.icon-facebook {
 	  @include icon(facebook);
+	}
+	.icon-gear-light {
+	  @include icon(gear-light);
 	}
 	.icon-house-solid {
 	  @include icon(house-solid);
@@ -174,6 +189,9 @@
 	}
 	.icon-underground {
 	  @include icon(underground);
+	}
+	.icon-user-regular {
+	  @include icon(user-regular);
 	}
 	.icon-x-twitter {
 	  @include icon(x-twitter);
