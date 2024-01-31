@@ -120,7 +120,7 @@
 		h1,
 		h2 {
 			@include font-size(20, 50);
-			line-height:1.2;
+			line-height: 1.2;
 		}
 		.wrapper {
 			width: 40vw;
@@ -133,7 +133,9 @@
 		}
 	}
 	@include from(xl) {
-		padding: 4vh 0;
+		&.has-description {
+			padding: 2vh 0;
+		}
 	}
 	@include from(xxl) {
 		.wrapper {

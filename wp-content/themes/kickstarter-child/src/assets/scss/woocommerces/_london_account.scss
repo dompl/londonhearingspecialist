@@ -1,0 +1,70 @@
+@use "../styles/variables" as var;
+@use "../styles/icons" as ico;
+@use "abstracts" as *;
+
+.woocommerce-MyAccount-navigation {
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		display: flex;
+		margin-bottom: 2rem;
+		@include to(md) {
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+		@include from(lg) {
+			gap: 1rem;
+			font-weight: bold;
+		}
+		li {
+			a {
+				background-color: darken(var.$color-gray-light, 40%);
+				color: white;
+				display: block;
+				border-radius: 4px;
+				padding: 0.5rem;
+			}
+			&.is-active {
+				a {
+					background-color: var.$color-green;
+				}
+			}
+		}
+	}
+}
+.woocommerce-MyAccount-content {
+	margin-bottom: 3rem;
+}
+.woocommerce-order-details .woocommerce-Address-title,
+.woocommerce-Address-title.title,
+.woocommerce-order-details__title {
+	margin-top: 2rem !important;
+}
+
+.lost_reset_password {
+	@include shadow-box();
+	padding: 2rem;
+	margin-bottom: 2rem;
+}
+.woocommerce-Addresses {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	&:before,
+	&:after {
+		display: none !important;
+	}
+	@include from(md) {
+		justify-content: flex-start;
+		flex-direction: row;
+	}
+	address {
+		font-style: normal;
+	}
+}
+.woocommerce-EditAccountForm {
+	fieldset + .clear {
+		margin-bottom: 20px;
+	}
+}

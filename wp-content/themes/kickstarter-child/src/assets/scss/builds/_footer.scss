@@ -109,6 +109,13 @@
 		}
 	}
 	@include from(md) {
+		.top {
+			ul {
+				display: grid;
+				grid-template-columns: auto auto; /* Each column width is determined by its content */
+				gap: 1rem; /* Adjust the gap between columns as needed */
+			}
+		}
 		.container-top {
 			flex-direction: row;
 			.about {
@@ -116,6 +123,13 @@
 			}
 			.footer-navigation {
 				flex: 1;
+			}
+		}
+	}
+	@include from(xl) {
+		.top {
+			ul {
+				grid-template-columns: auto auto auto; /* Each column width is determined by its content */
 			}
 		}
 	}

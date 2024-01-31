@@ -37,7 +37,7 @@ function london_page_banner_html() {
     $color       = get_post_meta( $post->ID, 'banner_color', true ) ? get_post_meta( $post->ID, 'banner_color', true ) : 'text';
     $batch_color = get_post_meta( $post->ID, 'batch_color', true );
 
-    $html = '<div class="london-banner" style="background-image:url(' . $img . ')">';
+    $html = '<div class="london-banner ' . ( $description ? 'has-description' : 'no-description' ) . '" style="background-image:url(' . $img . ')">';
     $html .= '<div class="container">';
     $html .= '<div class="wrapper">';
 

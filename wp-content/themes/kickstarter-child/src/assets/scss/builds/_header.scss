@@ -58,6 +58,15 @@
 		&.locations {
 			position: relative;
 		}
+		&.login {
+			a {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				text-transform: uppercase;
+				gap: 0.5rem;
+			}
+		}
 	}
 	.left {
 		display: flex;
@@ -74,6 +83,9 @@
 		}
 		.right {
 			margin-right: auto;
+			display: flex;
+			flex-direction: row;
+			gap: 1rem;
 		}
 		.item {
 			&.email,
@@ -85,6 +97,18 @@
 					display: none;
 				}
 			}
+			&.login {
+				a {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					text-transform: uppercase;
+					gap: 0.5rem;
+					span {
+						display: none;
+					}
+				}
+			}
 		}
 	}
 	@include from(md) {
@@ -94,6 +118,8 @@
 		}
 		.right {
 			margin-left: auto;
+			display: flex;
+			flex-direction: row-reverse;
 		}
 		.left {
 			a {
@@ -115,6 +141,11 @@
 				padding-right: 0;
 				border-right: none;
 				border-left: 1px solid lighten(var.$color-blue-dark, 4%);
+			}
+			&.login {
+				span {
+					display: block;
+				}
 			}
 		}
 	}
@@ -311,6 +342,9 @@
 	a {
 		color: var.$color-text;
 		font-weight: bold;
+		&.button {
+			color:white;
+		}
 	}
 	.shipping-cart {
 		display: flex;

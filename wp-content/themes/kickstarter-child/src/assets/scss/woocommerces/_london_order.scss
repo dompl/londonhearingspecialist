@@ -1,0 +1,35 @@
+@use "../styles/variables" as var;
+@use "../styles/icons" as ico;
+@use "abstracts" as *;
+
+.woocommerce-order {
+	.woocommerce-notice {
+		padding: rem(10);
+		background-color: var.$color-green;
+		border-radius: 4px;
+		text-align: center;
+		color: white;
+		@include font-size(16, 20);
+		text-align: center;
+		margin-bottom: rem(20);
+	}
+	.woocommerce-columns--addresses {
+		&:before,
+		&:after {
+			display: none;
+		}
+		display: flex;
+		justify-content: space-between;
+		gap: 2rem;
+		flex-direction: column;
+		@include from(md) {
+			flex-direction: row;
+		}
+		address {
+			width: auto;
+		}
+		.woocommerce-column {
+			flex: 1;
+		}
+	}
+}

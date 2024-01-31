@@ -18,8 +18,8 @@ add_filter( '_ks_enqueue_child_styles', function ( $styles ) {
     return $styles;
 }, 10, 1 );
 
-function london_remove_core_block_styles() {
-    wp_dequeue_style( 'wp-block-columns' );
-    wp_dequeue_style( 'wp-block-column' );
-}
-add_action( 'wp_enqueue_scripts', 'london_remove_core_block_styles' );
+// function london_remove_core_block_styles() {
+//     wp_dequeue_style( 'wp-block-columns' );
+//     wp_dequeue_style( 'wp-block-column' );
+// }
+// add_action( 'wp_enqueue_scripts', 'london_remove_core_block_styles' );

@@ -1258,6 +1258,7 @@ p.demo_store,
 			margin: 0;
 			outline: 0;
 			line-height: normal;
+			padding:10px;
 		}
 
 		textarea {
@@ -1308,11 +1309,10 @@ p.demo_store,
 	form.login,
 	form.checkout_coupon,
 	form.register {
-		border: 1px solid darken($secondary, 10%);
-		padding: 20px;
-		margin: 2em 0;
-		text-align: left;
-		border-radius: 5px;
+		@include shadow-box();
+		padding:2rem;
+
+		margin-bottom:2rem;
 	}
 
 	ul#shipping_method {
@@ -1348,33 +1348,57 @@ p.demo_store,
 	 * Order page
 	 */
 	ul.order_details {
-		@include clearfix();
-		margin: 0 0 3em;
-		list-style: none;
-
+		display: flex;
+		flex-direction: column;
+		list-style: none outside;
+		margin-bottom: 3rem;
+		gap: 1rem;
 		li {
-			float: left;
-			margin-right: 2em;
-			text-transform: uppercase;
-			font-size: 0.715em;
-			line-height: 1;
-			border-right: 1px dashed darken($secondary, 10%);
-			padding-right: 2em;
-			margin-left: 0;
-			padding-left: 0;
-			list-style-type: none;
-
-			strong {
-				display: block;
-				font-size: 1.4em;
-				text-transform: none;
-				line-height: 1.5;
-			}
-
-			&:last-of-type {
-				border: none;
+			border-bottom: 1px dashed darken($secondary, 10%);
+			padding-bottom: 1rem;
+			&:last-child {
+				margin-bottom: 0;
 			}
 		}
+		@include from(lg) {
+			flex-direction: row;
+			gap: 1rem;
+
+			li {
+				border-bottom: 0;
+				padding-bottom: 0;
+				border-right: 1px dashed darken($secondary, 10%);
+				padding: 1rem 1rem;
+				padding-left: 0;
+				&:last-child {
+					border-right: 0;
+				}
+			}
+		}
+
+		// 		li {
+		// 			float: left;
+		// 			margin-right: 2em;
+		// 			text-transform: uppercase;
+		// 			font-size: 0.715em;
+		// 			line-height: 1;
+		// 			border-right: 1px dashed darken($secondary, 10%);
+		// 			padding-right: 2em;
+		// 			margin-left: 0;
+		// 			padding-left: 0;
+		// 			list-style-type: none;
+		//
+		// 			strong {
+		// 				display: block;
+		// 				font-size: 1.4em;
+		// 				text-transform: none;
+		// 				line-height: 1.5;
+		// 			}
+		//
+		// 			&:last-of-type {
+		// 				border: none;
+		// 			}
+		// 		}
 	}
 
 	.wc-bacs-bank-details-account-name {
@@ -1407,7 +1431,7 @@ p.demo_store,
 		.woocommerce-customer-details--phone,
 		.woocommerce-customer-details--email {
 			margin-bottom: 0;
-			padding-left: 1.5em;
+			// padding-left: 1.5em;
 		}
 
 		.woocommerce-customer-details--phone::before {
@@ -1418,10 +1442,10 @@ p.demo_store,
 		}
 
 		.woocommerce-customer-details--email::before {
-			@include iconbefore("\e02d");
-			margin-left: -1.5em;
-			line-height: 1.75;
-			position: absolute;
+			// @include iconbefore("\e02d");
+			// margin-left: -1.5em;
+			// line-height: 1.75;
+			// position: absolute;
 		}
 	}
 

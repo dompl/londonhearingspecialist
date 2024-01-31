@@ -1,18 +1,20 @@
 /**
  * WooCommerce CSS Variables
  */
-
-$woocommerce: #7f54b3 !default;
-$green: #7ad03a !default;
-$red: #a00 !default;
+@use "../styles/variables" as var;
+@use "../styles/icons" as ico;
+@use "abstracts" as *;
+$woocommerce: var.$color-blue !default;
+$green: var.$color-green !default;
+$red: var.$color-error !default;
 $orange: #ffba00 !default;
 $blue: #2ea2cc !default;
 
-$primary: #7f54b3 !default; // Primary color for buttons (alt)
+$primary: var.$color-blue !default; // Primary color for buttons (alt)
 $primarytext: desaturate(lighten($primary, 50%), 18%) !default; // Text on primary color bg
 
-$secondary: desaturate(lighten($primary, 40%), 21%) !default; // Secondary buttons
-$secondarytext: desaturate(darken($secondary, 60%), 21%) !default; // Text on secondary color bg
+$secondary: darken(var.$color-gray-light, 40%) !default; // Secondary buttons
+$secondarytext: white; // Text on secondary color bg
 
 $highlight: adjust-hue($primary, 150deg) !default; // Prices, In stock labels, sales flash
 $highlightext: desaturate(lighten($highlight, 50%), 18%) !default; // Text on highlight color bg
