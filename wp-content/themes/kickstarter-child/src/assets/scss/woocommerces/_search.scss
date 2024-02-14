@@ -1,0 +1,20 @@
+.ywcas-popover-results {
+	.popover-content {
+		border-radius: 4px !important;
+	}
+}
+.wp-block-yith-product-results-block .search-result-item .search-result-item__thumbnail,
+.ywcas-search-results .search-result-item .search-result-item__thumbnail {
+	width: 50px !important;
+	img {
+		width: 50px !important;
+	}
+}
+.wp-block-yith-product-results-block.list .ywcas-search-results-grid,
+.ywcas-search-results.list .ywcas-search-results-grid {
+	gap: 0 !important;
+}
+.wp-block-yith-product-results-block .search-result-item .search-result-item__thumbnail img,
+.ywcas-search-results .search-result-item .search-result-item__thumbnail img {
+	border: none !important;
+}

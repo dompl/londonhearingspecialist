@@ -82,6 +82,11 @@ function display_categories_and_manufacturers_lists() {
 
     echo '<div class="london-woo-side-items">';
 
+    echo '<div class="sidebar-product-search london-woo-side-item">';
+    echo '<h3>' . __( 'Product Search', 'london-child' ) . '</h3>';
+    echo do_shortcode( '[yith_woocommerce_ajax_search preset="default"]' );
+    echo '</div>';
+
     if ( count( $product_categories ) > 1 ) {
         echo '<div class="sidebar-product-categories london-woo-side-item">';
         echo '<h3>' . __( 'Product Categories', 'london-child' ) . '</h3>';

@@ -1,0 +1,108 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./assets/js/blocks/src/blocks/search-block/editor.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
+.block-editor-block-popover {
+  z-index: 999999 !important;
+}
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./assets/js/blocks/src/blocks/search-block/inner-blocks/empty-block/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-yith-empty-block {
+  padding-bottom: 60px;
+  position: absolute !important;
+  z-index: 1000;
+  width: 100%;
+}
+.wp-block-yith-empty-block .wp-block-yith-popover-empty-block {
+  font-size: 12px;
+  background: #fff;
+  z-index: 1000;
+  width: 100%;
+  border-radius: 13px;
+  box-sizing: border-box;
+  border: 1px solid rgb(216, 216, 216);
+  box-shadow: 4px 2px 5px 1px rgba(0, 0, 0, 0.084181);
+  padding: 23px;
+  margin-top: 5px;
+  position: relative;
+}
+.wp-block-yith-empty-block .block-list-appender {
+  width: 100%;
+  position: absolute;
+  bottom: -100px;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./assets/js/blocks/src/blocks/search-block/inner-blocks/filled-block/editor.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-yith-filled-block {
+  padding-bottom: 60px;
+  position: absolute !important;
+  z-index: 1000;
+  width: 100%;
+}
+.wp-block-yith-filled-block .wp-block-yith-popover-filled-block {
+  font-size: 12px;
+  background: #fff;
+  z-index: 1000;
+  width: 100%;
+  border-radius: 13px;
+  box-sizing: border-box;
+  border: 1px solid rgb(216, 216, 216);
+  box-shadow: 4px 2px 5px 1px rgba(0, 0, 0, 0.084181);
+  padding: 23px;
+  margin-top: 10px;
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.wp-block-yith-filled-block .wp-block-yith-popover-filled-block hr {
+  border-bottom: 0;
+}
+.wp-block-yith-filled-block .block-list-appender {
+  width: 100%;
+  position: absolute;
+  bottom: -100px;
+}
+.wp-block-yith-filled-block .wp-block-yith-related-posts-block {
+  margin-bottom: 0;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./assets/js/blocks/src/blocks/search-block/inner-blocks/history-block/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-yith-history-block {
+  font-size: 11px;
+  margin-bottom: 20px;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./assets/js/blocks/src/blocks/search-block/inner-blocks/popular-block/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-yith-popular-block {
+  font-size: 11px;
+  margin-bottom: 20px;
+}
+.wp-block-yith-popular-block .ywcas-popular-searches-item {
+  padding: 3px 15px;
+  display: inline-block;
+  border: 1px solid var(--wp--preset--color--contrast, #d8d8d8);
+  border-radius: 22px;
+  margin: 4px;
+  transition: all 0.3s linear;
+  color: var(--wp--preset--color--contrast, #000);
+}
+.wp-block-yith-popular-block .ywcas-popular-searches-item button {
+  text-decoration: none;
+  font-size: 12px;
+  color: #000;
+  text-transform: capitalize;
+}
+.wp-block-yith-popular-block .ywcas-popular-searches-item button:hover {
+  background: #fbfbfb;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./assets/js/blocks/src/blocks/search-block/inner-blocks/related-categories-block/editor.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************/
+.search-category-results a, .search-category-results a:hover {
+  text-decoration: none !important;
+}
+
+/*# sourceMappingURL=editor-style.css.map*/

@@ -1,0 +1,73 @@
+.wp-block-yith-search-block.is-loading > * {
+  display:none;
+}
+.ywcas-small {
+  font-size: 16px;
+
+  input {
+    padding: 5px 0 5px 15px !important;
+  }
+
+  .ywcas-block-components-search-field{
+    overflow: hidden;
+  }
+
+  button {
+    margin-bottom: 0;
+
+  }
+}
+
+.ywcas-large {
+  font-size: 18px;
+
+  input {
+    padding: 10px 20px !important;
+  }
+
+  button {
+    margin-bottom: 0;
+  }
+}
+
+.ywcas-input-field-wrapper .ywcas-submit-wrapper {
+  margin-right: 5px;
+}
+
+.ywcas-submit-icon {
+  cursor: pointer;
+}
+
+
+.ywcas-elementor-input-field-wrapper {
+  width: 100%;
+
+  .ywcas-input-field {
+    border: 1px solid #ccc;
+    padding: 3px 10px;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: start;
+    background: transparent;
+    color: rgb(51, 51, 51);
+    width: 100%;
+    flex: 0 1 0%;
+    padding-right: 14px;
+  }
+
+  input {
+    flex: 1;
+    border: 0;
+
+    &:focus{
+      outline:none;
+      box-shadow: none;
+    }
+  }
+}

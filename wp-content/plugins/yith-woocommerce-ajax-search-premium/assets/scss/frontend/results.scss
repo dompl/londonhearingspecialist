@@ -1,0 +1,335 @@
+/** POPOVER **/
+.ywcas-popover-results {
+  & {
+    margin-top: 10px;
+    z-index: 9999;
+  }
+
+  .popover-content {
+    & {
+      background: #fff;
+      padding: 30px;
+      border-radius: 13px;
+      border: 1px solid #d8d8d8;
+      max-height: 600px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      box-shadow: 3px 0 15px rgba(0, 0, 0, 0.15);
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 13px !important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 13px;
+    }
+  }
+}
+
+/** SEARCH RESULTS **/
+.wp-block-yith-product-results-block,
+.ywcas-search-results {
+  &.list {
+    margin-top: 30px;
+    margin-left:-10px;
+    .ywcas-search-results-grid {
+      gap: 25px;
+    }
+  }
+  &.grid{
+    margin-left:-10px;
+  }
+
+  .search-result-item {
+    cursor: pointer;
+    transition: all 0.3s linear;
+    padding:10px;
+
+    &.selected {
+      background-color: #f6f6f6;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background:#f6f6f6;
+    }
+
+    .search-result-item__summary {
+      font-size: 0.8em;
+    }
+
+    &.grid {
+      .search-result-item__content {
+        height: 100%;
+      }
+
+      .search-result-item__name {
+        margin-bottom: 7px;
+      }
+
+      .search-result-item__summary {
+        margin-top: 15px;
+      }
+
+      .wp-block-button {
+        align-self: center;
+        width: 100%;
+
+        button {
+          width: 100%;
+          line-height: initial;
+          box-sizing: border-box;
+        }
+      }
+    }
+
+    &.list {
+
+      .search-result-item__name {
+        line-height: 1em;
+        margin-bottom: 5px;
+      }
+
+      .wp-block-button {
+        align-self: center;
+        line-height: initial;
+      }
+
+      .search-result-item__summary {
+        margin-top: 5px;
+      }
+    }
+
+    .search-result-item__thumbnail {
+      & {
+        display: block;
+        position: relative;
+
+      }
+
+      img {
+        height: auto;
+        border: 1px solid #C3C3C3;
+      }
+
+      .ywcas-badge {
+        padding: 2px 10px;
+        border-radius: 3px;
+        display: inline-block;
+        font-size: 0.7em;
+        position: absolute;
+        right: 5px;
+      }
+    }
+
+    .search-result-item_name{
+      width:100%;
+    }
+
+    .search-result-add-to-cart {
+      padding: 0.5em 1em;
+      font-size: 0.8em;
+    }
+
+    .search-result-item__inline_group {
+      & > * {
+        font-size: 0.8em;
+        line-height: 1.7em;
+        display: inline-block;
+      }
+
+      & span {
+        width: 8px;
+        display: inline-block;
+        text-align: center;
+      }
+
+      .stock {
+        &.out-of-stock {
+          color: #D02A2B;
+        }
+
+        &.in-stock {
+          color: #6D8A37;
+        }
+      }
+    }
+  }
+
+  .ywcas-total-results {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 40px;
+    font-size: 1rem;
+    margin-left: 10px;
+  }
+}
+
+/** RELATED CATEGORY **/
+.ywcas-classic-related-categories-wrapper {
+  margin-bottom: 25px;
+
+  .ywcas-category-result {
+    a {
+      text-decoration: none;
+
+      &:hover p {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/** RELATED CONTENT **/
+.wp-block-yith-related-posts-block,
+.ywcas-classic-related-content-wrapper {
+  .ywcas-related-content {
+    border-radius: 0 0 13px 13px;
+    margin: 40px -30px -30px;
+    padding-left: 10px;
+    padding-bottom: 30px;
+  }
+
+  .ywcas-related-content__label {
+    font-size: 0.87rem;
+    text-transform: uppercase;
+    padding: 30px 20px;
+    color: var(--wp--preset--color--primary, #007565);
+  }
+
+  .ywcas-related-content__link {
+    font-size: 0.94rem;
+    padding: 0 30px 10px 20px;
+    color: var(--wp--preset--color--primary, #1D1D1D);
+
+    a {
+      color: inherit;
+    }
+  }
+
+  .ywcas-related-content__no_result {
+    padding: 0 30px 10px 30px;
+    color: var(--wp--preset--color--contrast, #1D1D1D)
+  }
+}
+
+/** HISTORY **/
+.ywcas-history-searches-wrapper {
+ .ywcas-history-header{
+    border-bottom: 1px solid #9797972e;
+    margin-bottom: 17px;
+    padding-bottom: 8px;
+    font-size: 0.93rem;
+  }
+  .ywcas-delete-all-history{
+    &{
+      color:#9C9C9C;
+      font-size:0.75rem;
+    }
+    &:hover{
+      cursor:pointer;
+      color:var(--wp--preset--color--primary, #007565);
+    }
+  }
+}
+
+/** POPULAR **/
+.ywcas-popular-searches-wrapper {
+  .ywcas-popular-searches-items {
+    margin-left: -5px;
+  }
+
+  .ywcas-popular-searches__title {
+    border-bottom: 1px solid #9797972e;
+    margin-bottom: 17px;
+    padding-bottom: 8px;
+    font-size: 0.93rem;
+  }
+
+  .ywcas-popular-searches-item {
+    padding: 3px 15px;
+    display: inline-block;
+    border: 1px solid var(--wp--preset--color--contrast, #d8d8d8);
+    border-radius: 22px;
+    margin: 4px;
+    transition: all 0.3s linear;
+    color: var(--wp--preset--color--contrast, #000) !important;
+    font-weight: normal;
+    text-transform: capitalize;
+    font-size: 0.93rem;
+
+    &:hover {
+      background: #fbfbfb;
+    }
+  }
+}
+
+/** BLOCK EDITOR **/
+.block-editor {
+  .ywcas-block-panel-left-aligned-color-wrapper{
+    &{
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+    }
+    & > .components-grid{
+      padding: 0;
+
+      border-top: 0;
+    }
+  }
+  .wp-block-yith-related-posts-block {
+    margin-left: -10px;
+  }
+
+  .wp-block-yith-product-results-block button {
+    padding: 0.5em 1em;
+    font-size: 0.8em;
+  }
+
+  .wp-block-yith-product-results-block {
+    font-size: initial;
+  }
+
+  .wp-block-yith-empty-block,
+  .wp-block-yith-filled-block {
+    left: 0;
+    right: 0;
+  }
+
+  .search-result-item {
+    width: 100%;
+    padding: 0;
+  }
+
+  .ywcas-search-results-grid {
+    gap: 25px;
+  }
+
+  .ywcas-related-content__label {
+    padding: 30px;
+  }
+
+  .ywcas-input-field{
+    padding-right:5px!important;
+    padding-left:5px!important;
+  }
+  .ywcas-input-field-wrapper .ywcas-submit-wrapper {
+    margin-right: 0;
+  }
+}
+.ywcas-submit-wrapper{
+  display:flex!important;
+  align-items: center;
+  height:32px;
+  width:32px;
+  transition: all 0.3s linear;
+  padding: 2px;
+  box-sizing: border-box;
+}
+.wp-block-yith-filled-block {
+  hr {
+    border-bottom: 0;
+  }
+}
