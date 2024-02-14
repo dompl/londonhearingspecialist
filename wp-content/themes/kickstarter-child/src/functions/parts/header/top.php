@@ -44,7 +44,7 @@ function london_top_left_callback( $html ) {
     // Appending custom HTML to the existing content
     $phone = MyHelpers::getThemeData( 'ks_tel_number' );
     if (  !  empty( $phone ) && isset( $phone['visible'] ) && isset( $phone['dial'] ) ) {
-        $html .= '<div class="item email"><a href="tel:' . do_shortcode( '[telephone dial=true]', true ) . '" title="Call London Hearing Specialists to book your appointment today"><i class="icon-envelope-regular"></i><span>' . do_shortcode( '[telephone dial=false]', true ) . '</span></a></div>';
+        $html .= '<div class="item email"><a href="tel:' . do_shortcode( '[telephone dial=true]', true ) . '" title="Call London Hearing Specialists to book your appointment today"><i class="icon-phone-regular"></i><span>' . do_shortcode( '[telephone dial=false]', true ) . '</span></a></div>';
     } else {
         error_log( 'Phone number is missing on theme settings' );
     }
@@ -52,7 +52,7 @@ function london_top_left_callback( $html ) {
     $email = MyHelpers::getThemeData( 'ks_email_address' );
     if ( $email ) {
         $email = antispambot( $email );
-        $html .= '<div class="item phone"><a href="mailto:' . $email . '" title="Email London Hearing Specialists to book your appointment today"><i class="icon-phone-regular"></i><span>' . $email . '</span></a></div>';
+        $html .= '<div class="item phone"><a href="mailto:' . $email . '" title="Email London Hearing Specialists to book your appointment today"><i class="icon-envelope-regular"></i><span>' . $email . '</span></a></div>';
     } else {
         error_log( 'Email address is missing on theme settings' );
     }

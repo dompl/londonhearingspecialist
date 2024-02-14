@@ -43,6 +43,7 @@ function clinic_locations_data() {
                 'phone'    => get_post_meta( $post_id, 'phone', true ),
                 'facebook' => get_post_meta( $post_id, 'facebook', true ),
                 'twitter'  => get_post_meta( $post_id, 'twitter', true ),
+                'addon'    => get_post_meta( $post_id, 'addon', true ),
                 'dirs'     => []
             );
             $locations[$post_id]['dirs']['overground']  = get_post_meta( $post_id, 'dirs_overground', true );

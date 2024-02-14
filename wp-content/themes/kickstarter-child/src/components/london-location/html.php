@@ -62,6 +62,8 @@ function wp_1702034028_london( $html, $data ) {
 
             $directions = array_filter( (array) $location['dirs'] );
 
+            $descriptions = $location['addon'];
+
             $html .= '<div class="location-bottom">';
             $html .= '<div class="map">' . ( $location['map'] ? Helpers::convertToGoogleMapsIframe( $location['map'] ) : '' ) . '</div>';
             if (  !  empty( $directions ) ) {

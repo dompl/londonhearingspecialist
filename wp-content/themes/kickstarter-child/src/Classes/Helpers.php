@@ -14,7 +14,7 @@ class Helpers {
         $html = '<div class="item rating google-star-rating">';
         $html .= '<div class="rating-top">Highly Recommended</div>';
         $html .= '<div class="rating-middle"><span class="count">' . $reviews['averageRating'] . '</span><span class="stars">' . $starts . '</span></div>';
-        $html .= '<div class="rating-bottom"><span class="number">' . $count . '</span><span class="word"> reviews</span></div>';
+        $html .= '<div class="rating-bottom"><span class="number">' . $count . '</span><span class="word"> reviews</span><div class="logo"><img src="' . get_stylesheet_directory_uri() . '/assets/images/theme/google-review-logo.png"/></div></div>';
         $html .= '</div>';
         return $html;
 

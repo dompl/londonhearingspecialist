@@ -32,6 +32,9 @@ function wp_1700655036_london( $html, $data ) {
     shuffle( $reviews['reviews'] );
     $i = 0;
     foreach ( $reviews['reviews'] as $review ) {
+        if ( $review['rating'] < 4 ) {
+            continue;
+        }
         $author_name               = $review['author_name'];
         $author_url                = $review['author_url'];
         $profile_photo_url         = $review['profile_photo_url'];
