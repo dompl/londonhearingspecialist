@@ -1,5 +1,6 @@
 <?php
 use Kickstarter\MyHelpers;
+use London\Acf;
 add_filter( \Kickstarter\MyAcf::Html(), 'wp_1707906303_london', 10, 2 );
 
 function wp_1707906303_london( $html, $data ) {
@@ -10,7 +11,7 @@ function wp_1707906303_london( $html, $data ) {
         return $html;
     }
     $helpers = new MyHelpers();
-
+    $html .= Acf::HeaderAcfHtml( $data );
     $html .= '<div class="london-brands">';
 
     for ( $i = 0; $i < $brands; $i++ ) {

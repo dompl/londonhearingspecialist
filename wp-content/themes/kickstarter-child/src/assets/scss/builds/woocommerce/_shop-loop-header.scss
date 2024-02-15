@@ -8,6 +8,14 @@
 	border-bottom: 1px solid var.$color-blue;
 	padding: 2rem 0;
 	@include font-size(12, 16);
+	.see-categories {
+		line-height: 0.5 !important;
+	}
+	@include from(lg) {
+		.see-categories {
+			display: none !important;
+		}
+	}
 	p,
 	form {
 		margin: 0 !important;

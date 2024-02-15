@@ -248,6 +248,9 @@
 			display: flex;
 			padding: rem(15) 0;
 		}
+		> div {
+			flex: 1;
+		}
 		.left {
 			.main-nav-init {
 				display: none;

@@ -22,7 +22,9 @@ function clinic_locations_data() {
     $query = new WP_Query( array(
         'post_type'      => 'clinic_locations',
         'posts_per_page' => -1, // Fetch all posts
-        'post_status' => 'publish'
+        'post_status' => 'publish',
+        'orderby'        => 'menu_order', // Correct parameter is 'orderby', not 'order_by'
+        'order'       => 'ASC' // Specify the order direction, ASC for ascending
     ) );
 
     $locations = array();

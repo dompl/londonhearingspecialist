@@ -10,9 +10,12 @@ function ks_header_wrapper() {
 
     $html = '<div id="header-wrapper">';
     $html .= '<div class="container">';
-    $html .= '<div class="left">' . apply_filters( 'ks_header_wrapper_left', false, $themeData ) . '</div>';
-    $html .= '<div class="middle">' . apply_filters( 'ks_header_wrapper_middle', false, $themeData ) . '</div>';
-    $html .= '<div class="right">' . apply_filters( 'ks_header_wrapper_right', false, $themeData ) . '</div>';
+     $html .= '<div class="left">' . apply_filters( 'ks_header_wrapper_left', false, $themeData ) . '</div>';
+     $html .= '<div class="middle">' . apply_filters( 'ks_header_wrapper_middle', false, $themeData ) . '</div>';
+     $html .= '<div class="right">' . apply_filters( 'ks_header_wrapper_right', false, $themeData ) . '</div>';
+   //  $html .= '<div class="left">' . apply_filters( 'ks_header_wrapper_middle', false, $themeData ) . '</div>';
+   //  $html .= '<div class="middle">' . apply_filters( 'ks_header_wrapper_left', false, $themeData ) . '</div>';
+   //  $html .= '<div class="right">' . apply_filters( 'ks_header_wrapper_right', false, $themeData ) . '</div>';
     $html .= '</div>';
     $html .= '</div>';
 

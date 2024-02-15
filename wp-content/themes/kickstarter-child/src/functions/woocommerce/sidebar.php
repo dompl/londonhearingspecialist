@@ -88,7 +88,7 @@ function display_categories_and_manufacturers_lists() {
     echo '</div>';
 
     if ( count( $product_categories ) > 1 ) {
-        echo '<div class="sidebar-product-categories london-woo-side-item">';
+        echo '<div class="sidebar-product-categories london-woo-side-item" id="sidebar-product-categories">';
         echo '<h3>' . __( 'Product Categories', 'london-child' ) . '</h3>';
         echo '<ul>';
         foreach ( $product_categories as $category ) {

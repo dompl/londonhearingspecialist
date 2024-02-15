@@ -22,7 +22,7 @@
 		left: 100%;
 	}
 	.nav-menu > li > & {
-		background-color: var.$navigation-dd-background;
+		// background-color: var.$navigation-dd-background;
 		border-top: var.$navigation-dd-border;
 	}
 
@@ -97,6 +97,13 @@
 
 		.submenu-indicator-chevron {
 			@include transform(rotate(135deg));
+		}
+	}
+}
+#navigation {
+	&.navigation-landscape {
+		ul ul {
+			background-color: var.$navigation-dd-background;
 		}
 	}
 }

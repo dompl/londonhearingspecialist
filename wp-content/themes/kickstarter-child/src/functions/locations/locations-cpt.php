@@ -34,9 +34,12 @@ function create_location_post_type() {
         'rewrite'            => array( 'slug' => 'location' ),
         'capability_type'    => 'post',
         'has_archive'        => false,
-        'hierarchical'       => false,
+        'hierarchical'       => true,
         'menu_position'      => null,
-        'supports'           => array( 'title' )
+        'supports'           => array( 'title', 'page-attributes' ), // Add 'page-attributes' to supports array
+        'menu_icon' => 'dashicons-location-alt', // Optional: Set a dashicon for the post type
+        'order' => 'ASC', // Optional: Set default order
+        'orderby' => 'menu_order' // Optional: Set default orderby to 'menu_order' or another field
     );
 
     register_post_type( 'clinic_locations', $args );

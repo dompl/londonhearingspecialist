@@ -10,8 +10,15 @@
 		display: flex;
 		flex-direction: column;
 		gap: 3rem;
+
+		@include to(md) {
+			justify-content: center;
+		}
 		ul.products {
 			margin-bottom: 2rem;
+			@include to(md) {
+				justify-content: center;
+			}
 		}
 
 		@include from(lg) {

@@ -95,8 +95,8 @@
 		.bottom {
 			display: flex;
 			flex-direction: row;
-			gap: 3rem;
-			justify-content: space-between;
+			gap: 6rem;
+			// justify-content: space-between;
 		}
 		.container-bottom {
 			border-top: desaturate(lighten(var.$color-blue-dark, 5%), 40%) 1px solid;
@@ -119,7 +119,7 @@
 		.container-top {
 			flex-direction: row;
 			.about {
-				width: rem(360);
+				width: rem(460);
 			}
 			.footer-navigation {
 				flex: 1;

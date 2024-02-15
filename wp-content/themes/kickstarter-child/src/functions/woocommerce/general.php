@@ -80,10 +80,10 @@ add_action( 'woocommerce_before_shop_loop', 'custom_result_count_ordering_wrappe
 function custom_result_count_ordering_wrapper_start() {
     echo '<div class="london-woo-ordering">';
     echo '<div class="left">';
-    woocommerce_result_count();
     echo '</div>';
 
     echo '<div class="right">';
+    echo '<a href="#sidebar-product-categories" class="see-categories button blue-dark small">Products Categories</a>';
     woocommerce_catalog_ordering();
     woocommerce_london_products_per_page();
     echo '</div>';

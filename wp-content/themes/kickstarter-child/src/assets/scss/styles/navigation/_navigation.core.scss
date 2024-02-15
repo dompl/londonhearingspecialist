@@ -398,21 +398,20 @@
 	}
 	.nav-submenu {
 		li {
-			background-color: transparent!important;
+			background-color: transparent !important;
 			&.active {
 				a {
-				 
-					background-color: transparent!important;
+					background-color: transparent !important;
 				}
 			}
 			a {
-				background-color: transparent!important;
+				background-color: transparent !important;
 				padding: var.$navigation-offcanvas-a-a-padding;
 				color: var.$navigation-offcanvas-a-a-font-color;
 				font-size: var.$navigation-offcanvas-a-a-font-size;
 				font-weight: var.$navigation-offcanvas-a-a-font-weight;
 				&:hover {
-					background-color: var.$navigation-offcanvas-a-a-background-hover;
+					// background-color: var.$navigation-offcanvas-a-a-background-hover;
 				}
 			}
 		}

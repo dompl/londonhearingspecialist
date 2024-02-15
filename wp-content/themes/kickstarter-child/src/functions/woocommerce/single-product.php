@@ -69,7 +69,7 @@ add_action( 'after_setup_theme', function () {
         echo '</div>';
         echo '</div>';
         if ( $product->get_description() != "" ) {
-            echo '<div class="london-product-full">';
+            echo '<div class="london-product-full london-text">';
             echo '<h3>Full product description</h3>';
             echo '<div class="description">' . $product->get_description() . '</div>';
             echo '</div>';
