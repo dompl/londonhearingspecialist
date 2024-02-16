@@ -85,10 +85,8 @@ function custom_redirect_full_url_() {
         $request_uri = rtrim( $_SERVER['REQUEST_URI'], '/' ) . '/'; // Ensure trailing slash for consistency
 
         $url_redirects = array(
-            "/ear-wax-removal-delete/"                          => "/ear-wax-removal-delete/",
             "/hearing-consultations/hertfordshire/"             => "/services/hearing-consultations/hertfordshire/",
             "/hearing-consultations/london/"                    => "/services/hearing-consultations/london/",
-            "/hearing-test/"                                    => "/services/hearing-test/",
             "/hearing-test/hertfordshire/"                      => "/services/hearing-test/hertfordshire/",
             "/hearing-test/london/"                             => "/services/hearing-test/london/",
             "/hearing-test-for-children-online-hearing-test-2/" => "/services/hearing-test-for-children-online-hearing-test-2/",
@@ -105,7 +103,6 @@ function custom_redirect_full_url_() {
             "/category/hearing-consultations/"                  => "/hearing-consultations/",
             "/category/hearing-aids/"                           => "/hearing-aids-2/",
             "/category/hearing-protection/"                     => "/hearing-protection/",
-            "/ear-wax-removal/"                                 => "/ear-wax-removal-3/",
             "/category/ear-wax-removal/hertfordshire/"          => "/ear-wax-removal-hertfordshire/",
             "/category/ear-wax-removal/london/"                 => "/ear-wax-removal-london-2/",
             "/category/dizziness/"                              => "/dizziness-2/",
