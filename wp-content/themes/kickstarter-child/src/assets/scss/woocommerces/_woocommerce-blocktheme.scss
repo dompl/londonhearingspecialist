@@ -28,7 +28,6 @@
 .woocommerce {
 	button.button,
 	a.button {
-
 		&.disabled,
 		&:disabled,
 		&:disabled[disabled],
@@ -42,7 +41,6 @@
 	#respond input#submit,
 	input.button,
 	a.button.alt {
-
 		&:hover {
 			opacity: 0.9;
 		}
@@ -89,7 +87,6 @@
 
 		.woocommerce-tabs {
 			ul.tabs li.active {
-
 				&::before {
 					box-shadow: 2px 2px 0 var(--wp--preset--color--background, $contentbg);
 				}
@@ -119,6 +116,14 @@
 				margin-top: 0;
 				margin-bottom: 0;
 				vertical-align: middle;
+				padding-top: 1.1rem;
+				padding-bottom: 1.1rem;
+				transition: all, 300ms;
+				&:hover {
+					background-color: lighten(#6c9a32, 10%);
+					transform: scale(1.1);
+					border-radius: 5px !important;
+				}
 			}
 		}
 
@@ -273,7 +278,7 @@ a.added_to_cart {
 		width: 70%;
 		border-collapse: collapse;
 
-		@media only screen and ( max-width: 768px ) {
+		@media only screen and (max-width: 768px) {
 			width: 100%;
 		}
 
@@ -321,7 +326,7 @@ a.added_to_cart {
 			padding: 0 1.1rem;
 		}
 
-		@media only screen and ( max-width: 768px ) {
+		@media only screen and (max-width: 768px) {
 			.product-remove {
 				width: auto;
 			}
@@ -361,7 +366,7 @@ a.added_to_cart {
 		padding-left: 0;
 		font-size: var(--wp--preset--font-size--small);
 
-		@media only screen and ( max-width: 768px ) {
+		@media only screen and (max-width: 768px) {
 			flex-direction: column;
 		}
 
@@ -405,7 +410,7 @@ a.added_to_cart {
 			list-style: none;
 			padding: 1rem 0;
 
-			@media only screen and ( max-width: 768px ) {
+			@media only screen and (max-width: 768px) {
 				padding: 0.35rem 0;
 			}
 

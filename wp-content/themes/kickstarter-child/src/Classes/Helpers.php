@@ -12,9 +12,12 @@ class Helpers {
         $count        = $googleRating->displayRatingCount();
 
         $html = '<div class="item rating google-star-rating">';
-        $html .= '<div class="rating-top">Highly Recommended</div>';
+        $html .= '<a href="https://www.google.com/search?client=firefox-b-d&sa=X&sca_esv=5662882a9f5a9607&tbm=lcl&q=London+Hearing+Specialist+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxK2MDA0tDA3NTCysDA0MbMwMLYw38DI-IpR0Sc_LyU_T8EjNbEoMy9dIbggNTkzMSezuEQhKLUsM7W8eBErYTUAQJ42Y2IAAAA&rldimm=8011875028814680387&hl=en-PL&ved=2ahUKEwjXxJ-or7eEAxVDgP0HHSgkAQEQ9fQKegQIFhAF&biw=2071&bih=1251&dpr=2#lkt=LocalPoiReviews" target="_blank">';
+        //   $html .= '<div class="rating-top">Highly Recommended</div>';
+        $html .= '<div class="logo"><img src="' . get_stylesheet_directory_uri() . '/assets/images/theme/google-review-logo.png"/></div>';
         $html .= '<div class="rating-middle"><span class="count">' . $reviews['averageRating'] . '</span><span class="stars">' . $starts . '</span></div>';
-        $html .= '<div class="rating-bottom"><span class="number">' . $count . '</span><span class="word"> reviews</span><div class="logo"><img src="' . get_stylesheet_directory_uri() . '/assets/images/theme/google-review-logo.png"/></div></div>';
+        $html .= '<div class="rating-bottom"><span class="number">' . $count . '</span><span class="word"> reviews</span></div>';
+        $html .= '</a>';
         $html .= '</div>';
         return $html;
 

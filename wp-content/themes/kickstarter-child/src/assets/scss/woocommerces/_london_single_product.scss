@@ -18,8 +18,14 @@
 				width: 200px;
 				&.minus,
 				&.plus {
-					height: 50px;
-					width: 50px;
+					height: 56px;
+					width: 56px;
+					color: white;
+					transition: all, 300ms;
+					&:hover {
+						cursor: pointer;
+						transform: scale(1.1);
+					}
 				}
 				&[name="add-to-cart"] {
 					background-color: var.$color-green;
@@ -74,8 +80,6 @@
 			border-top: 1px dashed darken(var.$color-gray-light, 20%);
 			border-bottom: 1px dashed darken(var.$color-gray-light, 20%);
 			font-size: 20px;
-			del {
-			}
 		}
 		.product_meta {
 			margin-bottom: 1rem;
@@ -101,8 +105,24 @@
 		margin-top: 2rem;
 	}
 	.product-add-to-cart {
+		form {
+			justify-content: center;
+			display: flex;
+			gap: 1rem;
+			text-align: center;
+			button.single_add_to_cart_button {
+				margin-left: auto !important;
+				margin-right: auto !important;
+				float: none;
+				@include from(xxl) {
+					margin-left: auto !important;
+					margin-right: 0 !important;
+				}
+			}
+		}
 		.london-quantity {
 			text-align: center;
+			margin-bottom: 1rem;
 			input {
 				margin: 0 rem(10) !important;
 			}
@@ -121,9 +141,10 @@
 			display: flex;
 			flex-direction: row;
 			gap: 2rem;
+			justify-content: center;
 		}
 	}
-	@include from(xl) {
+	@include from(xxl) {
 		.product-add-to-cart {
 			form {
 				&:before,
@@ -131,6 +152,7 @@
 					display: none !important;
 				}
 				display: flex;
+				justify-content: center;
 				flex-direction: row !important;
 				gap: 1rem;
 				justify-content: space-between;
@@ -175,7 +197,7 @@ input[type="number"] {
 	gap: 2rem;
 	border-top: 1px dashed darken(var.$color-gray-light, 20%);
 	padding-top: 2rem;
-	margin-top:2rem;
+	margin-top: 2rem;
 	h3 {
 		margin-bottom: 1rem;
 	}

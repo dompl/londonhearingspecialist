@@ -12,6 +12,14 @@
 		display: flex;
 		gap: rem(5);
 	}
+	@include from(xl) {
+		.logo {
+			margin-bottom: 4px;
+		}
+		a {
+			color: var.$color-text;
+		}
+	}
 }
 #gogole-wrap-mobile {
 	background-color: var.$color-blue;
