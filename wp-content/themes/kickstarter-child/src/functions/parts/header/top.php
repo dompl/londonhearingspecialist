@@ -78,7 +78,6 @@ function london_top_right_callback( $html ) {
 
     $locations = clinic_locations_data();
 
-    // Check if locations are available
     if (  !  empty( $locations ) && is_array( $locations ) ) {
         $locationsByArea = [];
         foreach ( $locations as $key => $value ) {
@@ -89,11 +88,11 @@ function london_top_right_callback( $html ) {
             $locationsByArea[$area][$key] = $value;
         }
 
-        if ( isset( $locationsByArea['London'] ) ) {
-            $london = $locationsByArea['London'];
-            unset( $locationsByArea['London'] );
+        if ( isset( $locationsByArea['london'] ) ) {
+            $london = $locationsByArea['london'];
+            unset( $locationsByArea['london'] );
             ksort( $locationsByArea );
-            $locationsByArea = ['London' => $london] + $locationsByArea;
+            $locationsByArea = ['london' => $london] + $locationsByArea;
         } else {
             ksort( $locationsByArea );
         }
@@ -106,7 +105,10 @@ function london_top_right_callback( $html ) {
             $html .= '<ul><li><span>' . ucfirst( $area ) . '</span>';
             $html .= '<ul>';
             usort( $locs, function ( $item1, $item2 ) {
-                return $item1['title'] <=> $item2['title'];
+                if ( $item1['menu_order'] === $item2['menu_order'] ) {
+                    return $item1['title'] <=> $item2['title'];
+                }
+                return $item1['menu_order'] <=> $item2['menu_order'];
             } );
             foreach ( $locs as $key => $value ) {
                 $title = esc_html( $value['title'] );

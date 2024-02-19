@@ -46,3 +46,22 @@ function create_location_post_type() {
 }
 
 add_action( 'init', 'create_location_post_type' );
+
+add_filter( 'manage_edit-clinic_locations_sortable_columns', 'clinic_locations_sortable_columns' );
+function clinic_locations_sortable_columns( $columns ) {
+    $columns['menu_order'] = 'menu_order';
+    return $columns;
+}
+
+add_action( 'pre_get_posts', 'clinic_locations_orderby' );
+function clinic_locations_orderby( $query ) {
+    if (  !  is_admin() ) {
+        return;
+    }
+
+    $orderby = $query->get( 'orderby' );
+    if ( 'menu_order' == $orderby ) {
+        $query->set( 'orderby', 'menu_order' );
+        $query->set( 'order', 'ASC' );
+    }
+}

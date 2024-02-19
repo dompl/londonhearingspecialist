@@ -37,17 +37,18 @@ function clinic_locations_data() {
             $post_id = get_the_ID();
 
             $locations[$post_id] = array(
-                'title'    => get_the_title(),
-                'map'      => get_post_meta( $post_id, 'map', true ),
-                'image'    => get_post_meta( $post_id, 'image', true ),
-                'address'  => get_post_meta( $post_id, 'address', true ),
-                'email'    => get_post_meta( $post_id, 'email', true ),
-                'phone'    => get_post_meta( $post_id, 'phone', true ),
-                'facebook' => get_post_meta( $post_id, 'facebook', true ),
-                'twitter'  => get_post_meta( $post_id, 'twitter', true ),
-                'addon'    => get_post_meta( $post_id, 'addon', true ),
-                'area'     => get_post_meta( $post_id, 'area', true ),
-                'dirs'     => []
+                'title'      => get_the_title(),
+                'map'        => get_post_meta( $post_id, 'map', true ),
+                'image'      => get_post_meta( $post_id, 'image', true ),
+                'address'    => get_post_meta( $post_id, 'address', true ),
+                'email'      => get_post_meta( $post_id, 'email', true ),
+                'phone'      => get_post_meta( $post_id, 'phone', true ),
+                'facebook'   => get_post_meta( $post_id, 'facebook', true ),
+                'twitter'    => get_post_meta( $post_id, 'twitter', true ),
+                'addon'      => get_post_meta( $post_id, 'addon', true ),
+                'area'       => get_post_meta( $post_id, 'area', true ),
+                'menu_order' => get_post_field( 'menu_order', $post_id ), // Add menu_order to the locations array
+                'dirs' => []
             );
             $locations[$post_id]['dirs']['overground']  = get_post_meta( $post_id, 'dirs_overground', true );
             $locations[$post_id]['dirs']['underground'] = get_post_meta( $post_id, 'dirs_underground', true );
