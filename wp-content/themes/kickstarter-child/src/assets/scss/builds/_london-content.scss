@@ -31,6 +31,10 @@
 		}
 	}
 	ul {
+		display: flex;
+		gap: 1rem;
+		padding: 1rem 0 2rem 2rem;
+		flex-direction: column;
 		&.checks {
 			list-style: none;
 			display: flex;

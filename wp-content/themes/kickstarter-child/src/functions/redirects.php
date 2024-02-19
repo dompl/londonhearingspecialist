@@ -42,7 +42,6 @@ function custom_redirect_full_url() {
             "/childrens-hearing-test/london/"                   => "/services/childrens-hearing-test/london/",
             "/online-hearing-test-london/"                      => "/services/online-hearing-test-london/",
             "/tinnitus-treatment/"                              => "/services/tinnitus-treatment/",
-            "/video-otoscopy/"                                  => "/services/video-otoscopy/",
             "/category/hearing-consultations/"                  => "/hearing-consultations/",
             "/category/hearing-aids/"                           => "/hearing-aids-2/",
             "/category/hearing-protection/"                     => "/hearing-protection/",
@@ -101,6 +100,8 @@ function custom_redirect_full_url_() {
             "/tinnitus-treatment/"                              => "/services/tinnitus-treatment/",
             "/video-otoscopy/"                                  => "/services/video-otoscopy/",
             "/category/hearing-consultations/"                  => "/hearing-consultations/",
+            "/hearing-aids/repairs/"                            => "/hearing-aid-repair/",
+            "/product-category/oils/"                           => "/shop/",
             "/category/hearing-aids/"                           => "/hearing-aids-2/",
             "/category/hearing-protection/"                     => "/hearing-protection/",
             "/category/ear-wax-removal/hertfordshire/"          => "/ear-wax-removal-hertfordshire/",
@@ -120,7 +121,8 @@ function custom_redirect_full_url_() {
             "/category/professional-ear-plugs/"                 => "/professional-ear-plugs/",
             "/category/moulded-ear-plugs/"                      => "/moulded-ear-plugs/",
             "/category/hearing-test-london-and-hertfordhire/"   => "/hearing-test-london-and-hertfordhire/",
-            "/category/hearing-test-for-children/"              => "/hearing-test-for-children/"
+            "/category/hearing-test-for-children/"              => "/hearing-test-for-children/",
+            "/blog/"                                            => ""
         );
 
         foreach ( $url_redirects as $old_url => $new_url ) {
