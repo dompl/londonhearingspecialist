@@ -5,6 +5,7 @@ use Extended\ACF\Fields\Group;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Layout;
 use Extended\ACF\Fields\Repeater;
+use Extended\ACF\Fields\Select;
 use Extended\ACF\Fields\Tab;
 use Extended\ACF\Fields\Text;
 use Extended\ACF\Fields\Textarea;
@@ -42,6 +43,7 @@ add_filter( 'london_clinic_locations_fields', function ( $fields ) {
     $fields[] = Tab::make( 'Information', wp_unique_id() )->placement( 'left' );
 
     $fields[] = Textarea::make( 'Location Address', 'address' )->newLines( 'br' )->instructions( 'Add location full postal address' )->rows( 3 )->required();
+    $fields[] = Select::make( 'Location area', 'area' )->instructions( 'Select location area' )->choices( ['london' => 'London', 'hertfordshire' => 'Hertfordshire'] )->defaultValue( '' )->stylisedUi()->required();
     $fields[] = Text::make( 'Location Phone', 'phone' )->instructions( 'Add location phone number' );
     $fields[] = Email::make( 'Location Email', 'email' )->instructions( 'Add location email address' );
     $fields[] = Url::make( 'Location Facebook page', 'facebook' )->instructions( 'Add location Facebook page' );

@@ -80,18 +80,42 @@ function london_top_right_callback( $html ) {
 
     // Check if locations are available
     if (  !  empty( $locations ) && is_array( $locations ) ) {
+        $locationsByArea = [];
+        foreach ( $locations as $key => $value ) {
+            $area = isset( $value['area'] ) ? esc_html( $value['area'] ) : 'Other'; // Fallback to 'Other' if 'area' is not provided
+            if (  !  isset( $locationsByArea[$area] ) ) {
+                $locationsByArea[$area] = [];
+            }
+            $locationsByArea[$area][$key] = $value;
+        }
+
+        if ( isset( $locationsByArea['London'] ) ) {
+            $london = $locationsByArea['London'];
+            unset( $locationsByArea['London'] );
+            ksort( $locationsByArea );
+            $locationsByArea = ['London' => $london] + $locationsByArea;
+        } else {
+            ksort( $locationsByArea );
+        }
 
         $html .= '<div class="item locations">';
         $html .= '<a href="#" title="Select London Hearing Specialists Locations" id="location-selector-a"><span>Select Location</span><i class="icon-caret-down-solid"></i></a>';
-        $html .= '<ul id="location-select">';
+        $html .= '<div id="location-select">';
 
-        // Ensure output is properly escaped
-        foreach ( $locations as $key => $value ) {
-            $title = esc_html( $value['title'] );
-            $html .= '<a href="' . get_the_permalink( $key ) . '" title="Visit London Hearing Specialists at ' . $title . '">' . $title . '</a>';
+        foreach ( $locationsByArea as $area => $locs ) {
+            $html .= '<ul><li><span>' . ucfirst( $area ) . '</span>';
+            $html .= '<ul>';
+            usort( $locs, function ( $item1, $item2 ) {
+                return $item1['title'] <=> $item2['title'];
+            } );
+            foreach ( $locs as $key => $value ) {
+                $title = esc_html( $value['title'] );
+                $html .= '<li><a href="' . get_the_permalink( $key ) . '" title="Visit London Hearing Specialists at ' . $title . '">' . $title . '</a></li>';
+            }
+            $html .= '</ul></li></ul>';
         }
 
-        $html .= '</ul>';
+        $html .= '</div>';
         $html .= '</div>';
     }
 

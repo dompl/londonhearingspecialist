@@ -14,6 +14,15 @@
 	padding: 0 0 0 0;
 	min-width: 100%;
 	top: rem(40);
+	ul {
+		list-style: none;
+	}
+	span {
+		background-color: var.$color-blue-dark;
+		display: block;
+		font-weight: bold;
+		padding: 8px 10px 0px 12px;
+	}
 	@include from(sm) {
 		top: rem(50);
 	}
@@ -26,7 +35,7 @@
 	}
 	a {
 		color: var.$color-white;
-		padding: rem(8) rem(20);
+		padding: rem(5) rem(20);
 		text-decoration: none;
 		min-width: 100%;
 		box-sizing: border-box;
