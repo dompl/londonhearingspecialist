@@ -45,6 +45,7 @@ function clinic_locations_data() {
                 'phone'      => get_post_meta( $post_id, 'phone', true ),
                 'facebook'   => get_post_meta( $post_id, 'facebook', true ),
                 'twitter'    => get_post_meta( $post_id, 'twitter', true ),
+                'iframe'    => get_post_meta( $post_id, 'iframe', true ),
                 'addon'      => get_post_meta( $post_id, 'addon', true ),
                 'area'       => get_post_meta( $post_id, 'area', true ),
                 'menu_order' => get_post_field( 'menu_order', $post_id ), // Add menu_order to the locations array

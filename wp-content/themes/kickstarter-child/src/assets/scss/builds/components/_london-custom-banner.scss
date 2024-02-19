@@ -11,6 +11,12 @@
 			gap: rem(5);
 			flex-direction: column;
 			flex: 1;
+			a {
+				color: white;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
 		}
 		.text,
 		.text * {

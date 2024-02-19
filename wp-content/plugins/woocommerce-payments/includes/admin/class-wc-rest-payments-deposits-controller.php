@@ -151,9 +151,10 @@ class WC_REST_Payments_Deposits_Controller extends WC_Payments_REST_Controller {
 	 */
 	public function get_deposits_export( $request ) {
 		$user_email = $request->get_param( 'user_email' );
+		$locale     = $request->get_param( 'locale' );
 		$filters    = $this->get_deposits_filters( $request );
 
-		return $this->forward_request( 'get_deposits_export', [ $filters, $user_email ] );
+		return $this->forward_request( 'get_deposits_export', [ $filters, $user_email, $locale ] );
 	}
 
 	/**
@@ -185,6 +186,6 @@ class WC_REST_Payments_Deposits_Controller extends WC_Payments_REST_Controller {
 	 */
 	public function manual_deposit( $request ) {
 		$params = $request->get_params();
-		return $this->forward_request( 'manual_deposit', [ $params['type'], $params['transaction_ids'] ] );
+		return $this->forward_request( 'manual_deposit', [ $params['type'], $params['currency'] ] );
 	}
 }

@@ -69,7 +69,7 @@ function london_top_left_callback( $html ) {
  * @return string Modified HTML content with location dropdown.
  */
 function london_top_right_callback( $html ) {
-    // Validate input
+
     $html = is_string( $html ) ? $html : '';
 
     if (  !  function_exists( 'clinic_locations_data' ) ) {
@@ -80,12 +80,12 @@ function london_top_right_callback( $html ) {
 
     if (  !  empty( $locations ) && is_array( $locations ) ) {
         $locationsByArea = [];
-        foreach ( $locations as $key => $value ) {
-            $area = isset( $value['area'] ) ? esc_html( $value['area'] ) : 'Other'; // Fallback to 'Other' if 'area' is not provided
+        foreach ( $locations as $post_id => $value ) {
+            $area = isset( $value['area'] ) ? esc_html( $value['area'] ) : 'Other';
             if (  !  isset( $locationsByArea[$area] ) ) {
                 $locationsByArea[$area] = [];
             }
-            $locationsByArea[$area][$key] = $value;
+            $locationsByArea[$area][$post_id] = $value; // Maintain association with post_id
         }
 
         if ( isset( $locationsByArea['london'] ) ) {
@@ -104,15 +104,15 @@ function london_top_right_callback( $html ) {
         foreach ( $locationsByArea as $area => $locs ) {
             $html .= '<ul><li><span>' . ucfirst( $area ) . '</span>';
             $html .= '<ul>';
-            usort( $locs, function ( $item1, $item2 ) {
+            uasort( $locs, function ( $item1, $item2 ) {
                 if ( $item1['menu_order'] === $item2['menu_order'] ) {
                     return $item1['title'] <=> $item2['title'];
                 }
                 return $item1['menu_order'] <=> $item2['menu_order'];
             } );
-            foreach ( $locs as $key => $value ) {
+            foreach ( $locs as $post_id => $value ) {
                 $title = esc_html( $value['title'] );
-                $html .= '<li><a href="' . get_the_permalink( $key ) . '" title="Visit London Hearing Specialists at ' . $title . '">' . $title . '</a></li>';
+                $html .= '<li><a href="' . get_the_permalink( $post_id ) . '" title="Visit London Hearing Specialists at ' . $title . '">' . $title . '</a></li>';
             }
             $html .= '</ul></li></ul>';
         }
@@ -122,16 +122,11 @@ function london_top_right_callback( $html ) {
     }
 
     $html .= '<div class="item login">';
-
-    // URL to the WooCommerce "My Account" page
     $myaccount_page_url = esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) );
 
-    // Check if user is logged in
     if ( is_user_logged_in() ) {
-        // User is logged in - show link to account page
         $html .= '<a href="' . $myaccount_page_url . '"><i class="icon-user-regular"></i><span>My Account</span></a>';
     } else {
-        // User is not logged in - show link to login section of the "My Account" page
         $html .= '<a href="' . $myaccount_page_url . '"><i class="icon-user-regular"></i><span>Login</span></a>';
     }
 

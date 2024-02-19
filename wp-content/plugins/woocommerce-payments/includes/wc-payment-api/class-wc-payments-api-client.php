@@ -251,15 +251,15 @@ class WC_Payments_API_Client {
 	 * Trigger a manual deposit.
 	 *
 	 * @param string $type Type of deposit. Only "instant" is supported for now.
-	 * @param string $transaction_ids Comma-separated list of transaction IDs that will be associated with this deposit.
+	 * @param string $currency The deposit currency.
 	 * @return array The new deposit object.
 	 * @throws API_Exception - Exception thrown on request failure.
 	 */
-	public function manual_deposit( $type, $transaction_ids ) {
+	public function manual_deposit( $type, $currency ) {
 		return $this->request(
 			[
-				'type'            => $type,
-				'transaction_ids' => $transaction_ids,
+				'type'     => $type,
+				'currency' => $currency,
 			],
 			self::DEPOSITS_API,
 			self::POST
@@ -416,12 +416,13 @@ class WC_Payments_API_Client {
 	 * @param array  $filters    The filters to be used in the query.
 	 * @param string $user_email The email to search for.
 	 * @param string $deposit_id The deposit to filter on.
+	 * @param string $locale     Site locale.
 	 *
 	 * @return array Export summary
 	 *
 	 * @throws API_Exception - Exception thrown on request failure.
 	 */
-	public function get_transactions_export( $filters = [], $user_email = '', $deposit_id = null ) {
+	public function get_transactions_export( $filters = [], $user_email = '', $deposit_id = null, $locale = null ) {
 		// Map Order # terms to the actual charge id to be used in the server.
 		if ( ! empty( $filters['search'] ) ) {
 			$filters['search'] = WC_Payments_Utils::map_search_orders_to_charge_ids( $filters['search'] );
@@ -431,6 +432,9 @@ class WC_Payments_API_Client {
 		}
 		if ( ! empty( $deposit_id ) ) {
 			$filters['deposit_id'] = $deposit_id;
+		}
+		if ( ! empty( $locale ) ) {
+			$filters['locale'] = $locale;
 		}
 
 		return $this->request( $filters, self::TRANSACTIONS_API . '/download', self::POST );
@@ -578,14 +582,18 @@ class WC_Payments_API_Client {
 	 *
 	 * @param array  $filters    The filters to be used in the query.
 	 * @param string $user_email The email to search for.
+	 * @param string $locale Site locale.
 	 *
 	 * @return array Export summary
 	 *
 	 * @throws API_Exception - Exception thrown on request failure.
 	 */
-	public function get_disputes_export( $filters = [], $user_email = '' ) {
+	public function get_disputes_export( $filters = [], $user_email = '', $locale = null ) {
 		if ( ! empty( $user_email ) ) {
 			$filters['user_email'] = $user_email;
+		}
+		if ( ! empty( $locale ) ) {
+			$filters['locale'] = $locale;
 		}
 
 		return $this->request( $filters, self::DISPUTES_API . '/download', self::POST );
@@ -596,14 +604,18 @@ class WC_Payments_API_Client {
 	 *
 	 * @param array  $filters    The filters to be used in the query.
 	 * @param string $user_email The email to send export to.
+	 * @param string $locale Site locale.
 	 *
 	 * @return array Export summary
 	 *
 	 * @throws API_Exception - Exception thrown on request failure.
 	 */
-	public function get_deposits_export( $filters = [], $user_email = '' ) {
+	public function get_deposits_export( $filters = [], $user_email = '', $locale = null ) {
 		if ( ! empty( $user_email ) ) {
 			$filters['user_email'] = $user_email;
+		}
+		if ( ! empty( $locale ) ) {
+			$filters['locale'] = $locale;
 		}
 
 		return $this->request( $filters, self::DEPOSITS_API . '/download', self::POST );

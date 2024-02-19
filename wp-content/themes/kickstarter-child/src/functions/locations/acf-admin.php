@@ -39,6 +39,7 @@ add_action( 'acf/init', function () {
 add_filter( 'london_clinic_locations_fields', function ( $fields ) {
     $fields[] = Tab::make( 'Location details', wp_unique_id() )->placement( 'left' );
     $fields[] = Url::make( 'Location Google Map URL', 'map' )->instructions( 'Add link to the location on Google Map' )->required();
+    $fields[] = Text::make( 'Location Google Map iFrame', 'iframe' )->instructions( 'Add iFrame code for the location' )->required();
     $fields[] = Image::make( 'Location Map Image', 'image' )->instructions( 'Add location map image' )->returnFormat( 'id' )->previewSize( 'medium' )->required();
     $fields[] = Tab::make( 'Information', wp_unique_id() )->placement( 'left' );
 

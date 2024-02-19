@@ -5,6 +5,7 @@
  * @package WooCommerce\Payments\Admin
  */
 
+use WCPay\Constants\Country_Code;
 use WCPay\Fraud_Prevention\Fraud_Risk_Tools;
 use WCPay\Constants\Track_Events;
 
@@ -200,6 +201,10 @@ class WC_REST_Payments_Settings_Controller extends WC_Payments_REST_Controller {
 						'description' => __( 'Monthly anchor for deposit scheduling when interval is set to monthly', 'woocommerce-payments' ),
 						'type'        => [ 'integer', 'null' ],
 					],
+					'reporting_export_language'         => [
+						'description' => __( 'The language for an exported report for transactions, deposits, or disputes.', 'woocommerce-payments' ),
+						'type'        => 'string',
+					],
 					'is_payment_request_enabled'        => [
 						'description'       => sprintf(
 							/* translators: %s: WooPayments */
@@ -388,7 +393,7 @@ class WC_REST_Payments_Settings_Controller extends WC_Payments_REST_Controller {
 		}
 
 		// Japan accounts require Japanese phone numbers.
-		if ( 'JP' === $this->account->get_account_country() ) {
+		if ( Country_Code::JAPAN === $this->account->get_account_country() ) {
 			if ( '+81' !== substr( $value, 0, 3 ) ) {
 				return new WP_Error(
 					'rest_invalid_pattern',
@@ -513,6 +518,7 @@ class WC_REST_Payments_Settings_Controller extends WC_Payments_REST_Controller {
 				'deposit_status'                      => $this->wcpay_gateway->get_option( 'deposit_status' ),
 				'deposit_restrictions'                => $this->wcpay_gateway->get_option( 'deposit_restrictions' ),
 				'deposit_completed_waiting_period'    => $this->wcpay_gateway->get_option( 'deposit_completed_waiting_period' ),
+				'reporting_export_language'           => $this->wcpay_gateway->get_option( 'reporting_export_language' ),
 				'current_protection_level'            => $this->wcpay_gateway->get_option( 'current_protection_level' ),
 				'advanced_fraud_protection_settings'  => $this->wcpay_gateway->get_option( 'advanced_fraud_protection_settings' ),
 				'is_migrating_stripe_billing'         => $is_migrating_stripe_billing ?? false,
@@ -541,6 +547,7 @@ class WC_REST_Payments_Settings_Controller extends WC_Payments_REST_Controller {
 		$this->update_payment_request_appearance( $request );
 		$this->update_is_saved_cards_enabled( $request );
 		$this->update_is_woopay_enabled( $request );
+		$this->update_reporting_export_language( $request );
 		$this->update_woopay_store_logo( $request );
 		$this->update_woopay_custom_message( $request );
 		$this->update_woopay_enabled_locations( $request );
@@ -676,7 +683,7 @@ class WC_REST_Payments_Settings_Controller extends WC_Payments_REST_Controller {
 	 * @param WP_REST_Request $request Request object.
 	 */
 	private function update_is_test_mode_enabled( WP_REST_Request $request ) {
-		// avoiding updating test mode when dev mode is enabled.
+		// Avoid updating test mode when dev mode is enabled.
 		if ( WC_Payments::mode()->is_dev() ) {
 			return;
 		}
@@ -696,7 +703,7 @@ class WC_REST_Payments_Settings_Controller extends WC_Payments_REST_Controller {
 	 * @param WP_REST_Request $request Request object.
 	 */
 	private function update_is_debug_log_enabled( WP_REST_Request $request ) {
-		// avoiding updating test mode when dev mode is enabled.
+		// Avoid updating test mode when dev mode is enabled.
 		if ( WC_Payments::mode()->is_dev() ) {
 			return;
 		}
@@ -1057,5 +1064,20 @@ class WC_REST_Payments_Settings_Controller extends WC_Payments_REST_Controller {
 		}
 
 		return $avs_check_enabled;
+	}
+
+	/**
+	 * Updates the "reporting_export_language" setting.
+	 *
+	 * @param WP_REST_Request $request Request object.
+	 */
+	private function update_reporting_export_language( WP_REST_Request $request ) {
+		if ( ! $request->has_param( 'reporting_export_language' ) ) {
+			return;
+		}
+
+		$reporting_export_language = $request->get_param( 'reporting_export_language' );
+
+		$this->wcpay_gateway->update_option( 'reporting_export_language', $reporting_export_language );
 	}
 }

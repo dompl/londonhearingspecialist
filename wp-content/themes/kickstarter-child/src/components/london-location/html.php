@@ -65,7 +65,14 @@ function wp_1702034028_london( $html, $data ) {
             $descriptions = $location['addon'];
 
             $html .= '<div class="location-bottom">';
-            $html .= '<div class="map">' . ( $location['map'] ? Helpers::convertToGoogleMapsIframe( $location['map'] ) : '' ) . '</div>';
+            $html .= '<div class="map">';
+            if ( isset( $location['iframe'] ) && !  empty( $location['iframe'] ) ) {
+                $html .= $location['iframe'];
+            } elseif ( $location['map'] ) {
+                $html .= Helpers::convertToGoogleMapsIframe( $location['map'] );
+            }
+            $html .= '</div>';
+
             if (  !  empty( $directions ) ) {
                 $html .= '<div class="directions">';
                 foreach ( $directions as $key => $value ) {

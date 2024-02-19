@@ -22,8 +22,8 @@ function london_custom_banners_select_offer( $html, $type, $data ) {
         return $html;
     }
     $html .= '<div class="banner-sm-content">';
-    $html .= $text ? '<div class="text">' . $text . '</div>' : '';
-    $html .= $subtitle ? '<div class="subtitle">' . $subtitle . '</div>' : '';
+    $html .= $text ? '<div class="text">' . \Kickstarter\MyHelpers::convertPhoneNumberToLink( $text ) . '</div>' : '';
+    $html .= $subtitle ? '<div class="subtitle">' . \Kickstarter\MyHelpers::convertPhoneNumberToLink( $subtitle ) . '</div>' : '';
     $html .= '</div>';
     $html .= Acf::ButtonAcfHtml( $data );
 

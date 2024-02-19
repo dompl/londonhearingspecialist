@@ -205,7 +205,6 @@ class WC_Payments_Admin {
 		add_action( 'admin_menu', [ $this, 'add_payments_menu' ], 0 );
 		add_action( 'admin_init', [ $this, 'maybe_redirect_to_onboarding' ], 11 ); // Run this after the WC setup wizard and onboarding redirection logic.
 		add_action( 'admin_enqueue_scripts', [ $this, 'maybe_redirect_overview_to_connect' ], 1 ); // Run this late (after `admin_init`) but before any scripts are actually enqueued.
-		add_action( 'admin_enqueue_scripts', [ $this, 'maybe_redirect_onboarding_flow_to_connect' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'register_payments_scripts' ], 9 );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_payments_scripts' ], 9 );
 		add_action( 'woocommerce_admin_field_payment_gateways', [ $this, 'payment_gateways_container' ] );
@@ -351,7 +350,7 @@ class WC_Payments_Admin {
 		}
 		try {
 			// Render full payments menu with sub-items only if the merchant completed the KYC (details_submitted = true).
-			$should_render_full_menu = $this->account->is_account_fully_onboarded();
+			$should_render_full_menu = $this->account->is_stripe_connected() && $this->account->is_details_submitted();
 		} catch ( Exception $e ) {
 			// There is an issue with connection, don't render full menu, user will get redirected to the connect page.
 			$should_render_full_menu = false;
@@ -723,6 +722,23 @@ class WC_Payments_Admin {
 
 			if ( $order && WC_Payment_Gateway_WCPay::GATEWAY_ID === $order->get_payment_method() ) {
 				$refund_amount = $order->get_remaining_refund_amount();
+
+				// Check if the order's test mode meta matches the site's current test mode state.
+				// E.g. order and site are both in test mode, or both in live mode.
+				$order_mode = $order->get_meta( WC_Payments_Order_Service::WCPAY_MODE_META_KEY );
+				if ( '' === $order_mode ) {
+					// If the order doesn't have a mode set, assume it was created before the order mode meta was added (< 6.9 PR#7651) and return null.
+					$order_test_mode_match = null;
+				} else {
+					$order_test_mode_match = (
+						\WCPay\Constants\Order_Mode::PRODUCTION === $order_mode &&
+						WC_Payments::mode()->is_live()
+					) || (
+						\WCPay\Constants\Order_Mode::TEST === $order_mode &&
+						WC_Payments::mode()->is_test()
+					);
+				}
+
 				wp_localize_script(
 					'WCPAY_ADMIN_ORDER_ACTIONS',
 					'wcpay_order_config',
@@ -736,6 +752,7 @@ class WC_Payments_Admin {
 						'chargeId'              => $this->order_service->get_charge_id_for_order( $order ),
 						'hasOpenAuthorization'  => $this->order_service->has_open_authorization( $order ),
 						'testMode'              => \WCPay\Constants\Order_Mode::TEST === $order->get_meta( WC_Payments_Order_Service::WCPAY_MODE_META_KEY ),
+						'orderTestModeMatch'    => $order_test_mode_match,
 					]
 				);
 				wp_localize_script(
@@ -781,6 +798,7 @@ class WC_Payments_Admin {
 		}
 
 		$locale_info = include $path;
+
 		// Get symbols for those currencies without a short one.
 		$symbols       = get_woocommerce_currency_symbols();
 		$currency_data = [];
@@ -810,7 +828,7 @@ class WC_Payments_Admin {
 		try {
 			$dev_mode = WC_Payments::mode()->is_dev();
 		} catch ( Exception $e ) {
-			Logger::log( sprintf( 'WooPayments JS settings: Could not determine if WCPay should be in dev mode! Message: %s', $e->getMessage() ), 'warning' );
+			Logger::log( sprintf( 'WooPayments JS settings: Could not determine if WCPay should be in sandbox mode! Message: %s', $e->getMessage() ), 'warning' );
 		}
 
 		$connect_url       = WC_Payments_Account::get_connect_url();
@@ -821,6 +839,7 @@ class WC_Payments_Admin {
 		}
 
 		$this->wcpay_js_settings = [
+			'version'                       => WCPAY_VERSION_NUMBER,
 			'connectUrl'                    => $connect_url,
 			'connect'                       => [
 				'country'            => WC()->countries->get_base_country(),
@@ -880,6 +899,10 @@ class WC_Payments_Admin {
 			'capabilityRequestNotices'      => get_option( 'wcpay_capability_request_dismissed_notices ', [] ),
 			'storeName'                     => get_bloginfo( 'name' ),
 			'isNextDepositNoticeDismissed'  => WC_Payments_Features::is_next_deposit_notice_dismissed(),
+			'reporting'                     => [
+				'exportModalDismissed' => get_option( 'wcpay_reporting_export_modal_dismissed', false ),
+			],
+			'locale'                        => WC_Payments_Utils::get_language_data( get_locale() ),
 		];
 
 		return apply_filters( 'wcpay_js_settings', $this->wcpay_js_settings );
@@ -1124,28 +1147,6 @@ class WC_Payments_Admin {
 		}
 
 		$this->account->redirect_to_onboarding_welcome_page();
-	}
-
-	/**
-	 * Prevent access to onboarding flow if the server is not connected.
-	 * Redirect back to the connect page with an error message.
-	 */
-	public function maybe_redirect_onboarding_flow_to_connect(): void {
-		if ( ! current_user_can( 'manage_woocommerce' ) ) {
-			return;
-		}
-		$url_params = wp_unslash( $_GET ); // phpcs:ignore WordPress.Security.NonceVerification
-		if ( isset( $url_params['page'] ) && 'wc-admin' === $url_params['page']
-			&& isset( $url_params['path'] ) && '/payments/onboarding' === $url_params['path'] && ! $this->payments_api_client->is_server_connected() ) {
-				$this->account->redirect_to_onboarding_welcome_page(
-					sprintf(
-					/* translators: %s: WooPayments */
-						__( 'Please connect to WordPress.com to start using %s.', 'woocommerce-payments' ),
-						'WooPayments'
-					)
-				);
-			return;
-		}
 	}
 
 	/**
