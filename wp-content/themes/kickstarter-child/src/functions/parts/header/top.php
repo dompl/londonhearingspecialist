@@ -134,3 +134,8 @@ function london_top_right_callback( $html ) {
 
     return $html;
 }
+
+add_filter( 'ks_google_reviews_transient_expiration', function ( $time ) {
+    $time = 1 * DAY_IN_SECONDS;
+    return $time;
+} );
