@@ -474,7 +474,7 @@
 	grid-column-gap: $gap;
 	width: 100%;
 	grid-row-gap: $gap;
-	grid-template-columns: repeat($repeat, 1fr);
+	grid-template-rows: repeat($repeat, auto); // Example: creates 3 rows with their height set to auto
 	@content;
 }
 @mixin grid-span($span: 12) {

@@ -112,7 +112,7 @@
 		.top {
 			ul {
 				display: grid;
-				grid-template-columns: auto auto; /* Each column width is determined by its content */
+				grid-template-rows: auto auto; /* Adjust based on your design */
 				gap: 1rem; /* Adjust the gap between columns as needed */
 			}
 		}
