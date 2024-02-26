@@ -32,6 +32,11 @@ $button-radius: 4px;
 			color: white;
 		}
 	}
+	&.batch {
+		&:hover {
+			cursor: auto !important;
+		}
+	}
 	&.has-icon {
 		position: relative;
 		padding-right: rem(40);
