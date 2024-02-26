@@ -44,7 +44,9 @@ add_action( 'wp_head', function () {
 						confirmationPage = '" . $url . "/ware-thank-you/?confirmation-successful';
 				  } else if (event.data.location == 'Old Street') {
 						confirmationPage = '" . $url . "/old-street-thank-you/?confirmation-successful';
-				  }
+					} else if (event.data.location == 'Victoria') {
+					confirmationPage = '" . $url . "/victoria-thank-you/?confirmation-successful';
+			 	 }
 				  window.location.href = confirmationPage;
 				  return;
 			 },

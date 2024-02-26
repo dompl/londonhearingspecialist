@@ -1,5 +1,4 @@
 <?php
-use Extended\ACF\Fields\Image;
 use Kickstarter\MyHelpers;
 add_filter( \Kickstarter\MyAcf::Html(), 'wp_1704452844_london', 10, 2 );
 
