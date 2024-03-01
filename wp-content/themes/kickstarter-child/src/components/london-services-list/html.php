@@ -3,6 +3,16 @@ use Kickstarter\MyHelpers;
 use London\Helpers;
 add_filter( \Kickstarter\MyAcf::Html(), 'wp_1700562050_london', 10, 2 );
 
+function order_services_by_selection( $services, $selection ) {
+    $ordered_services = [];
+    foreach ( $selection as $service_id ) {
+        if ( array_key_exists( $service_id, $services ) ) {
+            $ordered_services[$service_id] = $services[$service_id];
+        }
+    }
+    return $ordered_services;
+}
+
 function wp_1700562050_london( $html, $data ) {
 
     $services          = clinic_services_data();
@@ -12,6 +22,8 @@ function wp_1700562050_london( $html, $data ) {
     if (  !  in_array( 'all', $select ) && !  empty( $select ) ) {
         $selected_services = MyHelpers::getSelectedValues( $services, $select );
     }
+
+    $selected_services = order_services_by_selection( $services, $select );
 
     $html .= '<div class="london-services-list">';
 
