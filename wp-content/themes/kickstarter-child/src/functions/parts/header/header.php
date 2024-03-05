@@ -10,12 +10,12 @@ function ks_header_wrapper() {
 
     $html = '<div id="header-wrapper">';
     $html .= '<div class="container">';
-     $html .= '<div class="left">' . apply_filters( 'ks_header_wrapper_left', false, $themeData ) . '</div>';
-     $html .= '<div class="middle">' . apply_filters( 'ks_header_wrapper_middle', false, $themeData ) . '</div>';
-     $html .= '<div class="right">' . apply_filters( 'ks_header_wrapper_right', false, $themeData ) . '</div>';
-   //  $html .= '<div class="left">' . apply_filters( 'ks_header_wrapper_middle', false, $themeData ) . '</div>';
-   //  $html .= '<div class="middle">' . apply_filters( 'ks_header_wrapper_left', false, $themeData ) . '</div>';
-   //  $html .= '<div class="right">' . apply_filters( 'ks_header_wrapper_right', false, $themeData ) . '</div>';
+    $html .= '<div class="left">' . apply_filters( 'ks_header_wrapper_left', false, $themeData ) . '</div>';
+    $html .= '<div class="middle">' . apply_filters( 'ks_header_wrapper_middle', false, $themeData ) . '</div>';
+    $html .= '<div class="right">' . apply_filters( 'ks_header_wrapper_right', false, $themeData ) . '</div>';
+    //  $html .= '<div class="left">' . apply_filters( 'ks_header_wrapper_middle', false, $themeData ) . '</div>';
+    //  $html .= '<div class="middle">' . apply_filters( 'ks_header_wrapper_left', false, $themeData ) . '</div>';
+    //  $html .= '<div class="right">' . apply_filters( 'ks_header_wrapper_right', false, $themeData ) . '</div>';
     $html .= '</div>';
     $html .= '</div>';
 
@@ -50,3 +50,16 @@ function ks_header_wrapper_right_callback( $html, $themeData ) {
     $html .= '</div>';
     return $html;
 }
+
+add_action( 'wp_head', function () {
+    if ( is_page( 603 ) ) {
+        echo '<script type="text/javascript">window._mfq = window._mfq || [];(function() {
+	  				var mf = document.createElement("script");
+	  				mf.type = "text/javascript"; mf.defer = true;
+	  				mf.src = "//cdn.mouseflow.com/projects/c5455f2b-2ee4-46ee-9f8e-0d687e2981fd.js";
+	  				document.getElementsByTagName("head")[0].appendChild(mf);
+					})();
+ 					</script>';
+    }
+
+} );
