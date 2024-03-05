@@ -52,7 +52,7 @@ function ks_header_wrapper_right_callback( $html, $themeData ) {
 }
 
 add_action( 'wp_head', function () {
-    if ( is_page( 603 ) ) {
+    if ( is_page( 603 ) && !  current_use_can( 'administrator' ) ) {
         echo '<script type="text/javascript">window._mfq = window._mfq || [];(function() {
 	  				var mf = document.createElement("script");
 	  				mf.type = "text/javascript"; mf.defer = true;
