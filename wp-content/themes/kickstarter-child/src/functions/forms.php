@@ -1,6 +1,7 @@
 <?php
 
 add_filter( 'gform_validation', 'exclude_links_and_mark_as_spam' );
+
 function exclude_links_and_mark_as_spam( $validation_result ) {
     $form           = $validation_result['form'];
     $target_form_id = 1; // Adjust to your target form ID
@@ -35,7 +36,7 @@ function exclude_links_and_mark_as_spam( $validation_result ) {
                         ( preg_match( $criterion, $textarea_value ) ) ) {
                         // Mark the field as failed validation and prevent form submission
                         $field->failed_validation      = true;
-                        $field->validation_message     = 'Your submission contains prohibited content.';
+                        $field->validation_message     = 'Error';
                         $validation_result['is_valid'] = false;
 
                         log_spam_attempt(); // Log the attempt or take further actions
