@@ -4,7 +4,7 @@ module.exports = {
     "description": "Child theme for the Kickstarter/Red Frog Studio",
     "name": "London Hearing Specialist",
     "url": "http://londonhearingspecialist.co.uk",
-    "version": "1.0.33"
+    "version": "1.0.34"
   },
   "project": {
     "name": "londonhearingspecialist",
