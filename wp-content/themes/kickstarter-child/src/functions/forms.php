@@ -36,7 +36,7 @@ function exclude_links_and_mark_as_spam( $validation_result ) {
                         ( preg_match( $criterion, $textarea_value ) ) ) {
                         // Mark the field as failed validation and prevent form submission
                         $field->failed_validation      = true;
-                        $field->validation_message     = 'Error';
+                        $field->validation_message     = 'Your submission contains prohibited content/characters.';
                         $validation_result['is_valid'] = false;
 
                         log_spam_attempt(); // Log the attempt or take further actions
