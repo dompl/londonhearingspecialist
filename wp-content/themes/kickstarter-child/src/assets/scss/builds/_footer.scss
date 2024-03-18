@@ -134,3 +134,45 @@
 		}
 	}
 }
+
+#floater {
+	position: fixed;
+	top: rem(10);
+	right: rem(10);
+	display: flex;
+	flex-direction: row;
+	gap: rem(10);
+	align-items: center;
+	z-index: 120;
+	@media (min-width: 992px) {
+		display: none;
+	}
+	.has-icon {
+		padding-right: 30px !important;
+	}
+	._nav {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: rem(10);
+		.button {
+			border: 3px solid var.$color-blue;
+			padding-top: 4px;
+			padding-bottom: 2px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		span {
+			float: left;
+			line-height: 15px;
+			font-size: 12px;
+			color: var.$color-text;
+		}
+		i {
+			float: right;
+			color: var.$color-text;
+			margin-left: 10px;
+			font-size: rem(16);
+		}
+	}
+}
