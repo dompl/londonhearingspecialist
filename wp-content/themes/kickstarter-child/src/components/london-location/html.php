@@ -55,7 +55,6 @@ function wp_1702034028_london( $html, $data ) {
                 }
                 $html .= '</div>';
                 $html .= '</div>';
-
             }
 
             $html .= '</div>'; // End top

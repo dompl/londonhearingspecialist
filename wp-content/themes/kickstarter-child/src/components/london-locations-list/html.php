@@ -28,6 +28,8 @@ function wp_1700565756_london( $html, $data ) {
                 'url'   => esc_url( get_the_permalink( $post_id ) )
             ];
 
+            var_dump( $location );
+
             $html .= '<div class="item">';
             $link['title'] = 'Visit London Hearing Specialist at ' . $location['title'] . ' clinic';
             $html .= $location['image'] ? MyHelpers::PictureSource( image : $location['image'], size: [290, 210], custom_container: 'image', min: [290, 210], alt: $link['title'] ): '';
@@ -36,7 +38,12 @@ function wp_1700565756_london( $html, $data ) {
             $html .= $location['address'] ? '<address>' . nl2br( $location['address'] ) . '</address>' : '';
 
             $html .= '<div class="buttons-wrapper center">';
-            $html .= do_shortcode( '[book_appointment title="Book Today" small=true]' );
+            if ( isset( $location['phone'] ) && $location['phone'] !== '' ) {
+                $html .= '<div class="button-item">';
+                $html .= '<a href="tel:' . esc_attr( $location['phone'] ) . '" class="button small green" itemprop="telephone" title="Call London Hearing Specialist in ' . $location['title'] . '">' . __( 'Call Clinic' ) . '</a>';
+                $html .= '</div>';
+            }
+            // $html .= do_shortcode( '[book_appointment title="Book Today" small=true]' );
             $html .= $location['map'] ? '<a href="' . esc_url( $location['map'] ) . '" target="_blank" class="button outlined small white" itemprop="url" title="Find London Hearing Specialist in ' . $location['title'] . ' on Google Map">Find on Map</a>' : '';
 
             $html .= '</div>';
