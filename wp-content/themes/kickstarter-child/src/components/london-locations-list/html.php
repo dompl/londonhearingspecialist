@@ -28,8 +28,6 @@ function wp_1700565756_london( $html, $data ) {
                 'url'   => esc_url( get_the_permalink( $post_id ) )
             ];
 
-            var_dump( $location );
-
             $html .= '<div class="item">';
             $link['title'] = 'Visit London Hearing Specialist at ' . $location['title'] . ' clinic';
             $html .= $location['image'] ? MyHelpers::PictureSource( image : $location['image'], size: [290, 210], custom_container: 'image', min: [290, 210], alt: $link['title'] ): '';
