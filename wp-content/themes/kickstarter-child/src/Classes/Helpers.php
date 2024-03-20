@@ -4,6 +4,38 @@ use GoogleRating;
 
 class Helpers {
 
+    /**
+     * Formats a UK phone number from its international or standard format to a specified UK format.
+     *
+     * Examples of formatting:
+     * +442073833838 becomes 020 738 33 838
+     * 020 7794 4477 becomes 020 779 444 77
+     * +442037731230 becomes 020 377 312 30
+     *
+     * @param string $number The phone number in international (+4420...) or standard (020...) format.
+     * @return string The formatted phone number in the specified UK format.
+     */
+    public static function formatUKNumber( $number ) {
+        // Remove any non-digit characters, such as spaces and the + sign
+        $number = preg_replace( '/\D/', '', $number );
+
+        // Remove the leading 44, if present, which is the international dial code for the UK
+        $number = preg_replace( '/^44/', '', $number );
+
+        // Format the number based on the length of remaining digits
+        // For 10 digits after removing '44', it will format as 020 XXX XXX XX
+        if ( strlen( $number ) == 10 ) {
+            return sprintf( '020 %s %s %s', substr( $number, 1, 3 ), substr( $number, 4, 3 ), substr( $number, 7, 3 ) );
+        }
+        // For 11 digits starting with '0', format as 0XX XXX XXX XX
+        elseif ( strlen( $number ) == 11 && strpos( $number, '0' ) === 0 ) {
+            return sprintf( '%s %s %s %s', substr( $number, 0, 3 ), substr( $number, 3, 3 ), substr( $number, 6, 3 ), substr( $number, 9, 2 ) );
+        }
+
+        // Return the original number if it doesn't match the expected patterns
+        return $number;
+    }
+
     public static function GoogleRating() {
 
         $googleRating = new GoogleRating();

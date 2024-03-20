@@ -34,11 +34,11 @@ function wp_1700565756_london( $html, $data ) {
             $html .= '<div class="content">';
             $html .= MyHelpers::Link( link: $link, content: '<i class="icon-location-dot-light"></i><span class="text">' . $location['title'] . '</span>', wrapper: 'title', schema: true );
             $html .= $location['address'] ? '<address>' . nl2br( $location['address'] ) . '</address>' : '';
-
             $html .= '<div class="buttons-wrapper center">';
             if ( isset( $location['phone'] ) && $location['phone'] !== '' ) {
+
                 $html .= '<div class="button-item">';
-                $html .= '<a href="tel:' . esc_attr( $location['phone'] ) . '" class="button small green" itemprop="telephone" title="Call London Hearing Specialist in ' . $location['title'] . '">' . __( 'Call Clinic' ) . '</a>';
+                $html .= '<a href="tel:' . esc_attr( $location['phone'] ) . '" class="button small green" itemprop="telephone" title="Call London Hearing Specialist in ' . $location['title'] . '">' . \London\Helpers::formatUKNumber( $location['phone'] ) . '</a>';
                 $html .= '</div>';
             }
             // $html .= do_shortcode( '[book_appointment title="Book Today" small=true]' );

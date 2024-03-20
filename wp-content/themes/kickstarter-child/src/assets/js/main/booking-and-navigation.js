@@ -14,10 +14,10 @@
 	function checkNavVisibility() {
 		var scrollTop = $(window).scrollTop();
 		var navOffset = navWrapper.offset().top + navWrapper.outerHeight();
-		var windowWidth = $(window).width();
+		// Use matchMedia for checking width
+		var isMobile = window.matchMedia('(max-width: 991px)').matches;
 
-		// Check both scroll position and window width
-		if (scrollTop > navOffset && windowWidth <= 991) {
+		if (scrollTop > navOffset && isMobile) {
 			if (!floaterVisible) {
 				floater.fadeIn(300);
 				floaterVisible = true;
