@@ -150,6 +150,14 @@
 	.has-icon {
 		padding-right: 30px !important;
 	}
+	._book {
+		.button {
+			padding-top: 11px;
+			padding-bottom: 11px;
+			padding-left: 14px;
+			padding-right: 14px;
+		}
+	}
 	._nav {
 		display: flex;
 		flex-direction: row;
@@ -157,10 +165,10 @@
 		gap: rem(10);
 		.button {
 			border: 3px solid var.$color-blue;
-			padding-top: 4px;
-			padding-bottom: 2px;
-			padding-left: 10px;
-			padding-right: 10px;
+			padding-top: 6px;
+			padding-bottom: 4px;
+			padding-left: 12px;
+			padding-right: 12px;
 		}
 		span {
 			float: left;
