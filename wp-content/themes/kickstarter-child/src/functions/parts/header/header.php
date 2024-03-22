@@ -45,7 +45,7 @@ function ks_header_wrapper_right_callback( $html, $themeData ) {
     $shop_url = wc_get_page_permalink( 'shop' );
     $html .= '<div class="item">';
     $html .= WC()->cart->get_cart_contents_count() > 0 ? london_minicart_html() : london_minicart_html_default();
-    $html .= do_shortcode( '[book_appointment]' );
+    $html .= \London\Helpers::isWooCommercePage() ? do_shortcode( '[book_appointment]' ) : '';
     $html .= '<span class="main-nav-init"><span>Menu</span><i class="icon-bars-solid"></i></span>';
     $html .= '</div>';
     return $html;

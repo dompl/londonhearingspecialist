@@ -1,7 +1,7 @@
 <?php
 function london_minicart_html_default() {
     $shop_url = wc_get_page_permalink( 'shop' );
-    return $shop_url ? '<div id="go-to-shop"><a href="' . esc_url( $shop_url ) . '" title="Visit London Hearing Specialists Shop" class="button blue-dark">Shop</a></div>' : '';
+    return $shop_url ? '<div id="go-to-shop"><a href="' . esc_url( $shop_url ) . '" title="Visit London Hearing Specialists Shop" class="button blue-dark"><span>Shop</span></a></div>' : '';
 }
 function london_minicart_html() {
     $cart_url = wc_get_cart_url();
@@ -20,7 +20,7 @@ function update_shop_button() {
     if ( WC()->cart->get_cart_contents_count() > 0 ) {
         echo london_minicart_html();
     } else {
-        echo '<a href="//localhost:3000/shop/" title="Visit London Hearing Specialists Shop" class="button blue-dark">Shop</a>';
+        echo '<a href="' . get_bloginfo( 'url' ) . '/shop/" title="Visit London Hearing Specialists Shop" class="button blue-dark">Shop</a>';
     }
     wp_die(); // this is required to terminate immediately and return a proper response
 }

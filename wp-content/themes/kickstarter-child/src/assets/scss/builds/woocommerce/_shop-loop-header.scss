@@ -2,6 +2,12 @@
 @use "../../styles/icons" as ico;
 @use "../../styles/variables" as var;
 
+#london-select-cats {
+	margin-right: auto;
+	@include from(lg) {
+		display: none;
+	}
+}
 // WooCommerce shop loop counter
 .london-woo-ordering {
 	display: flex;

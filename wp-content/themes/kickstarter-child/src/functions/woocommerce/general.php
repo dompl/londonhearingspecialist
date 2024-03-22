@@ -83,9 +83,33 @@ function custom_result_count_ordering_wrapper_start() {
     echo '</div>';
 
     echo '<div class="right">';
-    echo '<a href="#sidebar-product-categories" class="see-categories button blue-dark small">Products Categories</a>';
-    woocommerce_catalog_ordering();
-    woocommerce_london_products_per_page();
+    //  echo '<a href="#sidebar-product-categories" class="see-categories button blue-dark small">Products Categories</a>';
+    // First, check if WooCommerce is active
+    if ( class_exists( 'WooCommerce' ) ) {
+        // Fetch product categories
+        $args = array(
+            'taxonomy'   => 'product_cat',
+            'orderby'    => 'name',
+            'order'      => 'ASC',
+            'hide_empty' => false
+        );
+        $product_categories = get_terms( $args );
+
+        // Begin the select dropdown
+        echo '<select name="product_categories" id="london-select-cats" onchange="window.location.href=this.value;">';
+        echo '<option value="">Products Categories</option>';
+
+        // Loop through product categories and create an option for each
+        foreach ( $product_categories as $category ) {
+            // Create an option element with the category name and link to the category
+            echo '<option value="' . get_term_link( $category ) . '">' . $category->name . '</option>';
+        }
+
+        // Close the select element
+        echo '</select>';
+        woocommerce_catalog_ordering();
+        woocommerce_london_products_per_page();
+    }
     echo '</div>';
     echo '</div>';
 }

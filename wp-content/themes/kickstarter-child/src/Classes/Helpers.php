@@ -5,6 +5,30 @@ use GoogleRating;
 class Helpers {
 
     /**
+     * Checks if the current page is a WooCommerce-related page.
+     *
+     * @return bool True if it's a WooCommerce-related page, false otherwise.
+     */
+    public static function isWooCommercePage() {
+        if (  !  function_exists( 'is_woocommerce' ) ) {
+            return true;
+        }
+        if (
+            ( is_woocommerce() ||
+                is_product_category() ||
+                is_product_tag() ||
+                is_product() ||
+                is_cart() ||
+                is_checkout() ||
+                is_account_page() ||
+                is_shop() ) ) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
      * Formats a UK phone number from its international or standard format to a specified UK format.
      *
      * Examples of formatting:

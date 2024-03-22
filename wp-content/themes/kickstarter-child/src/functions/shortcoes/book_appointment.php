@@ -4,7 +4,7 @@ add_shortcode( 'book_appointment', 'london_book_appointment_shortcode' );
 
 function london_book_appointment_shortcode( $atts ) {
 
-    $title = isset( $atts['title'] ) ? $atts['title'] : 'Book <span class="nne">Appointment</span>';
+    $title = isset( $atts['title'] ) ? $atts['title'] : '<span class="aur">Book</span> <span class="nne aur">Appointment</span>';
     $color = isset( $atts['color'] ) ? $atts['color'] : 'green';
     $small = isset( $atts['small'] ) ? ' small' : false;
 

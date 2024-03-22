@@ -98,9 +98,10 @@ function london_top_right_callback( $html ) {
         }
 
         $html .= '<div class="item locations">';
-        $html .= '<a href="#" title="Select London Hearing Specialists Locations" id="location-selector-a"><span>Select Location</span><i class="icon-caret-down-solid"></i></a>';
+        if ( \London\Helpers::isWooCommercePage() ) {
+            $html .= '<a href="#" title="Select London Hearing Specialists Locations" id="location-selector-a"><span>Select Location</span><i class="icon-caret-down-solid"></i></a>';
+        }
         $html .= '<div id="location-select">';
-
         foreach ( $locationsByArea as $area => $locs ) {
             $html .= '<ul><li><span>' . ucfirst( $area ) . '</span>';
             $html .= '<ul>';
