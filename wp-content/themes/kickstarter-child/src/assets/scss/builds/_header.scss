@@ -27,7 +27,7 @@
 	@include from(xl) {
 		.logo {
 			margin-bottom: 4px;
-			width:100px;
+			width: 100px;
 		}
 		a {
 			color: var.$color-brand;
@@ -326,7 +326,20 @@
 		}
 	}
 }
+// And the associated CSS:
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: white;
+	z-index: 100; /* Adjust z-index as needed */
+}
 
+@media (min-width: 992px) {
+	.sticky {
+		position: static; /* Reset to default positioning on larger screens */
+	}
+}
 .shipping-cart {
 	display: flex;
 	flex-direction: row;

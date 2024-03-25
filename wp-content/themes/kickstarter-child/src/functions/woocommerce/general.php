@@ -97,7 +97,7 @@ function custom_result_count_ordering_wrapper_start() {
 
         // Begin the select dropdown
         echo '<select name="product_categories" id="london-select-cats" onchange="window.location.href=this.value;">';
-        echo '<option value="">Products Categories</option>';
+        echo '<option value="">Product Categories</option>';
 
         // Loop through product categories and create an option for each
         foreach ( $product_categories as $category ) {

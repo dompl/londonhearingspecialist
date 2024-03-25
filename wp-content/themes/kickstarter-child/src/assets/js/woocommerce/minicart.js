@@ -5,13 +5,13 @@ jQuery(document).ready(function ($) {
 
 	function updateShopButton() {
 		$.ajax({
-			url: ks[0].ajax_url, // Set this variable in WordPress using wp_localize_script()
+			url: ks[0].ajax_url, // Make sure ks[0].ajax_url is correctly set
 			type: 'POST',
 			data: {
 				action: 'update_shop_button',
 			},
 			success: function (response) {
-				$('#go-to-shop').html(response);
+				$('#go-to-shop').html(response); // Corrected from InnerHtml to html
 			},
 		});
 	}
