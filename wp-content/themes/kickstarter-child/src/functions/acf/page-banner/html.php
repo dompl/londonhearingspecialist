@@ -68,7 +68,21 @@ function london_page_banner_html() {
 }
 
 function london_banner_after( $html, $post ) {
-    return $html;
+    $hide_delivery_notes = get_post_meta( 'hide_delivery_notes', true );
+    if ( $hide_delivery_notes ) {
+        return $html;
+    }
+
+    $items = array(
+        ['image' => '1904', 'title' => '10% discount incentive offered for new users - can you offer a discount']
+    );
+
+    $html .= '<div class="london-banner-delivery">';
+    $html .= '<div class="container">';
+    $html .= '</div>';
+    $html .= '</div>';
+
+    return;
 }
 
 add_filter( 'london_banner_addon_desc', function ( $addon, $post ) {
