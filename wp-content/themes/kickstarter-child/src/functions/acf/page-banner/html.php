@@ -47,11 +47,11 @@ function london_page_banner_html() {
 
     $html .= '<div class="title"><h1 class="color-' . $color . '">' . $title . '</h1></div>';
 
-   //  if ( function_exists( 'yoast_breadcrumb' ) && !  is_front_page() ) {
-   //      ob_start(); // Start output buffering
-   //      yoast_breadcrumb( '<div id="london-breadcrumbs" class="color-' . $color . ' a-' . $color . '">', '</div>' );
-   //      $html .= ob_get_clean(); // Get the buffered output and clear the buffer
-   //  }
+    //  if ( function_exists( 'yoast_breadcrumb' ) && !  is_front_page() ) {
+    //      ob_start(); // Start output buffering
+    //      yoast_breadcrumb( '<div id="london-breadcrumbs" class="color-' . $color . ' a-' . $color . '">', '</div>' );
+    //      $html .= ob_get_clean(); // Get the buffered output and clear the buffer
+    //  }
 
     $html .= $addon ? '<div class="addon">' . $addon . '</div>' : '';
     $html .= $description ? '<div class="description" class="color-' . $color . '">' . $description . '</div>' : '';
@@ -61,8 +61,14 @@ function london_page_banner_html() {
     $html .= '</div>';
     $html .= '</div>';
 
+    $html .= apply_filters( 'london_banner_after', '', $post );
+
     echo $html;
 
+}
+
+function london_banner_after( $html, $post ) {
+    return $html;
 }
 
 add_filter( 'london_banner_addon_desc', function ( $addon, $post ) {

@@ -1,6 +1,12 @@
 <?php
 
 function london_footer_newsletter_signup() {
+    $post_id = get_the_ID();
+    if (  !  empty( $post_id ) ) {
+        if ( get_post_meta( $post_id, 'hide_newsletter', true ) == 1 ) {
+            return;
+        }
+    }
     $background = false;
     if (  !  empty( get_the_ID() ) ) {
         $footer_bcg = get_post_meta( get_the_ID(), 'footer_bcg', true );
@@ -43,4 +49,5 @@ function london_footer_newsletter_signup() {
     </div>
 </div>
 
-<?php }
+<?php
+}

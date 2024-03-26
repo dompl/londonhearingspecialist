@@ -1,5 +1,6 @@
 <?php
 use Extended\ACF\Fields\Select;
+use Extended\ACF\Fields\TrueFalse;
 use Extended\ACF\Location;
 add_action( 'acf/init', function () {
     $settings = apply_filters( 'london_page_settings', [] );
@@ -19,6 +20,8 @@ add_action( 'acf/init', function () {
 } );
 
 add_filter( 'london_page_settings', function ( $fields ) {
+
+    $fields[] = TrueFalse::make( 'Hide Newsletter Signup', 'hide_newsletter' )->defaultValue( false )->stylisedUi();
 
     $fields[] = Select::make( 'Newsletter background', 'footer_bcg' )->choices( london_colors_list() )->allowNull()->stylisedUi();
 
