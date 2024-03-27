@@ -33,6 +33,10 @@ add_action( 'after_setup_theme', function () {
     add_action( 'woocommerce_single_product_summary', function () {
         global $product, $post;
 
+        if ( function_exists( 'yoast_breadcrumb' ) && !  is_front_page() ) {
+            yoast_breadcrumb( '<div id="london-breadcrumbs" class="product-breadcrumbs" >', '</div>' );
+        }
+
         // Manufacturer
         $product_id   = $product->get_id();
         $manufacturer = get_post_meta( $product_id, '_manufacturer', true );

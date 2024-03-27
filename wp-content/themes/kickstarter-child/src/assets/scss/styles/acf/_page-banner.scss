@@ -1,6 +1,16 @@
 @use "abstracts" as *;
 @use "../../styles/icons" as ico;
 @use "../../styles/variables" as var;
+#london-breadcrumbs {
+	&.product-breadcrumbs {
+		margin-top: 1rem;
+		margin-bottom: -1rem;
+		@include font-size(12, 14);
+		@include from(lg) {
+			display: none;
+		}
+	}
+}
 .london-banner {
 	h1,
 	h2 {
@@ -23,6 +33,7 @@
 	.description {
 		@include font-size(14, 22);
 	}
+
 	@include to(lg) {
 		#london-breadcrumbs {
 			color: white;
