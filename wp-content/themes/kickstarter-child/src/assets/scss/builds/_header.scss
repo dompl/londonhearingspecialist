@@ -180,6 +180,11 @@
 //
 #nav-wrapper {
 	background-color: var.$color-blue;
+	@media (max-width: 991px) {
+		.navigation-landscape {
+			display: none;
+		}
+	}
 	.nav-toggle {
 		display: none;
 	}
