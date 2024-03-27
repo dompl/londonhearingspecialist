@@ -1,0 +1,17 @@
+@use "../styles/variables" as var;
+@use "../styles/icons" as ico;
+@use "abstracts" as *;
+
+@include to(sm) {
+	body {
+		&.woocommerce-cart,
+		&.woocommerce-checkout {
+			#top-wrapper,
+			.london-banner,
+			#london-newsletter,
+			#gogole-wrap-mobile {
+				display: none;
+			}
+		}
+	}
+}

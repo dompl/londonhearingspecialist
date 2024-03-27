@@ -41,6 +41,7 @@ add_action( 'after_setup_theme', function () {
 
         echo '<div class="product-top">';
         echo '<div class="london-single-left">';
+        echo '<div id="london-single-left-mobile"></div>';
         do_action( 'london_single_product_top_left' );
         echo '</div>';
 
@@ -69,7 +70,7 @@ add_action( 'after_setup_theme', function () {
         echo '</div>';
         echo '</div>';
         if ( $product->get_description() != "" ) {
-            echo '<div class="london-product-full london-text">';
+            echo '<div class="london-product-full london-text london-tab">';
             echo '<h3>Full product description</h3>';
             echo '<div class="description">' . $product->get_description() . '</div>';
             echo '</div>';

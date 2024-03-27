@@ -2,6 +2,41 @@
 @use "../styles/icons" as ico;
 @use "abstracts" as *;
 
+.london-single-right,
+#london-single-left-mobile {
+	font-size: 0.9rem;
+	h1.product_title {
+		margin-bottom: 0.5rem;
+		color: var.$color-text;
+		font-size: 1.5rem;
+	}
+	.price {
+		color: var.$color-text !important;
+		display: flex;
+		gap: 10px;
+		font-weight: bold;
+		margin-top: 1rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		border-top: 1px dashed darken(var.$color-gray-light, 20%);
+		border-bottom: 1px dashed darken(var.$color-gray-light, 20%);
+		font-size: 20px;
+	}
+	.product_meta {
+		margin-bottom: 1rem;
+	}
+	.stock {
+		&.out-of-stock {
+			font-size: 1rem;
+			color: white;
+			text-transform: uppercase;
+			display: inline-block;
+			background-color: var.$color-error;
+			padding: 10px;
+		}
+	}
+}
+
 .london-single-product-wrapper {
 	margin-top: 2rem;
 	.woocommerce-product-gallery {
@@ -62,39 +97,7 @@
 			}
 		}
 	}
-	.london-single-right {
-		font-size: 0.9rem;
-		h1.product_title {
-			margin-bottom: 0.5rem;
-			color: var.$color-text;
-			font-size: 1.5rem;
-		}
-		.price {
-			color: var.$color-text !important;
-			display: flex;
-			gap: 10px;
-			font-weight: bold;
-			margin-top: 1rem;
-			padding-top: 1rem;
-			padding-bottom: 1rem;
-			border-top: 1px dashed darken(var.$color-gray-light, 20%);
-			border-bottom: 1px dashed darken(var.$color-gray-light, 20%);
-			font-size: 20px;
-		}
-		.product_meta {
-			margin-bottom: 1rem;
-		}
-		.stock {
-			&.out-of-stock {
-				font-size: 1rem;
-				color: white;
-				text-transform: uppercase;
-				display: inline-block;
-				background-color: var.$color-error;
-				padding: 10px;
-			}
-		}
-	}
+
 	.london-product-full {
 		margin-top: 1rem;
 		padding-top: 1rem;
@@ -206,5 +209,53 @@ input[type="number"] {
 	}
 	p + h4 {
 		margin-top: 1rem;
+	}
+}
+// new Tabs#
+
+.product {
+	&.is-on-mobile {
+		.summary {
+			margin-bottom: 0 !important;
+		}
+		.london-product-full {
+			border-top: none;
+			border-bottom: none !important;
+		}
+		.london-delivery-information {
+			border-top: none;
+			padding-top: 0;
+		}
+		.london-delivery-information {
+			gap: 1rem;
+		}
+		.description {
+			padding: rem(10);
+			padding-top: 0;
+		}
+		.london-product-full,
+		.london-delivery-information {
+			margin: 0;
+			padding: 0;
+			gap: 0;
+			h3 {
+				margin: 0;
+				padding: 0;
+				background-color: var.$color-gray-light;
+				padding: rem(15);
+				@include font-size(20, 22);
+				border-bottom: darken(var.$color-gray-light, 10%) 1px dashed;
+				margin-bottom: rem(10);
+				position: relative;
+				@include ico.icon("caret-down-solid") {
+					@include scut-center-transform(y);
+					right: rem(10);
+				}
+
+				&.h3-active {
+					@include ico.icon("minus-solid");
+				}
+			}
+		}
 	}
 }
