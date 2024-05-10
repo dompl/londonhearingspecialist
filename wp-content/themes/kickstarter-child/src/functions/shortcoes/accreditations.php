@@ -27,3 +27,42 @@ add_filter( 'ks_admin_theme_options_addons', function ( $fields ) {
     ] )->collapsed( 'image' )->buttonLabel( 'Add Image' )->layout( 'table' );
     return $fields;
 } );
+
+function display_free_shipping_message() {
+    if ( WC()->cart ) {
+        $free_shipping_min_amount = false; // Start with no set amount
+
+        // Loop through all shipping zones
+        foreach ( WC_Shipping_Zones::get_zones() as $zone_data ) {
+            foreach ( $zone_data['shipping_methods'] as $shipping_method ) {
+                if ( $shipping_method->id === 'free_shipping' && $shipping_method->enabled ) {
+                    $free_shipping_min_amount = $shipping_method->min_amount;
+                    if ( $free_shipping_min_amount > 0 ) {
+                        break 2; // Exit both loops
+                    }
+                }
+            }
+        }
+
+        // Handle cases where no free shipping method or no minimum amount is set
+        if ( $free_shipping_min_amount === false ) {
+            return;
+        }
+
+        // Display the message based on the cart total and minimum amount for free shipping
+        $current_cart_total = WC()->cart->subtotal;
+        $delivery_time      = '<strong>Standard Delivery </strong>(2-3 days).';
+        echo '<div class="custom-free-shipping-notice">';
+        echo '<div class="date">' . $delivery_time . '</div>';
+        if ( $current_cart_total >= $free_shipping_min_amount ) {
+            echo '<div class="note-qualifies">Your order qualifies for free delivery.</div>';
+        } else {
+            $remaining = $free_shipping_min_amount - $current_cart_total;
+            // echo '<div class="free-shipping-over">Free shipping for all orders over <strong>£' . $free_shipping_min_amount . '</strong>.</div><div class="add-more">Add ' . wc_price( $remaining ) . ' more to qualify for <strong>Free Delivery</strong>.</div>';
+            echo '<div class="free-shipping-over">Add <strong>' . wc_price( $remaining ) . '</strong> more to qualify for <strong>Free Delivery</strong>.</div>';
+        }
+        echo '</div>';
+    }
+}
+
+add_action( 'london_single_product_add_to_cart_after', 'display_free_shipping_message' );

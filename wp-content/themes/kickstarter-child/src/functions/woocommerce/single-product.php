@@ -71,6 +71,7 @@ add_action( 'after_setup_theme', function () {
         }
         echo '<div class="product-excerpt">'; do_action( 'london_single_product_top_excerpt' );echo '</div>';
         echo '<div class="product-add-to-cart">'; do_action( 'london_single_product_add_to_cart' );echo '</div>';
+        echo do_action( 'london_single_product_add_to_cart_after' );
         echo '</div>';
         echo '</div>';
         if ( $product->get_description() != "" ) {
