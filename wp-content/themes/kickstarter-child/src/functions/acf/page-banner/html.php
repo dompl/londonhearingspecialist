@@ -1,4 +1,5 @@
 <?php
+use Kickstarter\MyHelpers;
 use London\Acf;
 add_action( 'ks_after_body', 'london_page_banner_html', 40 );
 
@@ -66,23 +67,62 @@ function london_page_banner_html() {
     echo $html;
 
 }
+add_filter( 'london_banner_after', 'london_banner_after_call_for_actions', 10, 2 );
+function london_banner_after_call_for_actions( $html, $post ) {
 
-function london_banner_after( $html, $post ) {
-    $hide_delivery_notes = get_post_meta( 'hide_delivery_notes', true );
-    if ( $hide_delivery_notes ) {
+    $CallForActions = MyHelpers::getThemeData( 'london_banner_calls' );
+    if ( empty( $CallForActions ) ) {
         return $html;
     }
 
-    $items = array(
-        ['image' => '1904', 'title' => '10% discount incentive offered for new users - can you offer a discount']
-    );
+    $slick_settings = [
+        'slidesToShow'   => 3,
+        'slidesToScroll' => 1,
+        'adaptiveHeight' => true,
+        'fade'           => false,
+        'autoplay'       => false,
+        'arrows'         => true,
+        'speed'          => 1000,
+        'prevArrow'      => '<i class="icon angle-left"></i>',
+        //   'nextArrow'      => '<button type="button" class="slick-next"><img src="/path/to/right_arrow.png" alt="Next"></button>',
+        'responsive'     => [
+            [
+                'breakpoint' => 748,
+                'settings'   => [
+                    'slidesToShow' => 2
+                ]
+            ],
+            [
+                'breakpoint' => 480,
+                'settings'   => [
+                    'slidesToShow' => 1
+                ]
+            ]
+        ]
+    ];
 
-    $html .= '<div class="london-banner-delivery">';
-    $html .= '<div class="container">';
+    $image_size = MyHelpers::getThemeData( 'london_banner_image_size' );
+
+    $html .= '<div class="london-banner-calls">';
+    $html .= '<div class="container" data-slick=' . json_encode( $slick_settings ) . '>';
+
+    foreach ( $CallForActions as $item ) {
+
+        $image = $item['image'];
+        $text  = $item['text'];
+        if (  !  empty( $image ) && !  empty( $text ) ) {
+
+            $img = \Kickstarter\MyHelpers::WPImage( id: $image, size: $image_size );
+            $html .= '<div class="call-for-action">';
+            $html .= '<img src="' . $img . '" alt="' . $text . '">';
+            $html .= '<p>' . $text . '</p>';
+            $html .= '</div>';
+        }
+    }
+
     $html .= '</div>';
     $html .= '</div>';
-
-    return;
+    return $html;
 }
 
 add_filter( 'london_banner_addon_desc', function ( $addon, $post ) {

@@ -1,6 +1,8 @@
 <?php
+use Extended\ACF\Fields\Accordion;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Layout;
+use Extended\ACF\Fields\Number;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Select;
 use Extended\ACF\Fields\Tab;
@@ -80,4 +82,14 @@ add_action( 'acf/save_post', function ( $post_id ) {
     if ( is_admin() && isset( $_GET['page'] ) && $_GET['page'] === 'london-page-banners' ) {
         delete_transient( 'london_banner_images' );
     }
+} );
+
+add_filter( 'ks_admin_theme_options_addons', function ( $fields ) {
+    $fields[]   = Accordion::make( 'Page banner call for action', wp_unique_id() )->instructions( 'Setting for call for actions under the main banner' );
+    $repeater   = [];
+    $repeater[] = Text::make( 'Text', 'text' )->required();
+    $repeater[] = Image::make( 'Image', 'image' )->instructions( '' )->returnFormat( 'id' )->previewSize( 'mini-thumbnail' )->required();
+    $fields[]   = Repeater::make( 'Add call for action', 'london_banner_calls' )->instructions( 'Add banner call for actions' )->fields( $repeater )->collapsed( '' )->buttonLabel( 'Add call for action' )->layout( 'table' )->min( 3 )->max( 3 );
+    $fields[]   = Number::make( 'Images size', 'london_banner_image_size' )->instructions( 'Add banner image size (in px)' )->min( 50 )->max( 300 )->required();
+    return $fields;
 } );
