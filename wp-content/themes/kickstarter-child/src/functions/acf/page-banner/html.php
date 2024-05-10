@@ -1,4 +1,5 @@
 <?php
+use GoogleRating;
 use Kickstarter\MyHelpers;
 use London\Acf;
 add_action( 'ks_after_body', 'london_page_banner_html', 40 );
@@ -101,21 +102,28 @@ function london_banner_after_call_for_actions( $html, $post ) {
         ]
     ];
 
-    $image_size = MyHelpers::getThemeData( 'london_banner_image_size' );
+    $image_size    = MyHelpers::getThemeData( 'london_banner_image_size' );
+    $googleRating  = new GoogleRating();
+    $reviews       = $googleRating->getReviews();
+    $starts        = $googleRating->displayStars();
+    $count         = $googleRating->displayRatingCount();
+    $averageRating = $reviews['averageRating'];
+    $ratingCount   = $reviews['ratingCount'];
 
     $html .= '<div class="london-banner-calls">';
-    $html .= '<div class="container" data-slick=' . json_encode( $slick_settings ) . '>';
+    $html .= '<div class="container" data-slick=\'' . json_encode( $slick_settings ) . '\'>';
 
     foreach ( $CallForActions as $item ) {
 
         $image = $item['image'];
-        $text  = $item['text'];
+        $text  = str_replace( ['%%', '%rating%', '%count%'], [replace_free_shipping_placeholder(), $averageRating, $ratingCount], $item['text'] );
         if (  !  empty( $image ) && !  empty( $text ) ) {
-
             $img = \Kickstarter\MyHelpers::WPImage( id: $image, size: $image_size );
             $html .= '<div class="call-for-action">';
-            $html .= '<img src="' . $img . '" alt="' . $text . '">';
-            $html .= '<p>' . $text . '</p>';
+            $html .= '<div class="inner">';
+            $html .= '<div class="image"><img src="' . $img . '" alt="' . $text . '" width="' . $image_size . '"></div>';
+            $html .= '<p>' . do_shortcode( $text ) . '</p>';
+            $html .= '</div>';
             $html .= '</div>';
         }
     }
