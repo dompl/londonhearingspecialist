@@ -91,7 +91,7 @@ function custom_result_count_ordering_wrapper_start() {
             'taxonomy'   => 'product_cat',
             'orderby'    => 'name',
             'order'      => 'ASC',
-            'hide_empty' => false
+            'hide_empty' => true
         );
         $product_categories = get_terms( $args );
 

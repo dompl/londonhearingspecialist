@@ -71,6 +71,10 @@ function london_page_banner_html() {
 add_filter( 'london_banner_after', 'london_banner_after_call_for_actions', 10, 2 );
 function london_banner_after_call_for_actions( $html, $post ) {
 
+    if (  !  is_front_page() ) {
+        return;
+    }
+
     $CallForActions = MyHelpers::getThemeData( 'london_banner_calls' );
     if ( empty( $CallForActions ) ) {
         return $html;
@@ -84,7 +88,8 @@ function london_banner_after_call_for_actions( $html, $post ) {
         'autoplay'       => false,
         'arrows'         => true,
         'speed'          => 1000,
-        'prevArrow'      => '<i class="icon angle-left"></i>',
+        'prevArrow'      => '<i class="icon icon-angle-left-solid"></i>',
+        'nextArrow'      => '<i class="icon icon-angle-right-solid"></i>',
         //   'nextArrow'      => '<button type="button" class="slick-next"><img src="/path/to/right_arrow.png" alt="Next"></button>',
         'responsive'     => [
             [
