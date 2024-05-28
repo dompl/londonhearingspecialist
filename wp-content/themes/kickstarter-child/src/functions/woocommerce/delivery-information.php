@@ -52,6 +52,8 @@ function display_delivery_info() {
     $default_returns_information = '<a href="/returns-policy/" class="button small" target="_blank">See Our Returns Policy</a>';
     $delivery_info_1             = str_replace( '%delivery_information%', $default_delivery_information, get_post_meta( $post->ID, '_delivery_info', true ) );
     $delivery_info_2             = str_replace( '%returns_info%', $default_returns_information, get_post_meta( $post->ID, '_returns_info', true ) );
+
+    $additional_delivery_info = '<p class="addon">We are happy to accept returns within 14 days of purchase for a full refund. Items are required to be unopened and in good condition. View our full <a href="' . get_bloginfo( 'url' ) . '/returns-policy/" target="_blank">returns policy here.</a></p>.';
     if (  !  empty( $delivery_info_1 ) || !  empty( $delivery_info_2 ) ) {
         echo '<div class="london-delivery-information">';
     }
@@ -60,7 +62,7 @@ function display_delivery_info() {
         echo '<div class="product-delivery-info london-tab"><div class="title"><h3>Delivery Information</h3></div><div class="description">' . wp_kses_post( $delivery_info_1 ) . '</div></div>';
     }
     if (  !  empty( $delivery_info_2 ) ) {
-        echo '<div class="product-delivery-info london-tab"><div class="title"><h3>Returns Information</h3></div><div class="description">' . wp_kses_post( $delivery_info_2 ) . '</div></div>';
+        echo '<div class="product-delivery-info london-tab"><div class="title"><h3>Returns Information</h3></div>' . $additional_delivery_info . '<div class="description">' . wp_kses_post( $delivery_info_2 ) . '</div></div>';
     }
 
     if (  !  empty( $delivery_info_1 ) || !  empty( $delivery_info_2 ) ) {
