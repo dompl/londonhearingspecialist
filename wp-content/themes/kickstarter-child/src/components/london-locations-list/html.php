@@ -38,7 +38,7 @@ function wp_1700565756_london( $html, $data ) {
             if ( isset( $location['phone'] ) && $location['phone'] !== '' ) {
 
                 $html .= '<div class="button-item">';
-                $html .= '<a href="tel:' . esc_attr( $location['phone'] ) . '" class="button small green" itemprop="telephone" title="Call London Hearing Specialist in ' . $location['title'] . '">' . \London\Helpers::formatUKNumber( $location['phone'] ) . '</a>';
+                $html .= '<a href="tel:' . esc_attr( $location['phone'] ) . '" class="button small green" itemprop="telephone" title="Call London Hearing Specialist in ' . $location['title'] . '">' . str_replace( '+44', '', $location['phone'] ) . '</a>';
                 $html .= '</div>';
             }
             // $html .= do_shortcode( '[book_appointment title="Book Today" small=true]' );
