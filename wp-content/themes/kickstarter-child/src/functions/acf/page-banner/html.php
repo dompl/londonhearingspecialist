@@ -71,7 +71,7 @@ function london_page_banner_html() {
 add_filter( 'london_banner_after', 'london_banner_after_call_for_actions', 10, 2 );
 function london_banner_after_call_for_actions( $html, $post ) {
 
-    if (  !  is_front_page() ) {
+    if (  !  is_shop() ) {
         return;
     }
 
