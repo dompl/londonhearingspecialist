@@ -1,6 +1,5 @@
 <?php
 use Kickstarter\MyAcf;
-use Kickstarter\MyHelpers;
 use London\Helpers;
 add_filter( MyAcf::Html(), 'wp_1702034028_london', 10, 2 );
 
@@ -34,7 +33,7 @@ function wp_1702034028_london( $html, $data ) {
             $html .= '<div class="item get-in-touch">';
             $html .= '<h3>Get in touch</h3>';
             $html .= '<div class="wrapper">';
-            $html .= $location['phone'] ? '<div class="inner phone"><i class="icon-phone-regular"></i>' . MyHelpers::convertPhoneNumberToLink( $location['phone'] ) . '</div>' : '';
+            $html .= $location['phone'] ? '<div class="inner phone"><i class="icon-phone-regular"></i>' . str_replace( ['+44 ', '+44'], ['', ''], $location['phone'] ) . '</div>' : '';
             $html .= $location['email'] ? '<div class="inner email">' . sprintf( '<i class="icon-envelope-regular"></i><a href="%s">%s</a>', esc_url( 'mailto:' . antispambot( $location['email'] ) ), esc_html( $location['email'] ) ) . '</div>' : '';
             $html .= $location['facebook'] ? '<div class="inner facebook"><i class="icon-facebook"></i><a href="' . esc_url( $location['facebook'] ) . '" title="Visit ' . get_bloginfo( 'name' ) . ' (' . $location['title'] . ' location) on Facebook">londonhearingspecialist</a></div>' : '';
             $html .= $location['twitter'] ? '<div class="inner x-twitter"><i class="icon-x-twitter"></i><a href="' . esc_url( $location['twitter'] ) . '" title="Follow ' . get_bloginfo( 'name' ) . ' (' . $location['title'] . ' location) on Twitter">londonhearingspecialist</a></div>' : '';
