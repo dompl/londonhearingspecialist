@@ -3,6 +3,9 @@ import 'redfrog-navigation/navigation.js';
 (function ($) {
 	$(function () {
 		var navigation = $('#navigation');
+		$('#mobile-header-nav').click(function () {
+			$('.nav-toggle').click();
+		});
 		// Retrieve the data attribute
 		var customSettings = navigation.data('nav');
 		// Default settings

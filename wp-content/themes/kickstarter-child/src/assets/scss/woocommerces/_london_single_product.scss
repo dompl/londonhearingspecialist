@@ -273,8 +273,8 @@ input[type="number"] {
 	margin-left: auto;
 	margin-right: auto;
 	color: white;
-	margin-bottom: rem(10);
-	margin-top: rem(10);
+	// margin-bottom: rem(10);
+	// margin-top: rem(10);
 	i {
 		@include scut-center-transform(y);
 		color: white;

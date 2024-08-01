@@ -1,4 +1,5 @@
 <?php
+use London\Helpers;
 /**
  * General woocommerce functions
  */
@@ -78,6 +79,10 @@ add_action( 'pre_get_posts', 'pre_get_posts_products_per_page_filter' );
 // Add custom wrapper function for result count and ordering
 add_action( 'woocommerce_before_shop_loop', 'custom_result_count_ordering_wrapper_start', 20 );
 function custom_result_count_ordering_wrapper_start() {
+
+    if ( Helpers::isNewLondon() ) {
+        return;
+    }
     echo '<div class="london-woo-ordering">';
     echo '<div class="left">';
     echo '</div>';

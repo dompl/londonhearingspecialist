@@ -1,5 +1,6 @@
 <?php
 use Kickstarter\MyHelpers;
+use London\Helpers;
 // Add action to hook into the 'ks_after_body' event
 add_action( 'ks_after_body', 'ks_top_wrapper', 10 );
 // Add filters for modifying the content in the top left and right sections
@@ -96,7 +97,7 @@ function london_top_right_callback( $html ) {
         } else {
             ksort( $locationsByArea );
         }
-
+        $html .= '<div class="item nav-trigger"><i class="icon-bars-solid" id="mobile-header-nav"></i></div>';
         $html .= '<div class="item locations">';
         if ( \London\Helpers::isWooCommercePage() ) {
             $html .= '<a href="#" title="Select London Hearing Specialists Locations" id="location-selector-a"><span>Select Location</span><i class="icon-caret-down-solid"></i></a>';
@@ -121,14 +122,18 @@ function london_top_right_callback( $html ) {
         $html .= '</div>';
         $html .= '</div>';
     }
+    if ( Helpers::isNewLondon() && !  Helpers::isWooCommercePage() ) {
+        $html .= '<div class="item login">';
+        $myaccount_page_url = esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) );
 
-    $html .= '<div class="item login">';
-    $myaccount_page_url = esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) );
+        if ( is_user_logged_in() ) {
+            $html .= '<a href="' . $myaccount_page_url . '"><i class="icon-user-regular"></i><span>My Account</span></a>';
+        } else {
+            $html .= '<a href="' . $myaccount_page_url . '"><i class="icon-user-regular"></i><span>Login/Register</span></a>';
+        }
 
-    if ( is_user_logged_in() ) {
-        $html .= '<a href="' . $myaccount_page_url . '"><i class="icon-user-regular"></i><span>My Account</span></a>';
-    } else {
-        $html .= '<a href="' . $myaccount_page_url . '"><i class="icon-user-regular"></i><span>Login</span></a>';
+        $html .= london_minicart_html();
+
     }
 
     $html .= '</div>';

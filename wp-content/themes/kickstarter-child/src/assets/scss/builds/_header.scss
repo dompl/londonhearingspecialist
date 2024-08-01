@@ -82,6 +82,17 @@
 		align-items: center;
 	}
 	.item {
+		&.nav-trigger {
+			font-size: 1.4rem;
+			float: left;
+			margin-top: 1px;
+			margin-bottom: -1px;
+		}
+		@include from(lg) {
+			&.nav-trigger {
+				display: none;
+			}
+		}
 		&.locations {
 			position: relative;
 		}
@@ -98,7 +109,7 @@
 	.left {
 		display: flex;
 	}
-	@include to(sm) {
+	@include to(md) {
 		.container {
 			padding-top: rem(10);
 			padding-bottom: rem(10);
@@ -125,6 +136,9 @@
 				}
 			}
 			&.login {
+				display: flex;
+				flex-direction: row;
+				gap: 1rem;
 				a {
 					display: flex;
 					flex-direction: row;
@@ -136,9 +150,14 @@
 					}
 				}
 			}
+			#go-to-shop {
+				span {
+					display: block;
+				}
+			}
 		}
 	}
-	@include from(md) {
+	@include from(lg) {
 		.container {
 			display: flex;
 			align-items: center;
@@ -176,7 +195,30 @@
 			}
 		}
 	}
+	.shipping-cart {
+		color: white;
+		font-size: 14px;
+		text-wrap: nowrap;
+		margin-left: 1rem;
+		.woocommerce-Price-currencySymbol {
+			float: left;
+			padding-right: 5px;
+		}
+		bdi {
+		}
+		i {
+			font-size: 20px;
+		}
+		span,
+		i {
+			color: white;
+		}
+		a {
+			color: white;
+		}
+	}
 }
+
 //
 #nav-wrapper {
 	background-color: var.$color-blue;
@@ -238,7 +280,6 @@
 #header-wrapper {
 	// Cart with items
 	// End cart with items
-	display: none;
 	@include to(md) {
 		display: block;
 		.container {
@@ -247,6 +288,13 @@
 			justify-content: space-between;
 			align-items: center;
 			padding: 1rem 0;
+		}
+		&.new-wrapper {
+			display: flex;
+			.container {
+				justify-content: flex-start;
+				// display: none !important;
+			}
 		}
 		.right {
 			.item {
@@ -306,6 +354,9 @@
 	}
 	@include from(lg) {
 		display: block;
+		.header-search.is-woo {
+			width: 500px;
+		}
 		.google-star-rating {
 			font-weight: bold;
 			color: red;
@@ -316,6 +367,7 @@
 			justify-content: space-between;
 			align-items: center;
 			padding: 1rem 0;
+			gap: 3rem;
 		}
 		.logo-mobile,
 		.main-nav-init {
@@ -330,19 +382,31 @@
 			}
 		}
 	}
+	.new-woo-container.container {
+		justify-content: flex-start;
+		gap: 4rem;
+		.header-search {
+			flex: 1;
+		}
+		@include to(sm) {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+		}
+	}
 }
-// And the associated CSS:
+// And the associated CSS;
 .sticky {
 	position: fixed;
 	top: 0;
 	width: 100%;
 	background-color: white;
 	z-index: 100; /* Adjust z-index as needed */
-}
-
-@media (min-width: 992px) {
-	.sticky {
-		position: static; /* Reset to default positioning on larger screens */
+	@media (min-width: 992px) {
+		.sticky {
+			position: static; /* Reset to default positioning on larger screens */
+		}
 	}
 }
 .shipping-cart {

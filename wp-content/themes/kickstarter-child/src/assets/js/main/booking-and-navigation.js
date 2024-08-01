@@ -37,15 +37,27 @@
 // })(jQuery);
 
 jQuery(document).ready(function ($) {
-	var header = $('#header-wrapper');
-	var headerOffset = header.offset().top;
+	var header = $('#top-wrapper');
+	var header_height = header.height(); // Correct method to get height
+	var headerOffset = 1; // Assuming you start your header becoming sticky immediately
 
 	$(window).scroll(function () {
 		var scrollPos = $(window).scrollTop();
+		if ($(window).width() < 992) {
+			var logoHtml = $('.new-woo-container .left .logos').html();
+			console.log(logoHtml);
+			// logoHtml.addCss('display', 'none');
+			$('#top-wrapper .right .locations').after(logoHtml);
+		}
 
 		if (scrollPos >= headerOffset && $(window).width() < 992) {
+			if ($('#temp-item').length === 0) {
+				// Only append if temp-item does not exist
+				header.before('<div id="temp-item" style="height: ' + header_height + 'px;"></div>');
+			}
 			header.addClass('sticky');
 		} else {
+			$('#temp-item').remove();
 			header.removeClass('sticky');
 		}
 	});

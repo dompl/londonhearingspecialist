@@ -59,7 +59,7 @@ function display_free_shipping_message() {
         } else {
             $remaining = $free_shipping_min_amount - $current_cart_total;
             // echo '<div class="free-shipping-over">Free shipping for all orders over <strong>£' . $free_shipping_min_amount . '</strong>.</div><div class="add-more">Add ' . wc_price( $remaining ) . ' more to qualify for <strong>Free Delivery</strong>.</div>';
-            echo '<div class="free-shipping-over">Add <strong>' . wc_price( $remaining ) . '</strong> more to qualify for <strong>Free Delivery</strong>.</div>';
+            echo '<div class="free-shipping-over"><strong>Free 2-day delivery</strong> on orders over £35<br>Add <strong>' . wc_price( $remaining ) . '</strong> more to qualify for <strong>Free Delivery</strong>.</div>';
         }
         echo '</div>';
     }

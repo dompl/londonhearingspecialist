@@ -82,6 +82,10 @@ function display_categories_and_manufacturers_lists() {
 
     echo '<div class="london-woo-side-items">';
 
+    echo '<div class="sidebar-product-filter london-woo-side-item">';
+    echo apply_filters( 'london_product_category', '' );
+    echo '</div>';
+
     echo '<div class="sidebar-product-search london-woo-side-item">';
     echo '<h3>' . __( 'Product Search', 'london-child' ) . '</h3>';
     echo do_shortcode( '[yith_woocommerce_ajax_search preset="default"]' );

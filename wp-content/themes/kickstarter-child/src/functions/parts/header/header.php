@@ -1,4 +1,5 @@
 <?php
+use London\Helpers;
 add_action( 'ks_after_body', 'ks_header_wrapper', 20 );
 add_filter( 'ks_header_wrapper_left', 'ks_header_wrapper_left_callback', 10, 2 );
 add_filter( 'ks_header_wrapper_middle', 'ks_header_wrapper_middle_callback', 10, 2 );
@@ -8,11 +9,20 @@ function ks_header_wrapper() {
 
     $themeData = \Kickstarter\MyHelpers::getThemeData();
 
-    $html = '<div id="header-wrapper">';
-    $html .= '<div class="container">';
+    $html = '';
+
+    $html = '<div id="header-wrapper" ' . ( Helpers::isNewLondon() && !  Helpers::isWooCommercePage() ? 'class="new-wrapper"' : '' ) . '>';
+    $html .= '<div class="container' . ( Helpers::isNewLondon() && !  Helpers::isWooCommercePage() ? ' new-woo-container' : '' ) . '">';
     $html .= '<div class="left">' . apply_filters( 'ks_header_wrapper_left', false, $themeData ) . '</div>';
-    $html .= '<div class="middle">' . apply_filters( 'ks_header_wrapper_middle', false, $themeData ) . '</div>';
-    $html .= '<div class="right">' . apply_filters( 'ks_header_wrapper_right', false, $themeData ) . '</div>';
+
+    if ( Helpers::isNewLondon() && !  Helpers::isWooCommercePage() ) {
+        $html .= '<div class="header-search ' . ( Helpers::isWooCommercePage() ? 'is-woo' : '' ) . '">';
+        $html .= do_shortcode( '[yith_woocommerce_ajax_search preset="default"]' );
+        $html .= '</div>';
+    } else {
+        $html .= '<div class="middle">' . apply_filters( 'ks_header_wrapper_middle', false, $themeData ) . '</div>';
+        $html .= '<div class="right">' . apply_filters( 'ks_header_wrapper_right', false, $themeData ) . '</div>';
+    }
     //  $html .= '<div class="left">' . apply_filters( 'ks_header_wrapper_middle', false, $themeData ) . '</div>';
     //  $html .= '<div class="middle">' . apply_filters( 'ks_header_wrapper_left', false, $themeData ) . '</div>';
     //  $html .= '<div class="right">' . apply_filters( 'ks_header_wrapper_right', false, $themeData ) . '</div>';
@@ -44,7 +54,9 @@ function ks_header_wrapper_middle_callback( $html, $themeData ) {
 function ks_header_wrapper_right_callback( $html, $themeData ) {
     $shop_url = wc_get_page_permalink( 'shop' );
     $html .= '<div class="item">';
-    $html .= WC()->cart->get_cart_contents_count() > 0 ? london_minicart_html() : london_minicart_html_default();
+    if (  !  Helpers::isNewLondon() ) {
+        $html .= WC()->cart->get_cart_contents_count() > 0 ? london_minicart_html() : london_minicart_html_default();
+    }
     $html .= \London\Helpers::isWooCommercePage() ? do_shortcode( '[book_appointment]' ) : '';
     $html .= '<span class="main-nav-init"><span>Menu</span><i class="icon-bars-solid"></i></span>';
     $html .= '</div>';

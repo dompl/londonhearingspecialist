@@ -62,7 +62,8 @@ function display_delivery_info() {
         echo '<div class="product-delivery-info london-tab"><div class="title"><h3>Delivery Information</h3></div><div class="description">' . wp_kses_post( $delivery_info_1 ) . '</div></div>';
     }
     if (  !  empty( $delivery_info_2 ) ) {
-        echo '<div class="product-delivery-info london-tab"><div class="title"><h3>Returns Information</h3></div>' . $additional_delivery_info . '<div class="description">' . wp_kses_post( $delivery_info_2 ) . '</div></div>';
+        //   echo '<div class="product-delivery-info london-tab"><div class="title"><h3>Returns Information</h3></div>' . $additional_delivery_info . '<div class="description">' . wp_kses_post( $delivery_info_2 ) . '</div></div>';
+        echo '<div class="product-delivery-info london-tab"><div class="title"><h3>Returns Information</h3></div>' . $additional_delivery_info . '</div>';
     }
 
     if (  !  empty( $delivery_info_1 ) || !  empty( $delivery_info_2 ) ) {

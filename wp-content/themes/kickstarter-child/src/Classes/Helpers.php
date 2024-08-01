@@ -4,6 +4,16 @@ use GoogleRating;
 
 class Helpers {
 
+    public static function isNewLondon() {
+        if ( ( defined( 'LONDON_DEV' ) && LONDON_DEV === true ) || ( current_user_can( 'administrator' ) && isset( $_GET['new'] ) && $_GET['new'] == 'true' ) ) {
+            return true;
+        } elseif ( defined( 'LONDON_DEV' ) && LONDON_DEV === false ) {
+            return false;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * Checks if the current page is a WooCommerce-related page.
      *
