@@ -51,8 +51,8 @@ function london_product_filter_categories() {
         return;
     }
 
-    $categories = get_terms( 'product_cat', array( 'hide_empty' => true ) );
-
+    $categories       = get_terms( 'product_cat', array( 'hide_empty' => true ) );
+    $current_category = get_queried_object();
     // Get unique manufacturers
     // Get all unique manufacturers
     $manufacturer_names = get_unique_manufacturers();
@@ -69,8 +69,9 @@ function london_product_filter_categories() {
     echo '<h4>Categories</h4>';
     if (  !  empty( $categories ) ) {
         foreach ( $categories as $category ) {
+            $checked = ( $current_category && $current_category->term_id === $category->term_id ) ? 'checked' : '';
             echo '<label>';
-            echo '<input type="checkbox" name="filter_category[]" value="' . esc_attr( $category->slug ) . '"> ';
+            echo '<input type="checkbox" name="filter_category[]" value="' . esc_attr( $category->slug ) . '" ' . $checked . '> ';
             echo esc_html( $category->name );
             echo '</label><br>';
         }
