@@ -10,7 +10,10 @@ function enqueue_jquery_ui() {
     // Enqueue your custom JS for AJAX filtering and jQuery UI Slider
     wp_enqueue_script( 'custom-ajax-filter', get_template_directory_uri() . '/js/custom-ajax-filter.js', array( 'jquery', 'jquery-ui-slider' ), null, true );
 
-    wp_localize_script( 'custom-ajax-filter', 'custom_ajax_obj', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+    wp_localize_script( 'custom-ajax-filter', 'custom_ajax_obj', array(
+        'ajax_url' => admin_url( 'admin-ajax.php' ),
+        'nonce'    => wp_create_nonce( 'fetch_price' )
+    ) );
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_jquery_ui' );
 
@@ -30,13 +33,25 @@ function get_unique_manufacturers() {
 function get_price_range( $categories = array() ) {
     global $wpdb;
 
-    if ( empty( $categories ) || in_array( 0, $categories ) ) {
-        // Check for empty or default '0' ID
-        $query = "SELECT MIN(CAST(meta_value AS DECIMAL(10,2))) as min_price, MAX(CAST(meta_value AS DECIMAL(10,2))) as max_price FROM {$wpdb->postmeta} WHERE meta_key = '_price' AND post_id IN (SELECT ID FROM {$wpdb->posts} WHERE post_type = 'product' AND post_status = 'publish')";
-    } else {
-        $category_ids = implode( ',', array_map( 'intval', $categories ) );
-        $query        = "SELECT MIN(CAST(meta_value AS DECIMAL(10,2))) as min_price, MAX(CAST(meta_value AS DECIMAL(10,2))) as max_price FROM {$wpdb->postmeta} WHERE meta_key = '_price' AND post_id IN (SELECT ID FROM {$wpdb->posts} WHERE post_type = 'product' AND post_status = 'publish' AND ID IN (SELECT object_id FROM {$wpdb->term_relationships} WHERE term_taxonomy_id IN ({$category_ids})))";
+    if ( empty( $categories ) ) {
+        $queried_object = get_queried_object();
+        if (  !  empty( $queried_object ) && isset( $queried_object->term_id ) ) {
+            $categories = array( $queried_object->term_id ); // Use the current category ID if on a category page
+        }
     }
+
+    $category_ids = implode( ',', array_map( 'intval', $categories ) );
+    $query        = "
+		 SELECT MIN(CAST(meta_value AS DECIMAL(10,2))) as min_price,
+				  MAX(CAST(meta_value AS DECIMAL(10,2))) as max_price
+		 FROM {$wpdb->postmeta}
+		 WHERE meta_key = '_price' AND post_id IN (
+			  SELECT ID FROM {$wpdb->posts} WHERE post_type = 'product' AND post_status = 'publish'
+			  AND ID IN (
+					SELECT object_id FROM {$wpdb->term_relationships} WHERE term_taxonomy_id IN ($category_ids)
+			  )
+		 )
+	";
 
     $prices = $wpdb->get_row( $query );
     return array( 'min' => $prices->min_price ?: 0, 'max' => $prices->max_price ?: 0 );
@@ -71,22 +86,22 @@ function london_product_filter_categories() {
         foreach ( $categories as $category ) {
             $checked = ( $current_category && $current_category->term_id === $category->term_id ) ? 'checked' : '';
             echo '<label>';
-            echo '<input type="checkbox" name="filter_category[]" value="' . esc_attr( $category->slug ) . '" ' . $checked . '> ';
+            echo '<input type="checkbox" name="filter_category[]" value="' . esc_attr( $category->term_id ) . '" ' . $checked . '> '; // Changed to use term_id
             echo esc_html( $category->name );
             echo '</label><br>';
         }
     }
     echo '</div>';
 
-    //  $price_range = get_price_range();
-    //  echo '<div class="filter-price">';
-    //  echo '<h4>Price Range</h4>';
-    //  echo '<div id="price-slider"></div>';
-    //  echo '<span id="price_min_value">' . esc_html( $price_range['min'] ) . '</span> - ';
-    //  echo '<span id="price_max_value">' . esc_html( $price_range['max'] ) . '</span>';
-    //  echo '<input type="hidden" id="price_min" name="price_min" value="' . esc_attr( $price_range['min'] ) . '">';
-    //  echo '<input type="hidden" id="price_max" name="price_max" value="' . esc_attr( $price_range['max'] ) . '">';
-    //  echo '</div>';
+    $price_range = get_price_range();
+    echo '<div class="filter-price">';
+    echo '<h4>Price Range</h4>';
+    echo '<div id="price-slider"></div>';
+    echo '<span id="price_min_value">' . esc_html( $price_range['min'] ) . '</span> - ';
+    echo '<span id="price_max_value">' . esc_html( $price_range['max'] ) . '</span>';
+    echo '<input type="hidden" id="price_min" name="price_min" value="' . esc_attr( $price_range['min'] ) . '">';
+    echo '<input type="hidden" id="price_max" name="price_max" value="' . esc_attr( $price_range['max'] ) . '">';
+    echo '</div>';
 
     echo '<div class="filter-manufacturer">';
     echo '<h4>Manufacturer</h4>';

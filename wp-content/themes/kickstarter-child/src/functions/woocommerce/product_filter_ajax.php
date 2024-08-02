@@ -13,7 +13,7 @@ function custom_filter_products() {
     if ( isset( $_POST['category'] ) && !  empty( $_POST['category'] ) ) {
         $args['tax_query'][] = array(
             'taxonomy' => 'product_cat',
-            'field'    => 'slug',
+            'field'    => 'ID',
             'terms'    => array_map( 'sanitize_text_field', $_POST['category'] ),
             'operator' => 'IN'
         );
@@ -47,5 +47,15 @@ function custom_filter_products() {
         echo '<p>' . __( 'No products found', 'london-child' ) . '</p>';
     }
 
+    wp_die();
+}
+
+add_action( 'wp_ajax_nopriv_get_price_range', 'ajax_get_price_range' );
+add_action( 'wp_ajax_get_price_range', 'ajax_get_price_range' );
+
+function ajax_get_price_range() {
+    check_ajax_referer( 'fetch_price', 'security' );
+    $categories = isset( $_POST['categories'] ) ? $_POST['categories'] : array();
+    echo json_encode( get_price_range( $categories ) );
     wp_die();
 }
