@@ -8,6 +8,7 @@ import './modules/slick/slick.js';
 import './woocommerce/minicart.js';
 import './woocommerce/single-product.js';
 import './woocommerce/quantity.js';
+import './woocommerce/custom-ajax-filter.js';
 // import BackStretch from './includes/backstretch.js';
 (function ($) {
 	$('[data-slick]').slick();

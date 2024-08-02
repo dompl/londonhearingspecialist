@@ -98,29 +98,30 @@ function london_top_right_callback( $html ) {
             ksort( $locationsByArea );
         }
         $html .= '<div class="item nav-trigger"><i class="icon-bars-solid" id="mobile-header-nav"></i></div>';
-        $html .= '<div class="item locations">';
         if ( \London\Helpers::isWooCommercePage() ) {
+            $html .= '<div class="item locations">';
             $html .= '<a href="#" title="Select London Hearing Specialists Locations" id="location-selector-a"><span>Select Location</span><i class="icon-caret-down-solid"></i></a>';
-        }
-        $html .= '<div id="location-select">';
-        foreach ( $locationsByArea as $area => $locs ) {
-            $html .= '<ul><li><span>' . ucfirst( $area ) . '</span>';
-            $html .= '<ul>';
-            uasort( $locs, function ( $item1, $item2 ) {
-                if ( $item1['menu_order'] === $item2['menu_order'] ) {
-                    return $item1['title'] <=> $item2['title'];
-                }
-                return $item1['menu_order'] <=> $item2['menu_order'];
-            } );
-            foreach ( $locs as $post_id => $value ) {
-                $title = esc_html( $value['title'] );
-                $html .= '<li><a href="' . get_the_permalink( $post_id ) . '" title="Visit London Hearing Specialists at ' . $title . '">' . $title . '</a></li>';
-            }
-            $html .= '</ul></li></ul>';
-        }
 
-        $html .= '</div>';
-        $html .= '</div>';
+            $html .= '<div id="location-select">';
+            foreach ( $locationsByArea as $area => $locs ) {
+                $html .= '<ul><li><span>' . ucfirst( $area ) . '</span>';
+                $html .= '<ul>';
+                uasort( $locs, function ( $item1, $item2 ) {
+                    if ( $item1['menu_order'] === $item2['menu_order'] ) {
+                        return $item1['title'] <=> $item2['title'];
+                    }
+                    return $item1['menu_order'] <=> $item2['menu_order'];
+                } );
+                foreach ( $locs as $post_id => $value ) {
+                    $title = esc_html( $value['title'] );
+                    $html .= '<li><a href="' . get_the_permalink( $post_id ) . '" title="Visit London Hearing Specialists at ' . $title . '">' . $title . '</a></li>';
+                }
+                $html .= '</ul></li></ul>';
+            }
+
+            $html .= '</div>';
+            $html .= '</div>';
+        }
     }
     if ( Helpers::isNewLondon() && !  Helpers::isWooCommercePage() ) {
         $html .= '<div class="item login">';

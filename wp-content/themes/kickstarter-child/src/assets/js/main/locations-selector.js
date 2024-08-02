@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
 	var locationSelect = document.getElementById('location-select');
+	console.log(locationSelect);
+	if (!locationSelect) {
+		return;
+	}
 	var hideDropdownTimeout;
 
 	// Function to hide the dropdown with a delay
