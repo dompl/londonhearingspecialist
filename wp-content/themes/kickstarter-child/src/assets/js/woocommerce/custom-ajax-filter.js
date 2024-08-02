@@ -2,7 +2,7 @@ jQuery(document).ready(function ($) {
 	// Function to submit the filter form and update products
 	function submitFilterForm() {
 		var formData = {
-			action: 'custom_filter_products', // This should match the action in your PHP function
+			action: 'custom_filter_products',
 			category: $('input[name="filter_category[]"]:checked')
 				.map(function () {
 					return this.value;
@@ -13,6 +13,7 @@ jQuery(document).ready(function ($) {
 					return this.value;
 				})
 				.get(),
+			price_range: [$('#price_min').val(), $('#price_max').val()],
 		};
 
 		$.ajax({
@@ -20,7 +21,7 @@ jQuery(document).ready(function ($) {
 			type: 'POST',
 			data: formData,
 			success: function (response) {
-				$('.products').html(response); // Ensure there's a container with class 'products' in your HTML
+				$('.products').html(response);
 			},
 			error: function (xhr, status, error) {
 				console.error('Failed to update products!', error);
@@ -40,16 +41,20 @@ jQuery(document).ready(function ($) {
 				slide: function (event, ui) {
 					$('#price_min_value').text(ui.values[0]);
 					$('#price_max_value').text(ui.values[1]);
+					$('#price_min').val(ui.values[0]);
+					$('#price_max').val(ui.values[1]);
 				},
 				stop: function (event, ui) {
 					$('#price_min').val(ui.values[0]);
 					$('#price_max').val(ui.values[1]);
-					submitFilterForm(); // Update products when slider changes
+					submitFilterForm(); // Trigger product update when slider changes
 				},
 			});
 		} else {
-			priceSlider.slider('option', 'min', parseFloat(min));
-			priceSlider.slider('option', 'max', parseFloat(max));
+			priceSlider.slider('option', {
+				min: parseFloat(min),
+				max: parseFloat(max),
+			});
 			priceSlider.slider('values', [parseFloat(min), parseFloat(max)]);
 		}
 		$('#price_min_value').text(min);
@@ -60,7 +65,7 @@ jQuery(document).ready(function ($) {
 	function fetchPriceRangeAndUpdateSlider() {
 		var selectedCategories = $('input[name="filter_category[]"]:checked')
 			.map(function () {
-				return $(this).val(); // This will now get category IDs
+				return $(this).val();
 			})
 			.get();
 
@@ -70,13 +75,11 @@ jQuery(document).ready(function ($) {
 			data: {
 				action: 'get_price_range',
 				categories: selectedCategories,
-				security: custom_ajax_obj.nonce,
+				security: custom_ajax_obj.nonce, // Ensure this is being sent
 			},
 			success: function (response) {
 				var data = JSON.parse(response);
-				if (data.min && data.max) {
-					initializePriceSlider(data.min, data.max);
-				}
+				initializePriceSlider(data.min, data.max);
 			},
 			error: function (xhr, status, error) {
 				console.error('Error fetching price range:', error);
