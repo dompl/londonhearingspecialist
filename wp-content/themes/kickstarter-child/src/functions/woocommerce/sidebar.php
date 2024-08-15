@@ -36,6 +36,11 @@ function get_manufacturers_by_category( $category_id ) {
 
 function display_categories_and_manufacturers_lists() {
 
+    $object = get_queried_object();
+    if ( $object->post_type !== 'product' ) {
+        return;
+    }
+
     remove_action( 'pre_get_posts', 'pre_get_posts_products_per_page_filter' );
 
     $sidebar_items = get_option( 'options_london_woo_sidebar_items', [] );

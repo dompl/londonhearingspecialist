@@ -77,9 +77,13 @@ jQuery(document).ready(function ($) {
 				categories: selectedCategories,
 				security: custom_ajax_obj.nonce, // Ensure this is being sent
 			},
+			beforeStart: function () {
+				$('.woocommerce-wrapper .left').addClass('active');
+			},
 			success: function (response) {
 				var data = JSON.parse(response);
 				initializePriceSlider(data.min, data.max);
+				$('.woocommerce-wrapper .left').removeClass('active');
 			},
 			error: function (xhr, status, error) {
 				console.error('Error fetching price range:', error);

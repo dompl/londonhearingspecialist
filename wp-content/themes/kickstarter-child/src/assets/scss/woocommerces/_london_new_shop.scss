@@ -41,3 +41,55 @@
 		}
 	}
 }
+
+/* New Sidebar */
+#filter-wrapper {
+	padding: 2rem 0;
+	.filter-price {
+		#price-slider {
+			margin-bottom: 1rem;
+		}
+		#price_min_value,
+		#price_max_value {
+			&:before {
+				display: inline-block;
+				content: "£";
+			}
+		}
+	}
+	h4 {
+		border-bottom: 1px solid var.$color-gray-lighter;
+		padding-bottom: 1rem;
+		margin-bottom: 1rem;
+	}
+	.filter-form-filter {
+		margin-bottom: 2rem;
+	}
+	ul {
+		@include scut-list-unstyled();
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		li {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: flex-end;
+			input {
+				display: none;
+				&:checked {
+					+ label {
+						@include ico.icon("square-check-light");
+					}
+				}
+			}
+			label {
+				@include ico.icon("square-light");
+				&:before {
+					float: left;
+					margin-top: 1px;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+}

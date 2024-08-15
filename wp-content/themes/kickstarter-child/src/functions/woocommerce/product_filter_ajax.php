@@ -4,6 +4,7 @@ add_action( 'wp_ajax_nopriv_custom_filter_products', 'custom_filter_products' );
 add_action( 'wp_ajax_custom_filter_products', 'custom_filter_products' );
 
 function custom_filter_products() {
+
     $args = [
         'post_type'      => 'product',
         'posts_per_page' => -1,

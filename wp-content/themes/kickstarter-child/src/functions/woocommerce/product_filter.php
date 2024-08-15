@@ -1,6 +1,10 @@
 <?php
 
 function enqueue_jquery_ui() {
+    $object = get_queried_object();
+    if (  !  property_exists( $object, 'taxonomy' ) || !  $object->taxonomy == 'product_cat' ) {
+        return;
+    }
     // Enqueue jQuery UI CSS for the slider
     wp_enqueue_style( 'jquery-ui-style', 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' );
 
@@ -61,6 +65,11 @@ add_filter( 'london_woocommerce_sidebar', 'london_product_filter_categories', 1,
 
 function london_product_filter_categories() {
 
+    $object = get_queried_object();
+    if (  !  property_exists( $object, 'taxonomy' ) || !  $object->taxonomy == 'product_cat' ) {
+        return;
+    }
+
     // Ensure WooCommerce functions are available
     if (  !  function_exists( 'wc_get_product_category_list' ) ) {
         return;
@@ -79,22 +88,25 @@ function london_product_filter_categories() {
         }
     }
 
+    echo '<div id="filter-wrapper">';
     echo '<form id="filter-form" method="post">';
-    echo '<div class="filter-category">';
+    echo '<div class="filter-category filter-form-filter first">';
     echo '<h4>Categories</h4>';
     if (  !  empty( $categories ) ) {
+        echo '<ul>';
         foreach ( $categories as $category ) {
             $checked = ( $current_category && $current_category->term_id === $category->term_id ) ? 'checked' : '';
-            echo '<label>';
-            echo '<input type="checkbox" name="filter_category[]" value="' . esc_attr( $category->term_id ) . '" ' . $checked . '> '; // Changed to use term_id
-            echo esc_html( $category->name );
-            echo '</label><br>';
+            echo '<li>';
+            echo '<input type="checkbox" id="cate-' . esc_attr( $category->term_id ) . '" name="filter_category[]" value="' . esc_attr( $category->term_id ) . '" ' . $checked . '> '; // Changed to use term_id
+            echo '<label for="cate-' . esc_attr( $category->term_id ) . '">' . esc_html( $category->name ) . '</label>';
+            echo '</li>';
         }
+        echo '</ul>';
     }
     echo '</div>';
 
     $price_range = get_price_range();
-    echo '<div class="filter-price">';
+    echo '<div class="filter-price filter-form-filter">';
     echo '<h4>Price Range</h4>';
     echo '<div id="price-slider"></div>';
     echo '<span id="price_min_value">' . esc_html( $price_range['min'] ) . '</span> - ';
@@ -103,17 +115,22 @@ function london_product_filter_categories() {
     echo '<input type="hidden" id="price_max" name="price_max" value="' . esc_attr( $price_range['max'] ) . '">';
     echo '</div>';
 
-    echo '<div class="filter-manufacturer">';
+    echo '<div class="filter-manufacturer filter-form-filter last">';
     echo '<h4>Manufacturer</h4>';
     if (  !  empty( $manufacturer_names ) ) {
+        echo '<ul>';
+
+        $manufacturer_names = array_filter( $manufacturer_names );
         foreach ( $manufacturer_names as $manufacturer ) {
-            echo '<label>';
-            echo '<input type="checkbox" name="filter_manufacturer[]" value="' . esc_attr( $manufacturer ) . '"> ';
-            echo esc_html( $manufacturer );
-            echo '</label><br>';
+            echo '<li>';
+            echo '<input type="checkbox" name="filter_manufacturer[]" id="mm-' . strtolower( str_replace( ' ', '', $manufacturer ) ) . '" value="' . esc_attr( $manufacturer ) . '"> ';
+            echo '<label for="mm-' . strtolower( str_replace( ' ', '', $manufacturer ) ) . '">' . esc_html( $manufacturer ) . '</label>';
+            echo '</li>';
         }
+        echo '</ul>';
     }
     echo '</div>';
 
     echo '</form>';
+    echo '</div>';
 }

@@ -90,23 +90,29 @@
 		@if $filename == quote-right-solid {
 		  $char: "\E015";
 		}
-		@if $filename == star-of-life-solid {
+		@if $filename == square-check-light {
 		  $char: "\E016";
 		}
-		@if $filename == train {
+		@if $filename == square-light {
 		  $char: "\E017";
 		}
-		@if $filename == underground {
+		@if $filename == star-of-life-solid {
 		  $char: "\E018";
 		}
-		@if $filename == user-regular {
+		@if $filename == train {
 		  $char: "\E019";
 		}
-		@if $filename == x-twitter {
+		@if $filename == underground {
 		  $char: "\E01A";
 		}
-		@if $filename == xmark-sharp-light {
+		@if $filename == user-regular {
 		  $char: "\E01B";
+		}
+		@if $filename == x-twitter {
+		  $char: "\E01C";
+		}
+		@if $filename == xmark-sharp-light {
+		  $char: "\E01D";
 		}
 
 	  @return $char;
@@ -186,6 +192,12 @@
 	}
 	.icon-quote-right-solid {
 	  @include icon(quote-right-solid);
+	}
+	.icon-square-check-light {
+	  @include icon(square-check-light);
+	}
+	.icon-square-light {
+	  @include icon(square-light);
 	}
 	.icon-star-of-life-solid {
 	  @include icon(star-of-life-solid);
