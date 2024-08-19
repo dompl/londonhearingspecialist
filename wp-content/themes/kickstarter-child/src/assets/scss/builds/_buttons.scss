@@ -133,6 +133,9 @@ $button-radius: 4px;
 	justify-content: space-between;
 	gap: 1rem;
 	border-radius: 3px;
+	@include from(lg) {
+		display: none;
+	}
 	&:hover {
 		background-color: var.$color-green;
 		color: white;

@@ -45,6 +45,9 @@
 /* New Sidebar */
 #filter-wrapper {
 	padding: 2rem 0;
+	@include to(md) {
+		display: none;
+	}
 	.filter-price {
 		#price-slider {
 			margin-bottom: 1rem;
