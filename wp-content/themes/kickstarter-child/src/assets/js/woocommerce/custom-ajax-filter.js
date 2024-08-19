@@ -69,13 +69,20 @@ jQuery(document).ready(function ($) {
 			})
 			.get();
 
+		var selectedManufacturers = $('input[name="filter_manufacturer[]"]:checked')
+			.map(function () {
+				return $(this).val();
+			})
+			.get();
+
 		$.ajax({
 			url: custom_ajax_obj.ajax_url,
 			type: 'POST',
 			data: {
 				action: 'get_price_range',
 				categories: selectedCategories,
-				security: custom_ajax_obj.nonce, // Ensure this is being sent
+				manufacturers: selectedManufacturers,
+				security: custom_ajax_obj.nonce,
 			},
 			beforeStart: function () {
 				$('.woocommerce-wrapper .left').addClass('active');

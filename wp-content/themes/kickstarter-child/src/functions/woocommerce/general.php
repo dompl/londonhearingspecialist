@@ -80,10 +80,7 @@ add_action( 'pre_get_posts', 'pre_get_posts_products_per_page_filter' );
 add_action( 'woocommerce_before_shop_loop', 'custom_result_count_ordering_wrapper_start', 20 );
 function custom_result_count_ordering_wrapper_start() {
 
-    if ( Helpers::isNewLondon() ) {
-        return;
-    }
-    echo '<div class="london-woo-ordering">';
+    echo '<div class="london-woo-ordering ' . ( Helpers::isNewLondon() ? 'new' : '' ) . '">';
     echo '<div class="left">';
     echo '</div>';
 
@@ -91,32 +88,47 @@ function custom_result_count_ordering_wrapper_start() {
     //  echo '<a href="#sidebar-product-categories" class="see-categories button blue-dark small">Products Categories</a>';
     // First, check if WooCommerce is active
     if ( class_exists( 'WooCommerce' ) ) {
-        // Fetch product categories
-        $args = array(
-            'taxonomy'   => 'product_cat',
-            'orderby'    => 'name',
-            'order'      => 'ASC',
-            'hide_empty' => true
-        );
-        $product_categories = get_terms( $args );
+        if (  !  Helpers::isNewLondon() ) {
+            // Fetch product categories
+            $args = array(
+                'taxonomy'   => 'product_cat',
+                'orderby'    => 'name',
+                'order'      => 'ASC',
+                'hide_empty' => true
+            );
+            $product_categories = get_terms( $args );
 
-        // Begin the select dropdown
-        echo '<select name="product_categories" id="london-select-cats" onchange="window.location.href=this.value;">';
-        echo '<option value="">Product Categories</option>';
+            // Begin the select dropdown
+            echo '<select name="product_categories" id="london-select-cats" onchange="window.location.href=this.value;">';
+            echo '<option value="">Product Categories</option>';
 
-        // Loop through product categories and create an option for each
-        foreach ( $product_categories as $category ) {
-            // Create an option element with the category name and link to the category
-            echo '<option value="' . get_term_link( $category ) . '">' . $category->name . '</option>';
+            // Loop through product categories and create an option for each
+            foreach ( $product_categories as $category ) {
+                // Create an option element with the category name and link to the category
+                echo '<option value="' . get_term_link( $category ) . '">' . $category->name . '</option>';
+            }
+
+            // Close the select element
+            echo '</select>';
         }
-
-        // Close the select element
-        echo '</select>';
+        if ( Helpers::isNewLondon() ) {
+            woocommerce_london_filter_popup();
+        }
         woocommerce_catalog_ordering();
-        woocommerce_london_products_per_page();
+        if (  !  Helpers::isNewLondon() ) {
+            woocommerce_london_products_per_page();
+        }
     }
     echo '</div>';
     echo '</div>';
+}
+
+function woocommerce_london_filter_popup() {
+
+    echo '<div class="show-all-filter">';
+    echo '<a href="#all-filters" id="all-filter-button"><i class="icon-sliders-light"></i><span>Show All Filters</span></a>';
+    echo '</div>';
+
 }
 
 // Add manucaturer

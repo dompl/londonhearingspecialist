@@ -72,7 +72,10 @@ add_action( 'wp_ajax_get_price_range', 'ajax_get_price_range' );
 
 function ajax_get_price_range() {
     check_ajax_referer( 'fetch_price', 'security' );
-    $categories = isset( $_POST['categories'] ) ? $_POST['categories'] : array();
-    echo json_encode( get_price_range( $categories ) );
+
+    $categories    = isset( $_POST['categories'] ) ? $_POST['categories'] : array();
+    $manufacturers = isset( $_POST['manufacturers'] ) ? $_POST['manufacturers'] : array();
+
+    echo json_encode( get_price_range( $categories, $manufacturers ) );
     wp_die();
 }

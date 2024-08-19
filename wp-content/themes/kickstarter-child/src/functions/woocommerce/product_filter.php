@@ -34,30 +34,42 @@ function get_unique_manufacturers() {
     return $manufacturers;
 }
 
-function get_price_range( $categories = array() ) {
+function get_price_range( $categories = array(), $manufacturers = array() ) {
     global $wpdb;
 
-    if ( empty( $categories ) ) {
-        $queried_object = get_queried_object();
-        if (  !  empty( $queried_object ) && isset( $queried_object->term_id ) ) {
-            $categories = array( $queried_object->term_id ); // Use the current category ID if on a category page
-        }
+    $category_filter     = '';
+    $manufacturer_filter = '';
+
+    if (  !  empty( $categories ) ) {
+        $category_ids    = implode( ',', array_map( 'intval', $categories ) );
+        $category_filter = "AND ID IN (
+			  SELECT object_id FROM {$wpdb->term_relationships} WHERE term_taxonomy_id IN ($category_ids)
+		 )";
     }
 
-    $category_ids = implode( ',', array_map( 'intval', $categories ) );
-    $query        = "
+    if (  !  empty( $manufacturers ) ) {
+        $manufacturer_values = implode( "','", array_map( 'esc_sql', $manufacturers ) );
+        $manufacturer_filter = "AND ID IN (
+			  SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = '_manufacturer' AND meta_value IN ('$manufacturer_values')
+		 )";
+    }
+
+    $query = "
 		 SELECT MIN(CAST(meta_value AS DECIMAL(10,2))) as min_price,
 				  MAX(CAST(meta_value AS DECIMAL(10,2))) as max_price
 		 FROM {$wpdb->postmeta}
-		 WHERE meta_key = '_price' AND post_id IN (
-			  SELECT ID FROM {$wpdb->posts} WHERE post_type = 'product' AND post_status = 'publish'
-			  AND ID IN (
-					SELECT object_id FROM {$wpdb->term_relationships} WHERE term_taxonomy_id IN ($category_ids)
-			  )
+		 WHERE meta_key = '_price'
+		 AND post_id IN (
+			  SELECT ID FROM {$wpdb->posts}
+			  WHERE post_type = 'product'
+			  AND post_status = 'publish'
+			  $category_filter
+			  $manufacturer_filter
 		 )
 	";
 
     $prices = $wpdb->get_row( $query );
+
     return array( 'min' => $prices->min_price ?: 0, 'max' => $prices->max_price ?: 0 );
 }
 
@@ -91,7 +103,7 @@ function london_product_filter_categories() {
     echo '<div id="filter-wrapper">';
     echo '<form id="filter-form" method="post">';
     echo '<div class="filter-category filter-form-filter first">';
-    echo '<h4>Categories</h4>';
+    echo '<h4>Product Type</h4>';
     if (  !  empty( $categories ) ) {
         echo '<ul>';
         foreach ( $categories as $category ) {
@@ -103,16 +115,6 @@ function london_product_filter_categories() {
         }
         echo '</ul>';
     }
-    echo '</div>';
-
-    $price_range = get_price_range();
-    echo '<div class="filter-price filter-form-filter">';
-    echo '<h4>Price Range</h4>';
-    echo '<div id="price-slider"></div>';
-    echo '<span id="price_min_value">' . esc_html( $price_range['min'] ) . '</span> - ';
-    echo '<span id="price_max_value">' . esc_html( $price_range['max'] ) . '</span>';
-    echo '<input type="hidden" id="price_min" name="price_min" value="' . esc_attr( $price_range['min'] ) . '">';
-    echo '<input type="hidden" id="price_max" name="price_max" value="' . esc_attr( $price_range['max'] ) . '">';
     echo '</div>';
 
     echo '<div class="filter-manufacturer filter-form-filter last">';
@@ -129,6 +131,16 @@ function london_product_filter_categories() {
         }
         echo '</ul>';
     }
+    echo '</div>';
+
+    $price_range = get_price_range();
+    echo '<div class="filter-price filter-form-filter">';
+    echo '<h4>Price Range</h4>';
+    echo '<div id="price-slider"></div>';
+    echo '<span id="price_min_value">' . esc_html( $price_range['min'] ) . '</span> - ';
+    echo '<span id="price_max_value">' . esc_html( $price_range['max'] ) . '</span>';
+    echo '<input type="hidden" id="price_min" name="price_min" value="' . esc_attr( $price_range['min'] ) . '">';
+    echo '<input type="hidden" id="price_max" name="price_max" value="' . esc_attr( $price_range['max'] ) . '">';
     echo '</div>';
 
     echo '</form>';

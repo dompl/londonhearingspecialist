@@ -64,6 +64,15 @@
 		border-radius: 3px;
 		padding: rem(4);
 	}
+
+	&.new {
+		.right {
+			flex-direction: row;
+			display: flex;
+			justify-content: center;
+			gap: 1rem;
+		}
+	}
 	// p,
 	// form {
 	// 	margin: 0 !important;

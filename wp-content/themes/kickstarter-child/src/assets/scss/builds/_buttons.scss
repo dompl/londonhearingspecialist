@@ -121,3 +121,20 @@ $button-radius: 4px;
 	flex-direction: row;
 	flex-wrap: wrap;
 }
+
+#all-filter-button {
+	display: inline-block;
+	background-color: var.$color-gray-lightest;
+	padding: 0.5rem 0.5rem 0.4rem;
+	color: var.$color-text;
+	display: flex;
+	line-height: 1;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	gap: 1rem;
+	border-radius: 3px;
+	&:hover {
+		background-color: var.$color-green;
+		color: white;
+	}
+}
