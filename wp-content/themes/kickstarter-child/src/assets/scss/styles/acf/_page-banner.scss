@@ -15,7 +15,9 @@
 	h1,
 	h2 {
 		margin: 0;
+		line-height: 1;
 	}
+
 	.addon {
 		background-color: var.$color-blue;
 		padding: rem(5) rem(10);

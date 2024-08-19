@@ -92,13 +92,13 @@ function display_categories_and_manufacturers_lists() {
     echo '</div>';
 
     echo '<div class="sidebar-product-search london-woo-side-item">';
-    echo '<h3>' . __( 'Product Search', 'london-child' ) . '</h3>';
+    echo '<div class="h3">' . __( 'Product Search', 'london-child' ) . '</div>';
     echo do_shortcode( '[yith_woocommerce_ajax_search preset="default"]' );
     echo '</div>';
 
     if ( count( $product_categories ) > 1 ) {
         echo '<div class="sidebar-product-categories london-woo-side-item" id="sidebar-product-categories">';
-        echo '<h3>' . __( 'Product Categories', 'london-child' ) . '</h3>';
+        echo '<div class="h3">' . __( 'Product Categories', 'london-child' ) . '</div>';
         echo '<ul>';
         foreach ( $product_categories as $category ) {
             $active_class = ( is_tax( 'product_cat', $category ) || is_product_category( $category->term_id ) ) ? ' class="active"' : '';
@@ -111,7 +111,7 @@ function display_categories_and_manufacturers_lists() {
     // Manufacturers List
     if (  !  empty( $manufacturers ) ) {
         echo '<div class="sidebar-manufacturers london-woo-side-item">';
-        echo '<h3>' . __( 'Manufacturers', 'london-child' ) . '</h3>';
+        echo '<div class="h3">' . __( 'Manufacturers', 'london-child' ) . '</div>';
         echo '<ul>';
         $shop_page_url = get_permalink( wc_get_page_id( 'shop' ) );
         foreach ( $manufacturers as $manufacturer ) {

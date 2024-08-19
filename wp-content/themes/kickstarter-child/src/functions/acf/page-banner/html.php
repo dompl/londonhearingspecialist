@@ -47,7 +47,7 @@ function london_page_banner_html() {
         $html .= '<div class="batch-wrapper"><span class="button batch ' . ( $batch_color ?? 'brand' ) . '">' . $batch . '</span></div>';
     }
 
-    $html .= '<div class="title"><h1 class="color-' . $color . '">' . $title . '</h1></div>';
+    $html .= '<div class="title" id="product-name-title"><h1 class="color-' . $color . '">' . $title . '</h1></div>';
 
     //  if ( function_exists( 'yoast_breadcrumb' ) && !  is_front_page() ) {
     //      ob_start(); // Start output buffering
@@ -175,7 +175,7 @@ add_filter( 'london_banner_title', function ( $title, $post ) {
         $category = get_queried_object(); // Get the current category object.
         if ( $category && property_exists( $category, 'name' ) ) {
             // Append the category name to the title.
-            $title = 'Category: ' . $category->name;
+            $title = $category->name;
         }
     }
 

@@ -103,7 +103,7 @@ function london_product_filter_categories() {
     echo '<div id="filter-wrapper">';
     echo '<form id="filter-form" method="post">';
     echo '<div class="filter-category filter-form-filter first">';
-    echo '<h4>Product Type</h4>';
+    echo '<div class="product-h4">Product Type</div>';
     if (  !  empty( $categories ) ) {
         echo '<ul>';
         foreach ( $categories as $category ) {
@@ -118,7 +118,7 @@ function london_product_filter_categories() {
     echo '</div>';
 
     echo '<div class="filter-manufacturer filter-form-filter last">';
-    echo '<h4>Manufacturer</h4>';
+    echo '<div class="product-h4">Manufacturer</div>';
     if (  !  empty( $manufacturer_names ) ) {
         echo '<ul>';
 
@@ -135,7 +135,7 @@ function london_product_filter_categories() {
 
     $price_range = get_price_range();
     echo '<div class="filter-price filter-form-filter">';
-    echo '<h4>Price Range</h4>';
+    echo '<div class="product-h4">Price Range</div>';
     echo '<div id="price-slider"></div>';
     echo '<span id="price_min_value">' . esc_html( $price_range['min'] ) . '</span> - ';
     echo '<span id="price_max_value">' . esc_html( $price_range['max'] ) . '</span>';

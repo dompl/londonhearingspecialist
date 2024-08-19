@@ -17,11 +17,6 @@ jQuery(document).ready(function ($) {
 		},
 	});
 
-	// $('#all-filter-button').modaal({
-	// 	type: 'inline',
-	// 	content_source: '#filter-wrapper',
-	// });
-
 	// Function to submit the filter form and update products
 	function submitFilterForm() {
 		var formData = {
@@ -121,13 +116,39 @@ jQuery(document).ready(function ($) {
 		});
 	}
 
+	// Update banner text based on selected categories
+	function updateBannerText() {
+		var selectedCategoryNames = $('input[name="filter_category[]"]:checked')
+			.map(function () {
+				return $(this).siblings('label').text();
+			})
+			.get();
+
+		var bannerText = '';
+
+		if (selectedCategoryNames.length > 0) {
+			if (selectedCategoryNames.length === 1) {
+				bannerText = selectedCategoryNames[0];
+			} else {
+				var lastCategory = selectedCategoryNames.pop();
+				bannerText = selectedCategoryNames.join(', ') + ' & ' + lastCategory;
+			}
+		} else {
+			bannerText = 'All Products'; // Default text when no categories are selected
+		}
+
+		$('#product-name-title h1').html('<span>' + bannerText + '</span>');
+	}
+
 	// Event listener for changes on category and manufacturer checkboxes
 	$('input[name="filter_category[]"], input[name="filter_manufacturer[]"]').on('change', function () {
 		fetchPriceRangeAndUpdateSlider(); // Update slider when categories change
 		submitFilterForm(); // Update products list
+		updateBannerText(); // Update banner text when categories change
 	});
 
-	// Initialize slider and products display on page load
+	// Initialize slider, products display, and banner text on page load
 	fetchPriceRangeAndUpdateSlider();
 	submitFilterForm();
+	updateBannerText();
 });
