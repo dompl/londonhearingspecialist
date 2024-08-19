@@ -1,4 +1,27 @@
 jQuery(document).ready(function ($) {
+	/**
+	 *   FIlter modal
+	 */
+	$('#all-filter-button').magnificPopup({
+		items: {
+			src: '#filter-wrapper',
+			type: 'inline',
+		},
+		mainClass: 'mfp-filter-wrapper', // Add your custom class here
+		midClick: true, // Allow opening popup on middle mouse click
+		disableOn: function () {
+			if ($(window).width() > 993) {
+				return false;
+			}
+			return true;
+		},
+	});
+
+	// $('#all-filter-button').modaal({
+	// 	type: 'inline',
+	// 	content_source: '#filter-wrapper',
+	// });
+
 	// Function to submit the filter form and update products
 	function submitFilterForm() {
 		var formData = {

@@ -46,7 +46,7 @@
 #filter-wrapper {
 	padding: 2rem 0;
 	@include to(md) {
-		display: none;
+		// display: none;
 	}
 	.filter-price {
 		#price-slider {
@@ -91,6 +91,34 @@
 					float: left;
 					margin-top: 1px;
 					margin-right: 5px;
+				}
+			}
+		}
+	}
+}
+.mfp-filter-wrapper {
+	.mfp-close {
+		color: white;
+		font-size: 3rem;
+	}
+	#filter-wrapper {
+		width: auto;
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: white;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		@include from(md) {
+			ul {
+				flex-direction: row-reverse;
+				flex-wrap: wrap;
+				align-items: flex-end;
+				justify-content: space-between;
+				li {
+					width: 48%;
 				}
 			}
 		}
