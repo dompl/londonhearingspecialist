@@ -17,6 +17,11 @@ jQuery(document).ready(function ($) {
 		},
 	});
 
+	// Check if custom_ajax_obj is defined; if not, exit the function
+	if (typeof custom_ajax_obj === 'undefined') {
+		return;
+	}
+
 	// Function to submit the filter form and update products
 	function submitFilterForm() {
 		var formData = {
@@ -41,9 +46,7 @@ jQuery(document).ready(function ($) {
 			success: function (response) {
 				$('.products').html(response);
 			},
-			error: function (xhr, status, error) {
-				console.error('Failed to update products!', error);
-			},
+			error: function (xhr, status, error) {},
 		});
 	}
 
@@ -110,9 +113,7 @@ jQuery(document).ready(function ($) {
 				initializePriceSlider(data.min, data.max);
 				$('.woocommerce-wrapper .left').removeClass('active');
 			},
-			error: function (xhr, status, error) {
-				console.error('Error fetching price range:', error);
-			},
+			error: function (xhr, status, error) {},
 		});
 	}
 
