@@ -6,6 +6,12 @@
 	background-color: var.$color-blue-dark;
 	color: white;
 	padding: 4rem 0 2rem 0;
+	.footer-name {
+		font-size:clamp(1rem, 3vw, 1.6rem);
+		color:white;
+		font-weight:bold;
+		margin-bottom:1rem;
+	}
 	a {
 		color: white;
 	}
