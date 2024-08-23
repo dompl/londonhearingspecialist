@@ -1,0 +1,2033 @@
+# Copyright (C) 2023 Barn2 Plugins
+# This file is distributed under the GNU General Public License v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Product Filters\n"
+"Report-Msgid-Bugs-To: https://barn2.com/support-center/\n"
+"POT-Creation-Date: 2023-09-15T00:00:00+00:00\n"
+"PO-Revision-Date: 2023-11-17 08:52+0100\n"
+"Last-Translator: Gnist Design <post@gnistdesign.no>\n"
+"Language-Team: Gnist Design <post@gnistdesign.no>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.1\n"
+"X-Domain: woocommerce-product-filters\n"
+
+#. Plugin Name of the plugin
+#: dist/woocommerce-product-filters/src/Admin/Admin_Controller.php:120
+#: dist/woocommerce-product-filters/src/Integrations/Plugin_Elementor.php:168
+#: src/Admin/Admin_Controller.php:120 src/Integrations/Plugin_Elementor.php:168
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/admin-layout-wrapper.js:51
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "WooCommerce Product Filters"
+msgstr "WooCommerce Product Filters"
+
+#. Plugin URI of the plugin
+msgid "https://barn2.com/wordpress-plugins/woocommerce-product-filters/"
+msgstr "https://barn2.com/wordpress-plugins/woocommerce-product-filters/"
+
+#. Description of the plugin
+msgid ""
+"Help customers to find what they want quickly and easily. Add product "
+"filters for price, color, category, size, attributes, and more."
+msgstr ""
+"Hjelp kundene med å finne det de vil ha raskt og enkelt. Legg til "
+"produktfiltre for pris, farge, kategori, størrelse, attributter og mer."
+
+#. Author of the plugin
+msgid "Barn2 Plugins"
+msgstr "Barn2 Plugins"
+
+#. Author URI of the plugin
+msgid "https://barn2.com"
+msgstr "https://barn2.com"
+
+#: dependencies/barn2/barn2-lib/src/Admin/Settings_API_Helper.php:507
+#: dependencies/barn2/barn2-lib/src/WooCommerce/Admin/Custom_Settings_Fields.php:138
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Admin/Settings_API_Helper.php:507
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/WooCommerce/Admin/Custom_Settings_Fields.php:138
+msgid "Size"
+msgstr "Størrelse"
+
+#: dependencies/barn2/barn2-lib/src/Admin/Settings_Util.php:62
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Admin/Settings_Util.php:62
+#: dist/woocommerce-product-filters/src/Admin/Settings_Page.php:224
+#: src/Admin/Settings_Page.php:224
+msgid "Documentation"
+msgstr "Dokumentasjon"
+
+#: dependencies/barn2/barn2-lib/src/Admin/Settings_Util.php:62
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Admin/Settings_Util.php:62
+#: dist/woocommerce-product-filters/src/Admin/Settings_Page.php:225
+#: src/Admin/Settings_Page.php:225
+msgid "Support"
+msgstr "Kundestøtte"
+
+#: dependencies/barn2/barn2-lib/src/Plugin/Admin/Admin_Links.php:47
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/Admin/Admin_Links.php:47
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:48
+#: src/Admin/Settings_Controller.php:48
+msgid "Settings"
+msgstr "Innstillinger"
+
+#. translators: %s: The plugin name
+#: dependencies/barn2/barn2-lib/src/Plugin/Admin/Admin_Links.php:63
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/Admin/Admin_Links.php:63
+msgid "View %s documentation"
+msgstr "Vis %s dokumentasjon"
+
+#: dependencies/barn2/barn2-lib/src/Plugin/Admin/Admin_Links.php:64
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/Admin/Admin_Links.php:64
+msgid "Docs"
+msgstr "Dokumentasjon"
+
+#. translators: 1: licence key link start, 2: license key link end
+#: dependencies/barn2/barn2-lib/src/Plugin/Admin/Plugin_Updater.php:156
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/Admin/Plugin_Updater.php:156
+msgid "Activate %1$syour license key%2$s to enable updates."
+msgstr "Aktiver %1$sdin lisensnøkkel%2$s for å få oppdateringer."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/Admin/Plugin_Updater.php:211
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/Admin/Plugin_Updater.php:211
+msgid "Auto-updates unavailable."
+msgstr "Autooppdateringer utilgjengelig."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:58
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:58
+msgid "License key successfully activated."
+msgstr "Lisens er aktivert."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:58
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:58
+msgid "There was an error activating your license key."
+msgstr "Det oppsto en feil ved aktivering av din lisensnøkkel."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:62
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:62
+msgid "License key successfully deactivated."
+msgstr "Deaktivering av lisensnøkkel vellykket."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:62
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:62
+msgid "There was an error deactivating your license key, please try again."
+msgstr ""
+"Det oppstod en feil ved lagring av din lisensnøkkel, vennligst prøv på nytt."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:65
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:65
+msgid "The license key looks good!"
+msgstr "Lisensnøkkelen ser bra ut!"
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:65
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:65
+msgid "There's a problem with your license key."
+msgstr "Det er et problem med lisensnøkkelen din."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:107
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:107
+msgid "License key"
+msgstr "Lisensnøkkel"
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:109
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:109
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Setup_Wizard.php:62
+#: src/Admin/Wizard/Setup_Wizard.php:62
+msgid "The licence key is contained in your order confirmation email."
+msgstr "Lisensnøkkelen finner du i bestillingsbekreftelsen."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:112
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:112
+msgid "License Key"
+msgstr "Lisensnøkkel"
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:131
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:131
+msgid "Check"
+msgstr "Sjekk"
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:131
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:131
+msgid "Activate"
+msgstr "Aktiver"
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:131
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:131
+msgid "Deactivate"
+msgstr "Deaktiver"
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:139
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php:139
+msgid "License key deactivated."
+msgstr "Lisensnøkkel deaktivert."
+
+#. translators: 1: the plugin name, 2: settings link start, 3: settings link end.
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Notices.php:82
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Notices.php:90
+msgid ""
+"Thank you for installing %1$s. To get started, please %2$s enter your "
+"license key%3$s."
+msgstr ""
+"Takk for at du har installert %1$s. For å komme i gang, vennligst %2$s skriv "
+"inn lisensnøkkelen din%3$s."
+
+#. translators: 1: the plugin name, 2: renewal link start, 3: renewal link end.
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Notices.php:107
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Notices.php:115
+msgid ""
+"Your license key for %1$s has expired. %2$sClick here to renew for 20%% "
+"discount%3$s."
+msgstr ""
+"Lisensnøkkelen din for %1$s har utløpt. %2$sKlikk her for å fornye for 20%% "
+"rabatt%3$s."
+
+#. translators: 1: the plugin name, 2: renewal link start, 3: renewal link end.
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Notices.php:132
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Notices.php:140
+msgid ""
+"You no longer have a valid license for %1$s. Please %2$spurchase a new "
+"license key%3$s to continue using the plugin."
+msgstr ""
+"Du har ikke lenger en gyldig lisens for %1$s. Vennligst %2$skjøp en ny "
+"lisensnøkkel%3$s for å fortsette å bruke denne utvidelsen."
+
+#. translators: 1: the plugin name, 2: settings link start, 3: settings link end.
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Notices.php:160
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Notices.php:168
+msgid ""
+"%1$s - your site has moved to a new domain. Please %2$sreactivate your "
+"license key%3$s."
+msgstr ""
+"%1$s - nettstedet ditt er flyttet til et nytt domene. Vennligst %2$s "
+"reaktiver lisensnøkkelen din%3$s."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/EDD_Licensing.php:147
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/EDD_Licensing.php:147
+msgid "An error has occurred, please try again."
+msgstr "En feil har oppstått, vennligst prøv på nytt."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:90
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:90
+msgid "Your license key is active."
+msgstr "Lisensnøkkelen din er aktiv."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:110
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:110
+msgid "Please enter your license key."
+msgstr "Vennligst legg inn din lisensnøkkel."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:112
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:332
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:112
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:332
+msgid "Your license key is invalid."
+msgstr "Lisensnøkkelen din er ugyldig."
+
+#. translators: 1: account page link start, 2: account page link end
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:276
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:276
+msgid ""
+"Invalid license key - please check your order confirmation email or "
+"%1$sAccount%2$s."
+msgstr "Ugyldig lisensnøkkel - sjekk e-postbekreftelsen eller %1$sKonto%2$s."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:282
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:282
+msgid "No URL was supplied for activation, please contact support."
+msgstr ""
+"Det ble ikke oppgitt noen URL for aktivering, vennligst kontakt kundestøtte."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:285
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:285
+msgid "License key mismatch, please contact support."
+msgstr "Lisensnøkkelen stemmer ikke overens, vennligst kontakt kundestøtte."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:288
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:288
+msgid "This license is for a bundled product and cannot be activated."
+msgstr "Denne lisensen gjelder for et pakkeprodukt og kan ikke aktiveres."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:292
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:292
+msgid "Your license key is not valid for this plugin."
+msgstr "Lisensnøkkelen din er ikke gyldig for denne utvidelsen."
+
+#. translators: %s: The number of sites the license is activated on
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:298
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:298
+msgid "%s site active"
+msgid_plural "%s sites active"
+msgstr[0] "%s nettsted aktiv"
+msgstr[1] "%s nettsteder aktiv"
+
+#. translators: %s: The sites active description, e.g. '2 sites active'
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:301
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:301
+msgid "Your license key has reached its activation limit (%s)."
+msgstr "Lisensnøkkelen har nådd aktiveringsgrensen (%s)."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:302
+#: dependencies/barn2/barn2-lib/src/Util.php:32
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:302
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Util.php:32
+msgid "Read more"
+msgstr "Les mer"
+
+#. translators: support for RTL, 1: the license error, 2: a link
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:304
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:322
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:304
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:322
+msgid "%1$s %2$s"
+msgstr "%1$s %2$s"
+
+#. translators: %s: The license expiry date
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:317
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:317
+msgid "Your license key expired on %s."
+msgstr "Lisensnøkkelen utløp den %s."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:320
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:320
+msgid "Renew now for 20% discount."
+msgstr "Forny nå for 20% rabatt."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:523
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:523
+msgid "Your license key is not active. Please reactivate or save the settings."
+msgstr ""
+"Lisensnøkkelen din er ikke aktiv. Vennligst aktiver på nytt eller lagre "
+"innstillingene."
+
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:527
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:527
+msgid "Your license key has expired."
+msgstr "Lisensnøkkelen din er utløpt."
+
+#. translators: 1: purchase link start, 2: purchase link end.
+#: dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:533
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php:533
+msgid ""
+"Your license key has been disabled. Please %1$spurchase a new license key"
+"%2$s to continue using the plugin."
+msgstr ""
+"Lisensnøkkelen din er deaktivert. Vennligst %1$skjøp en ny lisensnøkkel%2$s "
+"for å fortsette å bruke denne utvidelsen."
+
+#. translators: %1$s: Plugin name. %2$s: Update Core <a> tag open. %3$s: <a> tag close. %4$s: WP Version required.
+#: dependencies/barn2/barn2-lib/src/Traits/Check_WP_Requirements.php:34
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Traits/Check_WP_Requirements.php:34
+msgid ""
+"The %1$s plugin requires WordPress %4$s or greater. Please %2$supdate%3$s "
+"your WordPress installation."
+msgstr ""
+"Programtillegget %1$s krever WordPress %4$s eller nyere. Vennligst %2$s "
+"oppdater%3$s WordPress-installasjonen din."
+
+#. translators: %1$s: Install WooCommerce <a> tag open. %2$s: <a> tag close. %3$s: Plugin name
+#: dependencies/barn2/barn2-lib/src/Traits/Check_WP_Requirements.php:62
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Traits/Check_WP_Requirements.php:62
+msgid "Please %1$sinstall WooCommerce%2$s in order to use %3$s."
+msgstr "Vennligst %1$sinstaller WooCommerce%2$s for å kunne bruke %3$s."
+
+#. translators: %1$s: Plugin name. %2$s: Version required.
+#: dependencies/barn2/barn2-lib/src/Traits/Check_WP_Requirements.php:77
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/Traits/Check_WP_Requirements.php:77
+msgid ""
+"The %1$s plugin requires WooCommerce %2$s or greater. Please update your "
+"WooCommerce setup first."
+msgstr ""
+"%1$s-tillegget krever WooCommerce %2$s eller nyere. Vennligst oppdater "
+"WooCommerce-oppsettet ditt først."
+
+#: dependencies/barn2/barn2-lib/src/WooCommerce/Admin/Plugin_Promo.php:95
+#: dependencies/barn2/barn2-lib/src/WooCommerce/Admin/Plugin_Promo.php:97
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/WooCommerce/Admin/Plugin_Promo.php:95
+#: dist/woocommerce-product-filters/dependencies/barn2/barn2-lib/src/WooCommerce/Admin/Plugin_Promo.php:97
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-editor.js:114
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Save changes"
+msgstr "Lagre endringer"
+
+#: dependencies/barn2/setup-wizard/src/Api.php:151
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Api.php:151
+msgid "Could not find the appropriate step."
+msgstr "Fant ikke riktig trinn."
+
+#: dependencies/barn2/setup-wizard/src/Api.php:195
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Api.php:195
+msgid "Please enter a license key."
+msgstr "Vennligst skriv inn lisensnøkkel."
+
+#: dependencies/barn2/setup-wizard/src/Api.php:198
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Api.php:198
+msgid "Invalid action requested."
+msgstr "Ugyldig handling forespurt."
+
+#. translators: %s: The name of the plugin.
+#: dependencies/barn2/setup-wizard/src/Setup_Wizard.php:333
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Setup_Wizard.php:333
+msgid "%s setup wizard"
+msgstr "%s installasjonsveiviser"
+
+#: dependencies/barn2/setup-wizard/src/Setup_Wizard.php:423
+#: dependencies/barn2/setup-wizard/src/Setup_Wizard.php:496
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Setup_Wizard.php:423
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Setup_Wizard.php:496
+msgid ""
+"Warning: This will overwrite your existing settings for %s. Are you sure you "
+"want to continue?"
+msgstr ""
+"Advarsel: Dette vil overskrive de eksisterende innstillingene for %s. Er du "
+"sikker på at du vil fortsette?"
+
+#: dependencies/barn2/setup-wizard/src/Setup_Wizard.php:473
+#: dependencies/barn2/setup-wizard/src/Setup_Wizard.php:481
+#: dependencies/barn2/setup-wizard/src/Setup_Wizard.php:531
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Setup_Wizard.php:473
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Setup_Wizard.php:481
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Setup_Wizard.php:531
+#: dist/woocommerce-product-filters/src/Admin/Settings_Page.php:229
+#: src/Admin/Settings_Page.php:229
+msgid "Setup wizard"
+msgstr "Installasjonsveiviser"
+
+#: dependencies/barn2/setup-wizard/src/Setup_Wizard.php:476
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Setup_Wizard.php:476
+msgid ""
+"If you need to access the setup wizard again, please click on the button "
+"below."
+msgstr ""
+"Hvis du trenger tilgang til installasjonsveiviseren igjen, klikker du på "
+"knappen nedenfor."
+
+#: dependencies/barn2/setup-wizard/src/Steps/Cross_Selling.php:23
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Steps/Cross_Selling.php:23
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Upsell.php:20
+#: src/Admin/Wizard/Steps/Upsell.php:20
+msgid "More"
+msgstr "Mer"
+
+#: dependencies/barn2/setup-wizard/src/Steps/Cross_Selling.php:24
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Steps/Cross_Selling.php:24
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Upsell.php:22
+#: src/Admin/Wizard/Steps/Upsell.php:22
+msgid "Extra features"
+msgstr "Ekstra funksjoner"
+
+#: dependencies/barn2/setup-wizard/src/Steps/Cross_Selling.php:25
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Steps/Cross_Selling.php:25
+msgid "Enhance your site with these fantastic plugins from Barn2."
+msgstr "Forbedre nettstedet ditt med disse fantastiske utvidelsene fra Barn2."
+
+#: dependencies/barn2/setup-wizard/src/Steps/Ready.php:23
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Steps/Ready.php:23
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Completed.php:22
+#: src/Admin/Wizard/Steps/Completed.php:22
+msgid "Ready"
+msgstr "Klar"
+
+#: dependencies/barn2/setup-wizard/src/Steps/Ready.php:24
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Steps/Ready.php:24
+msgid "Setup Complete"
+msgstr "Oppsett fullført"
+
+#: dependencies/barn2/setup-wizard/src/Steps/Welcome.php:25
+#: dependencies/barn2/setup-wizard/src/Steps/Welcome_Free.php:24
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Steps/Welcome.php:25
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Steps/Welcome_Free.php:24
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/License_Verification.php:22
+#: src/Admin/Wizard/Steps/License_Verification.php:22
+msgid "Welcome"
+msgstr "Velkommen"
+
+#: dependencies/barn2/setup-wizard/src/Util.php:28
+#: dist/woocommerce-product-filters/dependencies/barn2/setup-wizard/src/Util.php:28
+#: dist/woocommerce-product-filters/src/Display.php:579 src/Display.php:579
+msgid "Select an option"
+msgstr "Velg"
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:68
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:151
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:191
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:223
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:254
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:310
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:338
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:495
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:531
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:696
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:716
+#: src/Admin/Admin_Ajax.php:68 src/Admin/Admin_Ajax.php:151
+#: src/Admin/Admin_Ajax.php:191 src/Admin/Admin_Ajax.php:223
+#: src/Admin/Admin_Ajax.php:254 src/Admin/Admin_Ajax.php:310
+#: src/Admin/Admin_Ajax.php:338 src/Admin/Admin_Ajax.php:495
+#: src/Admin/Admin_Ajax.php:531 src/Admin/Admin_Ajax.php:696
+#: src/Admin/Admin_Ajax.php:716
+msgid "You are not authorized"
+msgstr "Du er ikke autorisert"
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:82
+#: src/Admin/Admin_Ajax.php:82
+msgid "Please enter a name for this filter"
+msgstr "Vennligst skriv inn et navn for dette filteret"
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:93
+#: src/Admin/Admin_Ajax.php:93
+msgid "Something went wrong while updating the filter"
+msgstr "Noe gikk galt under oppdateringen av filteret"
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:137
+#: src/Admin/Admin_Ajax.php:137
+msgid "Something went wrong while creating the filter"
+msgstr "Noe gikk galt under opprettelsen av filteret"
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:197
+#: src/Admin/Admin_Ajax.php:197
+msgid "No records to update have been found."
+msgstr "Det ble ikke funnet noe å oppdatere."
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:229
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:260
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:266
+#: src/Admin/Admin_Ajax.php:229 src/Admin/Admin_Ajax.php:260
+#: src/Admin/Admin_Ajax.php:266
+msgid "No filter found matching the criteria."
+msgstr "Ingen filtre funnet som samsvarer med kriteriene."
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:277
+#: src/Admin/Admin_Ajax.php:277
+msgid "Copy"
+msgstr "Kopier"
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:344
+#: src/Admin/Admin_Ajax.php:344
+msgid "Please enter a name for the group."
+msgstr "Vennligst skriv inn et navn på gruppen."
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:350
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:356
+#: src/Admin/Admin_Ajax.php:350 src/Admin/Admin_Ajax.php:356
+msgid "Something went wrong: could not update the selected group"
+msgstr "Noe gikk galt: Kunne ikke oppdatere den valgte gruppen"
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:363
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:543
+#: src/Admin/Admin_Ajax.php:363 src/Admin/Admin_Ajax.php:543
+msgid "Please add at least 1 filter to the group."
+msgstr "Legg til minst ett filter i gruppen."
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:501
+#: src/Admin/Admin_Ajax.php:501
+msgid "No group ID has been found."
+msgstr "Ingen gruppe-ID ble funnet."
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:507
+#: src/Admin/Admin_Ajax.php:507
+msgid "Something went wrong, could not find the selected group."
+msgstr "Noe gikk galt, kunne ikke finne den valgte gruppen."
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:537
+#: src/Admin/Admin_Ajax.php:537
+msgid "Please enter a name for the group"
+msgstr "Vennligst skriv inn et navn på gruppen"
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:561
+#: src/Admin/Admin_Ajax.php:561
+msgid "Something went wrong while creating the group"
+msgstr "Noe gikk galt under opprettelsen av gruppen"
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:585
+#: src/Admin/Admin_Ajax.php:585
+msgid ""
+"One or more filters have no name assigned. Please make sure all filters have "
+"a name."
+msgstr ""
+"Ett eller flere filtre har ikke fått tildelt noe navn. Kontroller at alle "
+"filtrene har et navn."
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:722
+#: src/Admin/Admin_Ajax.php:722
+msgid "No record found matching the criteria."
+msgstr "Det ble ikke funnet noen poster som samsvarer med kriteriene."
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:728
+#: src/Admin/Admin_Ajax.php:728
+msgid "No group found matching the criteria."
+msgstr "Det ble ikke funnet noen gruppe som oppfyller kriteriene."
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:792
+#: src/Admin/Admin_Ajax.php:792
+msgid ""
+"The following filters are sharing the same data source: %s. Each filter in a "
+"group must have a unique data source. Please adjust the filters accordingly."
+msgstr ""
+"Følgende filtre deler samme datakilde: %s. Hvert filter i en gruppe må ha en "
+"unik datakilde. Juster filtrene i henhold til dette."
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Ajax.php:820
+#: src/Admin/Admin_Ajax.php:820
+msgid ""
+"The \"%1$s\" filter has been found. Please remove the following filters from "
+"the group: %2$s."
+msgstr ""
+"Filteret \"%1$s\" er funnet. Vennligst fjern følgende filtre fra gruppen: "
+"%2$s."
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Controller.php:88
+#: dist/woocommerce-product-filters/src/Admin/Filters_Editor.php:45
+#: dist/woocommerce-product-filters/src/Admin/Settings_Page.php:146
+#: src/Admin/Admin_Controller.php:88 src/Admin/Filters_Editor.php:45
+#: src/Admin/Settings_Page.php:146 assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-editor.js:106
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Filters"
+msgstr "Filtre"
+
+#: dist/woocommerce-product-filters/src/Admin/Admin_Controller.php:121
+#: dist/woocommerce-product-filters/src/Api.php:133
+#: dist/woocommerce-product-filters/src/Display.php:574
+#: src/Admin/Admin_Controller.php:121 src/Api.php:133 src/Display.php:574
+msgid ""
+"Regenerating the index in the background. Product filtering and sorting may "
+"not be accurate until this finishes. It will take a few minutes and this "
+"notice will disappear when complete."
+msgstr ""
+"Regenererer indeksen i bakgrunnen. Det kan hende at produktfiltrering og "
+"sortering ikke er nøyaktig før dette er ferdig. Det vil ta noen minutter, og "
+"denne meldingen vil forsvinne når den er ferdig."
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:87
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Display.php:22
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Display.php:23
+#: src/Admin/Settings_Controller.php:87
+#: src/Admin/Wizard/Steps/Filter_Display.php:22
+#: src/Admin/Wizard/Steps/Filter_Display.php:23
+msgid "Shop filters"
+msgstr "Butikkfilter"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:95
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Behavior.php:24
+#: src/Admin/Settings_Controller.php:95
+#: src/Admin/Wizard/Steps/Filter_Behavior.php:24
+msgid "Behavior"
+msgstr "Adferd"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:103
+#: src/Admin/Settings_Controller.php:103
+msgid "Filter text"
+msgstr "Filter tekst"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:104
+#: src/Admin/Settings_Controller.php:104
+msgid "Customize the text which appears on the filters."
+msgstr "Tilpass teksten som vises på filtrene."
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:112
+#: src/Admin/Settings_Controller.php:112
+msgid "Design"
+msgstr "Design"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:130
+#: src/Admin/Settings_Controller.php:130
+msgid ""
+"These settings control the filters that appear above the list of products in "
+"your store. You can also add filters to a sidebar by adding a <a href=\"%s"
+"\">Product Filters widget</a>."
+msgstr ""
+"Disse innstillingene styrer filtrene som vises over produktlisten i "
+"butikken. Du kan også legge til filtre i et sidefelt ved å legge til en <a "
+"href=\"%s\">widget for produktfiltre</a>."
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:144
+#: src/Admin/Settings_Controller.php:144
+msgid "Customize the design of the filters."
+msgstr "Tilpass utformingen av filtrene."
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:150
+#: src/Admin/Settings_Controller.php:150
+msgid "‘Show filters’ button"
+msgstr "\"Vis filter\"-knappen"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:153
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:159
+#: dist/woocommerce-product-filters/src/Display.php:151
+#: src/Admin/Settings_Controller.php:153 src/Admin/Settings_Controller.php:159
+#: src/Display.php:151
+msgid "Filter"
+msgstr "Filter"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:156
+#: src/Admin/Settings_Controller.php:156
+msgid "Slide-out panel heading"
+msgstr "Overskrift på uttrekkbart panel"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:162
+#: src/Admin/Settings_Controller.php:162
+msgid "‘Apply filters’ button"
+msgstr "\"Bruk filtre\"-knappen"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:165
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:166
+#: dist/woocommerce-product-filters/src/Display.php:137
+#: src/Admin/Settings_Controller.php:165 src/Admin/Settings_Controller.php:166
+#: src/Display.php:137
+msgid "Apply Filters"
+msgstr "Bruk filtre"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:169
+#: src/Admin/Settings_Controller.php:169
+msgid "‘Clear filters’ link"
+msgstr "lenken \"Tøm filtre"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:172
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:173
+#: dist/woocommerce-product-filters/src/Display.php:146
+#: src/Admin/Settings_Controller.php:172 src/Admin/Settings_Controller.php:173
+#: src/Display.php:146
+msgid "Clear filters"
+msgstr "Fjern filtre"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:181
+#: src/Admin/Settings_Controller.php:181
+msgid "Filter mode"
+msgstr "Filtermodus"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:186
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Behavior.php:61
+#: src/Admin/Settings_Controller.php:186
+#: src/Admin/Wizard/Steps/Filter_Behavior.php:61
+msgid "Apply filters as soon as the customer makes a selection"
+msgstr "Bruk filtre så snart kunden gjør et valg"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:187
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Behavior.php:62
+#: src/Admin/Settings_Controller.php:187
+#: src/Admin/Wizard/Steps/Filter_Behavior.php:62
+msgid "Click a button to apply the filters"
+msgstr "Klikk på en knapp for å bruke filtrene"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:193
+#: src/Admin/Settings_Controller.php:193
+msgid "Toggle filters"
+msgstr "Slå på/av filtre"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:194
+#: src/Admin/Settings_Controller.php:194
+msgid "Allow customers to toggle filters open or closed"
+msgstr "Gjør det mulig for kundene å åpne eller lukke filtre"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:195
+#: src/Admin/Settings_Controller.php:195
+msgid ""
+"This applies to filter widgets, the slide-out panel, and filters using the "
+"vertical layout which are added using a shortcode."
+msgstr ""
+"Dette gjelder filterwidgeter, slide-out-panelet og filtre med vertikal "
+"layout som legges til ved hjelp av en kortkode."
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:201
+#: src/Admin/Settings_Controller.php:201
+msgid "Default toggle state"
+msgstr "Standard veksle-tilstand"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:205
+#: src/Admin/Settings_Controller.php:205
+msgid "Open"
+msgstr "Åpen"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:206
+#: src/Admin/Settings_Controller.php:206
+msgid "Closed"
+msgstr "Lukket"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:213
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Behavior.php:66
+#: src/Admin/Settings_Controller.php:213
+#: src/Admin/Wizard/Steps/Filter_Behavior.php:66
+msgid "Product count"
+msgstr "Produktantall"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:215
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Behavior.php:73
+#: src/Admin/Settings_Controller.php:215
+#: src/Admin/Wizard/Steps/Filter_Behavior.php:73
+msgid "Display the number of products next to each option"
+msgstr "Vis antall produkter ved siden av hvert alternativ"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:219
+#: src/Admin/Settings_Controller.php:219
+msgid "Infinite scrolling"
+msgstr "Uendelig rulling"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:221
+#: src/Admin/Settings_Controller.php:221
+msgid "Enable infinite scroll on product listing pages"
+msgstr "Aktiver uendelig rulling på produktoppføringssider"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:225
+#: src/Admin/Settings_Controller.php:225
+msgid "Filter logic"
+msgstr "Filterlogikk"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:227
+#: src/Admin/Settings_Controller.php:227
+msgid "Enable \"OR\" logic"
+msgstr "Aktiver \"OR\"-logikk"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:228
+#: src/Admin/Settings_Controller.php:228
+msgid ""
+"Choose between AND or OR logic when selecting from multiple filters. For "
+"example, if a customer selects a color and a size then AND logic will only "
+"display products which meet both criteria, whereas OR logic will display "
+"products which meet either or both criteria."
+msgstr ""
+"Velg mellom AND- eller OR-logikk når du velger mellom flere filtre. Hvis en "
+"kunde for eksempel velger en farge og en størrelse, vil AND-logikken bare "
+"vise produkter som oppfyller begge kriteriene, mens OR-logikken vil vise "
+"produkter som oppfyller enten det ene eller begge kriteriene."
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:231
+#: src/Admin/Settings_Controller.php:231
+msgid "AND"
+msgstr "AND"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:232
+#: src/Admin/Settings_Controller.php:232
+msgid "OR"
+msgstr "OR"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:243
+#: dist/woocommerce-product-filters/src/Widget.php:117
+#: src/Admin/Settings_Controller.php:243 src/Widget.php:117
+msgid "Filter group"
+msgstr "Filtergruppe"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:244
+#: src/Admin/Settings_Controller.php:244
+msgid ""
+"Select a filter group to display above the lists of products in your store."
+msgstr "Velg en filtergruppe som skal vises over produktlistene i butikken."
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:252
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Visibility.php:25
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Visibility.php:85
+#: src/Admin/Settings_Controller.php:252
+#: src/Admin/Wizard/Steps/Filter_Visibility.php:25
+#: src/Admin/Wizard/Steps/Filter_Visibility.php:85
+msgid "Filter visibility"
+msgstr "Filterets synlighet"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:256
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:267
+#: src/Admin/Settings_Controller.php:256 src/Admin/Settings_Controller.php:267
+msgid "Always display filters"
+msgstr "Vis alltid filtre"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:257
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:268
+#: src/Admin/Settings_Controller.php:257 src/Admin/Settings_Controller.php:268
+msgid "Click button to reveal filters"
+msgstr "Klikk på knappen for å vise filtre"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:263
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Visibility.php:86
+#: src/Admin/Settings_Controller.php:263
+#: src/Admin/Wizard/Steps/Filter_Visibility.php:86
+msgid "On mobile"
+msgstr "På mobil"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:275
+#: src/Admin/Settings_Controller.php:275
+msgid "Number of filters per row"
+msgstr "Antall filtre per rad"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:278
+#: src/Admin/Settings_Controller.php:278
+msgid ""
+"Enter the number of filters to display per row within the horizontal layout."
+msgstr "Angi antall filtre som skal vises per rad i det horisontale oppsettet."
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:288
+#: src/Admin/Settings_Controller.php:288
+msgid "Primary color"
+msgstr "Primærfarge"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:295
+#: src/Admin/Settings_Controller.php:295
+msgid "Secondary color"
+msgstr "Sekundærfarge"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Controller.php:302
+#: src/Admin/Settings_Controller.php:302
+msgid "Filter title text"
+msgstr "Tekst for filtertittel"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Page.php:160
+#: dist/woocommerce-product-filters/src/Admin/Settings_Page.php:191
+#: dist/woocommerce-product-filters/src/Plugin_Setup.php:109
+#: dist/woocommerce-product-filters/src/Widget.php:27
+#: src/Admin/Settings_Page.php:160 src/Admin/Settings_Page.php:191
+#: src/Plugin_Setup.php:109 src/Widget.php:27
+msgid "Product Filters"
+msgstr "Produktfiltre"
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Page.php:194
+#: src/Admin/Settings_Page.php:194
+msgid ""
+"The following options control the WooCommerce Product Filters extension."
+msgstr "Følgende alternativer styrer WooCommerce Product Filters-utvidelsen."
+
+#: dist/woocommerce-product-filters/src/Admin/Settings_Page.php:205
+#: src/Admin/Settings_Page.php:205
+msgid "Save Changes"
+msgstr "Lagre Endringer"
+
+#: dist/woocommerce-product-filters/src/Admin/Terms/Color_Picker.php:60
+#: src/Admin/Terms/Color_Picker.php:60
+msgid "Clear"
+msgstr "Tøm"
+
+#: dist/woocommerce-product-filters/src/Admin/Terms/Color_Picker.php:61
+#: src/Admin/Terms/Color_Picker.php:61
+msgid "Default"
+msgstr "Standard"
+
+#: dist/woocommerce-product-filters/src/Admin/Terms/Color_Picker.php:62
+#: src/Admin/Terms/Color_Picker.php:62
+msgid "Select Color"
+msgstr "Velg farge"
+
+#: dist/woocommerce-product-filters/src/Admin/Terms/Color_Picker.php:63
+#: src/Admin/Terms/Color_Picker.php:63
+msgid "Current Color"
+msgstr "Nåværende farge"
+
+#: dist/woocommerce-product-filters/src/Admin/Terms/Color_Picker.php:122
+#: dist/woocommerce-product-filters/src/Admin/Terms/Color_Picker.php:159
+#: src/Admin/Terms/Color_Picker.php:122 src/Admin/Terms/Color_Picker.php:159
+msgid ""
+"If you are using this attribute in a color filter, select the exact color "
+"which will appear in the filter."
+msgstr ""
+"Hvis du bruker dette attributtet i et fargefilter, velger du den nøyaktige "
+"fargen som skal vises i filteret."
+
+#: dist/woocommerce-product-filters/src/Admin/Terms/Color_Picker.php:123
+#: dist/woocommerce-product-filters/src/Admin/Terms/Color_Picker.php:158
+#: src/Admin/Terms/Color_Picker.php:123 src/Admin/Terms/Color_Picker.php:158
+msgid "Assign color"
+msgstr "Tilordne farge"
+
+#: dist/woocommerce-product-filters/src/Admin/Terms/Term_Image.php:97
+#: dist/woocommerce-product-filters/src/Admin/Terms/Term_Image.php:196
+#: src/Admin/Terms/Term_Image.php:97 src/Admin/Terms/Term_Image.php:196
+msgid "Thumbnail"
+msgstr "Miniatyrbilde"
+
+#: dist/woocommerce-product-filters/src/Admin/Terms/Term_Image.php:101
+#: dist/woocommerce-product-filters/src/Admin/Terms/Term_Image.php:201
+#: src/Admin/Terms/Term_Image.php:101 src/Admin/Terms/Term_Image.php:201
+#: assets/build/wcf-term-image.js:1
+#: assets/js/admin/terms/term-image-uploader.js:41
+#: dist/woocommerce-product-filters/assets/build/wcf-term-image.js:1
+msgid "Upload/Add image"
+msgstr "Last opp bilde"
+
+#: dist/woocommerce-product-filters/src/Admin/Terms/Term_Image.php:102
+#: dist/woocommerce-product-filters/src/Admin/Terms/Term_Image.php:202
+#: src/Admin/Terms/Term_Image.php:102 src/Admin/Terms/Term_Image.php:202
+#: assets/build/wcf-term-image.js:1
+#: assets/js/admin/components/image-upload.js:82
+#: dist/woocommerce-product-filters/assets/build/wcf-term-image.js:1
+msgid "Remove image"
+msgstr "Fjern bilde"
+
+#: dist/woocommerce-product-filters/src/Admin/Terms/Term_Image.php:126
+#: dist/woocommerce-product-filters/src/Admin/Terms/Term_Image.php:226
+#: src/Admin/Terms/Term_Image.php:126 src/Admin/Terms/Term_Image.php:226
+msgid "Choose an image"
+msgstr "Velg et bilde"
+
+#: dist/woocommerce-product-filters/src/Admin/Terms/Term_Image.php:128
+#: dist/woocommerce-product-filters/src/Admin/Terms/Term_Image.php:228
+#: src/Admin/Terms/Term_Image.php:128 src/Admin/Terms/Term_Image.php:228
+msgid "Use image"
+msgstr "Bruk bilde"
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Setup_Wizard.php:68
+#: src/Admin/Wizard/Setup_Wizard.php:68
+msgid "Manage filters"
+msgstr "Administrere filtre"
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Setup_Wizard.php:72
+#: src/Admin/Wizard/Setup_Wizard.php:72
+msgid "Create filter widgets"
+msgstr "Opprette filterwidgets"
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Completed.php:23
+#: src/Admin/Wizard/Steps/Completed.php:23
+msgid "Ready!"
+msgstr "Klar!"
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Behavior.php:25
+#: src/Admin/Wizard/Steps/Filter_Behavior.php:25
+msgid "Filter behavior and content"
+msgstr "Filtrer adferd og innhold"
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Behavior.php:26
+#: src/Admin/Wizard/Steps/Filter_Behavior.php:26
+msgid "How do you want the filters to work?"
+msgstr "Hvordan vil du at filtrene skal fungere?"
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Display.php:24
+#: src/Admin/Wizard/Steps/Filter_Display.php:24
+msgid ""
+"Would you like to display filters above the lists of products in your shop? "
+"(If not, then you can add filters manually using a widget or shortcode.)"
+msgstr ""
+"Ønsker du å vise filtre over produktlistene i butikken? (Hvis ikke, kan du "
+"legge til filtre manuelt ved hjelp av en widget eller kortkode)"
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Display.php:27
+#: src/Admin/Wizard/Steps/Filter_Display.php:27
+msgid ""
+"Select a filter group to display the same filters at the top of all your "
+"main store pages (to get you started, we’ve created a ‘Recommended Filters’ "
+"group for you)."
+msgstr ""
+"Velg en filtergruppe for å vise de samme filtrene øverst på alle "
+"butikksidene dine (for å hjelpe deg i gang har vi opprettet en gruppe med "
+"\"Anbefalte filtre\")."
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Display.php:47
+#: src/Admin/Wizard/Steps/Filter_Display.php:47
+msgid "Select a filter group to appear at the top of your store (optional)"
+msgstr "Velg en filtergruppe som skal vises øverst i butikken (valgfritt)"
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Visibility.php:24
+#: src/Admin/Wizard/Steps/Filter_Visibility.php:24
+msgid "Visibility"
+msgstr "Synlighet"
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Visibility.php:26
+#: src/Admin/Wizard/Steps/Filter_Visibility.php:26
+msgid ""
+"Next, decide whether to show or hide the filters when the page first loads"
+msgstr ""
+"Deretter bestemmer du om filtrene skal vises eller skjules når siden lastes "
+"inn første gang"
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Filter_Visibility.php:102
+#: src/Admin/Wizard/Steps/Filter_Visibility.php:102
+msgid "Allow customers to toggle filters open or closed."
+msgstr "Gjør det mulig for kundene å åpne eller lukke filtre."
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/License_Verification.php:23
+#: src/Admin/Wizard/Steps/License_Verification.php:23
+msgid "Welcome to WooCommerce Product Filters"
+msgstr "Velkommen til WooCommerce Product Filters"
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/License_Verification.php:24
+#: src/Admin/Wizard/Steps/License_Verification.php:24
+msgid "Add product filters in no time"
+msgstr "Legg til produktfiltre på kort tid"
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/License_Verification.php:25
+#: src/Admin/Wizard/Steps/License_Verification.php:25
+msgid ""
+"Use this setup wizard to quickly configure the options for your product "
+"filters. You can easily change these options later on the plugin settings "
+"page or by relaunching the setup wizard."
+msgstr ""
+"Bruk denne installasjonsveiviseren til raskt å konfigurere alternativene for "
+"produktfiltrene dine. Du kan enkelt endre disse alternativene senere på "
+"innstillingssiden for utvidelsen eller ved å starte installasjonsveiviseren "
+"på nytt."
+
+#: dist/woocommerce-product-filters/src/Admin/Wizard/Steps/Upsell.php:21
+#: src/Admin/Wizard/Steps/Upsell.php:21
+msgid "Enhance your store with these fantastic plugins from Barn2."
+msgstr "Forbedre butikken din med disse fantastiske utvidelsene fra Barn2."
+
+#: dist/woocommerce-product-filters/src/Api.php:391 src/Api.php:391
+msgid "No taxonomy provided."
+msgstr "Ingen taksonomi er oppgitt."
+
+#: dist/woocommerce-product-filters/src/Display.php:145 src/Display.php:145
+msgid "Show filters"
+msgstr "Vis filtre"
+
+#: dist/woocommerce-product-filters/src/Display.php:565 src/Display.php:565
+msgid "Sort"
+msgstr "Sorter"
+
+#: dist/woocommerce-product-filters/src/Display.php:566 src/Display.php:566
+msgid "From "
+msgstr "Fra "
+
+#: dist/woocommerce-product-filters/src/Display.php:567 src/Display.php:567
+msgid "To "
+msgstr "Til "
+
+#: dist/woocommerce-product-filters/src/Display.php:568
+#: dist/woocommerce-product-filters/templates/filter-result-count.php:28
+#: src/Display.php:568 templates/filter-result-count.php:28
+msgid "1 result"
+msgstr "1 resultat"
+
+#: dist/woocommerce-product-filters/src/Display.php:569 src/Display.php:569
+msgid "%d results"
+msgstr "%d resultater"
+
+#. translators: %d: total results
+#: dist/woocommerce-product-filters/src/Display.php:570
+#: dist/woocommerce-product-filters/templates/filter-result-count.php:31
+#: dist/woocommerce-product-filters/templates/filter-result-count.php:33
+#: src/Display.php:570 templates/filter-result-count.php:31
+#: templates/filter-result-count.php:33
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] "%d resultat"
+msgstr[1] "%d resultater"
+
+#: dist/woocommerce-product-filters/src/Display.php:571 src/Display.php:571
+msgid "More filters"
+msgstr "Flere filtre"
+
+#: dist/woocommerce-product-filters/src/Display.php:572 src/Display.php:572
+msgid ""
+"This message is visible to Administrators and Store Managers Only. The "
+"following filters are using the same data source: %1$s. Filters must be "
+"unique and must not share the same source. <a href=\"%2$s\" target=\"_blank"
+"\">[Read more]</a>"
+msgstr ""
+"Denne meldingen er kun synlig for administratorer og butikksjefer. Følgende "
+"filtre bruker samme datakilde: %1$s. Filtrene må være unike og må ikke bruke "
+"samme kilde. <a href=\"%2$s\" target=\"_blank\">[Les mer]</a>"
+
+#: dist/woocommerce-product-filters/src/Display.php:573 src/Display.php:573
+msgid ""
+"This message is visible to Administrators and Store Managers Only. Please "
+"note, you cannot use the same filter group multiple times on a page. Please "
+"make sure groups are unique. <a href=\"%s\" target=\"_blank\">[Read more]</a>"
+msgstr ""
+"Denne meldingen er kun synlig for administratorer og butikksjefer. Vær "
+"oppmerksom på at du ikke kan bruke samme filtergruppe flere ganger på en "
+"side. Sørg for at gruppene er unike. <a href=\"%s\" target=\"_blank\">[Les "
+"mer]</a>"
+
+#: dist/woocommerce-product-filters/src/Display.php:575 src/Display.php:575
+msgid "This message is visible to Administrators and Store Managers Only."
+msgstr "Denne meldingen er kun synlig for administratorer og butikksjefer."
+
+#: dist/woocommerce-product-filters/src/Display.php:576 src/Display.php:576
+msgid "No options available"
+msgstr "Ingen alternativer tilgjengelig"
+
+#: dist/woocommerce-product-filters/src/Display.php:577 src/Display.php:577
+msgid "No terms found for the specified taxonomy."
+msgstr "Ingen termer funnet for den angitte taksonomien."
+
+#: dist/woocommerce-product-filters/src/Display.php:578 src/Display.php:578
+msgid "No results"
+msgstr "Ingen resultater"
+
+#: dist/woocommerce-product-filters/src/Display.php:580 src/Display.php:580
+msgid "Search products..."
+msgstr "Søk i produkter..."
+
+#: dist/woocommerce-product-filters/src/Display.php:581 src/Display.php:581
+msgid ""
+"No prices have been found for your products. Please save your filter groups "
+"to regenerate the index."
+msgstr ""
+"Det ble ikke funnet noen priser for produktene dine. Lagre filtergruppene "
+"dine for å regenerere indeksen."
+
+#: dist/woocommerce-product-filters/src/Display.php:582 src/Display.php:582
+msgid "No values found for this custom field."
+msgstr "Ingen verdier funnet for dette egendefinerte feltet."
+
+#: dist/woocommerce-product-filters/src/Integrations/Plugin_Acf.php:83
+#: dist/woocommerce-product-filters/src/Integrations/Plugin_Ept.php:60
+#: dist/woocommerce-product-filters/src/Model/Filters/Custom_Field.php:35
+#: src/Integrations/Plugin_Acf.php:83 src/Integrations/Plugin_Ept.php:60
+#: src/Model/Filters/Custom_Field.php:35
+msgid "Custom field"
+msgstr "Egendefinert felt"
+
+#: dist/woocommerce-product-filters/src/Integrations/Plugin_Acf.php:102
+#: src/Integrations/Plugin_Acf.php:102 assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:265
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Checkbox"
+msgstr "Avmerkingsboks"
+
+#: dist/woocommerce-product-filters/src/Integrations/Plugin_Acf.php:107
+#: dist/woocommerce-product-filters/src/Integrations/Plugin_Ept.php:74
+#: src/Integrations/Plugin_Acf.php:107 src/Integrations/Plugin_Ept.php:74
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:251
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Text input"
+msgstr "Tekst input"
+
+#: dist/woocommerce-product-filters/src/Integrations/Plugin_Acf.php:112
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:206
+#: src/Integrations/Plugin_Acf.php:112 src/Utils/Settings.php:206
+msgid "Range slider"
+msgstr "Område slider"
+
+#: dist/woocommerce-product-filters/src/Integrations/Plugin_Elementor.php:176
+#: dist/woocommerce-product-filters/src/Integrations/Theme_Avada.php:367
+#: dist/woocommerce-product-filters/src/Integrations/Theme_Bricks.php:116
+#: src/Integrations/Plugin_Elementor.php:176
+#: src/Integrations/Theme_Avada.php:367 src/Integrations/Theme_Bricks.php:116
+msgid "Enable filtering"
+msgstr "Aktiver filtrering"
+
+#: dist/woocommerce-product-filters/src/Integrations/Plugin_Elementor.php:178
+#: dist/woocommerce-product-filters/src/Integrations/Theme_Avada.php:371
+#: src/Integrations/Plugin_Elementor.php:178
+#: src/Integrations/Theme_Avada.php:371
+msgid "Yes"
+msgstr "Ja"
+
+#: dist/woocommerce-product-filters/src/Integrations/Plugin_Elementor.php:179
+#: dist/woocommerce-product-filters/src/Integrations/Theme_Avada.php:372
+#: src/Integrations/Plugin_Elementor.php:179
+#: src/Integrations/Theme_Avada.php:372
+msgid "No"
+msgstr "Nei"
+
+#: dist/woocommerce-product-filters/src/Integrations/Theme_Avada.php:368
+#: src/Integrations/Theme_Avada.php:368
+msgid ""
+"Enable filtering for this element via the WooCommerce Product Filters plugin."
+msgstr ""
+"Aktiver filtrering for dette elementet via utvidelsen WooCommerce Product "
+"Filters."
+
+#: dist/woocommerce-product-filters/src/Model/Filters/Color.php:38
+#: src/Model/Filters/Color.php:38
+msgid "Color picker"
+msgstr "Fargevelger"
+
+#: dist/woocommerce-product-filters/src/Model/Filters/Price.php:28
+#: src/Model/Filters/Price.php:28
+msgid "Slider"
+msgstr "Slider"
+
+#: dist/woocommerce-product-filters/src/Model/Filters/Sale.php:41
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:154
+#: src/Model/Filters/Sale.php:41 src/Utils/Settings.php:154
+msgid "On sale"
+msgstr "På salg"
+
+#: dist/woocommerce-product-filters/src/Model/Filters/Stock.php:41
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:153
+#: src/Model/Filters/Stock.php:41 src/Utils/Settings.php:153
+msgid "In stock"
+msgstr "På lager"
+
+#. translators: %1$s: Install WooCommerce <a> tag open. %2$s: <a> tag close.
+#: dist/woocommerce-product-filters/src/Plugin.php:197 src/Plugin.php:197
+msgid ""
+"Please %1$sinstall WooCommerce%2$s in order to use WooCommerce Product "
+"Filters."
+msgstr ""
+"Vennligst %1$sinstaller WooCommerce%2$s for å kunne bruke WooCommerce "
+"Product Filters."
+
+#. translators: %1$s: Plugin name.
+#: dist/woocommerce-product-filters/src/Plugin.php:219 src/Plugin.php:219
+msgid ""
+"The %1$s plugin requires WooCommerce 3.7 or greater. Please update your "
+"WooCommerce setup first."
+msgstr ""
+"%1$s-tillegget krever WooCommerce 3.7 eller nyere. Vennligst oppdater "
+"WooCommerce-oppsettet ditt først."
+
+#: dist/woocommerce-product-filters/src/Plugin_Setup.php:119
+#: src/Plugin_Setup.php:119 assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:349
+#: assets/js/admin/components/tables/filter-form.js:415
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Categories"
+msgstr "Kategorier"
+
+#: dist/woocommerce-product-filters/src/Plugin_Setup.php:132
+#: src/Plugin_Setup.php:132 assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:429
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Attributes"
+msgstr "Attributter"
+
+#: dist/woocommerce-product-filters/src/Plugin_Setup.php:146
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:151
+#: src/Plugin_Setup.php:146 src/Utils/Settings.php:151
+msgid "Price"
+msgstr "Pris"
+
+#: dist/woocommerce-product-filters/src/Plugin_Setup.php:157
+#: src/Plugin_Setup.php:157
+msgid "Sort by"
+msgstr "Sorter etter"
+
+#: dist/woocommerce-product-filters/src/Utils/Products.php:96
+#: src/Utils/Products.php:96
+msgid "Default sorting"
+msgstr "Standard sortering"
+
+#: dist/woocommerce-product-filters/src/Utils/Products.php:97
+#: src/Utils/Products.php:97
+msgid "Sort by popularity"
+msgstr "Sorter etter popularitet"
+
+#: dist/woocommerce-product-filters/src/Utils/Products.php:98
+#: src/Utils/Products.php:98
+msgid "Sort by average rating"
+msgstr "Sorter etter gjennomsnittlig vurdering"
+
+#: dist/woocommerce-product-filters/src/Utils/Products.php:99
+#: src/Utils/Products.php:99
+msgid "Sort by latest"
+msgstr "Sorter etter siste"
+
+#: dist/woocommerce-product-filters/src/Utils/Products.php:100
+#: src/Utils/Products.php:100
+msgid "Sort by price: low to high"
+msgstr "Sorter etter pris: lav til høy"
+
+#: dist/woocommerce-product-filters/src/Utils/Products.php:101
+#: src/Utils/Products.php:101
+msgid "Sort by price: high to low"
+msgstr "Sorter etter pris: høy til lav"
+
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:147
+#: src/Utils/Settings.php:147
+msgid "Category"
+msgstr "Kategori"
+
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:148
+#: src/Utils/Settings.php:148 assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:494
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Attribute"
+msgstr "Attributt"
+
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:149
+#: src/Utils/Settings.php:149
+msgid "Color"
+msgstr "Farge"
+
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:150
+#: src/Utils/Settings.php:150
+msgid "Tag"
+msgstr "Stikkord"
+
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:152
+#: src/Utils/Settings.php:152
+msgid "Rating"
+msgstr "Vurdering"
+
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:186
+#: src/Utils/Settings.php:186 assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:255
+#: assets/js/admin/components/group-filters-table.js:267
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Dropdown"
+msgstr "Nedtrekksmeny"
+
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:190
+#: src/Utils/Settings.php:190 assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:261
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Checkboxes"
+msgstr "Avmerkingsbokser"
+
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:194
+#: src/Utils/Settings.php:194
+msgid "Radio buttons"
+msgstr "Radio-knapper"
+
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:198
+#: src/Utils/Settings.php:198
+msgid "Labels"
+msgstr "Etiketter"
+
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:202
+#: src/Utils/Settings.php:202
+msgid "Images"
+msgstr "Bilder"
+
+#: dist/woocommerce-product-filters/src/Utils/Settings.php:244
+#: src/Utils/Settings.php:244
+msgid "None"
+msgstr "Ingen"
+
+#: dist/woocommerce-product-filters/src/Widget.php:25 src/Widget.php:25
+msgid ""
+"Display a filter group created with the WooCommerce Product Filters plugin."
+msgstr ""
+"Vis en filtergruppe som er opprettet med utvidelsen WooCommerce Product "
+"Filters."
+
+#: dist/woocommerce-product-filters/src/Widget.php:78 src/Widget.php:78
+msgid "Your product filters will appear here."
+msgstr "Produktfiltrene dine vises her."
+
+#: dist/woocommerce-product-filters/src/Widget.php:83 src/Widget.php:83
+msgid "Filters are only visible on the frontend"
+msgstr "Filtre er bare synlige på forsiden"
+
+#: dist/woocommerce-product-filters/src/Widget.php:112 src/Widget.php:112
+msgid "Title"
+msgstr "Tittel"
+
+#: assets/build/chunks-components/show-more.js:1
+#: assets/js/frontend/components/show-more.js:28
+#: dist/woocommerce-product-filters/assets/build/chunks-components/show-more.js:1
+msgid "Show more"
+msgstr "Vis mer"
+
+#: assets/build/chunks-components/show-more.js:1
+#: assets/js/frontend/components/show-more.js:38
+#: dist/woocommerce-product-filters/assets/build/chunks-components/show-more.js:1
+msgid "Show less"
+msgstr "Vis mindre"
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/data-table.js:185
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "of"
+msgstr "av"
+
+#: assets/build/wcf-admin-editor.js:1 assets/build/wcf-avada.js:1
+#: assets/build/wcf-elementor.js:1 assets/build/wcf-frontend.js:1
+#: assets/build/wcf-product-table.js:1
+#: assets/build/wcf-restaurant-ordering.js:1 assets/build/wcf-uncode.js:1
+#: assets/build/wcf-wc-shortcodes.js:1 assets/js/utils.js:44
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-avada.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-elementor.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-frontend.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-product-table.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-restaurant-ordering.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-uncode.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-wc-shortcodes.js:1
+msgid "The request was made but no response was received."
+msgstr "Forespørselen ble fremsatt, men det ble ikke mottatt noe svar."
+
+#: assets/build/wcf-admin-editor.js:1 assets/build/wcf-avada.js:1
+#: assets/build/wcf-elementor.js:1 assets/build/wcf-frontend.js:1
+#: assets/build/wcf-product-table.js:1
+#: assets/build/wcf-restaurant-ordering.js:1 assets/build/wcf-uncode.js:1
+#: assets/build/wcf-wc-shortcodes.js:1 assets/js/utils.js:47
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-avada.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-elementor.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-frontend.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-product-table.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-restaurant-ordering.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-uncode.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-wc-shortcodes.js:1
+msgid "Something went wrong while making the request."
+msgstr "Noe gikk galt da forespørselen ble sendt."
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/tables/delete-modal.js:83
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "Are you sure you want to delete this filter group?"
+msgstr "Er du sikker på at du vil slette denne filtergruppen?"
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/groups-row-actions.js:47
+#: assets/js/admin/components/tables/delete-modal.js:83
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "Are you sure you want to delete the \"%s\" filter group?"
+msgstr "Er du sikker på at du vil slette filtergruppen \"%s\"?"
+
+#: assets/build/wcf-admin-editor.js:1 assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/filters-row-actions.js:106
+#: assets/js/admin/components/filters-row-actions.js:114
+#: assets/js/admin/components/groups-row-actions.js:97
+#: assets/js/admin/components/groups-row-actions.js:105
+#: assets/js/admin/components/tables/delete-filter-modal.js:58
+#: assets/js/admin/components/tables/delete-filter-modal.js:64
+#: assets/js/admin/components/tables/delete-modal.js:91
+#: assets/js/admin/components/tables/delete-modal.js:97
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Delete"
+msgstr "Slett"
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/groups-row-actions.js:46
+#: assets/js/admin/components/tables/delete-modal.js:94
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "Delete filter group"
+msgstr "Slett filtergruppe"
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/tables/delete-modal.js:52
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "Filter group successfully deleted."
+msgstr "Filtergruppen er slettet."
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/filters-row-actions.js:102
+#: assets/js/admin/components/groups-row-actions.js:93
+#: assets/js/admin/components/table-quick-actions.js:93
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "Edit"
+msgstr "Rediger"
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/table-quick-actions.js:75
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "Filter group successfully duplicated."
+msgstr "Filtergruppen er duplisert."
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/table-quick-actions.js:97
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "Duplicate"
+msgstr "Dupliser"
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/tables/shortcode-cell.js:28
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "Copied!"
+msgstr "Kopiert!"
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/admin-table.js:32
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid ""
+"No groups added yet. Press the \"Add filter group\" button to create your "
+"first group."
+msgstr ""
+"Ingen grupper er lagt til ennå. Trykk på knappen \"Legg til filtergruppe\" "
+"for å opprette din første gruppe."
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/admin-table.js:219
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "Filter Groups"
+msgstr "Filtrer grupper"
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/admin-table.js:220
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "Add New"
+msgstr "Legg til"
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/admin-table.js:223
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid ""
+"Create product filters, structured into groups. You can then display each "
+"group using a widget, shortcode, or by selecting it on the <a href=\"%s"
+"\">settings page</a>."
+msgstr ""
+"Opprett produktfiltre som er strukturert i grupper. Du kan deretter vise "
+"hver gruppe ved hjelp av en widget, kortkode eller ved å velge den på <a "
+"href=\"%s\">innstillingssiden</a>."
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/admin-table.js:234
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "%d filter group"
+msgid_plural "%d filter groups"
+msgstr[0] "%d filtergruppe"
+msgstr[1] "%d filtergrupper"
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/admin-table.js:236
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid ""
+"Drag and drop to re-order your filter groups. This will only be used for "
+"display purposes in the admin."
+msgstr ""
+"Dra og slipp for å omorganisere filtergruppene. Dette vil kun bli brukt til "
+"visningsformål i admin."
+
+#: assets/build/wcf-admin-editor.js:1
+#: assets/js/admin/components/admin-table.js:205
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:1
+msgid "Filter groups successfully updated"
+msgstr "Filtergrupper er oppdatert"
+
+#: assets/build/wcf-admin-editor.js:14
+#: assets/js/admin/components/tables/terms-selector.jsx:76
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:14
+msgid "Clear all"
+msgstr "Tøm alle"
+
+#: assets/build/wcf-admin-editor.js:14
+#: assets/js/admin/components/tables/terms-selector.jsx:77
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:14
+msgid "No %s found"
+msgstr "Ingen %s funnet"
+
+#. translators: %s: product select search query
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/terms-selector.jsx:79
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgctxt "items"
+msgid "No results for %s"
+msgstr "Ingen resultater for %s"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/terms-selector.jsx:81
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Selected"
+msgstr "Valgt"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/terms-selector.jsx:82
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Search %s"
+msgstr "Søk %s"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:175
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid ""
+"You should select an image on the <a href=\"%s\" target=\"_blank\">‘Add/"
+"Edit’ screen for each category</a>."
+msgstr ""
+"Du må velge et bilde i <a href=\"%s\" target=\"_blank\">skjermbildet \"Legg "
+"til/rediger\" for hver kategori</a>."
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:177
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid ""
+"You should select an image on the <a href=\"%s\" target=\"_blank\">‘Add/"
+"Edit’ screen for each attribute</a>."
+msgstr ""
+"Du må velge et bilde på <a href=\"%s\" target=\"_blank\">skjermbildet \"Legg "
+"til/rediger\" for hvert attributt</a>."
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:179
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "You should select an image on the ‘Add/Edit’ screen for each taxonomy."
+msgstr ""
+"Du bør velge et bilde i skjermbildet \"Legg til/rediger\" for hver taksonomi."
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:362
+#: assets/js/admin/components/tables/filter-form.js:419
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Tags"
+msgstr "Stikkord"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:366
+#: assets/js/admin/components/tables/filter-form.js:433
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Colors"
+msgstr "Farger"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:296
+#: assets/js/admin/components/group-filters-table.js:333
+#: assets/js/admin/components/tables/filter-form.js:453
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Filter name"
+msgstr "Filternavn"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:457
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Type"
+msgstr "Type"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:297
+#: assets/js/admin/components/group-filters-table.js:344
+#: assets/js/admin/components/tables/filter-form.js:467
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Filter by"
+msgstr "Filtrer etter"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:475
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid ""
+"You should select a color for each attribute under <a href=\"%s\" target="
+"\"_blank\">Products > Attributes > Configure Terms</a>."
+msgstr ""
+"Du bør velge en farge for hvert attributt under <a href=\"%s\" target="
+"\"_blank\">Produkter > Attributter > Konfigurer vilkår</a>."
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:482
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Select attributes"
+msgstr "Velg attributter"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:482
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid ""
+"By default, filters will automatically be added for all attributes relating "
+"to the current products. Alternatively, you can add a filter for an "
+"individual attribute."
+msgstr ""
+"Som standard legges det automatisk til filtre for alle attributter knyttet "
+"til de aktuelle produktene. Alternativt kan du legge til et filter for et "
+"enkelt attributt."
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:485
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Show filters for all available attributes"
+msgstr "Vis filtre for alle tilgjengelige attributter"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:486
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Select attribute"
+msgstr "Velg attributt"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:504
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Select color attribute"
+msgstr "Velg fargeattributt"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:518
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Display the name of each color next to the color swatch."
+msgstr "Vis navnet på hver farge ved siden av fargeprøven."
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:525
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Select taxonomy"
+msgstr "Velg taksonomi"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:536
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Select custom field"
+msgstr "Velg egendefinert felt"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:298
+#: assets/js/admin/components/group-filters-table.js:347
+#: assets/js/admin/components/tables/filter-form.js:560
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Filter style"
+msgstr "Filterstil"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:577
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "List categories and subcategories within a single dropdown."
+msgstr "Vis kategorier og underkategorier i én enkelt nedtrekksmeny."
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:583
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Display categories and sub-categories as separate dropdowns."
+msgstr "Vis kategorier og underkategorier som separate nedtrekkslister."
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:594
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Display"
+msgstr "Visning"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:599
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Image and name"
+msgstr "Bilde og navn"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:605
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Image only"
+msgstr "Kun bilde"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:614
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Range unit"
+msgstr "Enhet for område"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:312
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Categories selection"
+msgstr "Valg av kategorier"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:317
+#: assets/js/admin/components/tables/filter-form.js:334
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "%s selection"
+msgstr "%s utvalg"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:321
+#: assets/js/admin/components/tables/filter-form.js:337
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Terms selection"
+msgstr "Valg av termer"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:325
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Tags selection"
+msgstr "Valg av stikkord"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:329
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Colors selection"
+msgstr "Valg av farger"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:627
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Display all %s"
+msgstr "Vis alle %s"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:633
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Select specific %s"
+msgstr "Velg spesifikk %s"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:275
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Select categories"
+msgstr "Velg kategorier"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:280
+#: assets/js/admin/components/tables/filter-form.js:297
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Select %s"
+msgstr "Velg %s"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:284
+#: assets/js/admin/components/tables/filter-form.js:300
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Select terms"
+msgstr "Velg termer"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:288
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Select tags"
+msgstr "Velg stikkord"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:292
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Select colors"
+msgstr "Velg farger"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/tables/filter-form.js:358
+#: assets/js/admin/components/tables/filter-form.js:373
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Terms"
+msgstr "Termer"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/filters-row-actions.js:45
+#: assets/js/admin/components/tables/delete-filter-modal.js:61
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Delete filter"
+msgstr "Slett filter"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/filters-row-actions.js:46
+#: assets/js/admin/components/tables/delete-filter-modal.js:62
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Are you sure you want to delete the \"%s\" filter?"
+msgstr "Er du sikker på at du vil slette filteret \"%s\"?"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:280
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "(no label)"
+msgstr "(ingen etikett)"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:286
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Drag and drop to re-order your filters."
+msgstr "Dra og slipp for å endre rekkefølgen på filtrene."
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:316
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Close filter"
+msgstr "Lukk filter"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:316
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Edit filter"
+msgstr "Rediger filter"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:227
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Search"
+msgstr "Søk"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:231
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Sorter"
+msgstr "Sorter"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:259
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Pricing slider"
+msgstr "Pris slider"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:263
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Star rating"
+msgstr "Stjernerangering"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:371
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid ""
+"No filters. Click the \"Add filter\" button to create your first filter."
+msgstr ""
+"Ingen filtre. Klikk på knappen \"Legg til filter\" for å opprette ditt "
+"første filter."
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-filters-table.js:382
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Add filter"
+msgstr "Legg til filter"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-editor.js:47
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Filter group successfully updated"
+msgstr "Filtergruppen er oppdatert"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-editor.js:47
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Filter group successfully created"
+msgstr "Filtergruppe opprettet"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-editor.js:102
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Filter group name"
+msgstr "Navn på filtergruppe"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-editor.js:102
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid ""
+"Enter a name for the filter group. This will only be shown in the WordPress "
+"admin."
+msgstr ""
+"Skriv inn et navn på filtergruppen. Dette vises bare i WordPress-admin."
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/group-editor.js:114
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Add group"
+msgstr "Legg til gruppe"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/pages/add-group-page.js:35
+#: assets/js/admin/components/pages/edit-group-page.js:34
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Filter groups"
+msgstr "Filtergrupper"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/pages/add-group-page.js:37
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Add new"
+msgstr "Legg til ny"
+
+#: assets/build/wcf-admin-editor.js:16
+#: assets/js/admin/components/pages/edit-group-page.js:36
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "Edit filter group"
+msgstr "Rediger filtergruppe"
+
+#: assets/build/wcf-admin-editor.js:16 assets/js/admin/admin-editor.js:56
+#: dist/woocommerce-product-filters/assets/build/wcf-admin-editor.js:16
+msgid "The database indexing has been successfully completed."
+msgstr "Indekseringen av databasen er fullført."
+
+#: assets/build/wcf-term-image.js:1
+#: assets/js/admin/components/image-upload.js:31
+#: dist/woocommerce-product-filters/assets/build/wcf-term-image.js:1
+msgid "Select or upload image"
+msgstr "Velg eller last opp bilde"
+
+#: assets/build/wcf-term-image.js:1
+#: assets/js/admin/components/image-upload.js:33
+#: dist/woocommerce-product-filters/assets/build/wcf-term-image.js:1
+msgid "Select"
+msgstr "Velg"
+
+#: assets/build/wcf-term-image.js:1
+#: assets/js/admin/terms/term-image-uploader.js:49
+#: assets/js/admin/terms/term-image-uploader.js:56
+#: dist/woocommerce-product-filters/assets/build/wcf-term-image.js:1
+msgid "Filter image"
+msgstr "Filterbilde"
+
+#: assets/js/admin/components/filters-row-actions.js:47
+msgid "The filter has been successfully deleted"
+msgstr "Filteret har blitt slettet"
+
+#: assets/js/admin/components/filters-row-actions.js:75
+msgid ""
+"The filter has been successfully deleted. Database re-index is required. "
+"Please press the \"Rebuild index\" button."
+msgstr ""
+"Filteret har blitt slettet. En ny indeksering av databasen er nødvendig. "
+"Trykk på knappen \"Bygg opp indeksen på nytt\"."
+
+#: assets/js/admin/components/filters-selector.js:182
+msgid ""
+"No filters have been created yet. Please <a href=\"%s\">create at least one "
+"filter</a>."
+msgstr ""
+"Ingen filtre er opprettet ennå. Vennligst <a href=\"%s\">opprett minst ett "
+"filter</a>."
+
+#: assets/js/admin/components/filters-selector.js:239
+msgid "Add filter to the group"
+msgstr "Legg til filter i gruppen"
+
+#: assets/js/admin/components/groups-row-actions.js:48
+msgid "Successfully deleted the \"%s\" filter group"
+msgstr "Filtergruppen \"%s\" ble slettet"

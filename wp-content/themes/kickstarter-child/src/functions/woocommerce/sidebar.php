@@ -92,9 +92,9 @@ function display_categories_and_manufacturers_lists() {
     echo '</div>';
 
     echo '<div class="sidebar-product-search london-woo-side-item">';
-    echo '<div class="h3">' . __( 'Product Search', 'london-child' ) . '</div>';
-    echo do_shortcode( '[yith_woocommerce_ajax_search preset="default"]' );
-    echo '</div>';
+   //  echo '<div class="h3">' . __( 'Product Search', 'london-child' ) . '</div>';
+   //  echo do_shortcode( '[yith_woocommerce_ajax_search preset="default"]' );
+   //  echo '</div>';
 
     if ( count( $product_categories ) > 1 ) {
         echo '<div class="sidebar-product-categories london-woo-side-item" id="sidebar-product-categories">';

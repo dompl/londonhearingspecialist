@@ -76,7 +76,7 @@ add_action( 'after_setup_theme', function () {
         echo '</div>';
         if ( $product->get_description() != "" ) {
             echo '<div class="london-product-full london-text london-tab">';
-            echo '<h3>Full product description</h3>';
+            echo '<h2>Product description</h2>';
             echo '<div class="description">' . $product->get_description() . '</div>';
             echo '</div>';
         }

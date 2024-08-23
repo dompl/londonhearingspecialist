@@ -119,7 +119,11 @@ jQuery(document).ready(function ($) {
 
 	// Update banner text based on selected categories
 	function updateBannerText() {
-		var selectedCategoryNames = $('input[name="filter_category[]"]:checked')
+		// Get all category checkboxes
+		var $checkboxes = $('input[name="filter_category[]"]');
+		var $checkedCheckboxes = $checkboxes.filter(':checked');
+
+		var selectedCategoryNames = $checkedCheckboxes
 			.map(function () {
 				return $(this).siblings('label').text();
 			})
@@ -127,7 +131,13 @@ jQuery(document).ready(function ($) {
 
 		var bannerText = '';
 
-		if (selectedCategoryNames.length > 0) {
+		// Check if all checkboxes are checked or if $_GET['all-products'] is set
+		var urlParams = new URLSearchParams(window.location.search);
+		var allProductsSet = urlParams.has('all-products');
+
+		if ($checkedCheckboxes.length === $checkboxes.length || allProductsSet) {
+			bannerText = 'All Products';
+		} else if (selectedCategoryNames.length > 0) {
 			if (selectedCategoryNames.length === 1) {
 				bannerText = selectedCategoryNames[0];
 			} else {
@@ -141,8 +151,10 @@ jQuery(document).ready(function ($) {
 		$('#product-name-title h1').html('<span>' + bannerText + '</span>');
 	}
 
-	// Event listener for changes on category and manufacturer checkboxes
-	$('input[name="filter_category[]"], input[name="filter_manufacturer[]"]').on('change', function () {
+	// Event listener for button submit
+	$('#submit-filter').on('click', function (e) {
+		e.preventDefault(); // Prevent default form submission if it's inside a form
+
 		fetchPriceRangeAndUpdateSlider(); // Update slider when categories change
 		submitFilterForm(); // Update products list
 		updateBannerText(); // Update banner text when categories change

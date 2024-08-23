@@ -1,8 +1,7 @@
 <?php
 
 function enqueue_jquery_ui() {
-    $object = get_queried_object();
-    if (  !  property_exists( $object, 'taxonomy' ) || !  $object->taxonomy == 'product_cat' ) {
+    if (  !  is_product_category() ) {
         return;
     }
     // Enqueue jQuery UI CSS for the slider
@@ -77,8 +76,7 @@ add_filter( 'london_woocommerce_sidebar', 'london_product_filter_categories', 1,
 
 function london_product_filter_categories() {
 
-    $object = get_queried_object();
-    if (  !  property_exists( $object, 'taxonomy' ) || !  $object->taxonomy == 'product_cat' ) {
+    if (  !  is_product_category() ) {
         return;
     }
 
@@ -107,7 +105,10 @@ function london_product_filter_categories() {
     if (  !  empty( $categories ) ) {
         echo '<ul>';
         foreach ( $categories as $category ) {
-            $checked = ( $current_category && $current_category->term_id === $category->term_id ) ? 'checked' : '';
+            $checked = false;
+            if ( ( $current_category && $current_category->term_id === $category->term_id ) || isset( $_GET['all-products'] ) ) {
+                $checked = 'checked';
+            }
             echo '<li>';
             echo '<input type="checkbox" id="cate-' . esc_attr( $category->term_id ) . '" name="filter_category[]" value="' . esc_attr( $category->term_id ) . '" ' . $checked . '> '; // Changed to use term_id
             echo '<label for="cate-' . esc_attr( $category->term_id ) . '">' . esc_html( $category->name ) . '</label>';
@@ -142,6 +143,8 @@ function london_product_filter_categories() {
     echo '<input type="hidden" id="price_min" name="price_min" value="' . esc_attr( $price_range['min'] ) . '">';
     echo '<input type="hidden" id="price_max" name="price_max" value="' . esc_attr( $price_range['max'] ) . '">';
     echo '</div>';
+
+    echo '<div class="filter-submit filter-form-filter"><button type="submit" id="submit-filter" class="button blue">Show Results</button>';
 
     echo '</form>';
     echo '</div>';
