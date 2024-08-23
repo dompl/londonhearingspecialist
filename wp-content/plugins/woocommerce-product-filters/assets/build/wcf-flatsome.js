@@ -1,1 +1,0 @@
-!function(){"use strict";(0,window.wp.hooks.addAction)("wcpf.filteringDone","wcf-flatsome",((o,e)=>{var i=window.jQuery;"object"==typeof Flatsome&&"object"==typeof Flatsome.behaviors&&i.each(["lazy-load-images","quick-view","lightbox-video","commons","wishlist"],(function(o,e){void 0!==Flatsome.behaviors[e]&&Flatsome.behaviors[e].attach()}))}))}();
