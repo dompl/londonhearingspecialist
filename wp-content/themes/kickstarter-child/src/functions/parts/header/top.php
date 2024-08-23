@@ -28,10 +28,11 @@ function ks_top_wrapper() {
         <div class="right">
             <?php echo apply_filters( '_london_top_right', '' ); ?>
         </div>
+        <?php if(!  \London\Helpers::isWooCommercePage()) : ?>
         <div class="on-mobile">
             <?php echo do_shortcode( '[yith_woocommerce_ajax_search preset="default"]' ); ?>
         </div>
-
+        <?php endif ?>
     </div>
 </div>
 <?php
@@ -41,16 +42,17 @@ echo ob_get_clean();
 function london_top_new_callback( $html ) {
 
     $themeData = \Kickstarter\MyHelpers::getThemeData();
-
-    $html .= '<div class="new-items">';
-    $html .= '<div class="item nav-trigger"><i class="icon-bars-solid" id="mobile-header-nav"></i></div>';
-    $html .= '<div class="item nav-trigger"><img src="' . $themeData['ks_logo_d'] . '" alt="' . get_bloginfo( 'name' ) . '" class="logo-mobile top-logo"></div>';
-    $html .= '<div class="item search-trigger"><i class="icon-magnifying-glass-regular" id="search-trigger"></i></div>';
-    $shop_url = wc_get_page_permalink( 'shop' );
-    $html .= '<div class="item">';
-    $html .= WC()->cart->get_cart_contents_count() > 0 ? london_minicart_html() : london_minicart_html_default();
-    $html .= '</div>';
-    $html .= '</div>';
+    if (  !  Helpers::isWooCommercePage() ) {
+        $html .= '<div class="new-items">';
+        $html .= '<div class="item nav-trigger"><i class="icon-bars-solid" id="mobile-header-nav"></i></div>';
+        $html .= '<div class="item nav-trigger"><img src="' . $themeData['ks_logo_d'] . '" alt="' . get_bloginfo( 'name' ) . '" class="logo-mobile top-logo"></div>';
+        $html .= '<div class="item search-trigger"><i class="icon-magnifying-glass-regular" id="search-trigger"></i></div>';
+        $shop_url = wc_get_page_permalink( 'shop' );
+        $html .= '<div class="item">';
+        $html .= WC()->cart->get_cart_contents_count() > 0 ? london_minicart_html() : london_minicart_html_default();
+        $html .= '</div>';
+        $html .= '</div>';
+    }
     return $html;
 
     return $html;
