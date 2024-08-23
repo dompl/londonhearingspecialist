@@ -1,4 +1,8 @@
 jQuery(document).ready(function ($) {
+	// Navigation search toggle
+	$('#search-trigger').on('click', function () {
+		$('.on-mobile').slideToggle();
+	});
 	$(document.body).on('added_to_cart', function (event, fragments, cart_hash, $button) {
 		updateShopButton();
 	});
@@ -11,7 +15,7 @@ jQuery(document).ready(function ($) {
 				action: 'update_shop_button',
 			},
 			success: function (response) {
-				$('#go-to-shop').html(response); // Corrected from InnerHtml to html
+				$('#go-to-shop, #go-to-shop-2').html(response); // Corrected from InnerHtml to html
 			},
 		});
 	}

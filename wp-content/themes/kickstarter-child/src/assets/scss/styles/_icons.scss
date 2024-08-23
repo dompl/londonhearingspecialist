@@ -72,50 +72,53 @@
 		@if $filename == location-dot-light {
 		  $char: "\E00F";
 		}
-		@if $filename == minus-solid {
+		@if $filename == magnifying-glass-regular {
 		  $char: "\E010";
 		}
-		@if $filename == overground {
+		@if $filename == minus-solid {
 		  $char: "\E011";
 		}
-		@if $filename == parking {
+		@if $filename == overground {
 		  $char: "\E012";
 		}
-		@if $filename == phone-regular {
+		@if $filename == parking {
 		  $char: "\E013";
 		}
-		@if $filename == plus-solid {
+		@if $filename == phone-regular {
 		  $char: "\E014";
 		}
-		@if $filename == quote-right-solid {
+		@if $filename == plus-solid {
 		  $char: "\E015";
 		}
-		@if $filename == sliders-light {
+		@if $filename == quote-right-solid {
 		  $char: "\E016";
 		}
-		@if $filename == square-check-light {
+		@if $filename == sliders-light {
 		  $char: "\E017";
 		}
-		@if $filename == square-light {
+		@if $filename == square-check-light {
 		  $char: "\E018";
 		}
-		@if $filename == star-of-life-solid {
+		@if $filename == square-light {
 		  $char: "\E019";
 		}
-		@if $filename == train {
+		@if $filename == star-of-life-solid {
 		  $char: "\E01A";
 		}
-		@if $filename == underground {
+		@if $filename == train {
 		  $char: "\E01B";
 		}
-		@if $filename == user-regular {
+		@if $filename == underground {
 		  $char: "\E01C";
 		}
-		@if $filename == x-twitter {
+		@if $filename == user-regular {
 		  $char: "\E01D";
 		}
-		@if $filename == xmark-sharp-light {
+		@if $filename == x-twitter {
 		  $char: "\E01E";
+		}
+		@if $filename == xmark-sharp-light {
+		  $char: "\E01F";
 		}
 
 	  @return $char;
@@ -177,6 +180,9 @@
 	}
 	.icon-location-dot-light {
 	  @include icon(location-dot-light);
+	}
+	.icon-magnifying-glass-regular {
+	  @include icon(magnifying-glass-regular);
 	}
 	.icon-minus-solid {
 	  @include icon(minus-solid);

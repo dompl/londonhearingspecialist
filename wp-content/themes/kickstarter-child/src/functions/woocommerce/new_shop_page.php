@@ -9,7 +9,8 @@ add_action( 'london_new_shop', 'custom_display_product_categories', 20 );
 function custom_display_product_categories_title() {
     echo '<div class="container new-shop-container-title">';
     echo '<h2>Hearing and Ear Care Experts</h2>';
-    echo '<hp>Introduction text - 1 or 2 sentences here to summarise LHS and their offerings.</p>';
+    echo '<hp>London Hearing Specialist offers a wide range of hearing aids and accessories to fit every budget. With the latest technology and essential accessories like chargers, microphones, batteries and filters, we have everything you need for optimal hearing and ear care.
+</p>';
     echo '</div>';
 }
 

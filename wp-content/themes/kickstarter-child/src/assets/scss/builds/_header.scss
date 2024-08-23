@@ -150,7 +150,8 @@
 					}
 				}
 			}
-			#go-to-shop {
+			#go-to-shop,
+			#go-to-shop-2 {
 				span {
 					display: block;
 				}
@@ -343,7 +344,8 @@
 				font-weight: bold;
 			}
 		}
-		#go-to-shop {
+		#go-to-shop,
+		#go-to-shop-2 {
 			a.button {
 				@include ico.icon("cart-shopping-regular");
 			}
@@ -437,6 +439,66 @@
 			text-align: center;
 			line-height: rem(16);
 			right: -11px;
+		}
+	}
+}
+#header-wrapper {
+	&.new-wrapper {
+		@include to(lg) {
+			display: none;
+		}
+	}
+}
+#top-wrapper {
+	&.new {
+		@include to(lg) {
+			background-color: white;
+			.on-mobile {
+				display: none;
+			}
+			.left,
+			.right {
+				display: none;
+			}
+			.container {
+				display: flex;
+				flex-direction: column !important;
+			}
+			.new-items {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				width: 100%;
+				align-items: center;
+				gap: 1rem;
+				color: var.$color-text;
+				#go-to-shop {
+					i,
+					span {
+						color: var.$color-text;
+						&.count {
+							color: white;
+						}
+					}
+				}
+				a {
+					color: var.$color-text;
+				}
+				.search-trigger {
+					margin-left: auto;
+				}
+			}
+			.on-mobile {
+				padding-top: 1rem;
+				padding-bottom: 1rem;
+				width: 100%;
+			}
+		}
+		@include from(lg) {
+			.new-items,
+			.on-mobile {
+				display: none;
+			}
 		}
 	}
 }

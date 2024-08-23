@@ -1,7 +1,7 @@
 <?php
 function london_minicart_html_default() {
     $shop_url = wc_get_page_permalink( 'shop' );
-    return $shop_url ? '<div id="go-to-shop"><a href="' . esc_url( $shop_url ) . '" title="Visit London Hearing Specialists Shop" class="button blue-dark"><span>Shop</span></a></div>' : '';
+    return $shop_url ? '<div id="go-to-shop"><a href="' . esc_url( $shop_url ) . '" title="Visit London Hearing Specialists Shop"><i class="icon-cart-shopping-regular"></i></a></div>' : '';
 }
 function london_minicart_html() {
     $cart_url = wc_get_cart_url();

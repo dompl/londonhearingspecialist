@@ -63,15 +63,15 @@ function ks_header_wrapper_right_callback( $html, $themeData ) {
     return $html;
 }
 
-add_action( 'wp_head', function () {
-    if ( is_page( 603 ) && !  current_user_can( 'administrator' ) ) {
-        echo '<script type="text/javascript">window._mfq = window._mfq || [];(function() {
-	  				var mf = document.createElement("script");
-	  				mf.type = "text/javascript"; mf.defer = true;
-	  				mf.src = "//cdn.mouseflow.com/projects/c5455f2b-2ee4-46ee-9f8e-0d687e2981fd.js";
-	  				document.getElementsByTagName("head")[0].appendChild(mf);
-					})();
- 					</script>';
-    }
-
-} );
+// add_action( 'wp_head', function () {
+//     if ( is_page( 603 ) && !  current_user_can( 'administrator' ) ) {
+//         echo '<script type="text/javascript">window._mfq = window._mfq || [];(function() {
+//                       var mf = document.createElement("script");
+//                       mf.type = "text/javascript"; mf.defer = true;
+//                       mf.src = "//cdn.mouseflow.com/projects/c5455f2b-2ee4-46ee-9f8e-0d687e2981fd.js";
+//                       document.getElementsByTagName("head")[0].appendChild(mf);
+//                     })();
+//                      </script>';
+//     }
+//
+// } );
