@@ -1,1 +1,0 @@
-!function(){"use strict";(0,window.wp.hooks.addAction)("wcpf.filteringDone","wcf-bricks",((i,o)=>{bricksLazyLoad(),bricksPhotoswipe()}))}();
