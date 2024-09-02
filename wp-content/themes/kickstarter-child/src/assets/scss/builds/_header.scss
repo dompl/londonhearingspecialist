@@ -223,6 +223,21 @@
 //
 #nav-wrapper {
 	background-color: var.$color-blue;
+	$green: var.$color-green;
+	.button-class-green {
+		a span {
+			background-color: var.$color-green;
+			padding: 5px 20px;
+			display: block;
+			margin-top: -5px;
+			margin-bottom: -5px;
+			border-radius: 5px;
+			&:hover {
+				background-color: darken($green, 5%);
+				transition: all, 300ms;
+			}
+		}
+	}
 	@media (max-width: 991px) {
 		.navigation-landscape {
 			display: none;

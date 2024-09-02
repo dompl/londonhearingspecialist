@@ -4,16 +4,15 @@ function enqueue_jquery_ui() {
     if (  !  is_product_category() ) {
         return;
     }
+
     // Enqueue jQuery UI CSS for the slider
     wp_enqueue_style( 'jquery-ui-style', 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' );
 
     // Enqueue jQuery UI script
     wp_enqueue_script( 'jquery-ui-slider' );
 
-    // Enqueue your custom JS for AJAX filtering and jQuery UI Slider
-    wp_enqueue_script( 'custom-ajax-filter', get_template_directory_uri() . '/js/custom-ajax-filter.js', array( 'jquery', 'jquery-ui-slider' ), null, true );
-
-    wp_localize_script( 'custom-ajax-filter', 'custom_ajax_obj', array(
+    // Localise script with ajax URL and nonce for use in other JS if needed
+    wp_localize_script( 'jquery-ui-slider', 'custom_ajax_obj', array(
         'ajax_url' => admin_url( 'admin-ajax.php' ),
         'nonce'    => wp_create_nonce( 'fetch_price' )
     ) );
