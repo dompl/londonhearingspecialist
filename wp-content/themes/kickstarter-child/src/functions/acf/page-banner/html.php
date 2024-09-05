@@ -8,10 +8,16 @@ function london_page_banner_html() {
 
     global $post;
 
-    $main_image = get_post_meta( $post->ID, 'bcg_image', true );
+	 if ( is_shop() ) {
+		$post_id = wc_get_page_id( 'shop' );
+  } else {
+		$post_id = $post->ID;
+  }
+
+    $main_image = get_post_meta( $post_id , 'bcg_image', true );
     $img        = [];
 
-    if (  !  empty( $main_image ) && !  empty( $post->ID ) ) {
+    if (  !  empty( $main_image ) && !  empty( $post_id  ) ) {
 
         $img[] = $main_image;
         $img   = \Kickstarter\MyHelpers::WPImage( id: $main_image, size: [2000, 600] );
@@ -35,9 +41,9 @@ function london_page_banner_html() {
     $addon       = apply_filters( 'london_banner_addon', '', $post );
     $description = apply_filters( 'london_banner_addon_desc', '', $post );
     $button      = false;
-    $batch       = get_post_meta( $post->ID, 'batch_text', true );
-    $color       = get_post_meta( $post->ID, 'banner_color', true ) ? get_post_meta( $post->ID, 'banner_color', true ) : 'text';
-    $batch_color = get_post_meta( $post->ID, 'batch_color', true );
+    $batch       = get_post_meta( $post_id , 'batch_text', true );
+    $color       = get_post_meta( $post_id , 'banner_color', true ) ? get_post_meta( $post_id , 'banner_color', true ) : 'text';
+    $batch_color = get_post_meta( $post_id , 'batch_color', true );
 
     $html = '<div class="london-banner ' . ( $description ? 'has-description' : 'no-description' ) . '" style="background-image:url(' . $img . ')">';
     $html .= '<div class="container">';
@@ -139,14 +145,20 @@ function london_banner_after_call_for_actions( $html, $post ) {
 }
 
 add_filter( 'london_banner_addon_desc', function ( $addon, $post ) {
-    if (  !  empty( $post->ID ) ) {
+    if ( is_shop() ) {
+        $post  = wc_get_page_id( 'shop' );
+        $addon = get_post_meta( $post, 'london_banner_addon_desc', true );
+    } else {
         $addon = get_post_meta( $post->ID, 'london_banner_addon_desc', true );
     }
     return $addon;
 }, 10, 2 );
 
 add_filter( 'london_banner_addon', function ( $addon, $post ) {
-    if (  !  empty( $post->ID ) ) {
+    if ( is_shop() ) {
+        $post  = wc_get_page_id( 'shop' );
+        $addon = get_post_meta( $post, 'london_banner_addon', true );
+    } else {
         $addon = get_post_meta( $post->ID, 'london_banner_addon', true );
     }
     return $addon;
@@ -156,12 +168,13 @@ add_filter( 'london_banner_title', function ( $title, $post ) {
 
     // Check if we are on the shop page.
     if ( is_shop() ) {
-        // Add specific text for the shop page.
-        return 'London Hearing Specialists Shop';
+        $post  = wc_get_page_id( 'shop' );
+        $title = get_post_meta( $post, 'london_banner_title', true );
+    } else {
+        $title = get_post_meta( $post->ID, 'london_banner_title', true );
     }
 
     // Retrieve the title from post meta.
-    $title = get_post_meta( $post->ID, 'london_banner_title', true );
 
     // Default title if meta is empty.
     if ( empty( $title ) ) {

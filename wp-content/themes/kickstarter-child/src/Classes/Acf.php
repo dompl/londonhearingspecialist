@@ -196,6 +196,12 @@ class Acf {
 
     public static function ButtonAcfHtml( $data, $prefix = '', $post = false ) {
 
+        if ( is_shop() ) {
+            $post_id = wc_get_page_id( 'shop' );
+        } else {
+            $post_id = $post->ID;
+        }
+
         $html         = '';
         $is_component = empty( $post ) && !  empty( $data ) ? true : false;
         if ( $is_component ) {
@@ -203,9 +209,9 @@ class Acf {
             $space      = get_component( $prefix . 's', $data );
             $predefined = get_component( $prefix . 'predefined', $data );
         } else {
-            $buttons    = get_post_meta( $post->ID, $prefix . 'buttons', true );
-            $space      = get_post_meta( $post->ID, $prefix . 's', true );
-            $predefined = get_post_meta( $post->ID, $prefix . 'predefined', true );
+            $buttons    = get_post_meta( $post_id, $prefix . 'buttons', true );
+            $space      = get_post_meta( $post_id, $prefix . 's', true );
+            $predefined = get_post_meta( $post_id, $prefix . 'predefined', true );
 
         }
 
@@ -228,7 +234,7 @@ class Acf {
                 if ( $is_component ) {
                     $button['link'] = get_component( $prefix . "buttons_{$i}_link", $data );
                 } else {
-                    $button['link'] = get_post_meta( $post->ID, $prefix . "buttons_{$i}_link", true );
+                    $button['link'] = get_post_meta( $post_id, $prefix . "buttons_{$i}_link", true );
                 }
 
                 if ( empty( $button['link'] ) ) {
@@ -238,7 +244,7 @@ class Acf {
                 if ( $is_component ) {
                     $button['color'] = get_component( "buttons_{$i}_color", $data );
                 } else {
-                    $button['color'] = get_post_meta( $post->ID, "buttons_{$i}_color", true );
+                    $button['color'] = get_post_meta( $post_id, "buttons_{$i}_color", true );
                 }
 
                 $button['link']['title'] = isset( $button['link']['title'] ) && !  empty( $button['link']['title'] ) ? $button['link']['title'] : __( 'Discover More', 'london' );
