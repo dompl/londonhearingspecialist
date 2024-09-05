@@ -199,7 +199,8 @@ class Acf {
         if ( is_shop() ) {
             $post_id = wc_get_page_id( 'shop' );
         } else {
-            $post_id = $post->ID;
+            // Ensure $post is an object before accessing $post->ID
+            $post_id = ( is_object( $post ) && isset( $post->ID ) ) ? $post->ID : null;
         }
 
         $html         = '';
@@ -249,7 +250,9 @@ class Acf {
 
                 $button['link']['title'] = isset( $button['link']['title'] ) && !  empty( $button['link']['title'] ) ? $button['link']['title'] : __( 'Discover More', 'london' );
 
-                $html .= '<a href="' . esc_url( $button['link']['url'] ) . '" class="button ' . esc_html( $button['color'] ) . '" title="' . wp_strip_all_tags( $button['link']['title'], true ) . '">' . $button['link']['title'] . '</a>';
+                $color = is_shop() ? 'green' : esc_html( $button['color'] );
+
+                $html .= '<a href="' . esc_url( $button['link']['url'] ) . '" class="button ' . $color . '" title="' . wp_strip_all_tags( $button['link']['title'], true ) . '">' . $button['link']['title'] . '</a>';
 
             }
 
