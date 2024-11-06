@@ -1,5 +1,5 @@
 /*!
- * modernizr v3.13.0
+ * modernizr v3.13.1
  * Build https://modernizr.com/download?-cssgrid_cssgridlegacy-webworkers-addtest-fnbind-printshiv-setclasses-testprop-dontmin
  *
  * Copyright (c)
@@ -35,7 +35,7 @@
    * @access public
    */
   var ModernizrProto = {
-    _version: '3.13.0',
+    _version: '3.13.1',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.

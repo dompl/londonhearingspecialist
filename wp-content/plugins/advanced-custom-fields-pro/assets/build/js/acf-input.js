@@ -4255,6 +4255,7 @@
     active: false,
     actions: {
       refresh: 'onRefresh',
+      resize: 'onRefresh',
       close_field_object: 'onCloseFieldObject'
     },
     data: {
@@ -4427,21 +4428,28 @@
       return tab;
     },
     onRefresh: function () {
-      // only for left placements
-      if (this.get('placement') !== 'left') {
+      // Don't run on field group tabs.
+      if (['acf_field_settings_tabs', 'acf_field_group_settings_tabs'].includes(this.get('key'))) {
         return;
       }
 
-      // vars
-      var $parent = this.$el.parent();
-      var $list = this.$el.children('ul');
-      var attribute = $parent.is('td') ? 'height' : 'min-height';
+      // Block editor needs timeout to run after script is finished.
+      setTimeout(() => {
+        const $list = this.$el.children('ul');
+        let $element = this.$el;
+        let attribute = 'height';
+        let height;
+        if (this.get('placement') === 'left') {
+          $element = this.$el.parent();
+          attribute = $element.is('td') ? 'height' : 'min-height';
 
-      // find height (minus 1 for border-bottom)
-      var height = $list.position().top + $list.outerHeight(true) - 1;
-
-      // add css
-      $parent.css(attribute, height);
+          // Find height (minus 1 for border-bottom).
+          height = $list.position().top + $list.outerHeight(true) - 1;
+        } else {
+          height = Math.ceil($list.outerHeight(true));
+        }
+        $element.css(attribute, height);
+      }, 0);
     },
     onCloseFieldObject: function (fieldObject) {
       const tab = this.getVisible().find(item => {
@@ -6340,11 +6348,13 @@
       refresh: 'renderGroups'
     },
     renderGroups: function () {
-      // loop
-      var self = this;
-      $('.acf-fields:visible').each(function () {
-        self.renderGroup($(this));
-      });
+      // Set timeout so the editor fires at the right time.
+      setTimeout(() => {
+        var self = this;
+        $('.acf-fields:visible').each(function () {
+          self.renderGroup($(this));
+        });
+      }, 0);
     },
     renderGroup: function ($el) {
       // vars
