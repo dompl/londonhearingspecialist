@@ -64,6 +64,7 @@
   "dependencies": {
     "gulp-modernizr": "^5.0.0",
     "magnific-popup": "dimsemenov/Magnific-Popup",
+    "redfrog-navigation": "github:dompl/redfrog-navigation",
     "slick-carousel": "^1.8.1"
   }
 }
