@@ -105,13 +105,5 @@
 		"vendor/**/*",
 		"**/vendor/**/*"
 	],
-	"workbench.colorCustomizations": {
-		"statusBar.background": "#845b14",
-		"statusBar.foreground": "#e7e7e7",
-		"statusBarItem.hoverBackground": "#b07a1b",
-		"statusBarItem.remoteBackground": "#845b14",
-		"statusBarItem.remoteForeground": "#e7e7e7",
-		"tab.activeBorder": "#b07a1b"
-	},
 	"peacock.color": "#845b14"
 }

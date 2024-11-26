@@ -1,0 +1,21 @@
+.step-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+
+.step-item  {
+    h3 {
+
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        color:#004679;
+    }
+    p {
+        font-size: 1em;
+    }
+}
+
+ 

@@ -1,0 +1,33 @@
+@use "abstracts" as *;
+@use "../../styles/icons" as ico;
+@use "../../styles/variables" as var;
+
+.london-image-columns{
+    display:flex;
+    flex-direction: row;
+    gap:2rem;
+    justify-content: center;
+    flex-wrap:wrap;
+    .image-column-image {
+        margin-top: auto;
+    }
+    .image-column-item {  
+        display:flex;
+        flex-direction: column;
+        background-color: var.$color-gray-lightest;
+        border-radius: 3px;
+        overflow: hidden; 
+        max-width: rem(335);
+        gap:1rem;
+        .inner {
+            padding:1.3rem 1rem 1rem;
+        }
+        img {
+            width: 100%;
+        }
+        h3 {
+            margin: 0 0 rem(19) 0;
+            color:var.$color-blue-dark; 
+        }
+    }
+}
