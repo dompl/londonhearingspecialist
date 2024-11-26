@@ -62,7 +62,7 @@ function london_page_banner_html() {
     //  }
 
     $html .= $addon ? '<div class="addon">' . $addon . '</div>' : '';
-    $html .= $description ? '<div class="description" class="color-' . $color . '">' . $description . '</div>' : '';
+    $html .= $description ? '<div class="description" class="color-' . $color . '">' . london_replace_tags($description). '</div>' : '';
     $html .= Acf::ButtonAcfHtml( false, 'banner_', $post );
 
     $html .= '</div>';

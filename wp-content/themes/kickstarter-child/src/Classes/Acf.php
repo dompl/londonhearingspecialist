@@ -269,11 +269,23 @@ class Acf {
             ->fields( [
                 Text::make( 'Batch text', 'text' )
                     ->instructions( 'Add custom batch text' ),
-                Select::make( 'Background colour', 'color' )
+                Select::make( 'Colour', 'color' )
                     ->instructions( 'Add custom batch colour' )
                     ->choices( $colors )
                     ->allowNull()
-                    ->stylisedUi()
+                    ->stylisedUi(),
+                    Select::make( 'Style', 'style' )
+                    ->instructions( 'Add batch style' )
+                    ->choices( ['boxed' => 'Boxed' , 'text' => 'Text' ] )
+                    ->allowNull()
+                    ->defaultValue('boxed')
+                    ->stylisedUi(),
+					Select::make( 'Position', 'position' )
+                    ->instructions( 'Add batch position' )
+                    ->choices( ['above' => 'Above Title' , 'below' => 'Below Title', 'below_description'=> 'Below Description' ] )
+                    ->allowNull()
+                    ->defaultValue('above')
+                    ->stylisedUi(),
             ] )
             ->layout( 'row' );
     }
@@ -326,44 +338,63 @@ class Acf {
 
     }
 
-    public static function HeaderAcfHtml( $data ) {
-
-        $html = '';
-
-        $style = get_component( 'style', $data );
-
-        $title       = get_component( 'text', $data, 'text' );
-        $tag         = get_component( 'text', $data, 'tag' );
-        $batch       = get_component( 'batch', $data, 'text' );
-        $space       = get_component( 'hs', $data );
-        $batch_color = get_component( 'batch', $data, 'color' );
-        $description = get_component( 'description', $data );
-
-        $html .= '<div class="london-heading ' . $style . '">';
-
-        if (  !  empty( $batch ) ) {
-            $batch_color = $batch_color ?? 'brand';
-            $html .= '<div class="batch-wrapper"><span class="button batch ' . $batch_color . '">' . $batch . '</span></div>';
-        }
-
-        if (  !  empty( $title ) ) {
-            $tag = $tag ?? 'h2';
-            $html .= '<div class="title"><' . $tag . '>' . $title . '</' . $tag . '></div>';
-        }
-
-        if (  !  empty( $description ) ) {
-            $html .= '<div class="description london-content">' . wpautop( $description ) . '</div>';
-        }
-
-        $html .= self::ButtonAcfHtml( $data );
-
-        $html .= '</div>';
-
-        $html .= $space ? '<div class="space space-' . $space . '"></div>' : '';
-
-        return $html;
-
-    }
+	public static function HeaderAcfHtml( $data ) {
+		$html = '';
+	
+		$style = get_component( 'style', $data );
+	
+		$title          = get_component( 'text', $data, 'text' );
+		$tag            = get_component( 'text', $data, 'tag' );
+		$batch          = get_component( 'batch', $data, 'text' );
+		$space          = get_component( 'hs', $data );
+		$batch_color    = get_component( 'batch', $data, 'color' ) ?? 'brand';
+		$batch_style    = get_component( 'batch', $data, 'style' );
+		$batch_position = get_component( 'batch', $data, 'position' ) ?? 'above';
+		$description    = get_component( 'description', $data );
+	
+		$html .= '<div class="london-heading ' . $style . '">';
+	
+		// Batch rendering function for reuse
+		$batch_html = '';
+		if ( ! empty( $batch ) ) {
+			if ( $batch_style === 'text' ) {
+				$batch_html .= '<div class="batch-wrapper"><span class="batch-' . $batch_style . ' color-' . $batch_color . '">' . $batch . '</span></div>';
+			} else {
+				$batch_html .= '<div class="batch-wrapper"><span class="button batch batch-' . $batch_style . ' ' . $batch_color . '">' . $batch . '</span></div>';
+			}
+		}
+	
+		// Position-based rendering
+		if ( $batch_position === 'above' || !$batch_position ) {
+			$html .= $batch_html;
+		}
+	
+		if ( ! empty( $title ) ) {
+			$tag = $tag ?? 'h2';
+			$html .= '<div class="title"><' . $tag . '>' . $title . '</' . $tag . '></div>';
+		}
+	
+		if ( $batch_position === 'below' ) {
+			$html .= $batch_html;
+		}
+	
+		if ( ! empty( $description ) ) {
+			$html .= '<div class="description london-content">' . wpautop( $description ) . '</div>';
+		}
+	
+		if ( $batch_position === 'below_description' ) {
+			$html .= $batch_html;
+		}
+	
+		$html .= self::ButtonAcfHtml( $data );
+	
+		$html .= '</div>';
+	
+		$html .= $space ? '<div class="space space-' . $space . '"></div>' : '';
+	
+		return $html;
+	}
+	
 
     public function HeaderAcfFieldsWysiwyg( $toolbars ) {
         $toolbars['Heading Toolbar']    = [];

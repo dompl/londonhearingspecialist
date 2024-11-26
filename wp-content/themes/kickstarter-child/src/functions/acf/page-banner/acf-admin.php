@@ -25,7 +25,7 @@ add_action( 'acf/init', function () {
     }
     $colors     = ks_theme_custom_colors_array();
     $repeater[] = Select::make( 'Text color', 'banner_color' )->instructions( 'Add banner text color' )->choices( $colors )->allowNull()->stylisedUi();
-    $repeater[] = Text::make( 'Title', 'london_banner_title' )->instructions( 'Add page banner title. Use variable <strong>%title%</strong> to display default page/post title.' )->defaultValue( '%title%' )->required();
+    $repeater[] = Textarea::make( 'Title', 'london_banner_title' )->instructions( 'Add page banner title. Use variable <strong>%title%</strong> to display default page/post title.' )->defaultValue( '%title%' )->required()->rows(2);
     $repeater[] = Text::make( 'Addon', 'london_banner_addon' )->instructions( 'Add page banner additional text. Title addon will display in the blue background container.' );
     $repeater[] = Textarea::make( 'Description', 'london_banner_addon_desc' )->newLines( 'br' )->instructions( 'Add banner additional description' )->rows( 3 );
     $repeater   = array_merge( $repeater, \London\Acf::ButtonAcfFields( 'banner_', true ) );
