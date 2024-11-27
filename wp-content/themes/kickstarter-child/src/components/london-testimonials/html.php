@@ -16,11 +16,9 @@ function wp_1700655036_london( $html, $data ) {
     $display = get_component( 'display', $data );
     $color   = 'color-' . get_component( 'color', $data );
 
-    if(get_the_ID() == 510 ) {
+    if(in_array(get_the_ID(), [3337, 510]  )) {
         $display = 'boxed';
     }
-
- 
 
     $html .= '<div class="ltc '.$display .'">';
 
