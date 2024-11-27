@@ -1,0 +1,79 @@
+@use "abstracts" as *;
+@use "../../styles/icons" as ico;
+@use "../../styles/variables" as var;
+.care-plan-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    th {
+        background-color: #0073cf;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    tbody tr:nth-child(odd) td {
+        background-color: #f9f9f9;
+    }
+
+    tbody tr:nth-child(even) td {
+        background-color: #ffffff;
+    }
+
+    .star {
+        font-size: 20px;
+        display:  block;
+        margin-left: 8px;
+        vertical-align: middle;
+        font-size: rem(24);
+        &.essential {
+            color: #0073cf;
+        }
+
+        &.bronze {
+            color: #b08d57;
+        }
+
+        &.silver {
+            color: gray;
+        }
+
+        &.gold {
+            color: orange;
+        }
+
+        &.platinum {
+            color: darkgray;
+        }
+    }
+
+    td strong {
+        font-weight: bold;
+        display: block;
+    }
+
+    .small-text {
+        font-size: 0.8rem;
+        display: inline-block;
+        white-space: nowrap;
+    }
+
+    .check {
+        color: green;
+        font-weight: bold;
+    }
+
+    .cross {
+        color: red;
+        font-weight: bold;
+    }
+br {
+    display:none;
+}
+}

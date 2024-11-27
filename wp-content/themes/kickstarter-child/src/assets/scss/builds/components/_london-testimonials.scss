@@ -1,6 +1,56 @@
 @use "../../styles/variables" as var;
 @use "../../styles/icons" as ico;
 @use "abstracts" as *;
+.london-testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    &.boxed {
+        .item {
+            width: calc(50% - 50px);
+            background: var.$color-blue;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			&:before {
+				position: absolute;
+				top: 1rem;
+				line-height: 1;
+				left:1rem;
+			}
+        }
+		
+
+        .top {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .bottom {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .author-image {
+                width: 45px;
+                height: 45px;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+            .author-name {
+                font-size: 1rem;
+                font-weight: bold;
+            }
+        }
+    }
+}
 .ltc {
 	display: flex;
 	flex-direction: column;

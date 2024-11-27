@@ -276,7 +276,7 @@ class Acf {
                     ->stylisedUi(),
                     Select::make( 'Style', 'style' )
                     ->instructions( 'Add batch style' )
-                    ->choices( ['boxed' => 'Boxed' , 'text' => 'Text' ] )
+                    ->choices( ['boxed' => 'Boxed', 'boxed_large' => 'Boxed Large', 'text' => 'Text' ] )
                     ->allowNull()
                     ->defaultValue('boxed')
                     ->stylisedUi(),
@@ -358,7 +358,9 @@ class Acf {
 		$batch_html = '';
 		if ( ! empty( $batch ) ) {
 			if ( $batch_style === 'text' ) {
-				$batch_html .= '<div class="batch-wrapper"><span class="batch-' . $batch_style . ' color-' . $batch_color . '">' . $batch . '</span></div>';
+				$batch_html .= '<div class="batch-wrapper"><span class="batch-' . $batch_style . ' color-' . $batch_color . '">' . $batch . 'asfdasdf</span></div>';
+            } else if ( $batch_style === 'boxed_large' ) {
+				$batch_html .= '<div class="batch-wrapper"><span class="button batch-' . $batch_style . ' ' . $batch_color . '">' . $batch . '</span></div>';
 			} else {
 				$batch_html .= '<div class="batch-wrapper"><span class="button batch batch-' . $batch_style . ' ' . $batch_color . '">' . $batch . '</span></div>';
 			}
